@@ -9,9 +9,17 @@ import { OpenaiService } from '@maverick/nestjs-libraries/openai/openai.service'
 import { ExtractContentService } from '@maverick/nestjs-libraries/openai/extract.content.service';
 import { CodesService } from '@maverick/nestjs-libraries/services/codes.service';
 import { PublicIntegrationsController } from '@maverick/backend/public-api/routes/v1/public.integrations.controller';
+import { PublicPersonasController } from '@maverick/backend/public-api/routes/v1/public.personas.controller';
+import { PublicApprovalsController } from '@maverick/backend/public-api/routes/v1/public.approvals.controller';
+import { PublicComplianceController } from '@maverick/backend/public-api/routes/v1/public.compliance.controller';
 import { PublicAuthMiddleware } from '@maverick/backend/services/auth/public.auth.middleware';
 
-const authenticatedController = [PublicIntegrationsController];
+const authenticatedController = [
+  PublicIntegrationsController,
+  PublicPersonasController,
+  PublicApprovalsController,
+  PublicComplianceController,
+];
 @Module({
   imports: [UploadModule],
   controllers: [...authenticatedController],

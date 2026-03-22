@@ -36,6 +36,8 @@ import { EnterpriseController } from '@maverick/backend/api/routes/enterprise.co
 import { OAuthAppController } from '@maverick/backend/api/routes/oauth-app.controller';
 import { ApprovedAppsController } from '@maverick/backend/api/routes/approved-apps.controller';
 import { OAuthController, OAuthAuthorizedController } from '@maverick/backend/api/routes/oauth.controller';
+import { PersonasController } from '@maverick/backend/api/routes/personas.controller';
+import { ApprovalsController } from '@maverick/backend/api/routes/approvals.controller';
 import { AuthProviderManager } from '@maverick/backend/services/auth/providers/providers.manager';
 import { GithubProvider } from '@maverick/backend/services/auth/providers/github.provider';
 import { GoogleProvider } from '@maverick/backend/services/auth/providers/google.provider';
@@ -61,6 +63,8 @@ const authenticatedController = [
   OAuthAppController,
   ApprovedAppsController,
   OAuthAuthorizedController,
+  PersonasController,
+  ApprovalsController,
 ];
 @Module({
   imports: [UploadModule],

@@ -18,6 +18,12 @@ import { InfiniteWorkflowRegisterModule } from '@maverick/nestjs-libraries/tempo
 import { ThrottlerStorageRedisService } from '@nest-lab/throttler-storage-redis';
 import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
 
+// Maverick modules
+import { PersonaModule } from '@maverick/persona-engine/persona.module';
+import { ComplianceModule } from '@maverick/compliance-engine/compliance.module';
+import { ApprovalModule } from '@maverick/approval-engine/approval.module';
+import { LlmModule } from '@maverick/llm-adapter/llm.module';
+
 @Global()
 @Module({
   imports: [
@@ -32,6 +38,11 @@ import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
     getTemporalModule(false),
     TemporalRegisterMissingSearchAttributesModule,
     InfiniteWorkflowRegisterModule,
+    // Maverick autonomous modules
+    PersonaModule,
+    ComplianceModule,
+    ApprovalModule,
+    LlmModule,
     ThrottlerModule.forRoot({
       throttlers: [
         {
@@ -61,6 +72,10 @@ import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
     AgentModule,
     ThrottlerModule,
     ChatModule,
+    PersonaModule,
+    ComplianceModule,
+    ApprovalModule,
+    LlmModule,
   ],
 })
 export class AppModule {}

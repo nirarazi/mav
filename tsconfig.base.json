@@ -37,7 +37,8 @@
       "@maverick/mcp-server/*": ["apps/mcp-server/src/*"],
       "@maverick/persona-engine/*": ["libraries/persona-engine/src/*"],
       "@maverick/compliance-engine/*": ["libraries/compliance-engine/src/*"],
-      "@maverick/approval-engine/*": ["libraries/approval-engine/src/*"]
+      "@maverick/approval-engine/*": ["libraries/approval-engine/src/*"],
+      "@maverick/llm-adapter/*": ["libraries/llm-adapter/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

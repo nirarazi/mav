@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "types": ["jest", "node"],
+    "isolatedModules": true,
+    "paths": {
+      "@maverick/nestjs-libraries/*": ["../nestjs-libraries/src/*"],
+      "@maverick/persona-engine/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
