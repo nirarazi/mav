@@ -1,3 +1,5 @@
+import path from 'path';
+
 export default {
   displayName: 'approval-engine',
   testEnvironment: 'node',
@@ -6,7 +8,16 @@ export default {
     '^.+\\.ts$': [
       'ts-jest',
       {
-        tsconfig: '<rootDir>/../../tsconfig.base.json',
+        tsconfig: {
+          module: 'commonjs',
+          target: 'es2020',
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
+          strict: false,
+          skipLibCheck: true,
+          experimentalDecorators: true,
+          emitDecoratorMetadata: true,
+        },
         diagnostics: false,
       },
     ],
@@ -16,5 +27,7 @@ export default {
     '^@maverick/nestjs-libraries/(.*)$':
       '<rootDir>/src/__tests__/__stubs__/nestjs-libraries-stub.ts',
     '^@maverick/approval-engine/(.*)$': '<rootDir>/src/$1',
+    '^@prisma/client$': '<rootDir>/../../node_modules/@prisma/client',
   },
+  moduleDirectories: ['node_modules', path.resolve(__dirname, '../../node_modules')],
 };
