@@ -80,9 +80,9 @@ export class BrainActivity {
             data: {
               organizationId: orgId,
               personaId: persona.id,
-              trigger: 'SCHEDULED',
+              trigger: 'CRON',
               status: 'RUNNING',
-              metadata: { platform, topic } as any,
+              reasoning: { platform, topic } as any,
             },
           });
 
@@ -94,7 +94,7 @@ export class BrainActivity {
               personaId: persona.id,
               action: 'OODA_CYCLE_START',
               platform,
-              metadata: { topic, goalCount: goals.length } as any,
+              metadata: { topic, goalCount: goals.length },
               riskScore: 0,
             },
           });

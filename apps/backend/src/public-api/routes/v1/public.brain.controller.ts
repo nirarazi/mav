@@ -56,9 +56,9 @@ export class PublicBrainController {
       data: {
         organizationId: org.id,
         personaId: persona!.id,
-        trigger: 'MANUAL_API',
-        status: 'QUEUED',
-        metadata: {
+        trigger: 'MANUAL',
+        status: 'RUNNING',
+        reasoning: {
           platforms: integrations.map((i) => i.providerIdentifier),
           goalCount: goals.length,
         } as any,
@@ -98,13 +98,13 @@ export class PublicBrainController {
         }),
         this.prisma.agentSession.findMany({
           where: { organizationId: org.id },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { startedAt: 'desc' },
           take: 5,
           select: {
             id: true,
             trigger: true,
             status: true,
-            createdAt: true,
+            startedAt: true,
             completedAt: true,
           },
         }),
