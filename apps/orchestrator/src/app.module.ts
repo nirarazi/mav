@@ -5,12 +5,14 @@ import { DatabaseModule } from '@maverick/nestjs-libraries/database/prisma/datab
 import { AutopostService } from '@maverick/nestjs-libraries/database/prisma/autopost/autopost.service';
 import { EmailActivity } from '@maverick/orchestrator/activities/email.activity';
 import { IntegrationsActivity } from '@maverick/orchestrator/activities/integrations.activity';
+import { BrainActivity } from '@maverick/orchestrator/activities/brain.activity';
 
 const activities = [
   PostActivity,
   AutopostService,
   EmailActivity,
   IntegrationsActivity,
+  BrainActivity,
 ];
 @Module({
   imports: [

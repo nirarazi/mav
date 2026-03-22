@@ -12,6 +12,7 @@ import { PublicIntegrationsController } from '@maverick/backend/public-api/route
 import { PublicPersonasController } from '@maverick/backend/public-api/routes/v1/public.personas.controller';
 import { PublicApprovalsController } from '@maverick/backend/public-api/routes/v1/public.approvals.controller';
 import { PublicComplianceController } from '@maverick/backend/public-api/routes/v1/public.compliance.controller';
+import { PublicBrainController } from '@maverick/backend/public-api/routes/v1/public.brain.controller';
 import { PublicAuthMiddleware } from '@maverick/backend/services/auth/public.auth.middleware';
 
 const authenticatedController = [
@@ -19,6 +20,7 @@ const authenticatedController = [
   PublicPersonasController,
   PublicApprovalsController,
   PublicComplianceController,
+  PublicBrainController,
 ];
 @Module({
   imports: [UploadModule],

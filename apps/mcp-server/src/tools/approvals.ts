@@ -20,8 +20,8 @@ export function registerApprovalTools(server: McpServer) {
     },
     async (params) => {
       try {
-        // Use notifications endpoint filtered for approval-type notifications
-        const result = await api.getNotifications(params.page);
+        const typeFilter = params.type === 'all' ? '' : `?type=${params.type?.toUpperCase()}`;
+        const result = await api.genericGet(`/public/v1/approvals/pending${typeFilter}`);
 
         return {
           content: [
@@ -60,7 +60,7 @@ export function registerApprovalTools(server: McpServer) {
     async (params) => {
       try {
         const result = await api.genericPost(
-          `/public/v1/approvals/${params.item_id}`,
+          `/public/v1/approvals/${params.item_id}/decide`,
           {
             approved: params.approved,
             feedback: params.feedback,

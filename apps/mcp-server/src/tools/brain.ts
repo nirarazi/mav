@@ -21,7 +21,7 @@ export function registerBrainTools(server: McpServer) {
     },
     async (params) => {
       try {
-        const result = await api.genericPost('/public/v1/brain/strategy', {
+        const result = await api.genericPost('/public/v1/brain/trigger', {
           goal: params.goal,
           timeHorizon: params.time_horizon,
         });
@@ -59,7 +59,7 @@ export function registerBrainTools(server: McpServer) {
     async (params) => {
       try {
         const result = await api.genericGet(
-          `/public/v1/brain/compliance?from=${encodeURIComponent(params.date_range.from)}&to=${encodeURIComponent(params.date_range.to)}`
+          `/public/v1/compliance/audit?from=${encodeURIComponent(params.date_range.from)}&to=${encodeURIComponent(params.date_range.to)}`
         );
 
         return {
