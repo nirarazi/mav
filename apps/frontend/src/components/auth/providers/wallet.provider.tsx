@@ -8,31 +8,30 @@ import {
 } from '@solana/wallet-adapter-react';
 import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import {
-  TorusWalletAdapter,
-  BitgetWalletAdapter,
-  CloverWalletAdapter,
-  Coin98WalletAdapter,
-  FractalWalletAdapter,
-  HyperPayWalletAdapter,
-  KeystoneWalletAdapter,
-  KrystalWalletAdapter,
-  LedgerWalletAdapter,
-  MathWalletAdapter,
-  NightlyWalletAdapter,
-  NufiWalletAdapter,
-  OntoWalletAdapter,
-  ParticleAdapter,
-  PhantomWalletAdapter,
-  SafePalWalletAdapter,
-  SaifuWalletAdapter,
-  SalmonWalletAdapter,
-  SolflareWalletAdapter,
-  TokenaryWalletAdapter,
-  TrustWalletAdapter,
-  XDEFIWalletAdapter,
-  TokenPocketWalletAdapter,
-} from '@maverick/wallets';
+// Wallet adapters stubbed — Web3 auth not needed for Maverick
+const TorusWalletAdapter = class {} as any;
+const BitgetWalletAdapter = class {} as any;
+const CloverWalletAdapter = class {} as any;
+const Coin98WalletAdapter = class {} as any;
+const FractalWalletAdapter = class {} as any;
+const HyperPayWalletAdapter = class {} as any;
+const KeystoneWalletAdapter = class {} as any;
+const KrystalWalletAdapter = class {} as any;
+const LedgerWalletAdapter = class {} as any;
+const MathWalletAdapter = class {} as any;
+const NightlyWalletAdapter = class {} as any;
+const NufiWalletAdapter = class {} as any;
+const OntoWalletAdapter = class {} as any;
+const ParticleAdapter = class {} as any;
+const PhantomWalletAdapter = class {} as any;
+const SafePalWalletAdapter = class {} as any;
+const SaifuWalletAdapter = class {} as any;
+const SalmonWalletAdapter = class {} as any;
+const SolflareWalletAdapter = class {} as any;
+const TokenaryWalletAdapter = class {} as any;
+const TrustWalletAdapter = class {} as any;
+const XDEFIWalletAdapter = class {} as any;
+const TokenPocketWalletAdapter = class {} as any;
 import {
   WalletModalProvider,
   useWalletModal,
