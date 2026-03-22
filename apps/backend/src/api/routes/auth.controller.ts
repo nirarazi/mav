@@ -24,6 +24,22 @@ import { UserAgent } from '@maverick/nestjs-libraries/user/user.agent';
 import { Provider } from '@prisma/client';
 import * as Sentry from '@sentry/nestjs';
 
+function cookieOpts() {
+  if (process.env.NOT_SECURED) {
+    return {
+      path: '/',
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+    };
+  }
+  return {
+    domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
+    secure: true,
+    httpOnly: true,
+    sameSite: 'none' as const,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+  };
+}
+
 @ApiTags('Auth')
 @Controller('/auth')
 export class AuthController {
@@ -69,34 +85,14 @@ export class AuthController {
         return;
       }
 
-      response.cookie('auth', jwt, {
-        domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-        ...(!process.env.NOT_SECURED
-          ? {
-              secure: true,
-              httpOnly: true,
-              sameSite: 'none',
-            }
-          : {}),
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-      });
+      response.cookie('auth', jwt, cookieOpts());
 
       if (process.env.NOT_SECURED) {
         response.header('auth', jwt);
       }
 
       if (typeof addedOrg !== 'boolean' && addedOrg?.organizationId) {
-        response.cookie('showorg', addedOrg.organizationId, {
-          domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-          ...(!process.env.NOT_SECURED
-            ? {
-                secure: true,
-                httpOnly: true,
-                sameSite: 'none',
-              }
-            : {}),
-          expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-        });
+        response.cookie('showorg', addedOrg.organizationId, cookieOpts());
 
         if (process.env.NOT_SECURED) {
           response.header('showorg', addedOrg.organizationId);
@@ -134,34 +130,14 @@ export class AuthController {
         getOrgFromCookie
       );
 
-      response.cookie('auth', jwt, {
-        domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-        ...(!process.env.NOT_SECURED
-          ? {
-              secure: true,
-              httpOnly: true,
-              sameSite: 'none',
-            }
-          : {}),
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-      });
+      response.cookie('auth', jwt, cookieOpts());
 
       if (process.env.NOT_SECURED) {
         response.header('auth', jwt);
       }
 
       if (typeof addedOrg !== 'boolean' && addedOrg?.organizationId) {
-        response.cookie('showorg', addedOrg.organizationId, {
-          domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-          ...(!process.env.NOT_SECURED
-            ? {
-                secure: true,
-                httpOnly: true,
-                sameSite: 'none',
-              }
-            : {}),
-          expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-        });
+        response.cookie('showorg', addedOrg.organizationId, cookieOpts());
 
         if (process.env.NOT_SECURED) {
           response.header('showorg', addedOrg.organizationId);
@@ -215,17 +191,7 @@ export class AuthController {
       return response.status(200).json({ can: false });
     }
 
-    response.cookie('auth', activate, {
-      domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-      ...(!process.env.NOT_SECURED
-        ? {
-            secure: true,
-            httpOnly: true,
-            sameSite: 'none',
-          }
-        : {}),
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-    });
+    response.cookie('auth', activate, cookieOpts());
 
     if (process.env.NOT_SECURED) {
       response.header('auth', activate);
@@ -263,17 +229,7 @@ export class AuthController {
       return response.json({ token });
     }
 
-    response.cookie('auth', jwt, {
-      domain: getCookieUrlFromDomain(process.env.FRONTEND_URL!),
-      ...(!process.env.NOT_SECURED
-        ? {
-            secure: true,
-            httpOnly: true,
-            sameSite: 'none',
-          }
-        : {}),
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-    });
+    response.cookie('auth', jwt, cookieOpts());
 
     if (process.env.NOT_SECURED) {
       response.header('auth', jwt);
