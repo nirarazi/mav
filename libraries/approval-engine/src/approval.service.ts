@@ -1,5 +1,5 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '@maverick/nestjs-libraries/src/database/prisma/prisma.service';
+import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
 import {
   ApprovalItem,
   ApprovalStatus,

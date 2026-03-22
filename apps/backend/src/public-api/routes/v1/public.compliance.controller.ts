@@ -83,8 +83,8 @@ export class PublicComplianceController {
     return this.auditService.getHistory(org.id, {
       action,
       platform,
-      skip: skip ? parseInt(skip, 10) : undefined,
-      take: take ? parseInt(take, 10) : undefined,
+      offset: skip ? parseInt(skip, 10) : undefined,
+      limit: take ? parseInt(take, 10) : undefined,
     });
   }
 
