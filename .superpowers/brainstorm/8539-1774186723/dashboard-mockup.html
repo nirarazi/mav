@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maverick — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a0a0f;
+    color: #e2e8f0;
+    min-height: 100vh;
+  }
+
+  /* Top Nav */
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+    background: #111118;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topnav-left { display: flex; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+  .logo-icon { width: 24px; height: 24px; background: #f97316; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .logo-icon svg { width: 14px; height: 14px; }
+  .nav-tabs { display: flex; gap: 4px; }
+  .nav-tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav-tab:hover { color: #94a3b8; background: rgba(255,255,255,0.04); }
+  .nav-tab.active { color: #f97316; background: rgba(249,115,22,0.08); }
+
+  .topnav-right { display: flex; align-items: center; gap: 12px; }
+  .pause-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 14px;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 8px;
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pause-btn:hover { background: rgba(239,68,68,0.2); }
+  .notif-badge {
+    position: relative;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .notif-badge:hover { background: rgba(255,255,255,0.06); }
+  .notif-badge .count {
+    position: absolute; top: 2px; right: 2px;
+    background: #f97316;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Main Layout */
+  .main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+  /* Stats Row */
+  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .stat-card {
+    background: #111118;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .stat-label { font-size: 12px; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .stat-value { font-size: 24px; font-weight: 700; }
+  .stat-change { font-size: 12px; font-weight: 500; margin-left: 8px; }
+  .stat-change.up { color: #22c55e; }
+  .stat-change.down { color: #ef4444; }
+
+  /* Content Grid */
+  .content-grid { display: grid; grid-template-columns: 1fr 360px; gap: 20px; }
+
+  /* Activity Feed */
+  .feed { display: flex; flex-direction: column; gap: 2px; }
+  .feed-header {
+    font-size: 14px; font-weight: 600; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .feed-header .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .feed-item {
+    background: #111118;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 16px 20px;
+    transition: all 0.15s;
+  }
+  .feed-item:first-of-type { border-radius: 12px 12px 0 0; }
+  .feed-item:last-of-type { border-radius: 0 0 12px 12px; }
+  .feed-item:only-of-type { border-radius: 12px; }
+  .feed-item:hover { border-color: rgba(255,255,255,0.1); background: #13131b; }
+
+  .feed-meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #64748b; margin-bottom: 8px;
+  }
+  .feed-time { color: #475569; }
+  .feed-platform {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .platform-linkedin { background: rgba(10,102,194,0.15); color: #0a66c2; }
+  .platform-x { background: rgba(255,255,255,0.08); color: #e2e8f0; }
+  .platform-brain { background: rgba(168,85,247,0.15); color: #a855f7; }
+  .platform-compliance { background: rgba(34,197,94,0.15); color: #22c55e; }
+
+  .feed-status {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .status-published { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .status-pending { background: rgba(249,115,22,0.15); color: #f97316; }
+  .status-cycle { background: rgba(168,85,247,0.15); color: #a855f7; }
+
+  .feed-content { font-size: 14px; line-height: 1.5; color: #cbd5e1; margin-bottom: 10px; }
+  .feed-engagement { display: flex; gap: 16px; font-size: 12px; color: #64748b; }
+  .feed-engagement span { display: flex; align-items: center; gap: 4px; }
+
+  .feed-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .action-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+  }
+  .action-approve { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .action-approve:hover { background: rgba(34,197,94,0.25); }
+  .action-edit { background: rgba(255,255,255,0.06); color: #94a3b8; }
+  .action-edit:hover { background: rgba(255,255,255,0.1); }
+  .action-reject { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .action-reject:hover { background: rgba(239,68,68,0.2); }
+  .action-link { background: none; color: #64748b; text-decoration: underline; padding: 6px 4px; }
+  .action-link:hover { color: #94a3b8; }
+
+  .feed-trace {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #64748b;
+    display: flex; gap: 16px;
+  }
+
+  /* Sidebar */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+  .sidebar-card {
+    background: #111118;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .sidebar-title {
+    font-size: 13px; font-weight: 600; color: #94a3b8;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  /* Goals */
+  .goal { margin-bottom: 16px; }
+  .goal:last-child { margin-bottom: 0; }
+  .goal-text { font-size: 13px; color: #cbd5e1; margin-bottom: 6px; }
+  .goal-bar-bg { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+  .goal-bar { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+  .goal-bar.orange { background: #f97316; }
+  .goal-bar.green { background: #22c55e; }
+  .goal-meta { display: flex; justify-content: space-between; font-size: 11px; color: #64748b; margin-top: 4px; }
+
+  /* Upcoming */
+  .upcoming-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .upcoming-item:last-child { border-bottom: none; }
+  .upcoming-time { font-size: 11px; font-weight: 600; color: #64748b; width: 54px; flex-shrink: 0; }
+  .upcoming-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .upcoming-text { font-size: 13px; color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .upcoming-status { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; }
+
+  /* Cost tracker */
+  .cost-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-label { color: #94a3b8; }
+  .cost-value { font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="topnav">
+  <div class="topnav-left">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      MAVERICK
+    </div>
+    <div class="nav-tabs">
+      <div class="nav-tab active">Activity</div>
+      <div class="nav-tab">Calendar</div>
+      <div class="nav-tab">Analytics</div>
+      <div class="nav-tab">Settings</div>
+    </div>
+  </div>
+  <div class="topnav-right">
+    <div class="pause-btn">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      PAUSE ALL
+    </div>
+    <div class="notif-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="count">3</span>
+    </div>
+    <div style="width:32px;height:32px;background:linear-gradient(135deg,#f97316,#ea580c);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">M</div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main">
+
+  <!-- Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Published Today</div>
+      <div class="stat-value">4 <span class="stat-change up">+2 vs avg</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Pending Approval</div>
+      <div class="stat-value" style="color: #f97316;">3</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Engagement Rate</div>
+      <div class="stat-value">4.2% <span class="stat-change up">+12%</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Today's LLM Cost</div>
+      <div class="stat-value" style="font-family: 'JetBrains Mono', monospace;">$0.12</div>
+    </div>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="content-grid">
+
+    <!-- Activity Feed -->
+    <div>
+      <div class="feed-header">
+        <div class="dot"></div>
+        Live Activity
+      </div>
+      <div class="feed">
+
+        <!-- Published post -->
+        <div class="feed-item">
+          <div class="feed-meta">
+            <span class="feed-time">2 min ago</span>
+            <span class="feed-platform platform-linkedin">LinkedIn</span>
+            <span class="feed-status status-published">Published</span>
+          </div>
+          <div class="feed-content">5 lessons from building AI agents that actually ship. Here's what most founders get wrong when they go from prototype to production...</div>
+          <div class="feed-engagement">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 23</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 4</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg> 7</span>
+          </div>
+          <div class="feed-actions">
+            <button class="action-btn action-link">View on LinkedIn</button>
+            <button class="action-btn action-link">Why this post?</button>
+          </div>
+        </div>
+
+        <!-- Pending approval -->
+        <div class="feed-item" style="border-left: 3px solid #f97316;">
+          <div class="feed-meta">
+            <span class="feed-time">1 hr ago</span>
+            <span class="feed-platform platform-x">X</span>
+            <span class="feed-status status-pending">Awaiting Approval</span>
+            <span style="font-size:11px; color:#64748b;">Risk: Low</span>
+          </div>
+          <div class="feed-content">Thread: The 3 things I wish I knew before building an AI agent company. A thread from a year of mistakes and lessons learned. 1/</div>
+          <div class="feed-actions">
+            <button class="action-btn action-approve">Approve</button>
+            <button class="action-btn action-edit">Edit</button>
+            <button class="action-btn action-reject">Reject</button>
+            <button class="action-btn action-link">Preview on X</button>
+          </div>
+        </div>
+
+        <!-- Another pending -->
+        <div class="feed-item" style="border-left: 3px solid #f59e0b;">
+          <div class="feed-meta">
+            <span class="feed-time">1.5 hr ago</span>
+            <span class="feed-platform platform-linkedin">LinkedIn</span>
+            <span class="feed-status status-pending">Awaiting Approval</span>
+            <span style="font-size:11px; color:#f59e0b; font-weight:600;">Risk: Medium</span>
+          </div>
+          <div class="feed-content">Hiring is broken. Here's what we're doing differently at our AI-first company, and why we think the future of work looks nothing like today...</div>
+          <div style="font-size: 12px; color: #f59e0b; margin: 6px 0; display: flex; align-items: center; gap: 4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Sensitive topic flagged: "hiring" may attract controversy
+          </div>
+          <div class="feed-actions">
+            <button class="action-btn action-approve">Approve</button>
+            <button class="action-btn action-edit">Edit</button>
+            <button class="action-btn action-reject">Reject</button>
+          </div>
+        </div>
+
+        <!-- Brain cycle -->
+        <div class="feed-item">
+          <div class="feed-meta">
+            <span class="feed-time">2 hr ago</span>
+            <span class="feed-platform platform-brain">Agent Brain</span>
+            <span class="feed-status status-cycle">Cycle Complete</span>
+          </div>
+          <div class="feed-content" style="color: #94a3b8;">Generated 3 drafts for tomorrow. Scheduled 2 posts. Skipped 1 topic (risk too high).</div>
+          <div class="feed-trace">
+            <span>Duration: 12s</span>
+            <span>Cost: $0.04</span>
+            <span>Tokens: 2,090</span>
+          </div>
+          <div class="feed-actions">
+            <button class="action-btn action-link">View reasoning trace</button>
+          </div>
+        </div>
+
+        <!-- Compliance -->
+        <div class="feed-item">
+          <div class="feed-meta">
+            <span class="feed-time">3 hr ago</span>
+            <span class="feed-platform platform-compliance">Compliance</span>
+            <span class="feed-status status-published">All Passed</span>
+          </div>
+          <div class="feed-content" style="color: #94a3b8;">4/4 posts passed compliance. Bot label added to X posts. Rate limits: 2/15 daily for X, 1/10 daily for LinkedIn.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <!-- Goals -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Weekly Goals</div>
+        <div class="goal">
+          <div class="goal-text">Post 5x/week on LinkedIn about AI agents</div>
+          <div class="goal-bar-bg"><div class="goal-bar orange" style="width: 60%;"></div></div>
+          <div class="goal-meta"><span>3 of 5</span><span>2 remaining</span></div>
+        </div>
+        <div class="goal">
+          <div class="goal-text">Grow X engagement by 20% this month</div>
+          <div class="goal-bar-bg"><div class="goal-bar green" style="width: 70%;"></div></div>
+          <div class="goal-meta"><span>+14% so far</span><span>6% to go</span></div>
+        </div>
+      </div>
+
+      <!-- Upcoming -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Upcoming (Tomorrow)</div>
+        <div class="upcoming-item">
+          <div class="upcoming-time">10:00</div>
+          <div class="upcoming-dot" style="background: #0a66c2;"></div>
+          <div class="upcoming-text">LinkedIn: "Why we're betting big on..."</div>
+          <div class="upcoming-status" style="background: rgba(249,115,22,0.15); color: #f97316;">Draft</div>
+        </div>
+        <div class="upcoming-item">
+          <div class="upcoming-time">14:00</div>
+          <div class="upcoming-dot" style="background: #e2e8f0;"></div>
+          <div class="upcoming-text">X: Thread on agent orchestration</div>
+          <div class="upcoming-status" style="background: rgba(249,115,22,0.15); color: #f97316;">Draft</div>
+        </div>
+        <div class="upcoming-item">
+          <div class="upcoming-time">09:00</div>
+          <div class="upcoming-dot" style="background: #a855f7;"></div>
+          <div class="upcoming-text" style="color: #a855f7;">Agent Brain cycle</div>
+          <div class="upcoming-status" style="background: rgba(168,85,247,0.1); color: #a855f7;">Auto</div>
+        </div>
+      </div>
+
+      <!-- Cost -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">This Week's Costs</div>
+        <div class="cost-row">
+          <span class="cost-label">LLM (Claude Sonnet)</span>
+          <span class="cost-value">$0.47</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-label">X API (Basic tier)</span>
+          <span class="cost-value">$0.00</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-label">LinkedIn API</span>
+          <span class="cost-value">$0.00</span>
+        </div>
+        <div class="cost-row" style="font-weight: 600;">
+          <span class="cost-label" style="color: #e2e8f0;">Total</span>
+          <span class="cost-value" style="color: #f97316;">$0.47</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<h2>Maverick System Architecture</h2>
+<p class="subtitle">How all the pieces fit together. Arrows show data flow.</p>
+
+<div class="mockup" style="padding: 2rem;">
+  <div class="mockup-header">System Architecture Overview</div>
+  <div class="mockup-body" style="font-family: monospace; font-size: 0.78em; line-height: 1.6; white-space: pre; overflow-x: auto;">
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          EXTERNAL AGENTS                                     │
+│                                                                              │
+│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐                  │
+│   │  Claude   │  │  GPT-4   │  │  Gemini  │  │ Paperclip │                  │
+│   │  Agent    │  │  Agent   │  │  Agent   │  │ CEO Agent │                  │
+│   └────┬─────┘  └────┬─────┘  └────┬─────┘  └─────┬─────┘                  │
+│        │              │              │              │                         │
+│        └──────────────┴──────┬───────┴──────────────┘                        │
+│                              │                                               │
+│                     ┌────────▼────────┐                                      │
+│                     │   MCP Server    │ ◄─── Streamable HTTP + stdio         │
+│                     │   (21 tools +   │      Any MCP-compatible agent        │
+│                     │    3 resources) │      connects here                   │
+│                     └────────┬────────┘                                      │
+└──────────────────────────────┼──────────────────────────────────────────────┘
+                               │
+┌──────────────────────────────┼──────────────────────────────────────────────┐
+│  MAVERICK CORE               │                                               │
+│                              │                                               │
+│  ┌───────────────────────────▼───────────────────────────────────────┐       │
+│  │                    NestJS Backend API                              │       │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐               │       │
+│  │  │   Post      │  │  Approval   │  │  Compliance  │               │       │
+│  │  │   Module    │  │  Module     │  │  Module      │               │       │
+│  │  │             │  │             │  │              │               │       │
+│  │  │ CRUD, media │  │ Queue, HITL │  │ Rate limit,  │               │       │
+│  │  │ scheduling  │  │ policies    │  │ bot label,   │               │       │
+│  │  │             │  │ notifications│ │ audit trail  │               │       │
+│  │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘               │       │
+│  │         │                │                │                       │       │
+│  │  ┌──────▼────────────────▼────────────────▼──────┐               │       │
+│  │  │              Prisma ORM + PostgreSQL            │               │       │
+│  │  │  Posts | Approvals | AuditLog | AgentSessions  │               │       │
+│  │  └───────────────────────────────────────────────┘               │       │
+│  └───────────────────────────────────────────────────────────────────┘       │
+│                                                                              │
+│  ┌───────────────────────────────────────────────────────────────────┐       │
+│  │                    Agent Brain (Vercel AI SDK)                     │       │
+│  │                                                                    │       │
+│  │  ┌─────────────────────────────────────────────────────────┐      │       │
+│  │  │              Temporal Workflow Engine                     │      │       │
+│  │  │                                                          │      │       │
+│  │  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐ │      │       │
+│  │  │  │ OBSERVE  │─▶│  ORIENT  │─▶│  DECIDE  │─▶│  ACT   │ │      │       │
+│  │  │  │          │  │          │  │          │  │        │ │      │       │
+│  │  │  │ Gather   │  │ Analyze  │  │ Pick     │  │Execute │ │      │       │
+│  │  │  │ context, │  │ against  │  │ actions, │  │via API,│ │      │       │
+│  │  │  │ trending │  │ goals,   │  │ assign   │  │queue   │ │      │       │
+│  │  │  │ topics,  │  │ score    │  │ risk     │  │approve │ │      │       │
+│  │  │  │ mentions │  │ risk     │  │ scores   │  │        │ │      │       │
+│  │  │  └──────────┘  └──────────┘  └──────────┘  └────────┘ │      │       │
+│  │  └──────────────────────────────────────────────────────────┘      │       │
+│  │                                                                    │       │
+│  │  ┌─────────────┐  ┌─────────────┐                                 │       │
+│  │  │ LLM Adapter │  │  Engagement │                                 │       │
+│  │  │ (BYOK)      │  │  Engine     │                                 │       │
+│  │  │             │  │             │                                 │       │
+│  │  │ OpenAI API  │  │ Mentions,   │                                 │       │
+│  │  │ Anthropic   │  │ Replies,    │                                 │       │
+│  │  │ Ollama      │  │ DM triage   │                                 │       │
+│  │  │ Any compat. │  │             │                                 │       │
+│  │  └─────────────┘  └─────────────┘                                 │       │
+│  └───────────────────────────────────────────────────────────────────┘       │
+│                                                                              │
+│  ┌───────────────────────────────────────────────────────────────────┐       │
+│  │                    Platform Integrations (Postiz)                  │       │
+│  │  ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌─────────┐  │       │
+│  │  │ X  │ │ LI │ │ BS │ │ TH │ │ IG │ │ TT │ │ YT │ │ +27more │  │       │
+│  │  └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └────┬────┘  │       │
+│  │     └──────┴──────┴──────┴──────┴──────┴──────┴────────┘         │       │
+│  │                    social.abstract.ts                              │       │
+│  │               (unified integration interface)                     │       │
+│  └───────────────────────────────────────────────────────────────────┘       │
+│                                                                              │
+│  ┌──────────────────────┐  ┌────────────────────────────┐                   │
+│  │   Next.js Frontend   │  │   Paperclip Extension      │                   │
+│  │                      │  │   (Phase 2)                │                   │
+│  │ Dashboard, Calendar  │  │                            │                   │
+│  │ Approval UI, Onboard │  │ skill.md, heartbeat,       │                   │
+│  │                      │  │ task handler, budget       │                   │
+│  └──────────────────────┘  └────────────────────────────┘                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+  </div>
+</div>
+
+<div class="section" style="margin-top: 2rem;">
+  <h3>Key Data Flows</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <div style="padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+      <h4 style="color: #22c55e; margin-top:0;">Autonomous Post Creation</h4>
+      <ol style="font-size: 0.85em; padding-left: 1.2em;">
+        <li>Temporal cron triggers OODA cycle</li>
+        <li>OBSERVE: gather context + trending</li>
+        <li>ORIENT: score against goals</li>
+        <li>DECIDE: pick topics, assign risk</li>
+        <li>ACT: generate via LLM Adapter (BYOK)</li>
+        <li>Compliance gate checks content</li>
+        <li>→ Guardian mode: queue for approval</li>
+        <li>Human approves → publish via Postiz</li>
+      </ol>
+    </div>
+    <div style="padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+      <h4 style="color: #3b82f6; margin-top:0;">Agent via MCP</h4>
+      <ol style="font-size: 0.85em; padding-left: 1.2em;">
+        <li>External agent connects via MCP</li>
+        <li>Calls <code>list_integrations</code></li>
+        <li>Calls <code>create_post</code> with content</li>
+        <li>Compliance engine validates</li>
+        <li>→ Guardian mode: queues for approval</li>
+        <li>Agent calls <code>get_pending_approvals</code></li>
+        <li>Orchestrator agent calls <code>approve_item</code></li>
+        <li>Post publishes via Postiz</li>
+      </ol>
+    </div>
+    <div style="padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+      <h4 style="color: #f59e0b; margin-top:0;">Mention Response (MVP)</h4>
+      <ol style="font-size: 0.85em; padding-left: 1.2em;">
+        <li>Webhook/poll detects new mention</li>
+        <li>Engagement engine categorizes it</li>
+        <li>LLM generates contextual reply</li>
+        <li>Compliance check on reply</li>
+        <li>→ Guardian mode: queue for approval</li>
+        <li>Human approves → reply sent</li>
+      </ol>
+    </div>
+    <div style="padding: 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+      <h4 style="color: #a855f7; margin-top:0;">Trust Progression</h4>
+      <ol style="font-size: 0.85em; padding-left: 1.2em;">
+        <li>Start: ALL actions require approval</li>
+        <li>System tracks approval patterns</li>
+        <li>After N consistent approvals → suggest</li>
+        <li>"Auto-approve low-risk posts?"</li>
+        <li>User opts in per category</li>
+        <li>Gradually: only novel/risky flagged</li>
+        <li>Kill switch always available</li>
+      </ol>
+    </div>
+  </div>
+</div>

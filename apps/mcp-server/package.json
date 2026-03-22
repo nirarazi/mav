@@ -1,0 +1,30 @@
+{
+  "name": "maverick-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Maverick social media management",
+  "main": "dist/index.js",
+  "bin": {
+    "maverick-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "start": "node ./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "maverick",
+    "mcp",
+    "social media",
+    "scheduling",
+    "ai-agent"
+  ],
+  "author": "Nevo David",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "zod": "^3.25.76"
+  }
+}

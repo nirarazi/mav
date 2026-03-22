@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maverick — Dashboard v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #09090b;
+    color: #fafafa;
+    min-height: 100vh;
+  }
+
+  /* ─── Sidebar Nav ─── */
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar-nav {
+    width: 220px;
+    background: #09090b;
+    border-right: 1px solid #1a1a2e;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+  }
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px;
+    margin-bottom: 28px;
+  }
+  .sidebar-logo-icon {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 20px rgba(99,102,241,0.3);
+  }
+  .sidebar-logo-icon svg { width: 16px; height: 16px; }
+  .sidebar-logo-text { font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+
+  .sidebar-section { margin-bottom: 24px; }
+  .sidebar-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #52525b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0 12px;
+    margin-bottom: 6px;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #71717a;
+    cursor: pointer;
+    transition: all 0.12s;
+    position: relative;
+  }
+  .sidebar-item:hover { background: #18181b; color: #a1a1aa; }
+  .sidebar-item.active {
+    background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08));
+    color: #c4b5fd;
+  }
+  .sidebar-item .badge {
+    margin-left: auto;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+  .sidebar-item svg { width: 16px; height: 16px; opacity: 0.7; }
+  .sidebar-item.active svg { opacity: 1; }
+
+  .sidebar-spacer { flex: 1; }
+
+  .sidebar-kill-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.15);
+    color: #f87171;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin: 0 4px;
+  }
+  .sidebar-kill-btn:hover { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.3); }
+
+  /* ─── Main Content ─── */
+  .main-content {
+    margin-left: 220px;
+    flex: 1;
+    padding: 32px 40px;
+    max-width: 1100px;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .page-title span { color: #6366f1; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .header-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #22c55e;
+    background: rgba(34,197,94,0.08);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .header-status .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+  /* ─── Stats ─── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .stat {
+    background: #0f0f14;
+    border: 1px solid #1a1a2e;
+    border-radius: 14px;
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .stat:nth-child(1)::before { background: linear-gradient(90deg, #6366f1, #8b5cf6); }
+  .stat:nth-child(2)::before { background: linear-gradient(90deg, #f59e0b, #f97316); }
+  .stat:nth-child(3)::before { background: linear-gradient(90deg, #22c55e, #10b981); }
+  .stat:nth-child(4)::before { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+  .stat-label { font-size: 12px; color: #52525b; font-weight: 500; margin-bottom: 8px; }
+  .stat-value { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+  .stat-sub { font-size: 12px; font-weight: 500; margin-top: 4px; }
+  .stat-sub.up { color: #22c55e; }
+
+  /* ─── Feed ─── */
+  .feed-section { }
+  .feed-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .feed-title { font-size: 15px; font-weight: 600; color: #a1a1aa; }
+  .feed-filters { display: flex; gap: 6px; }
+  .feed-filter {
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #52525b;
+    cursor: pointer;
+    transition: all 0.12s;
+    border: 1px solid transparent;
+  }
+  .feed-filter:hover { color: #71717a; background: #18181b; }
+  .feed-filter.active { color: #c4b5fd; background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.15); }
+
+  .feed-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .feed-card {
+    background: #0f0f14;
+    border: 1px solid #1a1a2e;
+    border-radius: 14px;
+    padding: 24px;
+    transition: all 0.15s;
+  }
+  .feed-card:hover { border-color: #27274a; transform: translateY(-1px); }
+  .feed-card.pending { border-left: 3px solid #8b5cf6; }
+  .feed-card.warning { border-left: 3px solid #f59e0b; }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .card-time { font-size: 12px; color: #3f3f46; font-weight: 500; }
+  .card-platform {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+  .pl-linkedin { background: rgba(10,102,194,0.12); color: #60a5fa; }
+  .pl-x { background: rgba(255,255,255,0.06); color: #d4d4d8; }
+  .pl-brain { background: rgba(168,85,247,0.1); color: #c084fc; }
+  .pl-compliance { background: rgba(34,197,94,0.1); color: #4ade80; }
+  .card-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .st-published { background: rgba(34,197,94,0.1); color: #4ade80; }
+  .st-pending { background: rgba(139,92,246,0.1); color: #c4b5fd; }
+  .st-cycle { background: rgba(168,85,247,0.08); color: #c084fc; }
+  .card-risk {
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: auto;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .risk-low { color: #4ade80; }
+  .risk-med { color: #fbbf24; }
+
+  .card-content {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #d4d4d8;
+    margin-bottom: 14px;
+  }
+
+  .card-engagement {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    color: #52525b;
+    font-weight: 500;
+  }
+  .card-engagement span { display: flex; align-items: center; gap: 5px; }
+  .card-engagement span:hover { color: #71717a; }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .btn {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.12s;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .btn-approve {
+    background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(16,185,129,0.1));
+    color: #4ade80;
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+  .btn-approve:hover { background: rgba(34,197,94,0.25); }
+  .btn-edit {
+    background: rgba(255,255,255,0.04);
+    color: #a1a1aa;
+    border: 1px solid #27274a;
+  }
+  .btn-edit:hover { background: rgba(255,255,255,0.08); }
+  .btn-reject {
+    background: rgba(239,68,68,0.06);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.12);
+  }
+  .btn-reject:hover { background: rgba(239,68,68,0.12); }
+  .btn-ghost {
+    background: none;
+    color: #52525b;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .btn-ghost:hover { color: #71717a; }
+
+  .card-warning {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #fbbf24;
+    background: rgba(251,191,36,0.06);
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .card-trace {
+    display: flex;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #3f3f46;
+    margin-top: 6px;
+  }
+  .card-trace span { display: flex; align-items: center; gap: 4px; }
+
+  /* ─── Goals sidebar floating ─── */
+  .goals-float {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .goal-card {
+    background: #0f0f14;
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .goal-card-title { font-size: 11px; font-weight: 600; color: #52525b; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .goal-item { margin-bottom: 14px; }
+  .goal-item:last-child { margin-bottom: 0; }
+  .goal-text { font-size: 13px; color: #a1a1aa; margin-bottom: 6px; }
+  .goal-bar-track { height: 4px; background: #1a1a2e; border-radius: 2px; overflow: hidden; }
+  .goal-bar-fill { height: 100%; border-radius: 2px; }
+  .gf-indigo { background: linear-gradient(90deg, #6366f1, #8b5cf6); }
+  .gf-emerald { background: linear-gradient(90deg, #22c55e, #10b981); }
+  .goal-meta { display: flex; justify-content: space-between; margin-top: 4px; font-size: 11px; color: #3f3f46; }
+
+  /* Schedule */
+  .sched-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  .sched-item:last-child { border-bottom: none; }
+  .sched-time { width: 46px; font-size: 11px; font-weight: 600; color: #3f3f46; font-family: 'JetBrains Mono', monospace; }
+  .sched-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .sched-text { font-size: 12.5px; color: #71717a; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sched-badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar-nav">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <span class="sidebar-logo-text">Maverick</span>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Main</div>
+      <div class="sidebar-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Activity
+      </div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Calendar
+      </div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Compliance
+        <span class="badge" style="background: rgba(34,197,94,0.15); color: #4ade80;">OK</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Review</div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Approvals
+        <span class="badge">3</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Configure</div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Persona
+      </div>
+      <div class="sidebar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </div>
+    </div>
+
+    <div class="sidebar-spacer"></div>
+
+    <div class="sidebar-kill-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      Pause All Activity
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-header">
+      <div>
+        <div class="page-title">Good morning <span>.</span></div>
+        <div style="font-size: 13px; color: #52525b; margin-top: 4px;">Here's what Maverick has been doing while you were away.</div>
+      </div>
+      <div class="header-right">
+        <div class="header-status">
+          <div class="dot"></div>
+          Agent running
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Published today</div>
+        <div class="stat-value">4</div>
+        <div class="stat-sub up">+2 vs daily average</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Awaiting review</div>
+        <div class="stat-value" style="color: #c4b5fd;">3</div>
+        <div class="stat-sub" style="color: #52525b;">Oldest: 1h ago</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Engagement rate</div>
+        <div class="stat-value">4.2<span style="font-size:18px;color:#52525b;">%</span></div>
+        <div class="stat-sub up">+12% this week</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Cost today</div>
+        <div class="stat-value" style="font-family:'JetBrains Mono',monospace;">$0.12</div>
+        <div class="stat-sub" style="color: #52525b;">6 brain cycles</div>
+      </div>
+    </div>
+
+    <!-- Feed -->
+    <div class="feed-section">
+      <div class="feed-header-row">
+        <div class="feed-title">Activity</div>
+        <div class="feed-filters">
+          <div class="feed-filter active">All</div>
+          <div class="feed-filter">Pending</div>
+          <div class="feed-filter">Published</div>
+          <div class="feed-filter">Agent</div>
+        </div>
+      </div>
+
+      <div class="feed-list">
+
+        <!-- Published -->
+        <div class="feed-card">
+          <div class="card-top">
+            <span class="card-time">2 min ago</span>
+            <span class="card-platform pl-linkedin">LinkedIn</span>
+            <span class="card-status st-published">Published</span>
+          </div>
+          <div class="card-content">5 lessons from building AI agents that actually ship. Here's what most founders get wrong when they go from prototype to production...</div>
+          <div class="card-engagement">
+            <span>23 likes</span>
+            <span>4 comments</span>
+            <span>7 reposts</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost">View on LinkedIn</button>
+            <button class="btn btn-ghost">Why this post?</button>
+          </div>
+        </div>
+
+        <!-- Pending - Low risk -->
+        <div class="feed-card pending">
+          <div class="card-top">
+            <span class="card-time">1 hr ago</span>
+            <span class="card-platform pl-x">X</span>
+            <span class="card-status st-pending">Needs review</span>
+            <span class="card-risk risk-low">Low risk</span>
+          </div>
+          <div class="card-content">Thread: The 3 things I wish I knew before building an AI agent company. A thread from a year of mistakes and lessons learned. 1/</div>
+          <div class="card-actions">
+            <button class="btn btn-approve">Approve</button>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-reject">Reject</button>
+            <button class="btn btn-ghost">Preview on X</button>
+          </div>
+        </div>
+
+        <!-- Pending - Medium risk -->
+        <div class="feed-card warning">
+          <div class="card-top">
+            <span class="card-time">1.5 hr ago</span>
+            <span class="card-platform pl-linkedin">LinkedIn</span>
+            <span class="card-status st-pending">Needs review</span>
+            <span class="card-risk risk-med">Medium risk</span>
+          </div>
+          <div class="card-warning">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Touches "hiring" topic — may attract controversy
+          </div>
+          <div class="card-content">Hiring is broken. Here's what we're doing differently at our AI-first company, and why we think the future of work looks nothing like today...</div>
+          <div class="card-actions">
+            <button class="btn btn-approve">Approve</button>
+            <button class="btn btn-edit">Edit</button>
+            <button class="btn btn-reject">Reject</button>
+          </div>
+        </div>
+
+        <!-- Brain cycle -->
+        <div class="feed-card">
+          <div class="card-top">
+            <span class="card-time">2 hr ago</span>
+            <span class="card-platform pl-brain">Agent Brain</span>
+            <span class="card-status st-cycle">Cycle complete</span>
+          </div>
+          <div class="card-content" style="color: #71717a;">Generated 3 drafts for tomorrow. Scheduled 2 posts. Skipped 1 topic (risk score exceeded threshold).</div>
+          <div class="card-trace">
+            <span>12s</span>
+            <span>$0.04</span>
+            <span>2,090 tokens</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost">View reasoning trace</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Goals -->
+  <div class="goals-float">
+    <div class="goal-card">
+      <div class="goal-card-title">Weekly Goals</div>
+      <div class="goal-item">
+        <div class="goal-text">Post 5x/week on LinkedIn</div>
+        <div class="goal-bar-track"><div class="goal-bar-fill gf-indigo" style="width:60%;"></div></div>
+        <div class="goal-meta"><span>3 / 5</span><span>2 left</span></div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-text">Grow X engagement +20%</div>
+        <div class="goal-bar-track"><div class="goal-bar-fill gf-emerald" style="width:70%;"></div></div>
+        <div class="goal-meta"><span>+14%</span><span>6% to go</span></div>
+      </div>
+    </div>
+
+    <div class="goal-card">
+      <div class="goal-card-title">Tomorrow</div>
+      <div class="sched-item">
+        <span class="sched-time">09:00</span>
+        <div class="sched-dot" style="background: #8b5cf6;"></div>
+        <span class="sched-text" style="color: #c084fc;">Brain cycle</span>
+        <span class="sched-badge" style="background:rgba(139,92,246,0.1);color:#c084fc;">Auto</span>
+      </div>
+      <div class="sched-item">
+        <span class="sched-time">10:00</span>
+        <div class="sched-dot" style="background: #60a5fa;"></div>
+        <span class="sched-text">LinkedIn: Why we're betting...</span>
+        <span class="sched-badge" style="background:rgba(139,92,246,0.1);color:#c4b5fd;">Draft</span>
+      </div>
+      <div class="sched-item">
+        <span class="sched-time">14:00</span>
+        <div class="sched-dot" style="background: #d4d4d8;"></div>
+        <span class="sched-text">X: Agent orchestration thread</span>
+        <span class="sched-badge" style="background:rgba(139,92,246,0.1);color:#c4b5fd;">Draft</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

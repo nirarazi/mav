@@ -1,0 +1,133 @@
+<h2>MCP Server Design: Tool Surface Area</h2>
+<p class="subtitle">Since agent-protocol-native is Maverick's core moat, the MCP server is the most critical component. What's the right tool surface?</p>
+
+<div class="section">
+  <h3>Proposed MCP Tool Categories</h3>
+  <p>Click each category to select which ones belong in MVP vs. later phases.</p>
+</div>
+
+<div class="options" data-multiselect>
+  <div class="option" data-choice="content" onclick="toggleSelect(this)" style="border-left: 3px solid #22c55e;">
+    <div class="letter" style="background: #22c55e;">1</div>
+    <div class="content">
+      <h3>Content Management (MVP)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        create_post, list_posts, update_post, delete_post, upload_media
+      </p>
+      <p>Core CRUD for posts across platforms. An agent can draft, schedule, edit, and delete social media content. This alone makes Maverick useful.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="accounts" onclick="toggleSelect(this)" style="border-left: 3px solid #22c55e;">
+    <div class="letter" style="background: #22c55e;">2</div>
+    <div class="content">
+      <h3>Account & Platform (MVP)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        list_integrations, get_platform_rules, get_account_status
+      </p>
+      <p>Discovery tools — agent learns what platforms are connected, what constraints each has (char limits, media types, rate limits), and account health.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="approval" onclick="toggleSelect(this)" style="border-left: 3px solid #22c55e;">
+    <div class="letter" style="background: #22c55e;">3</div>
+    <div class="content">
+      <h3>Approval Workflow (MVP)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        get_pending_approvals, approve_item, reject_item, add_feedback
+      </p>
+      <p>Enables an orchestrator agent (Paperclip CEO) to review and approve content from the social media agent. Critical for Guardian mode.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="persona" onclick="toggleSelect(this)" style="border-left: 3px solid #22c55e;">
+    <div class="letter" style="background: #22c55e;">4</div>
+    <div class="content">
+      <h3>Persona (MVP)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        list_personas, get_persona, set_active_persona, create_persona
+      </p>
+      <p>Agent can discover available brand voices, switch between them, and create new ones. Essential for multi-brand zero-human companies.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="brain" onclick="toggleSelect(this)" style="border-left: 3px solid #f59e0b;">
+    <div class="letter" style="background: #f59e0b;">5</div>
+    <div class="content">
+      <h3>Autonomous Brain (Phase 2)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        run_content_cycle, set_goal, get_goal_progress, generate_weekly_plan
+      </p>
+      <p>Trigger the autonomous content generation cycle. Set strategic goals. Let a Paperclip CEO agent say "post about our new product launch" and the brain handles everything.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="analytics" onclick="toggleSelect(this)" style="border-left: 3px solid #f59e0b;">
+    <div class="letter" style="background: #f59e0b;">6</div>
+    <div class="content">
+      <h3>Analytics & Insights (Phase 2)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        get_analytics, get_engagement_summary, get_brand_sentiment, get_best_times
+      </p>
+      <p>Agent can query engagement metrics, understand what's working, and make data-driven content decisions. Feeds back into the strategy layer.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="engagement" onclick="toggleSelect(this)" style="border-left: 3px solid #f59e0b;">
+    <div class="letter" style="background: #f59e0b;">7</div>
+    <div class="content">
+      <h3>Engagement & Replies (Phase 2)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        get_mentions, reply_to_mention, get_dms, triage_dm, get_comments
+      </p>
+      <p>Two-way social media interaction. Agent monitors mentions, generates contextual replies, and triages DMs. Turns Maverick from a poster into a communicator.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="compliance" onclick="toggleSelect(this)" style="border-left: 3px solid #3b82f6;">
+    <div class="letter" style="background: #3b82f6;">8</div>
+    <div class="content">
+      <h3>Compliance & Audit (Phase 2-3)</h3>
+      <p style="font-family: monospace; font-size: 0.85em; color: #94a3b8;">
+        get_compliance_report, get_audit_log, check_content_compliance, get_cost_report
+      </p>
+      <p>Transparency tools. Agent can verify compliance status, pull audit trails, and check cost budgets. Enterprise moat builder.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;">
+  <h3 style="margin-top:0;">MCP Resources (Read-only context for agents)</h3>
+  <table style="width:100%; border-collapse: collapse; font-size: 0.9em;">
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <td style="padding: 8px; font-family: monospace; color: #f97316;">persona://active</td>
+      <td style="padding: 8px;">Current persona config (voice, rules, constraints)</td>
+      <td style="padding: 8px; color: #22c55e;">MVP</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <td style="padding: 8px; font-family: monospace; color: #f97316;">platform://rules/{id}</td>
+      <td style="padding: 8px;">Platform-specific constraints and ToS rules</td>
+      <td style="padding: 8px; color: #22c55e;">MVP</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <td style="padding: 8px; font-family: monospace; color: #f97316;">queue://approvals</td>
+      <td style="padding: 8px;">Pending approval items with content preview</td>
+      <td style="padding: 8px; color: #22c55e;">MVP</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <td style="padding: 8px; font-family: monospace; color: #f97316;">analytics://summary</td>
+      <td style="padding: 8px;">Recent engagement metrics dashboard</td>
+      <td style="padding: 8px; color: #f59e0b;">Phase 2</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; font-family: monospace; color: #f97316;">goals://active</td>
+      <td style="padding: 8px;">Current strategic goals and progress</td>
+      <td style="padding: 8px; color: #f59e0b;">Phase 2</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(249, 115, 22, 0.05);">
+  <h3 style="margin-top:0;">MVP Tool Count: 17 tools + 3 resources</h3>
+  <p>Categories 1-4 give agents enough capability to manage a full social media presence through Maverick from day one: discover accounts, create content with the right persona, schedule posts, and handle the approval workflow.</p>
+</div>

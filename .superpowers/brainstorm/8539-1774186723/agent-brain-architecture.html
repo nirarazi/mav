@@ -1,0 +1,93 @@
+<h2>Agent Brain Architecture: Which Approach?</h2>
+<p class="subtitle">The agent brain is what makes Maverick autonomous. How should it be built?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>LangGraph State Machine</h3>
+      <p>Graph-based workflow where each node is a step (ideate, draft, comply, schedule). Edges are conditional transitions. Built-in <code>interrupt()</code> for human-in-the-loop pauses.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Production-proven (LinkedIn, Uber)</li>
+            <li>Native HITL with checkpointing</li>
+            <li>Visual debugging of execution flow</li>
+            <li>Handles complex branching (retry, escalate, skip)</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Heavy dependency (LangChain ecosystem)</li>
+            <li>Learning curve for contributors</li>
+            <li>Overkill if workflows stay simple</li>
+            <li>Python-first ecosystem (we're TypeScript)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Simple Pipeline + Temporal</h3>
+      <p>Linear pipeline of TypeScript functions orchestrated by Temporal (which Postiz already uses). Each step is a Temporal activity. HITL = Temporal signal/query. No AI framework dependency.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Zero new dependencies (Temporal already in Postiz)</li>
+            <li>Pure TypeScript, no framework lock-in</li>
+            <li>Battle-tested durability and retries</li>
+            <li>Easy for any TS dev to understand</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>No built-in LLM orchestration patterns</li>
+            <li>Manual implementation of branching logic</li>
+            <li>Less visibility into AI reasoning</li>
+            <li>HITL requires custom signal handling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Hybrid: Vercel AI SDK + Temporal</h3>
+      <p>Use Vercel AI SDK (TypeScript-native, LLM-agnostic) for the AI calls and tool use. Temporal for workflow durability and scheduling. Combine both strengths without heavy framework.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>TypeScript-native AI SDK with streaming</li>
+            <li>Built-in provider abstraction (any LLM)</li>
+            <li>Temporal for durability + scheduling</li>
+            <li>Aligns perfectly with BYOK requirement</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Two systems to understand</li>
+            <li>No built-in graph visualization</li>
+            <li>HITL still needs custom implementation</li>
+            <li>Vercel AI SDK less battle-tested than LangGraph</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;">
+  <h3 style="margin-top:0;">Recommendation: C (Hybrid)</h3>
+  <p>Given that Maverick is TypeScript-first (NestJS/Next.js), BYOK is a requirement, and Temporal is already in the stack, the hybrid approach gives us the best of both worlds without pulling in a heavy Python-oriented framework. The Vercel AI SDK handles LLM abstraction elegantly, and Temporal gives us the durability we need for scheduled autonomous cycles.</p>
+</div>

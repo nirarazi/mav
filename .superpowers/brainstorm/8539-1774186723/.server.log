@@ -1,0 +1,20 @@
+{"type":"server-started","port":62288,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:62288","screen_dir":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/agent-brain-architecture.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/mcp-server-design.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/system-architecture.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/mcp-token-efficiency.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/waiting.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-mockup.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-v2.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-v3.html"}
+{"type":"screen-added","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/onboarding-mockup.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/system-architecture.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/agent-brain-architecture.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/mcp-server-design.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/waiting.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-v3.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/mcp-token-efficiency.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-mockup.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/dashboard-v2.html"}
+{"type":"screen-updated","file":"/Users/nirarazi/Code/mav/.superpowers/brainstorm/8539-1774186723/onboarding-mockup.html"}
+{"type":"server-stopped","reason":"owner process exited"}

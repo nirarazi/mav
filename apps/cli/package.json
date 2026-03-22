@@ -1,0 +1,40 @@
+{
+  "name": "maverick",
+  "version": "2.0.5",
+  "description": "Maverick CLI - Command line interface for the Maverick social media scheduling API",
+  "main": "dist/index.js",
+  "bin": {
+    "maverick": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "start": "node ./dist/index.js",
+    "publish": "tsup && pnpm publish --access public --no-git-checks"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "SKILL.md"
+  ],
+  "keywords": [
+    "maverick",
+    "cli",
+    "social media",
+    "scheduling",
+    "automation",
+    "ai-agent",
+    "command-line"
+  ],
+  "author": "Nevo David",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gitroomhq/maverick-app.git",
+    "directory": "apps/cli"
+  },
+  "homepage": "https://maverick.com",
+  "bugs": {
+    "url": "https://github.com/gitroomhq/maverick-app/issues"
+  }
+}

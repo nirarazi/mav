@@ -1,0 +1,109 @@
+<h2>MCP Token Efficiency Analysis</h2>
+<p class="subtitle">Is MCP the right protocol for cost-sensitive zero-human companies?</p>
+
+<div class="section">
+  <h3>The Token Cost of MCP</h3>
+  <p>Every MCP session starts with tool discovery — the agent's LLM ingests ALL tool definitions into its context window. For 21 tools, that's:</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+    <div style="padding: 1rem; border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; text-align: center;">
+      <div style="font-size: 2em; font-weight: bold; color: #ef4444;">~3,500</div>
+      <div style="font-size: 0.8em; color: #94a3b8;">tokens for 21 tool schemas<br>(loaded once per session)</div>
+    </div>
+    <div style="padding: 1rem; border: 1px solid rgba(249,115,22,0.3); border-radius: 8px; text-align: center;">
+      <div style="font-size: 2em; font-weight: bold; color: #f59e0b;">~200</div>
+      <div style="font-size: 0.8em; color: #94a3b8;">tokens per tool call<br>(request + response overhead)</div>
+    </div>
+    <div style="padding: 1rem; border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; text-align: center;">
+      <div style="font-size: 2em; font-weight: bold; color: #22c55e;">~$0.01</div>
+      <div style="font-size: 0.8em; color: #94a3b8;">per full content cycle<br>(at Claude Sonnet rates)</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Mitigation Strategies</h3>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Composite Tools (Reduce tool count)</h3>
+      <p>Instead of 21 granular tools, expose <strong>5-6 composite tools</strong> with an <code>action</code> parameter:</p>
+      <pre style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-size: 0.8em; overflow-x: auto;">
+content.manage({ action: "create" | "list" | "update" | "delete", ... })
+engagement.manage({ action: "get_mentions" | "reply" | "triage_dm", ... })
+approval.manage({ action: "list_pending" | "approve" | "reject", ... })
+brain.manage({ action: "run_cycle" | "set_goal" | "get_progress", ... })
+account.info({ action: "list" | "get_rules" | "get_status", ... })</pre>
+      <p style="font-size: 0.85em; color: #94a3b8;"><strong>Token savings: ~60%</strong> on discovery (5 schemas vs 21). Trade-off: less discoverable, agents must read docs to know sub-actions.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Tool Profiles (Right-size per use case)</h3>
+      <p>Expose <strong>multiple MCP endpoints</strong> with different tool sets:</p>
+      <pre style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; font-size: 0.8em; overflow-x: auto;">
+/mcp/lite    → 6 tools  (create_post, list_posts, approve, reject, list_accounts, run_cycle)
+/mcp/full    → 21 tools (everything)
+/mcp/approve → 3 tools  (list_pending, approve, reject) — just for human-review agents</pre>
+      <p style="font-size: 0.85em; color: #94a3b8;"><strong>Token savings: up to 80%</strong> for lite profile. Trade-off: user must choose the right profile. Most will just use /full.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Keep Granular + Optimize Descriptions (Recommended)</h3>
+      <p>Keep 21 individual tools but <strong>minimize schema verbosity</strong>:</p>
+      <ul style="font-size: 0.85em;">
+        <li>Short descriptions (1 line max, no examples in schema)</li>
+        <li>Use MCP Resources for context (no token cost until read)</li>
+        <li>Lean parameter schemas (no redundant enums, use references)</li>
+        <li>Document fully in a <code>README</code> resource, not in tool schemas</li>
+      </ul>
+      <p style="font-size: 0.85em; color: #94a3b8;"><strong>Token savings: ~40%</strong> vs verbose schemas. Trade-off: none — this is just good practice. Granular tools are what agents work best with.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;">
+  <h3 style="margin-top:0;">The Real Question: Is MCP Worth It?</h3>
+  <table style="width:100%; border-collapse: collapse; font-size: 0.85em;">
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+      <td style="padding: 10px; font-weight: bold;">Protocol</td>
+      <td style="padding: 10px; font-weight: bold;">Token Cost</td>
+      <td style="padding: 10px; font-weight: bold;">Reach</td>
+      <td style="padding: 10px; font-weight: bold;">Integration Effort</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <td style="padding: 10px; color: #f97316;">MCP</td>
+      <td style="padding: 10px;">~3,500 tokens/session</td>
+      <td style="padding: 10px; color: #22c55e;">Every MCP agent (Claude, GPT, Gemini, Cursor, etc.)</td>
+      <td style="padding: 10px;">Zero — just connect</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <td style="padding: 10px; color: #3b82f6;">REST API</td>
+      <td style="padding: 10px;">0 tokens (direct HTTP)</td>
+      <td style="padding: 10px; color: #f59e0b;">Only agents with custom integrations</td>
+      <td style="padding: 10px;">Custom code per agent</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <td style="padding: 10px; color: #a855f7;">A2A</td>
+      <td style="padding: 10px;">Varies (task-based)</td>
+      <td style="padding: 10px; color: #f59e0b;">Enterprise agents (Salesforce, etc.)</td>
+      <td style="padding: 10px;">Moderate</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; color: #22c55e;">Paperclip Skill</td>
+      <td style="padding: 10px;">Minimal (skill.md)</td>
+      <td style="padding: 10px; color: #ef4444;">Only Paperclip companies</td>
+      <td style="padding: 10px;">Low</td>
+    </tr>
+  </table>
+
+  <p style="margin-top: 1rem; font-size: 0.9em;"><strong>Verdict:</strong> MCP's ~$0.01/cycle token overhead is negligible compared to the content generation cost (~$0.03-0.10/cycle). The reach advantage (any MCP agent connects in seconds) is the core moat. <strong>Keep MCP as primary, offer REST API as zero-overhead fallback for cost-sensitive pipelines.</strong></p>
+</div>
