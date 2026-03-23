@@ -19,81 +19,15 @@ const PLATFORM_CHAR_LIMITS: Record<string, number> = {
   mastodon: 500,
 };
 
-const PLATFORM_CONFIG: Record<
-  string,
-  {
-    label: string;
-    icon: string;
-    accentColor: string;
-    cardBg: string;
-    headerBg: string;
-    handle?: string;
-  }
-> = {
-  linkedin: {
-    label: 'LinkedIn',
-    icon: 'in',
-    accentColor: '#0A66C2',
-    cardBg: 'bg-[#1B2730]',
-    headerBg: 'bg-[#0A66C2]',
-    handle: undefined,
-  },
-  x: {
-    label: '',
-    icon: '\ud835\udd4f',
-    accentColor: '#000000',
-    cardBg: 'bg-[#16181C]',
-    headerBg: 'bg-black',
-    handle: '@nirarazi',
-  },
-  twitter: {
-    label: '',
-    icon: '\ud835\udd4f',
-    accentColor: '#000000',
-    cardBg: 'bg-[#16181C]',
-    headerBg: 'bg-black',
-    handle: '@nirarazi',
-  },
-  bluesky: {
-    label: 'Bluesky',
-    icon: '\ud83e\udd8b',
-    accentColor: '#0085FF',
-    cardBg: 'bg-[#161E27]',
-    headerBg: 'bg-[#0085FF]',
-    handle: '@nir.bsky.social',
-  },
-  threads: {
-    label: 'Threads',
-    icon: '@',
-    accentColor: '#000000',
-    cardBg: 'bg-[#181818]',
-    headerBg: 'bg-[#333333]',
-    handle: '@nirarazi',
-  },
-  mastodon: {
-    label: 'Mastodon',
-    icon: 'M',
-    accentColor: '#6364FF',
-    cardBg: 'bg-[#1F1A2E]',
-    headerBg: 'bg-[#6364FF]',
-    handle: '@nir@mastodon.social',
-  },
-};
-
-function getCharCountColor(length: number, limit: number): string {
+function getCharBarColor(length: number, limit: number): string {
   const ratio = length / limit;
-  if (ratio < 0.8) return 'bg-green-500';
-  if (ratio < 0.95) return 'bg-yellow-500';
-  return 'bg-red-500';
+  if (ratio < 0.8) return '#22c55e';
+  if (ratio < 0.95) return '#eab308';
+  return '#ef4444';
 }
 
-function getCharCountTextColor(length: number, limit: number): string {
-  const ratio = length / limit;
-  if (ratio < 0.8) return 'text-green-400';
-  if (ratio < 0.95) return 'text-yellow-400';
-  return 'text-red-400';
-}
-
+// ─── LinkedIn ────────────────────────────────────────────────────
+// Light mode, white card, #0a66c2 accent, system-ui font
 const LinkedInPreview: FC<PostPreviewProps> = ({
   content,
   personaName,
@@ -101,46 +35,125 @@ const LinkedInPreview: FC<PostPreviewProps> = ({
   charLimit,
 }) => {
   const [expanded, setExpanded] = useState(false);
-  const truncateAt = 500;
+  const truncateAt = 480;
   const shouldTruncate = content.length > truncateAt;
   const displayContent =
     shouldTruncate && !expanded ? content.slice(0, truncateAt) : content;
 
   return (
-    <div className="bg-[#1B2730] rounded-lg overflow-hidden border border-[#38444D]">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#38444D]">
+    <div
+      style={{
+        fontFamily:
+          '-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        border: '1px solid #e0e0e0',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #e8e8e8',
+          backgroundColor: '#f9fafb',
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
         <span
-          className="flex items-center justify-center w-5 h-5 rounded text-[10px] font-bold text-white"
-          style={{ backgroundColor: '#0A66C2' }}
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: '#666666',
+            letterSpacing: 0.3,
+          }}
         >
-          in
+          LINKEDIN PREVIEW
         </span>
-        <span className="text-xs font-medium text-gray-400">LinkedIn</span>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
+      {/* Post body */}
+      <div style={{ padding: '12px 16px' }}>
+        {/* Author row */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 12 }}>
           <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white shrink-0"
-            style={{ backgroundColor: '#0A66C2' }}
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: '50%',
+              backgroundColor: '#0a66c2',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: 18,
+              fontWeight: 600,
+              flexShrink: 0,
+            }}
           >
             {personaName.charAt(0)}
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: '#191919',
+                lineHeight: '20px',
+              }}
+            >
               {personaName}
             </span>
-            <span className="text-xs text-gray-400">{personaRole}</span>
-            <span className="text-xs text-gray-500">Just now &middot; \ud83c\udf10</span>
+            <span
+              style={{
+                fontSize: 12,
+                color: '#666666',
+                lineHeight: '16px',
+              }}
+            >
+              {personaRole}
+            </span>
+            <span
+              style={{
+                fontSize: 12,
+                color: '#999999',
+                lineHeight: '16px',
+              }}
+            >
+              Just now &middot; 🌐
+            </span>
           </div>
         </div>
 
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
+        {/* Content */}
+        <div
+          style={{
+            fontSize: 14,
+            color: '#191919',
+            lineHeight: '20px',
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-word',
+          }}
+        >
           {displayContent}
           {shouldTruncate && !expanded && (
             <button
               onClick={() => setExpanded(true)}
-              className="text-gray-400 hover:text-white ml-1 text-sm"
+              style={{
+                color: '#666666',
+                fontWeight: 600,
+                fontSize: 14,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0,
+                marginLeft: 2,
+              }}
             >
               ...see more
             </button>
@@ -148,200 +161,536 @@ const LinkedInPreview: FC<PostPreviewProps> = ({
           {shouldTruncate && expanded && (
             <button
               onClick={() => setExpanded(false)}
-              className="text-gray-400 hover:text-white ml-1 text-sm block mt-1"
+              style={{
+                color: '#666666',
+                fontWeight: 600,
+                fontSize: 14,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0,
+                display: 'block',
+                marginTop: 4,
+              }}
             >
               show less
             </button>
           )}
         </div>
 
-        <div className="flex items-center gap-6 mt-4 pt-3 border-t border-[#38444D] text-xs text-gray-400">
-          <span className="hover:text-white cursor-default">\ud83d\udc4d Like</span>
-          <span className="hover:text-white cursor-default">\ud83d\udcac Comment</span>
-          <span className="hover:text-white cursor-default">\ud83d\udd04 Repost</span>
+        {/* Engagement bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 4,
+            marginTop: 12,
+            paddingTop: 8,
+            borderTop: '1px solid #e8e8e8',
+          }}
+        >
+          {[
+            { icon: '👍', label: 'Like' },
+            { icon: '💬', label: 'Comment' },
+            { icon: '🔄', label: 'Repost' },
+            { icon: '📤', label: 'Send' },
+          ].map((a) => (
+            <div
+              key={a.label}
+              style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 4,
+                padding: '8px 4px',
+                borderRadius: 4,
+                fontSize: 12,
+                fontWeight: 600,
+                color: '#666666',
+                cursor: 'default',
+              }}
+            >
+              <span style={{ fontSize: 14 }}>{a.icon}</span>
+              {a.label}
+            </div>
+          ))}
         </div>
       </div>
 
-      <CharCountBar length={content.length} limit={charLimit} />
+      <CharCountBar length={content.length} limit={charLimit} light />
     </div>
   );
 };
 
+// ─── X / Twitter ─────────────────────────────────────────────────
+// Dark mode, #000 bg, #e7e9ea text, Inter-like font
 const XPreview: FC<PostPreviewProps> = ({
   content,
   personaName,
   charLimit,
 }) => {
   return (
-    <div className="bg-[#16181C] rounded-lg overflow-hidden border border-[#2F3336]">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#2F3336]">
-        <span className="text-sm font-bold text-white">{'\ud835\udd4f'}</span>
+    <div
+      style={{
+        fontFamily:
+          '"TwitterChirp", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        backgroundColor: '#000000',
+        borderRadius: 8,
+        border: '1px solid #2f3336',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #2f3336',
+        }}
+      >
+        <span style={{ fontSize: 16, fontWeight: 800, color: '#e7e9ea' }}>
+          𝕏
+        </span>
+        <span
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: '#71767b',
+            letterSpacing: 0.3,
+          }}
+        >
+          POST PREVIEW
+        </span>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-gray-700 shrink-0">
+      {/* Post */}
+      <div style={{ padding: '12px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+          <div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: '50%',
+              backgroundColor: '#333639',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#e7e9ea',
+              fontSize: 16,
+              fontWeight: 700,
+              flexShrink: 0,
+            }}
+          >
             {personaName.charAt(0)}
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-white">
-              {personaName}
-            </span>
-            <span className="text-sm text-gray-500">@nirarazi</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+                marginBottom: 2,
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 15,
+                  fontWeight: 700,
+                  color: '#e7e9ea',
+                }}
+              >
+                {personaName}
+              </span>
+              <span style={{ fontSize: 15, color: '#71767b' }}>
+                @nirarazi &middot; now
+              </span>
+            </div>
+            <div
+              style={{
+                fontSize: 15,
+                color: '#e7e9ea',
+                lineHeight: '20px',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+              }}
+            >
+              {content}
+            </div>
+
+            {/* Engagement */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: 12,
+                maxWidth: 300,
+              }}
+            >
+              {['💬', '🔄', '❤️', '📊', '📤'].map((icon, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 13,
+                    color: '#71767b',
+                    cursor: 'default',
+                  }}
+                >
+                  {icon}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
-          {content}
-        </div>
-
-        <div className="flex items-center gap-8 mt-4 pt-3 border-t border-[#2F3336] text-xs text-gray-500">
-          <span className="hover:text-sky-400 cursor-default">\ud83d\udcac</span>
-          <span className="hover:text-green-400 cursor-default">\ud83d\udd04</span>
-          <span className="hover:text-pink-400 cursor-default">\u2764\ufe0f</span>
-          <span className="hover:text-sky-400 cursor-default">\ud83d\udcca</span>
         </div>
       </div>
 
-      <CharCountBar length={content.length} limit={charLimit} />
+      <CharCountBar length={content.length} limit={charLimit} light={false} />
     </div>
   );
 };
 
+// ─── Bluesky ─────────────────────────────────────────────────────
+// Light mode, white bg, #0085ff accent
 const BlueskyPreview: FC<PostPreviewProps> = ({
   content,
   personaName,
   charLimit,
 }) => {
   return (
-    <div className="bg-[#161E27] rounded-lg overflow-hidden border border-[#2A3A4A]">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#2A3A4A]">
-        <span className="text-sm">{'\ud83e\udd8b'}</span>
-        <span className="text-xs font-medium text-gray-400">Bluesky</span>
-      </div>
-
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white shrink-0"
-            style={{ backgroundColor: '#0085FF' }}
-          >
-            {personaName.charAt(0)}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">
-              {personaName}
-            </span>
-            <span className="text-xs text-gray-500">@nir.bsky.social</span>
-          </div>
-        </div>
-
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
-          {content}
-        </div>
-
-        <div className="flex items-center gap-8 mt-4 pt-3 border-t border-[#2A3A4A] text-xs text-gray-500">
-          <span className="hover:text-sky-400 cursor-default">\ud83d\udcac</span>
-          <span className="hover:text-green-400 cursor-default">\ud83d\udd04</span>
-          <span className="hover:text-pink-400 cursor-default">\u2764\ufe0f</span>
-        </div>
-      </div>
-
-      <CharCountBar length={content.length} limit={charLimit} />
-    </div>
-  );
-};
-
-const MastodonPreview: FC<PostPreviewProps> = ({
-  content,
-  personaName,
-  charLimit,
-}) => {
-  return (
-    <div className="bg-[#1F1A2E] rounded-lg overflow-hidden border border-[#3D3557]">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#3D3557]">
+    <div
+      style={{
+        fontFamily:
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        border: '1px solid #e0e0e0',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #e8e8e8',
+          backgroundColor: '#f0f7ff',
+        }}
+      >
+        <span style={{ fontSize: 14 }}>🦋</span>
         <span
-          className="flex items-center justify-center w-5 h-5 rounded text-[10px] font-bold text-white"
-          style={{ backgroundColor: '#6364FF' }}
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: '#0085ff',
+            letterSpacing: 0.3,
+          }}
         >
-          M
+          BLUESKY PREVIEW
         </span>
-        <span className="text-xs font-medium text-gray-400">Mastodon</span>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
+      <div style={{ padding: '12px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
           <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white shrink-0"
-            style={{ backgroundColor: '#6364FF' }}
+            style={{
+              width: 42,
+              height: 42,
+              borderRadius: '50%',
+              backgroundColor: '#0085ff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: 16,
+              fontWeight: 600,
+              flexShrink: 0,
+            }}
           >
             {personaName.charAt(0)}
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">
-              {personaName}
-            </span>
-            <span className="text-xs text-gray-500">@nir@mastodon.social</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 4 }}>
+              <span style={{ fontSize: 14, fontWeight: 600, color: '#1a1a1a' }}>
+                {personaName}
+              </span>
+              <span style={{ fontSize: 13, color: '#888888' }}>
+                @nir.bsky.social
+              </span>
+            </div>
+            <div
+              style={{
+                fontSize: 14,
+                color: '#2a2a2a',
+                lineHeight: '20px',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+              }}
+            >
+              {content}
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 20,
+                marginTop: 12,
+                paddingTop: 8,
+              }}
+            >
+              {['💬', '🔄', '❤️'].map((icon, i) => (
+                <span
+                  key={i}
+                  style={{ fontSize: 13, color: '#888888', cursor: 'default' }}
+                >
+                  {icon}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
-          {content}
-        </div>
-
-        <div className="flex items-center gap-8 mt-4 pt-3 border-t border-[#3D3557] text-xs text-gray-500">
-          <span className="hover:text-sky-400 cursor-default">\ud83d\udcac</span>
-          <span className="hover:text-green-400 cursor-default">\ud83d\udd04</span>
-          <span className="hover:text-pink-400 cursor-default">\u2764\ufe0f</span>
         </div>
       </div>
 
-      <CharCountBar length={content.length} limit={charLimit} />
+      <CharCountBar length={content.length} limit={charLimit} light />
     </div>
   );
 };
 
+// ─── Threads ─────────────────────────────────────────────────────
+// Light mode (Threads default is light), #000 text, clean minimal
 const ThreadsPreview: FC<PostPreviewProps> = ({
   content,
   personaName,
   charLimit,
 }) => {
   return (
-    <div className="bg-[#181818] rounded-lg overflow-hidden border border-[#333333]">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-[#333333]">
-        <span className="text-sm font-bold text-white">@</span>
-        <span className="text-xs font-medium text-gray-400">Threads</span>
+    <div
+      style={{
+        fontFamily:
+          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        border: '1px solid #e0e0e0',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #e8e8e8',
+          backgroundColor: '#fafafa',
+        }}
+      >
+        <span style={{ fontSize: 14, fontWeight: 800, color: '#000000' }}>
+          @
+        </span>
+        <span
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: '#999999',
+            letterSpacing: 0.3,
+          }}
+        >
+          THREADS PREVIEW
+        </span>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-gray-700 shrink-0">
+      <div style={{ padding: '12px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: '50%',
+              backgroundColor: '#000000',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: 14,
+              fontWeight: 700,
+              flexShrink: 0,
+            }}
+          >
             {personaName.charAt(0)}
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">
-              {personaName}
-            </span>
-            <span className="text-xs text-gray-500">@nirarazi</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+              <span style={{ fontSize: 14, fontWeight: 600, color: '#000000' }}>
+                {personaName}
+              </span>
+              <span style={{ fontSize: 13, color: '#999999' }}>now</span>
+            </div>
+            <div
+              style={{
+                fontSize: 15,
+                color: '#000000',
+                lineHeight: '21px',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+              }}
+            >
+              {content}
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                marginTop: 12,
+              }}
+            >
+              {['❤️', '💬', '🔄', '📤'].map((icon, i) => (
+                <span
+                  key={i}
+                  style={{ fontSize: 13, color: '#999999', cursor: 'default' }}
+                >
+                  {icon}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
-          {content}
-        </div>
-
-        <div className="flex items-center gap-8 mt-4 pt-3 border-t border-[#333333] text-xs text-gray-500">
-          <span className="hover:text-pink-400 cursor-default">\u2764\ufe0f</span>
-          <span className="hover:text-sky-400 cursor-default">\ud83d\udcac</span>
-          <span className="hover:text-green-400 cursor-default">\ud83d\udd04</span>
         </div>
       </div>
 
-      <CharCountBar length={content.length} limit={charLimit} />
+      <CharCountBar length={content.length} limit={charLimit} light />
     </div>
   );
 };
 
+// ─── Mastodon ────────────────────────────────────────────────────
+// Dark mode (Mastodon default), #282c37 bg, #6364ff accent
+const MastodonPreview: FC<PostPreviewProps> = ({
+  content,
+  personaName,
+  charLimit,
+}) => {
+  return (
+    <div
+      style={{
+        fontFamily:
+          '"Mastodon", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        backgroundColor: '#282c37',
+        borderRadius: 8,
+        border: '1px solid #393f4f',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #393f4f',
+        }}
+      >
+        <span
+          style={{
+            width: 18,
+            height: 18,
+            borderRadius: 4,
+            backgroundColor: '#6364ff',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: 10,
+            fontWeight: 700,
+          }}
+        >
+          M
+        </span>
+        <span
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: '#9baec8',
+            letterSpacing: 0.3,
+          }}
+        >
+          MASTODON PREVIEW
+        </span>
+      </div>
+
+      <div style={{ padding: '12px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+          <div
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: 4,
+              backgroundColor: '#6364ff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: 18,
+              fontWeight: 600,
+              flexShrink: 0,
+            }}
+          >
+            {personaName.charAt(0)}
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ marginBottom: 4 }}>
+              <span style={{ fontSize: 14, fontWeight: 700, color: '#ffffff' }}>
+                {personaName}
+              </span>
+              <br />
+              <span style={{ fontSize: 13, color: '#9baec8' }}>
+                @nir@mastodon.social
+              </span>
+            </div>
+            <div
+              style={{
+                fontSize: 14,
+                color: '#d9e1e8',
+                lineHeight: '20px',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+              }}
+            >
+              {content}
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 20,
+                marginTop: 12,
+              }}
+            >
+              {['💬', '🔄', '⭐'].map((icon, i) => (
+                <span
+                  key={i}
+                  style={{ fontSize: 13, color: '#9baec8', cursor: 'default' }}
+                >
+                  {icon}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CharCountBar length={content.length} limit={charLimit} light={false} />
+    </div>
+  );
+};
+
+// ─── Generic fallback ────────────────────────────────────────────
 const GenericPreview: FC<PostPreviewProps> = ({
   platform,
   content,
@@ -350,62 +699,135 @@ const GenericPreview: FC<PostPreviewProps> = ({
   charLimit,
 }) => {
   return (
-    <div className="bg-newBgColorInner rounded-lg overflow-hidden border border-fifth">
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-fifth">
-        <span className="flex items-center justify-center w-5 h-5 rounded bg-gray-600 text-[10px] font-bold text-white">
+    <div
+      style={{
+        fontFamily: '-apple-system, system-ui, sans-serif',
+        backgroundColor: '#f5f5f5',
+        borderRadius: 8,
+        border: '1px solid #e0e0e0',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          padding: '8px 16px',
+          borderBottom: '1px solid #e0e0e0',
+          backgroundColor: '#eeeeee',
+        }}
+      >
+        <span
+          style={{
+            width: 18,
+            height: 18,
+            borderRadius: 4,
+            backgroundColor: '#888',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontSize: 10,
+            fontWeight: 700,
+          }}
+        >
           {(platform || '?').charAt(0).toUpperCase()}
         </span>
-        <span className="text-xs font-medium text-gray-400">
-          {platform || 'Unknown'}
+        <span style={{ fontSize: 11, fontWeight: 600, color: '#888', letterSpacing: 0.3 }}>
+          {(platform || 'UNKNOWN').toUpperCase()} PREVIEW
         </span>
       </div>
 
-      <div className="p-4">
-        <div className="flex items-start gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-gray-600 shrink-0">
+      <div style={{ padding: '12px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 12 }}>
+          <div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: '50%',
+              backgroundColor: '#888',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontSize: 16,
+              fontWeight: 600,
+              flexShrink: 0,
+            }}
+          >
             {personaName.charAt(0)}
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-semibold text-white">
-              {personaName}
-            </span>
-            <span className="text-xs text-gray-400">{personaRole}</span>
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: '#222' }}>{personaName}</div>
+            <div style={{ fontSize: 12, color: '#888' }}>{personaRole}</div>
           </div>
         </div>
-
-        <div className="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap">
+        <div
+          style={{
+            fontSize: 14,
+            color: '#333',
+            lineHeight: '20px',
+            whiteSpace: 'pre-wrap',
+            wordBreak: 'break-word',
+          }}
+        >
           {content}
         </div>
       </div>
 
-      <CharCountBar length={content.length} limit={charLimit} />
+      <CharCountBar length={content.length} limit={charLimit} light />
     </div>
   );
 };
 
-const CharCountBar: FC<{ length: number; limit: number }> = ({
+// ─── Character count bar ─────────────────────────────────────────
+const CharCountBar: FC<{ length: number; limit: number; light?: boolean }> = ({
   length,
   limit,
+  light = true,
 }) => {
   const ratio = Math.min(length / limit, 1);
-  const barColor = getCharCountColor(length, limit);
-  const textColor = getCharCountTextColor(length, limit);
+  const barColor = getCharBarColor(length, limit);
+  const trackBg = light ? '#e5e7eb' : 'rgba(255,255,255,0.1)';
+  const textColor = light ? '#666666' : '#9ca3af';
 
   return (
-    <div className="px-4 pb-3 pt-1">
-      <div className="w-full h-1.5 bg-gray-700/50 rounded-full overflow-hidden">
+    <div style={{ padding: '4px 16px 12px' }}>
+      <div
+        style={{
+          width: '100%',
+          height: 3,
+          backgroundColor: trackBg,
+          borderRadius: 2,
+          overflow: 'hidden',
+        }}
+      >
         <div
-          className={`h-full rounded-full transition-all ${barColor}`}
-          style={{ width: `${ratio * 100}%` }}
+          style={{
+            height: '100%',
+            width: `${ratio * 100}%`,
+            backgroundColor: barColor,
+            borderRadius: 2,
+            transition: 'width 0.3s',
+          }}
         />
       </div>
-      <div className={`text-xs mt-1.5 text-right ${textColor}`}>
+      <div
+        style={{
+          fontSize: 11,
+          color: textColor,
+          textAlign: 'right',
+          marginTop: 4,
+        }}
+      >
         {length.toLocaleString()} / {limit.toLocaleString()} chars
       </div>
     </div>
   );
 };
 
+// ─── Router ──────────────────────────────────────────────────────
 export const PostPreview: FC<PostPreviewProps> = (props) => {
   const platform = props.platform?.toLowerCase() || '';
 
