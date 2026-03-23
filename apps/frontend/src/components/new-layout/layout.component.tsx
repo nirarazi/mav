@@ -118,18 +118,9 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                       <div className="text-[24px] font-[600] flex flex-1">
                         <Title />
                       </div>
-                      <div className="flex gap-[20px] text-textItemBlur">
-                        <StreakComponent />
-                        <div className="w-[1px] h-[20px] bg-blockSeparator" />
+                      <div className="flex gap-[20px] items-center text-textItemBlur">
                         <OrganizationSelector />
-                        <div className="hover:text-newTextColor">
-                          <ModeComponent />
-                        </div>
                         <div className="w-[1px] h-[20px] bg-blockSeparator" />
-                        <LanguageComponent />
-                        <ChromeExtensionComponent />
-                        <div className="w-[1px] h-[20px] bg-blockSeparator" />
-                        <AttachToFeedbackIcon />
                         <NotificationComponent />
                       </div>
                     </div>
