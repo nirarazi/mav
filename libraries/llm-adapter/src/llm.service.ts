@@ -1,6 +1,6 @@
 import { generateText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
-import { createAnthropic } from '@ai-sdk/anthropic-v5';
+import { createAnthropic } from '@ai-sdk/anthropic';
 
 export type LlmProvider = 'openai' | 'anthropic';
 
@@ -30,7 +30,7 @@ const COST_PER_TOKEN: Record<LlmProvider, { input: number; output: number }> = {
 
 const DEFAULT_MODELS: Record<LlmProvider, string> = {
   openai: 'gpt-4o',
-  anthropic: 'claude-sonnet-4-20250514',
+  anthropic: 'claude-3-5-sonnet-20241022',
 };
 
 export class LlmService {
