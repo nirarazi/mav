@@ -37,13 +37,37 @@ export interface ContentResult {
   estimatedCost: number;
 }
 
-// Platform character limits for user prompt construction
-const PLATFORM_LIMITS: Record<string, { maxChars: number; format: string }> = {
-  x: { maxChars: 280, format: 'a concise tweet' },
-  linkedin: { maxChars: 3000, format: 'a professional LinkedIn post' },
-  bluesky: { maxChars: 300, format: 'a short Bluesky post' },
-  threads: { maxChars: 500, format: 'a Threads post' },
-  mastodon: { maxChars: 500, format: 'a Mastodon toot' },
+// Platform-specific content guidance
+const PLATFORM_LIMITS: Record<string, {
+  maxChars: number;
+  format: string;
+  hashtagGuidance: string;
+}> = {
+  x: {
+    maxChars: 280,
+    format: 'a concise tweet',
+    hashtagGuidance: 'Use 1-2 hashtags maximum, only if highly relevant. Hashtags on X should feel natural, not forced. Place them inline within the text or at the very end. Never use more than 2 — it looks spammy.',
+  },
+  linkedin: {
+    maxChars: 3000,
+    format: 'a professional LinkedIn post',
+    hashtagGuidance: 'Include 3-5 relevant hashtags at the END of the post (after a line break). LinkedIn hashtags drive discovery — use a mix of broad (#AI, #Marketing) and niche (#AIAgents, #SocialMediaAutomation) tags. Always lowercase. Never embed hashtags mid-sentence.',
+  },
+  bluesky: {
+    maxChars: 300,
+    format: 'a short Bluesky post',
+    hashtagGuidance: 'Do NOT use hashtags. Bluesky culture actively discourages hashtags — posts with them look out of place. Rely on good writing and the algorithm instead.',
+  },
+  threads: {
+    maxChars: 500,
+    format: 'a Threads post',
+    hashtagGuidance: 'Use 0-2 hashtags, only if they add genuine context. Threads is conversational — heavy hashtag use feels inauthentic. If you use one, place it naturally at the end.',
+  },
+  mastodon: {
+    maxChars: 500,
+    format: 'a Mastodon toot',
+    hashtagGuidance: 'Use 2-4 hashtags. Mastodon relies heavily on hashtags for content discovery (there is no algorithm). Place them at the end of the post. Use CamelCase for accessibility (#AiAgents not #aiagents). Hashtags are essential on Mastodon — do not skip them.',
+  },
 };
 
 export class ContentPipeline {
@@ -179,20 +203,24 @@ export class ContentPipeline {
     const platformInfo = PLATFORM_LIMITS[platform.toLowerCase()] ?? {
       maxChars: 500,
       format: 'a social media post',
+      hashtagGuidance: 'Use hashtags sparingly and only if relevant to the platform.',
     };
 
     return [
-      `Write ${platformInfo.format} for ${platform} about the following topic:`,
+      `Write ${platformInfo.format} about the following topic:`,
       ``,
       `Topic: ${topic}`,
       ``,
-      `Constraints:`,
-      `- Maximum ${platformInfo.maxChars} characters`,
+      `Platform constraints:`,
+      `- Maximum ${platformInfo.maxChars} characters (including hashtags)`,
       `- Write in first person`,
-      `- Be authentic and opinionated`,
-      `- Do not include hashtags unless the platform specifically uses them`,
+      `- Be authentic and opinionated — no corporate speak`,
       `- Do not include any meta-commentary about the post itself`,
-      `- Output ONLY the post content, nothing else`,
+      ``,
+      `Hashtag rules for ${platform}:`,
+      platformInfo.hashtagGuidance,
+      ``,
+      `Output ONLY the post content, nothing else. No quotes, no "Here's a post:", no preamble.`,
     ].join('\n');
   }
 }
