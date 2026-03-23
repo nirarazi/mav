@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { useFetch } from '@maverick/helpers/utils/custom.fetch';
 import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
 import { useToaster } from '@maverick/react/toaster/toaster';
+import { PostPreview, PLATFORM_CHAR_LIMITS } from './post-preview';
 
 interface ApprovalItem {
   id: string;
@@ -117,9 +118,15 @@ const ApprovalCard: FC<{
         </div>
       )}
 
-      <div className="bg-newBgColorInner rounded-md p-4 text-sm leading-relaxed whitespace-pre-wrap">
-        {item.payload.content}
-      </div>
+      <PostPreview
+        platform={item.payload.platform}
+        content={item.payload.content}
+        personaName="Nir Arazi"
+        personaRole="Founder & CEO"
+        charLimit={
+          PLATFORM_CHAR_LIMITS[item.payload.platform?.toLowerCase()] || 500
+        }
+      />
 
       {item.expiresAt && (
         <div className="text-xs text-gray-500">
