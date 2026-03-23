@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Logger,
   Param,
   Post,
   Query,
@@ -11,14 +12,23 @@ import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.requ
 import { Organization, ApprovalType } from '@prisma/client';
 import { ApprovalService } from '@maverick/approval-engine/approval.service';
 import { PolicyService } from '@maverick/approval-engine/policy.service';
+import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
+dayjs.extend(utc);
 
 @ApiTags('Approvals')
 @Controller('/public/v1/approvals')
 export class PublicApprovalsController {
+  private readonly logger = new Logger(PublicApprovalsController.name);
+
   constructor(
     private readonly approvalService: ApprovalService,
     private readonly policyService: PolicyService,
+    private readonly postsService: PostsService,
+    private readonly prisma: PrismaService,
   ) {}
 
   @Get('/pending')
@@ -52,12 +62,73 @@ export class PublicApprovalsController {
     @Body() body: { approved: boolean; feedback?: string },
   ) {
     // Use org.id as decidedBy for API-key authenticated requests
-    return this.approvalService.decide(
+    const approval = await this.approvalService.decide(
       id,
       body.approved,
       `api:${org.id}`,
       body.feedback,
     );
+
+    let postResult: any = null;
+
+    // When approved, try to create a Postiz draft post scheduled for 1 hour from now
+    if (body.approved) {
+      const payload = approval.payload as Record<string, any> | null;
+      if (payload?.platform && payload?.content) {
+        try {
+          // Find an active integration for this platform
+          const integration = await this.prisma.integration.findFirst({
+            where: {
+              organizationId: org.id,
+              providerIdentifier: payload.platform,
+              disabled: false,
+            },
+          });
+
+          if (integration) {
+            const scheduledDate = dayjs.utc().add(1, 'hour').toDate();
+            const rawBody = {
+              type: 'schedule',
+              date: scheduledDate.toISOString(),
+              posts: [
+                {
+                  content: [{ content: payload.content }],
+                  integration: { id: integration.id },
+                  settings: {},
+                },
+              ],
+            };
+
+            const mappedBody = await this.postsService.mapTypeToPost(
+              rawBody as any,
+              org.id,
+              false,
+            );
+            mappedBody.type = 'schedule';
+            postResult = await this.postsService.createPost(org.id, mappedBody);
+
+            this.logger.log(
+              `Created scheduled post for approval ${id} on ${payload.platform} (integration ${integration.id})`,
+            );
+          } else {
+            this.logger.log(
+              `No active integration found for platform "${payload.platform}" — skipping post creation for approval ${id}`,
+            );
+          }
+        } catch (err: any) {
+          this.logger.error(
+            `Failed to create post for approved item ${id}: ${err.message}`,
+          );
+          // Don't fail the approval — just log the error
+          postResult = { error: err.message };
+        }
+      }
+    }
+
+    return {
+      approval,
+      ...(postResult !== null ? { post: postResult } : {}),
+    };
   }
 
   @Post('/submit')
