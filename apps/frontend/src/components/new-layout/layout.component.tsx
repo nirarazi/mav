@@ -2,7 +2,7 @@
 
 import React, { ReactNode, useCallback } from 'react';
 import { Logo } from '@maverick/frontend/components/new-layout/logo';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 const ModeComponent = dynamic(
   () => import('@maverick/frontend/components/layout/mode.component'),
   {
@@ -42,8 +42,8 @@ import { AttachToFeedbackIcon } from '@maverick/frontend/components/new-layout/s
 import { FirstBillingComponent } from '@maverick/frontend/components/billing/first.billing.component';
 import { AgentStatusBar } from '@maverick/frontend/components/layout/agent-status-bar';
 
-const jakartaSans = Plus_Jakarta_Sans({
-  weight: ['600', '500', '700'],
+const dmSans = DM_Sans({
+  weight: ['400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
 });
@@ -89,7 +89,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
             <div
               className={clsx(
                 'flex flex-col min-h-screen min-w-screen text-newTextColor',
-                jakartaSans.className
+                dmSans.className
               )}
             >
               <AgentStatusBar />

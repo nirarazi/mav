@@ -6,7 +6,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 import '@copilotkit/react-ui/styles.css';
 import LayoutContext from '@maverick/frontend/components/layout/layout.context';
 import { ReactNode } from 'react';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 import PlausibleProvider from 'next-plausible';
 import clsx from 'clsx';
 import { VariableContextComponent } from '@maverick/react/helpers/variable.context';
@@ -27,8 +27,8 @@ import Script from 'next/script';
 //   }
 // );
 
-const jakartaSans = Plus_Jakarta_Sans({
-  weight: ['600', '500'],
+const dmSans = DM_Sans({
+  weight: ['400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
 });
@@ -52,7 +52,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         )}
       </head>
       <body
-        className={clsx(jakartaSans.className, 'dark text-primary !bg-primary')}
+        className={clsx(dmSans.className, 'dark text-primary !bg-primary')}
       >
         <VariableContextComponent
           storageProvider={
