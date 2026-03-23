@@ -40,6 +40,7 @@ import { StreakComponent } from '@maverick/frontend/components/layout/streak.com
 import { PreConditionComponent } from '@maverick/frontend/components/layout/pre-condition.component';
 import { AttachToFeedbackIcon } from '@maverick/frontend/components/new-layout/sentry.feedback.component';
 import { FirstBillingComponent } from '@maverick/frontend/components/billing/first.billing.component';
+import { AgentStatusBar } from '@maverick/frontend/components/layout/agent-status-bar';
 
 const jakartaSans = Plus_Jakarta_Sans({
   weight: ['600', '500', '700'],
@@ -87,10 +88,12 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
             <ContinueProvider />
             <div
               className={clsx(
-                'flex flex-col min-h-screen min-w-screen text-newTextColor p-[12px]',
+                'flex flex-col min-h-screen min-w-screen text-newTextColor',
                 jakartaSans.className
               )}
             >
+              <AgentStatusBar />
+              <div className="flex-1 flex flex-col p-[12px]">
               <div>{user?.admin ? <Impersonate /> : <div />}</div>
               {user.tier === 'FREE' && isGeneral && billingEnabled ? (
                 <FirstBillingComponent />
@@ -100,7 +103,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                   <div className="flex flex-col bg-newBgColorInner w-[80px] rounded-[12px]">
                     <div
                       className={clsx(
-                        'fixed h-full w-[64px] start-[17px] flex flex-1 top-0',
+                        'fixed h-[calc(100%-36px)] w-[64px] start-[17px] flex flex-1 top-[36px]',
                         user?.admin && 'pt-[60px] max-h-[1000px]:w-[500px]'
                       )}
                     >
@@ -134,6 +137,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                   </div>
                 </div>
               )}
+              </div>
             </div>
           </CheckPayment>
         </MantineWrapper>
