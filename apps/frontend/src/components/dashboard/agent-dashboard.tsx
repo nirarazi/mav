@@ -4,6 +4,7 @@ import { FC, useCallback, useMemo, useState } from 'react';
 import useSWR from 'swr';
 import { useFetch } from '@maverick/helpers/utils/custom.fetch';
 import Link from 'next/link';
+import { useUser } from '@maverick/frontend/components/layout/user.context';
 
 // --- Types ---
 
@@ -50,6 +51,14 @@ const PLATFORMS = [
   { value: 'mastodon', label: 'Mastodon' },
 ];
 
+const PLATFORM_TAG_STYLES: Record<string, string> = {
+  linkedin: 'bg-[#DBEAFE] text-[#1D4ED8]',
+  x: 'bg-[#F4F4F5] text-[#3F3F46]',
+  bluesky: 'bg-[#DBEAFE] text-[#1D4ED8]',
+  threads: 'bg-[#F4F4F5] text-[#3F3F46]',
+  mastodon: 'bg-[#EDE9FE] text-[#7C5CFC]',
+};
+
 function getRelativeTime(dateStr: string): string {
   const now = new Date();
   const date = new Date(dateStr);
@@ -73,20 +82,50 @@ function truncate(text: string, max: number): string {
   return text.length > max ? text.slice(0, max) + '...' : text;
 }
 
+function getGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
 // --- Sub-components ---
 
 const StatCard: FC<{
   label: string;
   value: string | number;
+  accentColor: string;
+  valueColor?: string;
+  subtitle?: string;
+  subtitleColor?: string;
   loading?: boolean;
-}> = ({ label, value, loading }) => (
-  <div className="bg-[#141414] rounded-xl p-5 flex flex-col gap-1 min-w-0 flex-1">
+}> = ({ label, value, accentColor, valueColor, subtitle, subtitleColor, loading }) => (
+  <div className="bg-white border border-[#E8E6E1] rounded-2xl p-5 relative overflow-hidden">
+    <div
+      className="absolute -top-5 -right-5 w-20 h-20 rounded-full opacity-[0.08]"
+      style={{ background: accentColor }}
+    />
+    <div className="text-xs font-semibold text-[#A3A3A3] uppercase tracking-wider mb-2">
+      {label}
+    </div>
     {loading ? (
-      <div className="h-8 w-16 bg-white/5 rounded animate-pulse" />
+      <div className="h-8 w-16 bg-[#F5F3EF] rounded animate-pulse" />
     ) : (
-      <span className="text-2xl font-bold text-orange-500">{value}</span>
+      <div
+        className="text-[32px] font-extrabold tracking-tighter leading-none"
+        style={valueColor ? { color: valueColor } : undefined}
+      >
+        {value}
+      </div>
     )}
-    <span className="text-sm text-gray-400">{label}</span>
+    {subtitle && (
+      <div
+        className="text-xs font-medium mt-1.5"
+        style={subtitleColor ? { color: subtitleColor } : undefined}
+      >
+        {subtitle}
+      </div>
+    )}
   </div>
 );
 
@@ -121,16 +160,16 @@ const GeneratePostForm: FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
   }, [fetch, platform, topic, onSuccess]);
 
   return (
-    <div className="bg-[#141414] rounded-xl p-5 flex flex-col gap-4 border border-orange-500/20">
+    <div className="bg-white border border-[#E8E6E1] rounded-2xl p-5 flex flex-col gap-4">
       <div className="flex flex-wrap gap-2">
         {PLATFORMS.map((p) => (
           <button
             key={p.value}
             onClick={() => setPlatform(p.value)}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-3 py-1.5 rounded-[20px] text-xs font-semibold transition-colors ${
               platform === p.value
-                ? 'bg-orange-600 text-white'
-                : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                ? PLATFORM_TAG_STYLES[p.value] || 'bg-[#EDE9FE] text-[#7C5CFC]'
+                : 'bg-[#F5F3EF] text-[#A3A3A3] hover:text-[#6B6B6B]'
             }`}
           >
             {p.label}
@@ -143,14 +182,14 @@ const GeneratePostForm: FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
         onChange={(e) => setTopic(e.target.value)}
         placeholder="What should the post be about?"
         rows={3}
-        className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-500 outline-none focus:border-orange-500/50 transition-colors resize-none"
+        className="w-full bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] px-4 py-3 text-sm text-[#1A1A1A] placeholder-[#A3A3A3] outline-none focus:border-[#7C5CFC]/50 transition-colors resize-none"
       />
 
       <div className="flex items-center gap-3">
         <button
           onClick={handleGenerate}
           disabled={isGenerating || !topic.trim()}
-          className="bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium py-2 px-5 rounded-lg transition-colors flex items-center gap-2"
+          className="bg-[#7C5CFC] hover:bg-[#6D4AED] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold py-2 px-5 rounded-[20px] transition-all flex items-center gap-2 shadow-[0_2px_6px_rgba(124,92,252,0.25)] hover:shadow-[0_4px_12px_rgba(124,92,252,0.35)] hover:-translate-y-px"
         >
           {isGenerating && (
             <svg
@@ -173,22 +212,22 @@ const GeneratePostForm: FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
               />
             </svg>
           )}
-          {isGenerating ? 'Generating...' : 'Generate'}
+          {isGenerating ? 'Generating...' : 'Create content'}
         </button>
 
         {result === 'success' && (
-          <span className="text-sm text-green-400 flex items-center gap-1">
+          <span className="text-sm text-[#16A34A] flex items-center gap-1">
             Post generated and queued for approval.{' '}
             <Link
               href="/approvals"
-              className="underline hover:text-green-300"
+              className="underline hover:opacity-80"
             >
               Review
             </Link>
           </span>
         )}
         {result === 'error' && (
-          <span className="text-sm text-red-400">
+          <span className="text-sm text-[#DC2626]">
             Generation failed. Try again.
           </span>
         )}
@@ -201,83 +240,128 @@ type ActivityEntry =
   | { kind: 'approval'; item: ApprovalItem }
   | { kind: 'session'; session: BrainSession };
 
-const BORDER_COLORS: Record<string, string> = {
-  APPROVED: 'border-l-green-500',
-  PENDING: 'border-l-orange-500',
-  REJECTED: 'border-l-red-500',
-  session: 'border-l-blue-500',
-};
+type FeedFilter = 'all' | 'needs-review' | 'published' | 'agent';
 
 const ActivityCard: FC<{ entry: ActivityEntry }> = ({ entry }) => {
   if (entry.kind === 'session') {
     const s = entry.session;
     return (
-      <div
-        className={`bg-[#141414] rounded-lg px-4 py-3 border-l-4 ${BORDER_COLORS.session}`}
-      >
-        <span className="text-sm text-gray-300">
-          Agent brain cycle &middot;{' '}
-          <span className="text-blue-400">{s.status}</span> &middot;{' '}
-          <span className="text-gray-500">
+      <div className="bg-white border border-[#E8E6E1] rounded-2xl px-6 py-5 transition-all hover:border-[#D0CEC8] hover:shadow-[0_4px_12px_rgba(0,0,0,0.03)]">
+        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+          <span className="text-[#A3A3A3] text-[11.5px] font-medium">
             {getRelativeTime(s.completedAt || s.startedAt)}
           </span>
-        </span>
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold bg-[#EDE9FE] text-[#7C5CFC]">
+            Agent Brain
+          </span>
+        </div>
+        <div className="text-[15px] leading-relaxed text-[#6B6B6B] mb-1">
+          Brain cycle {s.status.toLowerCase()} &middot; {getRelativeTime(s.completedAt || s.startedAt)}
+        </div>
       </div>
     );
   }
 
   const item = entry.item;
   const status = item.status.toUpperCase();
-  const borderColor =
-    BORDER_COLORS[status] || 'border-l-gray-600';
   const platform = item.payload?.platform || 'unknown';
-  const content = truncate(item.payload?.content || '', 80);
+  const content = truncate(item.payload?.content || '', 140);
+  const isNeedsReview = status === 'PENDING';
+  const isPublished = status === 'APPROVED';
+  const isRejected = status === 'REJECTED';
+  const riskLevel = item.riskScore > 0.6 ? 'medium' : 'low';
 
-  let prefix = '';
-  let statusColor = 'text-gray-400';
-  if (status === 'APPROVED') {
-    prefix = 'Published to';
-    statusColor = 'text-green-400';
-  } else if (status === 'PENDING') {
-    prefix = 'Awaiting approval';
-    statusColor = 'text-orange-400';
-  } else if (status === 'REJECTED') {
-    prefix = 'Rejected';
-    statusColor = 'text-red-400';
-  }
+  const cardClass = isNeedsReview
+    ? 'bg-gradient-to-br from-[#FEFCFF] to-[#F9F5FF] border-[#7C5CFC]'
+    : 'bg-white border-[#E8E6E1] hover:border-[#D0CEC8] hover:shadow-[0_4px_12px_rgba(0,0,0,0.03)]';
+
+  const platformTagStyle = PLATFORM_TAG_STYLES[platform.toLowerCase()] || 'bg-[#F4F4F5] text-[#3F3F46]';
 
   return (
-    <div
-      className={`bg-[#141414] rounded-lg px-4 py-3 border-l-4 ${borderColor}`}
-    >
-      <span className="text-sm text-gray-300">
-        <span className={statusColor}>{prefix}</span>
-        {status === 'APPROVED' && (
-          <>
-            {' '}
-            <span className="text-white font-medium">{platform}</span>
-          </>
-        )}
-        {status !== 'APPROVED' && (
-          <>
-            {' '}
-            &middot;{' '}
-            <span className="text-white font-medium">{platform}</span>
-          </>
-        )}
-        {content && (
-          <>
-            {' '}
-            &middot;{' '}
-            <span className="text-gray-500">{content}</span>
-          </>
-        )}
-        {' '}
-        &middot;{' '}
-        <span className="text-gray-500">
+    <div className={`border rounded-2xl px-6 py-5 transition-all ${cardClass}`}>
+      {/* Tag row */}
+      <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+        <span className="text-[#A3A3A3] text-[11.5px] font-medium">
           {getRelativeTime(item.createdAt)}
         </span>
-      </span>
+        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold ${platformTagStyle}`}>
+          {platform.charAt(0).toUpperCase() + platform.slice(1)}
+        </span>
+        {isPublished && (
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold bg-[#DCFCE7] text-[#16A34A]">
+            Published
+          </span>
+        )}
+        {isNeedsReview && (
+          <>
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold bg-[#EDE9FE] text-[#7C5CFC]">
+              Needs review
+            </span>
+            <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold ${
+              riskLevel === 'medium'
+                ? 'bg-[#FEF3C7] text-[#D97706]'
+                : 'bg-[#DCFCE7] text-[#16A34A]'
+            }`}>
+              {riskLevel === 'medium' ? 'Medium risk' : 'Low risk'}
+            </span>
+          </>
+        )}
+        {isRejected && (
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[20px] text-[11.5px] font-semibold bg-[#FEE2E2] text-[#DC2626]">
+            Rejected
+          </span>
+        )}
+      </div>
+
+      {/* Warning box for medium risk */}
+      {isNeedsReview && riskLevel === 'medium' && (
+        <div className="flex items-center gap-2 bg-[#FEF3C7] text-[#D97706] px-3.5 py-2.5 rounded-[10px] text-[13px] font-medium mb-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Topic may attract controversy
+        </div>
+      )}
+
+      {/* Content */}
+      {content && (
+        <div className={`text-[15px] leading-relaxed mb-3 ${
+          isPublished || isNeedsReview ? 'text-[#1A1A1A]' : 'text-[#6B6B6B]'
+        }`}>
+          {content}
+        </div>
+      )}
+
+      {/* Actions */}
+      {isNeedsReview && (
+        <div className="flex flex-wrap gap-2 mt-3.5">
+          <Link
+            href={`/approvals`}
+            className="bg-[#7C5CFC] text-white text-[13px] font-semibold py-2 px-[18px] rounded-[10px] transition-all hover:bg-[#6B4FE0] hover:-translate-y-px shadow-[0_2px_6px_rgba(124,92,252,0.25)] hover:shadow-[0_4px_12px_rgba(124,92,252,0.35)]"
+          >
+            Approve
+          </Link>
+          <Link
+            href={`/approvals`}
+            className="bg-white text-[#6B6B6B] text-[13px] font-semibold py-2 px-[18px] rounded-[10px] border-[1.5px] border-[#E8E6E1] transition-colors hover:border-[#C0BDB6] hover:text-[#1A1A1A]"
+          >
+            Edit
+          </Link>
+          <button className="bg-[#FEE2E2] text-[#DC2626] text-[13px] font-semibold py-2 px-[18px] rounded-[10px] border border-[rgba(220,38,38,0.15)] transition-colors hover:bg-[#FECACA]">
+            Reject
+          </button>
+        </div>
+      )}
+
+      {isPublished && (
+        <div className="flex flex-wrap gap-2 mt-3.5">
+          <button className="text-[#A3A3A3] text-[13px] font-semibold underline underline-offset-2 hover:text-[#6B6B6B] transition-colors bg-transparent border-none py-2 px-1">
+            View on {platform.charAt(0).toUpperCase() + platform.slice(1)}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -286,7 +370,9 @@ const ActivityCard: FC<{ entry: ActivityEntry }> = ({ entry }) => {
 
 export const AgentDashboard: FC = () => {
   const fetch = useFetch();
+  const user = useUser();
   const [showGenerateForm, setShowGenerateForm] = useState(false);
+  const [feedFilter, setFeedFilter] = useState<FeedFilter>('all');
 
   // Fetch pending approvals
   const loadPending = useCallback(async () => {
@@ -352,8 +438,7 @@ export const AgentDashboard: FC = () => {
   }, [historyItems]);
 
   const pendingCount = (pendingItems || []).length;
-  const personaName = activePersona?.name || 'None';
-  const brainReady = brainStatus?.ready ? 'Ready' : 'Offline';
+  const brainReady = brainStatus?.ready;
 
   // Build activity feed
   const activityFeed = useMemo<ActivityEntry[]>(() => {
@@ -384,6 +469,25 @@ export const AgentDashboard: FC = () => {
     return entries;
   }, [historyItems, pendingItems, brainStatus]);
 
+  // Filter activity feed
+  const filteredFeed = useMemo(() => {
+    if (feedFilter === 'all') return activityFeed;
+    if (feedFilter === 'needs-review') {
+      return activityFeed.filter(
+        (e) => e.kind === 'approval' && e.item.status.toUpperCase() === 'PENDING'
+      );
+    }
+    if (feedFilter === 'published') {
+      return activityFeed.filter(
+        (e) => e.kind === 'approval' && e.item.status.toUpperCase() === 'APPROVED'
+      );
+    }
+    if (feedFilter === 'agent') {
+      return activityFeed.filter((e) => e.kind === 'session');
+    }
+    return activityFeed;
+  }, [activityFeed, feedFilter]);
+
   const handleGenerateSuccess = useCallback(() => {
     mutateHistory();
   }, [mutateHistory]);
@@ -391,98 +495,137 @@ export const AgentDashboard: FC = () => {
   const isLoading =
     pendingLoading && historyLoading && personaLoading && brainLoading;
 
-  return (
-    <div className="flex-1 overflow-auto bg-[#0a0a0a]">
-      <div className="max-w-5xl mx-auto p-6 flex flex-col gap-6">
-        {/* Header */}
-        <div>
-          <h1 className="text-2xl font-semibold text-white">Dashboard</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            Agent activity and controls
-          </p>
-        </div>
+  const firstName = user?.name?.split(' ')[0] || 'there';
 
-        {/* Hero Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+  const filterButtons: { key: FeedFilter; label: string }[] = [
+    { key: 'all', label: 'All' },
+    { key: 'needs-review', label: 'Needs review' },
+    { key: 'published', label: 'Published' },
+    { key: 'agent', label: 'Agent' },
+  ];
+
+  return (
+    <div className="flex-1 overflow-auto bg-[#FAFAF8]">
+      <div className="max-w-[900px] mx-auto px-6 py-9 flex flex-col">
+        {/* Greeting */}
+        <h1 className="text-[28px] font-extrabold tracking-tighter text-[#1A1A1A] mb-1">
+          {getGreeting()}, {firstName}
+        </h1>
+        <p className="text-[15px] text-[#6B6B6B] mb-8">
+          {pendingCount > 0
+            ? `${pendingCount} post${pendingCount !== 1 ? 's' : ''} need${pendingCount === 1 ? 's' : ''} your review. Everything else is running smoothly.`
+            : 'Your social presence, on autopilot.'}
+        </p>
+
+        {/* Bento Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-9">
           <StatCard
-            label="Posts Today"
+            label="Published"
             value={postsToday}
+            accentColor="#7C5CFC"
             loading={historyLoading}
           />
           <StatCard
-            label="Pending Approvals"
+            label="Needs review"
             value={pendingCount}
+            accentColor="#D97706"
+            valueColor={pendingCount > 0 ? '#7C5CFC' : undefined}
             loading={pendingLoading}
           />
           <StatCard
-            label="Active Persona"
-            value={personaName}
+            label="Persona"
+            value={activePersona?.name || 'None'}
+            accentColor="#16A34A"
             loading={personaLoading}
           />
           <StatCard
-            label="Brain Status"
-            value={brainReady}
+            label="Agent"
+            value={brainReady ? 'Ready' : 'Offline'}
+            accentColor="#2563EB"
+            valueColor={brainReady ? '#16A34A' : '#DC2626'}
             loading={brainLoading}
           />
         </div>
 
-        {/* Quick Actions Row */}
-        <div className="flex flex-wrap gap-3">
+        {/* Quick Actions */}
+        <div className="flex flex-wrap gap-3 mb-9">
           <button
             onClick={() => setShowGenerateForm((prev) => !prev)}
-            className={`text-sm font-medium py-2 px-5 rounded-lg transition-colors ${
+            className={`text-sm font-semibold py-2 px-5 rounded-[20px] transition-all flex items-center gap-2 ${
               showGenerateForm
-                ? 'bg-orange-700 text-white'
-                : 'bg-orange-600 hover:bg-orange-700 text-white'
+                ? 'bg-[#5B3DD6] text-white shadow-[0_2px_6px_rgba(124,92,252,0.25)]'
+                : 'bg-[#7C5CFC] hover:bg-[#6D4AED] text-white shadow-[0_2px_6px_rgba(124,92,252,0.25)] hover:shadow-[0_4px_12px_rgba(124,92,252,0.35)] hover:-translate-y-px'
             }`}
           >
-            {showGenerateForm ? 'Close' : 'Generate Post'}
+            {showGenerateForm ? 'Close' : 'Create content'}
           </button>
           <Link
             href="/approvals"
-            className="text-sm font-medium py-2 px-5 rounded-lg border border-white/10 text-gray-300 hover:bg-white/5 transition-colors"
+            className="text-sm font-semibold py-2 px-5 rounded-[20px] border-[1.5px] border-[#E8E6E1] text-[#6B6B6B] hover:border-[#C0BDB6] hover:text-[#1A1A1A] bg-white transition-colors"
           >
-            Review Approvals
+            Review approvals
           </Link>
           <Link
             href="/launches"
-            className="text-sm font-medium py-2 px-5 rounded-lg border border-white/10 text-gray-300 hover:bg-white/5 transition-colors"
+            className="text-sm font-semibold py-2 px-5 rounded-[20px] border-[1.5px] border-[#E8E6E1] text-[#6B6B6B] hover:border-[#C0BDB6] hover:text-[#1A1A1A] bg-white transition-colors"
           >
-            View Calendar
+            View calendar
           </Link>
         </div>
 
         {/* Generate Post Inline Form */}
         {showGenerateForm && (
-          <GeneratePostForm onSuccess={handleGenerateSuccess} />
+          <div className="mb-9">
+            <GeneratePostForm onSuccess={handleGenerateSuccess} />
+          </div>
         )}
 
         {/* Activity Feed */}
-        <div className="flex flex-col gap-2">
-          <h2 className="text-lg font-medium text-white">Activity</h2>
+        <div className="flex flex-col">
+          {/* Section header with filter pills */}
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-bold tracking-tight text-[#1A1A1A]">
+              Activity
+            </h2>
+            <div className="flex gap-1">
+              {filterButtons.map((f) => (
+                <button
+                  key={f.key}
+                  onClick={() => setFeedFilter(f.key)}
+                  className={`px-3 py-1.5 rounded-[20px] text-xs font-semibold transition-all border ${
+                    feedFilter === f.key
+                      ? 'bg-white border-[#E8E6E1] text-[#1A1A1A] shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
+                      : 'border-transparent text-[#A3A3A3] hover:bg-[#F5F3EF] hover:text-[#6B6B6B]'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {isLoading ? (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {[...Array(5)].map((_, i) => (
                 <div
                   key={i}
-                  className="bg-[#141414] rounded-lg h-12 animate-pulse"
+                  className="bg-white border border-[#E8E6E1] rounded-2xl h-24 animate-pulse"
                 />
               ))}
             </div>
-          ) : activityFeed.length === 0 ? (
+          ) : filteredFeed.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">
-              <div className="text-4xl mb-3 text-gray-600">~</div>
-              <h3 className="text-lg font-medium text-gray-300 mb-1">
-                No activity yet
+              <div className="text-4xl mb-3 text-[#A3A3A3]">~</div>
+              <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">
+                Your feed is quiet
               </h3>
-              <p className="text-sm text-gray-500">
-                Generate your first post to get started.
+              <p className="text-sm text-[#6B6B6B]">
+                Create your first post to get things rolling.
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-2">
-              {activityFeed.map((entry, i) => (
+            <div className="flex flex-col gap-3">
+              {filteredFeed.map((entry, i) => (
                 <ActivityCard key={i} entry={entry} />
               ))}
             </div>
