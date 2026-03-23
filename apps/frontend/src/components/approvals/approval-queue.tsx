@@ -24,14 +24,14 @@ interface ApprovalItem {
 }
 
 const PLATFORM_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-  x: { bg: 'bg-black', text: 'text-white', label: 'X' },
-  twitter: { bg: 'bg-black', text: 'text-white', label: 'X' },
-  linkedin: { bg: 'bg-blue-600', text: 'text-white', label: 'LinkedIn' },
-  bluesky: { bg: 'bg-sky-500', text: 'text-white', label: 'Bluesky' },
-  facebook: { bg: 'bg-blue-500', text: 'text-white', label: 'Facebook' },
-  instagram: { bg: 'bg-pink-500', text: 'text-white', label: 'Instagram' },
-  youtube: { bg: 'bg-red-600', text: 'text-white', label: 'YouTube' },
-  tiktok: { bg: 'bg-gray-900', text: 'text-white', label: 'TikTok' },
+  x: { bg: 'bg-[#F4F4F5]', text: 'text-[#3F3F46]', label: 'X' },
+  twitter: { bg: 'bg-[#F4F4F5]', text: 'text-[#3F3F46]', label: 'X' },
+  linkedin: { bg: 'bg-[#DBEAFE]', text: 'text-[#1D4ED8]', label: 'LinkedIn' },
+  bluesky: { bg: 'bg-sky-100', text: 'text-sky-700', label: 'Bluesky' },
+  facebook: { bg: 'bg-blue-100', text: 'text-blue-700', label: 'Facebook' },
+  instagram: { bg: 'bg-pink-100', text: 'text-pink-700', label: 'Instagram' },
+  youtube: { bg: 'bg-red-100', text: 'text-red-700', label: 'YouTube' },
+  tiktok: { bg: 'bg-gray-100', text: 'text-gray-700', label: 'TikTok' },
 };
 
 function getRelativeTime(dateStr: string): string {
@@ -53,9 +53,9 @@ function getRelativeTime(dateStr: string): string {
 }
 
 function getRiskColor(score: number): { bg: string; text: string; label: string } {
-  if (score < 0.3) return { bg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-700 dark:text-green-400', label: 'Low' };
-  if (score <= 0.6) return { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-700 dark:text-yellow-400', label: 'Medium' };
-  return { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-700 dark:text-red-400', label: 'High' };
+  if (score < 0.3) return { bg: 'bg-[#DCFCE7]', text: 'text-[#16A34A]', label: 'Low' };
+  if (score <= 0.6) return { bg: 'bg-[#FEF3C7]', text: 'text-[#D97706]', label: 'Medium' };
+  return { bg: 'bg-[#FEE2E2]', text: 'text-[#DC2626]', label: 'High' };
 }
 
 const ApprovalCard: FC<{
@@ -92,28 +92,52 @@ const ApprovalCard: FC<{
     }
   }, [item.id, feedback, onReject]);
 
+  const needsReview = item.status === 'pending';
+  const isHighRisk = item.riskScore > 0.6;
+  const isMedRisk = item.riskScore > 0.3 && item.riskScore <= 0.6;
+
   return (
-    <div className="bg-newBgColor border border-fifth rounded-lg p-5 flex flex-col gap-3">
+    <div
+      className={`bg-white rounded-[16px] p-5 flex flex-col gap-3 transition-all hover:shadow-sm ${
+        needsReview && isMedRisk
+          ? 'border-[1.5px] border-[#D97706]'
+          : needsReview
+          ? 'border-[1.5px] border-[#7C5CFC]'
+          : 'border border-[#E8E6E1]'
+      }`}
+      style={
+        needsReview && isMedRisk
+          ? { background: 'linear-gradient(135deg, #FFFEFB, #FFFBEB)' }
+          : needsReview
+          ? { background: 'linear-gradient(135deg, #FEFCFF, #F9F5FF)' }
+          : undefined
+      }
+    >
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-xs font-medium text-[#A3A3A3]">
+            {getRelativeTime(item.createdAt)}
+          </span>
           <span
-            className={`${platformStyle.bg} ${platformStyle.text} text-xs font-medium px-2.5 py-1 rounded-full`}
+            className={`${platformStyle.bg} ${platformStyle.text} text-xs font-semibold px-2.5 py-1 rounded-full`}
           >
             {platformStyle.label}
           </span>
+          {needsReview && (
+            <span className="bg-[#EDE9FE] text-[#7C5CFC] text-xs font-semibold px-2.5 py-1 rounded-full">
+              Needs review
+            </span>
+          )}
           <span
-            className={`${riskStyle.bg} ${riskStyle.text} text-xs font-medium px-2.5 py-1 rounded-full`}
+            className={`${riskStyle.bg} ${riskStyle.text} text-xs font-semibold px-2.5 py-1 rounded-full`}
           >
-            Risk: {riskStyle.label} ({Math.round(item.riskScore * 100)}%)
+            {riskStyle.label} risk
           </span>
         </div>
-        <span className="text-xs text-gray-400">
-          {getRelativeTime(item.createdAt)}
-        </span>
       </div>
 
       {item.payload.topic && (
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-[#6B6B6B]">
           Topic: {item.payload.topic}
         </div>
       )}
@@ -129,7 +153,7 @@ const ApprovalCard: FC<{
       />
 
       {item.expiresAt && (
-        <div className="text-xs text-gray-500">
+        <div className="text-xs text-[#A3A3A3]">
           Expires: {new Date(item.expiresAt).toLocaleString()}
         </div>
       )}
@@ -140,20 +164,20 @@ const ApprovalCard: FC<{
           placeholder="Optional feedback..."
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
-          className="w-full bg-newBgColorInner border border-fifth rounded-md px-3 py-2 text-sm outline-none focus:border-purple-500 transition-colors"
+          className="w-full bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] px-3 py-2 text-sm text-[#1A1A1A] outline-none focus:border-[#7C5CFC] transition-colors placeholder:text-[#A3A3A3]"
         />
         <div className="flex gap-2">
           <button
             onClick={handleApprove}
             disabled={isSubmitting}
-            className="flex-1 bg-green-600 hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium py-2 px-4 rounded-md transition-colors"
+            className="bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-semibold py-2 px-5 rounded-full transition-colors"
           >
             {isSubmitting ? 'Processing...' : 'Approve'}
           </button>
           <button
             onClick={handleReject}
             disabled={isSubmitting}
-            className="flex-1 bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium py-2 px-4 rounded-md transition-colors"
+            className="bg-white hover:bg-[#FEE2E2] disabled:opacity-50 disabled:cursor-not-allowed text-[#DC2626] text-xs font-semibold py-2 px-5 rounded-full border border-[#DC2626] transition-colors"
           >
             {isSubmitting ? 'Processing...' : 'Reject'}
           </button>
@@ -175,15 +199,15 @@ const EmptyState: FC = () => (
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="text-gray-400 mb-4"
+      className="text-[#A3A3A3] mb-4"
     >
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
       <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
-    <h3 className="text-lg font-medium text-gray-300 mb-1">
+    <h3 className="text-lg font-medium text-[#1A1A1A] mb-1">
       No pending approvals
     </h3>
-    <p className="text-sm text-gray-500">
+    <p className="text-sm text-[#6B6B6B]">
       Your agent is on standby.
     </p>
   </div>
@@ -264,12 +288,12 @@ export const ApprovalQueue: FC = () => {
   }
 
   return (
-    <div className="flex-1 p-6 overflow-auto">
+    <div className="flex-1 p-6 overflow-auto" style={{ backgroundColor: '#FAFAF8' }}>
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-semibold">Approvals</h1>
+          <h1 className="text-2xl font-extrabold text-[#1A1A1A] tracking-tight">Approvals</h1>
           {items.length > 0 && (
-            <span className="bg-purple-600 text-white text-xs font-medium px-3 py-1 rounded-full">
+            <span className="bg-[#EDE9FE] text-[#7C5CFC] text-xs font-semibold px-3 py-1 rounded-full">
               {items.length} pending
             </span>
           )}

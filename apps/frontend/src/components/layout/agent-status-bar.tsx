@@ -61,56 +61,54 @@ export const AgentStatusBar: FC = () => {
       className="flex items-center justify-between w-full shrink-0 px-4"
       style={{
         height: '36px',
-        backgroundColor: '#141414',
-        borderBottom: '1px solid #252525',
+        backgroundColor: '#FFFFFF',
+        borderBottom: '1px solid #E8E6E1',
       }}
     >
       {/* Left side: status info */}
       <div className="flex items-center gap-3 text-xs min-w-0">
-        {/* Status dot */}
-        <span
-          className="inline-block shrink-0 rounded-full"
-          style={{
-            width: '8px',
-            height: '8px',
-            backgroundColor: paused
-              ? '#ef4444'
-              : isActive
-                ? '#22c55e'
-                : '#eab308',
-          }}
-        />
+        {/* Status pill */}
+        {paused ? (
+          <span className="inline-flex items-center gap-1.5 bg-[#FEE2E2] text-[#DC2626] font-semibold px-3 py-0.5 rounded-full text-xs">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-[#DC2626]" />
+            Paused
+          </span>
+        ) : isActive ? (
+          <span className="inline-flex items-center gap-1.5 bg-[#DCFCE7] text-[#16A34A] font-semibold px-3 py-0.5 rounded-full text-xs">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-[#16A34A] animate-pulse" />
+            Agent running
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 bg-[#FEF3C7] text-[#D97706] font-semibold px-3 py-0.5 rounded-full text-xs">
+            <span className="inline-block w-[7px] h-[7px] rounded-full bg-[#D97706]" />
+            Idle
+          </span>
+        )}
 
         {paused ? (
-          <span className="text-gray-400 truncate">
-            <span className="text-white font-medium">Agent Paused</span>
-            <Separator />
+          <span className="text-[#6B6B6B] truncate">
             All autonomous activity halted
             <Separator />
             Resume to continue
           </span>
         ) : isIdle ? (
-          <span className="text-gray-400 truncate">
-            <span className="text-white font-medium">Agent Idle</span>
-            <Separator />
+          <span className="text-[#6B6B6B] truncate">
             No persona configured
             <Separator />
             Set up your first persona to get started
           </span>
         ) : (
-          <span className="text-gray-400 truncate">
-            <span className="text-white font-medium">Agent Active</span>
+          <span className="text-[#6B6B6B] truncate">
             {status.activePersona && (
               <>
-                <Separator />
                 Persona:{' '}
-                <span className="text-white">{status.activePersona.name}</span>
+                <span className="text-[#1A1A1A] font-medium">{status.activePersona.name}</span>
               </>
             )}
             {status.pendingApprovals > 0 && (
               <>
                 <Separator />
-                <span className="text-white">
+                <span className="inline-flex items-center bg-[#EDE9FE] text-[#7C5CFC] font-semibold px-2 py-0.5 rounded-full text-[10px] align-middle">
                   {status.pendingApprovals}
                 </span>{' '}
                 pending approval{status.pendingApprovals !== 1 ? 's' : ''}
@@ -120,7 +118,7 @@ export const AgentStatusBar: FC = () => {
               <>
                 <Separator />
                 Last cycle:{' '}
-                <span className="text-white">{lastCycle}</span>
+                <span className="text-[#1A1A1A] font-medium">{lastCycle}</span>
               </>
             )}
           </span>
@@ -130,7 +128,11 @@ export const AgentStatusBar: FC = () => {
       {/* Right side: pause/resume button */}
       <button
         onClick={() => setPaused((p) => !p)}
-        className="shrink-0 text-xs text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 rounded px-3 py-1 transition-colors ml-4"
+        className={`shrink-0 text-xs font-semibold px-3 py-1 rounded-full transition-colors ml-4 ${
+          paused
+            ? 'bg-[#DCFCE7] text-[#16A34A] hover:bg-[#BBF7D0]'
+            : 'bg-[#FEE2E2] text-[#DC2626] hover:bg-[#FECACA]'
+        }`}
       >
         {paused ? '\u25B6 Resume' : '\u23F8 Pause'}
       </button>
@@ -139,5 +141,5 @@ export const AgentStatusBar: FC = () => {
 };
 
 const Separator: FC = () => (
-  <span className="mx-1.5 text-gray-600">&middot;</span>
+  <span className="mx-1.5 text-[#D0CEC8]">&middot;</span>
 );

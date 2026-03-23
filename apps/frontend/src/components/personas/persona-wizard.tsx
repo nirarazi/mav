@@ -86,17 +86,17 @@ const TagInput: FC<{
   );
 
   return (
-    <div className="flex flex-wrap gap-2 p-3 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg focus-within:border-orange-500 transition-colors min-h-[48px]">
+    <div className="flex flex-wrap gap-2 p-3 bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] focus-within:border-[#7C5CFC] transition-colors min-h-[48px]">
       {tags.map((tag) => (
         <span
           key={tag}
-          className="flex items-center gap-1.5 bg-[#2a2a2a] text-gray-200 text-sm px-3 py-1 rounded-full"
+          className="flex items-center gap-1.5 bg-[#EDE9FE] text-[#7C5CFC] text-sm font-medium px-3 py-1 rounded-full"
         >
           {tag}
           <button
             type="button"
             onClick={() => removeTag(tag)}
-            className="text-gray-500 hover:text-white transition-colors"
+            className="text-[#7C5CFC]/50 hover:text-[#7C5CFC] transition-colors"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -110,7 +110,7 @@ const TagInput: FC<{
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder={tags.length === 0 ? placeholder : ''}
-        className="flex-1 min-w-[120px] bg-transparent outline-none text-sm text-gray-200 placeholder:text-gray-600"
+        className="flex-1 min-w-[120px] bg-transparent outline-none text-sm text-[#1A1A1A] placeholder:text-[#A3A3A3]"
       />
     </div>
   );
@@ -123,16 +123,16 @@ const SegmentedControl: FC<{
   value: string;
   onChange: (value: string) => void;
 }> = ({ options, value, onChange }) => (
-  <div className="flex bg-[#1a1a1a] rounded-lg p-1 gap-1">
+  <div className="flex bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] p-1 gap-1">
     {options.map((option) => (
       <button
         key={option}
         type="button"
         onClick={() => onChange(option)}
-        className={`flex-1 px-3 py-2 text-sm rounded-md transition-all ${
+        className={`flex-1 px-3 py-2 text-sm rounded-lg transition-all ${
           value === option
-            ? 'bg-orange-500 text-white font-medium'
-            : 'text-gray-400 hover:text-gray-200'
+            ? 'bg-[#7C5CFC] text-white font-semibold shadow-sm'
+            : 'text-[#6B6B6B] hover:text-[#1A1A1A]'
         }`}
       >
         {option}
@@ -170,8 +170,8 @@ const TonePills: FC<{
               onClick={() => toggle(tone)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
                 isSelected
-                  ? 'bg-orange-500/20 border-orange-500 text-orange-400'
-                  : 'bg-[#1a1a1a] border-[#2a2a2a] text-gray-400 hover:border-gray-500 hover:text-gray-300'
+                  ? 'bg-[#EDE9FE] border-[#7C5CFC] text-[#7C5CFC]'
+                  : 'bg-white border-[#E8E6E1] text-[#6B6B6B] hover:border-[#D0CEC8] hover:text-[#1A1A1A]'
               }`}
             >
               {tone}
@@ -179,7 +179,7 @@ const TonePills: FC<{
           );
         })}
       </div>
-      <p className="text-xs text-gray-600 mt-2">
+      <p className="text-xs text-[#A3A3A3] mt-2">
         Select 2-4 tones. {selected.length}/4 selected.
       </p>
     </div>
@@ -202,10 +202,10 @@ const StepIndicator: FC<{ currentStep: WizardStep }> = ({ currentStep }) => {
               <div
                 className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${
                   isActive
-                    ? 'bg-orange-500 text-white'
+                    ? 'bg-[#7C5CFC] text-white shadow-sm'
                     : isCompleted
-                    ? 'bg-orange-500/20 text-orange-400 border border-orange-500/50'
-                    : 'bg-[#1a1a1a] text-gray-600 border border-[#2a2a2a]'
+                    ? 'bg-[#EDE9FE] text-[#7C5CFC] border border-[#7C5CFC]/30'
+                    : 'bg-[#FAFAF8] text-[#A3A3A3] border border-[#E8E6E1]'
                 }`}
               >
                 {isCompleted ? (
@@ -218,7 +218,7 @@ const StepIndicator: FC<{ currentStep: WizardStep }> = ({ currentStep }) => {
               </div>
               <span
                 className={`text-[11px] mt-1.5 font-medium ${
-                  isActive ? 'text-orange-400' : isCompleted ? 'text-gray-400' : 'text-gray-600'
+                  isActive ? 'text-[#7C5CFC]' : isCompleted ? 'text-[#6B6B6B]' : 'text-[#A3A3A3]'
                 }`}
               >
                 {step.label}
@@ -227,7 +227,7 @@ const StepIndicator: FC<{ currentStep: WizardStep }> = ({ currentStep }) => {
             {i < STEPS.length - 1 && (
               <div
                 className={`w-16 h-[2px] mx-2 mb-5 ${
-                  i < currentIndex ? 'bg-orange-500/50' : 'bg-[#2a2a2a]'
+                  i < currentIndex ? 'bg-[#7C5CFC]/50' : 'bg-[#E8E6E1]'
                 }`}
               />
             )}
@@ -257,33 +257,33 @@ const PersonaCard: FC<{
 
   return (
     <div
-      className={`bg-[#141414] rounded-lg p-5 border transition-colors ${
-        persona.isActive ? 'border-orange-500' : 'border-[#2a2a2a]'
+      className={`bg-white rounded-[16px] p-5 border transition-colors ${
+        persona.isActive ? 'border-[#7C5CFC]' : 'border-[#E8E6E1]'
       }`}
     >
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h3 className="text-base font-semibold text-white">{persona.name}</h3>
-          <p className="text-sm text-gray-400">{persona.role}</p>
+          <h3 className="text-base font-semibold text-[#1A1A1A]">{persona.name}</h3>
+          <p className="text-sm text-[#6B6B6B]">{persona.role}</p>
         </div>
         <span
-          className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+          className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
             persona.isActive
-              ? 'bg-orange-500/20 text-orange-400'
-              : 'bg-[#1a1a1a] text-gray-500'
+              ? 'bg-[#DCFCE7] text-[#16A34A]'
+              : 'bg-[#FAFAF8] text-[#A3A3A3]'
           }`}
         >
           {persona.isActive ? 'Active' : 'Inactive'}
         </span>
       </div>
       {persona.bio && (
-        <p className="text-sm text-gray-500 mb-3">{persona.bio}</p>
+        <p className="text-sm text-[#6B6B6B] mb-3">{persona.bio}</p>
       )}
       <div className="flex flex-wrap gap-1.5 mb-4">
         {persona.tone.map((t) => (
           <span
             key={t}
-            className="text-xs bg-[#1a1a1a] text-gray-400 px-2 py-0.5 rounded-full"
+            className="text-xs bg-[#EDE9FE] text-[#7C5CFC] font-medium px-2 py-0.5 rounded-full"
           >
             {t}
           </span>
@@ -293,7 +293,7 @@ const PersonaCard: FC<{
         <button
           onClick={handleActivate}
           disabled={activating}
-          className="text-sm text-orange-400 hover:text-orange-300 font-medium disabled:opacity-50 transition-colors"
+          className="text-sm text-[#7C5CFC] hover:text-[#6D4AED] font-semibold disabled:opacity-50 transition-colors"
         >
           {activating ? 'Activating...' : 'Activate'}
         </button>
@@ -354,21 +354,21 @@ const MockPostPreview: FC<{
   }, [name, tone, topics, emojiUsage, sentenceStyle, hashtagStyle]);
 
   return (
-    <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-5">
+    <div className="bg-white border border-[#E8E6E1] rounded-[16px] p-5">
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">
+        <div className="w-10 h-10 rounded-full bg-[#EDE9FE] flex items-center justify-center text-[#7C5CFC] font-bold text-sm">
           {(name || 'P').charAt(0).toUpperCase()}
         </div>
         <div>
-          <p className="text-sm font-semibold text-white">{name || 'Persona'}</p>
-          <p className="text-xs text-gray-500">{role || 'Role'}</p>
+          <p className="text-sm font-semibold text-[#1A1A1A]">{name || 'Persona'}</p>
+          <p className="text-xs text-[#A3A3A3]">{role || 'Role'}</p>
         </div>
       </div>
-      <p className="text-sm text-gray-300 whitespace-pre-wrap leading-relaxed">
+      <p className="text-sm text-[#1A1A1A] whitespace-pre-wrap leading-relaxed">
         {mockContent}
       </p>
-      <div className="flex items-center gap-4 mt-4 pt-3 border-t border-[#2a2a2a]">
-        <span className="text-xs text-gray-600">Preview based on your settings</span>
+      <div className="flex items-center gap-4 mt-4 pt-3 border-t border-[#E8E6E1]">
+        <span className="text-xs text-[#A3A3A3]">Preview based on your settings</span>
       </div>
     </div>
   );
@@ -381,8 +381,8 @@ const FieldLabel: FC<{ children: React.ReactNode; hint?: string }> = ({
   hint,
 }) => (
   <div className="mb-2">
-    <label className="text-sm font-medium text-gray-200">{children}</label>
-    {hint && <p className="text-xs text-gray-600 mt-0.5">{hint}</p>}
+    <label className="text-sm font-semibold text-[#1A1A1A]">{children}</label>
+    {hint && <p className="text-xs text-[#A3A3A3] mt-0.5">{hint}</p>}
   </div>
 );
 
@@ -533,13 +533,13 @@ export const PersonaWizard: FC = () => {
   }
 
   return (
-    <div className="flex-1 p-6 overflow-auto">
+    <div className="flex-1 p-6 overflow-auto" style={{ backgroundColor: '#FAFAF8' }}>
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-semibold text-white">Personas</h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <h1 className="text-2xl font-extrabold text-[#1A1A1A] tracking-tight">Personas</h1>
+            <p className="text-sm text-[#6B6B6B] mt-1">
               Define how your brand speaks across platforms.
             </p>
           </div>
@@ -549,7 +549,7 @@ export const PersonaWizard: FC = () => {
                 setShowWizard(true);
                 setStep('identity');
               }}
-              className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+              className="bg-[#7C5CFC] hover:bg-[#6D4AED] text-white text-sm font-semibold px-4 py-2 rounded-[10px] transition-colors shadow-sm"
             >
               New Persona
             </button>
@@ -573,24 +573,24 @@ export const PersonaWizard: FC = () => {
 
         {/* Wizard */}
         {wizardVisible && (
-          <div className="bg-[#0f0f0f] border border-[#1f1f1f] rounded-xl p-8">
+          <div className="bg-white border border-[#E8E6E1] rounded-[16px] p-8">
             {personas.length === 0 ? (
               <div className="text-center mb-8">
-                <h2 className="text-xl font-semibold text-white mb-2">
+                <h2 className="text-xl font-bold text-[#1A1A1A] mb-2">
                   Create your first persona
                 </h2>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-[#6B6B6B]">
                   A persona defines how your brand sounds. Set up voice, tone, and content rules.
                 </p>
               </div>
             ) : (
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold text-white">
+                <h2 className="text-lg font-bold text-[#1A1A1A]">
                   New Persona
                 </h2>
                 <button
                   onClick={() => setShowWizard(false)}
-                  className="text-gray-500 hover:text-gray-300 transition-colors"
+                  className="text-[#A3A3A3] hover:text-[#6B6B6B] transition-colors"
                 >
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -613,7 +613,7 @@ export const PersonaWizard: FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g., Alex Rivera"
-                    className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-sm text-gray-200 outline-none focus:border-orange-500 transition-colors placeholder:text-gray-600"
+                    className="w-full bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] px-4 py-3 text-sm text-[#1A1A1A] outline-none focus:border-[#7C5CFC] transition-colors placeholder:text-[#A3A3A3]"
                   />
                 </div>
                 <div>
@@ -623,7 +623,7 @@ export const PersonaWizard: FC = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="e.g., Founder & CEO"
-                    className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-sm text-gray-200 outline-none focus:border-orange-500 transition-colors placeholder:text-gray-600"
+                    className="w-full bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] px-4 py-3 text-sm text-[#1A1A1A] outline-none focus:border-[#7C5CFC] transition-colors placeholder:text-[#A3A3A3]"
                   />
                 </div>
                 <div>
@@ -633,7 +633,7 @@ export const PersonaWizard: FC = () => {
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="e.g., Building the future of autonomous social media management"
                     rows={3}
-                    className="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-sm text-gray-200 outline-none focus:border-orange-500 transition-colors placeholder:text-gray-600 resize-none"
+                    className="w-full bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] px-4 py-3 text-sm text-[#1A1A1A] outline-none focus:border-[#7C5CFC] transition-colors placeholder:text-[#A3A3A3] resize-none"
                   />
                 </div>
               </div>
@@ -724,69 +724,69 @@ export const PersonaWizard: FC = () => {
               <div className="space-y-6">
                 {/* Summary */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-[#1a1a1a] rounded-lg p-4">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  <div className="bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] p-4">
+                    <h4 className="text-xs font-semibold text-[#A3A3A3] uppercase tracking-wider mb-2">
                       Identity
                     </h4>
-                    <p className="text-sm text-white font-medium">{name}</p>
+                    <p className="text-sm text-[#1A1A1A] font-medium">{name}</p>
                     {role && (
-                      <p className="text-sm text-gray-400">{role}</p>
+                      <p className="text-sm text-[#6B6B6B]">{role}</p>
                     )}
                     {bio && (
-                      <p className="text-xs text-gray-500 mt-1">{bio}</p>
+                      <p className="text-xs text-[#A3A3A3] mt-1">{bio}</p>
                     )}
                   </div>
-                  <div className="bg-[#1a1a1a] rounded-lg p-4">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  <div className="bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] p-4">
+                    <h4 className="text-xs font-semibold text-[#A3A3A3] uppercase tracking-wider mb-2">
                       Voice
                     </h4>
                     <div className="flex flex-wrap gap-1 mb-2">
                       {tone.map((t) => (
                         <span
                           key={t}
-                          className="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded-full"
+                          className="text-xs bg-[#EDE9FE] text-[#7C5CFC] font-medium px-2 py-0.5 rounded-full"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-[#A3A3A3]">
                       {formality} / {emojiUsage} emoji / {sentenceStyle}
                     </p>
                   </div>
-                  <div className="bg-[#1a1a1a] rounded-lg p-4 sm:col-span-2">
-                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  <div className="bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] p-4 sm:col-span-2">
+                    <h4 className="text-xs font-semibold text-[#A3A3A3] uppercase tracking-wider mb-2">
                       Content Rules
                     </h4>
                     {topics.length > 0 && (
                       <div className="mb-2">
-                        <span className="text-xs text-gray-600">Topics: </span>
-                        <span className="text-xs text-gray-300">
+                        <span className="text-xs text-[#A3A3A3]">Topics: </span>
+                        <span className="text-xs text-[#1A1A1A]">
                           {topics.join(', ')}
                         </span>
                       </div>
                     )}
                     {preferredWords.length > 0 && (
                       <div className="mb-2">
-                        <span className="text-xs text-gray-600">
+                        <span className="text-xs text-[#A3A3A3]">
                           Preferred:{' '}
                         </span>
-                        <span className="text-xs text-gray-300">
+                        <span className="text-xs text-[#1A1A1A]">
                           {preferredWords.join(', ')}
                         </span>
                       </div>
                     )}
                     {forbiddenWords.length > 0 && (
                       <div className="mb-2">
-                        <span className="text-xs text-gray-600">
+                        <span className="text-xs text-[#A3A3A3]">
                           Forbidden:{' '}
                         </span>
-                        <span className="text-xs text-red-400/80">
+                        <span className="text-xs text-[#DC2626]">
                           {forbiddenWords.join(', ')}
                         </span>
                       </div>
                     )}
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-[#A3A3A3]">
                       Hashtags: {hashtagStyle}
                     </p>
                   </div>
@@ -794,7 +794,7 @@ export const PersonaWizard: FC = () => {
 
                 {/* Live Preview */}
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                  <h4 className="text-xs font-semibold text-[#A3A3A3] uppercase tracking-wider mb-3">
                     Post Preview
                   </h4>
                   <MockPostPreview
@@ -811,13 +811,13 @@ export const PersonaWizard: FC = () => {
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#1f1f1f]">
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#E8E6E1]">
               <button
                 onClick={goBack}
-                className={`text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+                className={`text-sm font-medium px-4 py-2 rounded-[10px] transition-colors ${
                   stepIndex === 0
-                    ? 'text-gray-700 cursor-default'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'text-[#D0CEC8] cursor-default'
+                    : 'text-[#6B6B6B] hover:text-[#1A1A1A]'
                 }`}
                 disabled={stepIndex === 0}
               >
@@ -828,7 +828,7 @@ export const PersonaWizard: FC = () => {
                 <button
                   onClick={handleCreate}
                   disabled={isCreating}
-                  className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
+                  className="bg-[#7C5CFC] hover:bg-[#6D4AED] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold px-6 py-2.5 rounded-[10px] transition-colors shadow-sm"
                 >
                   {isCreating ? 'Creating...' : 'Create Persona'}
                 </button>
@@ -836,7 +836,7 @@ export const PersonaWizard: FC = () => {
                 <button
                   onClick={goNext}
                   disabled={!canNext}
-                  className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
+                  className="bg-[#7C5CFC] hover:bg-[#6D4AED] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold px-6 py-2.5 rounded-[10px] transition-colors shadow-sm"
                 >
                   Continue
                 </button>
