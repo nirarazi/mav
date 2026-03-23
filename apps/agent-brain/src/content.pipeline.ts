@@ -117,9 +117,15 @@ export class ContentPipeline {
       maxTokens: 1000,
     });
 
-    // 5. Run compliance check
+    // 5. Add bot label BEFORE compliance check (so the check sees the final content)
+    const labeledContent = this.complianceService.addBotLabel(
+      llmResult.text,
+      request.platform,
+    );
+
+    // 6. Run compliance check on the labeled content
     const complianceResult = await this.complianceService.checkContent(
-      { text: llmResult.text },
+      { text: labeledContent },
       request.platform,
       persona.id,
     );
@@ -141,12 +147,6 @@ export class ContentPipeline {
 
       throw new Error(`Compliance check failed: ${failedChecks}`);
     }
-
-    // 6. Add bot label if required
-    const labeledContent = this.complianceService.addBotLabel(
-      llmResult.text,
-      request.platform,
-    );
 
     // 7. Submit to approval queue
     const approvalItem = await this.approvalService.submit(
