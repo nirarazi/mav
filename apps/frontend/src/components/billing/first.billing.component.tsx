@@ -80,12 +80,12 @@ export const FirstBillingComponent = () => {
 
   const showYouTube = () => {
     modals.openModal({
-      title: 'Grow Fast With Maverick (Play the video)',
+      title: 'Grow Fast With Mav (Play the video)',
       children: (
         <iframe
           className="h-full aspect-video min-w-[800px]"
           src="https://www.youtube.com/embed/BdsCVvEYgHU?si=vvhaZJ8I5oXXvVJS?autoplay=1"
-          title="Maverick Tutorial"
+          title="Mav Tutorial"
           allow="autoplay"
           allowFullScreen
         />
@@ -121,7 +121,7 @@ export const FirstBillingComponent = () => {
           {t('billing_who_use', 'who use')}{' '}
           {t(
             'billing_maverick_grow_social',
-            'Maverick To Grow Their Social Presence'
+            'Mav To Grow Their Social Presence'
           )}
         </div>
 
@@ -136,7 +136,7 @@ export const FirstBillingComponent = () => {
                 alt="YouTube"
               />
             </div>
-            <div>See the power of Maverick (click here)</div>
+            <div>See the power of Mav (click here)</div>
           </div>
         </div>
 

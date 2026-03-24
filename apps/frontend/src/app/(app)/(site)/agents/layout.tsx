@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Agent } from '@maverick/frontend/components/agents/agent';
 export const metadata: Metadata = {
-  title: 'Maverick - Agent',
+  title: 'Mav - Agent',
   description: 'agents',
 };
 export default async function Layout({

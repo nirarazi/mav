@@ -3,7 +3,7 @@ import { BillingComponent } from '@maverick/frontend/components/billing/billing.
 import { Metadata } from 'next';
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Maverick' : 'Gitroom'} Billing`,
+  title: `${isGeneralServerSide() ? 'Mav' : 'Gitroom'} Billing`,
   description: '',
 };
 export default async function Page() {

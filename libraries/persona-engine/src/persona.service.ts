@@ -17,7 +17,11 @@ export class PersonaService {
   constructor(private _persona: PrismaRepository<'persona'>) {}
 
   async create(orgId: string, data: PersonaCreateInput): Promise<Persona> {
-    return this._persona.model.persona.create({
+    const existingCount = await this._persona.model.persona.count({
+      where: { organizationId: orgId },
+    });
+
+    const persona = await this._persona.model.persona.create({
       data: {
         organizationId: orgId,
         name: data.name,
@@ -31,8 +35,11 @@ export class PersonaService {
         examplePosts: (data.examplePosts as any) ?? undefined,
         responseRules: (data.responseRules as any) ?? undefined,
         platformOverrides: (data.platformOverrides as any) ?? undefined,
+        isActive: existingCount === 0,
       },
     });
+
+    return persona;
   }
 
   async findAll(orgId: string): Promise<Persona[]> {

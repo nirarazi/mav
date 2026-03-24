@@ -259,7 +259,7 @@ const ExtensionNotFound: FC = () => {
       <p className="text-[14px] text-textColor/80">
         {t(
           'extension_not_available',
-          'The Maverick browser extension is not installed. You need to install it before connecting this channel.'
+          'The Mav browser extension is not installed. You need to install it before connecting this channel.'
         )}
       </p>
       <div className="flex gap-[10px]">
@@ -325,7 +325,7 @@ const ChromeExtensionWarning: FC<{
           We will store your cookies securely to facilitate the connection.
         </li>
         <li>
-          Maverick does not take responsibility for any issues arising or account termination due to the use of this method.
+          Mav does not take responsibility for any issues arising or account termination due to the use of this method.
         </li>
       </ul>
       <div className="flex gap-[10px] mt-[8px]">
@@ -520,7 +520,7 @@ export const AddProviderComponent: FC<{
             toaster.show(
               t(
                 'extension_not_installed',
-                'Maverick browser extension is not installed or not reachable.'
+                'Mav browser extension is not installed or not reachable.'
               ),
               'warning'
             );

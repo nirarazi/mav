@@ -4,7 +4,7 @@ import { AgentDashboard } from '@maverick/frontend/components/dashboard/agent-da
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Maverick - Dashboard',
+  title: 'Mav - Dashboard',
   description: '',
 };
 

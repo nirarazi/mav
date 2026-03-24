@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { getT } from '@maverick/react/translation/get.translation.service.backend';
 import { LoginWithOidc } from '@maverick/frontend/components/auth/login.with.oidc';
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Maverick' : 'Gitroom'} Register`,
+  title: `${isGeneralServerSide() ? 'Mav' : 'Gitroom'} Register`,
   description: '',
 };
 export default async function Auth(params: {searchParams: {provider: string}}) {

@@ -15,11 +15,11 @@ const useFaqList = () => {
           {
             title: t(
               'faq_am_i_going_to_be_charged_by_maverick',
-              'Am I going to be charged by Maverick?'
+              'Am I going to be charged by Mav?'
             ),
             description: t(
               'faq_to_confirm_credit_card_information_maverick_will_hold',
-              'To confirm credit card information Maverick will hold $2 and release it immediately, you can cancel your subscription anytime from settings without talking to a person'
+              'To confirm credit card information Mav will hold $2 and release it immediately, you can cancel your subscription anytime from settings without talking to a person'
             ),
           },
         ]
@@ -27,14 +27,14 @@ const useFaqList = () => {
     {
       title: t(
         'faq_can_i_trust_maverick_gitroom',
-        `Can I trust ${isGeneral ? 'Maverick' : 'Gitroom'}?`
+        `Can I trust ${isGeneral ? 'Mav' : 'Gitroom'}?`
       ),
       description: t(
         'faq_maverick_gitroom_is_proudly_open_source',
         `${
-          isGeneral ? 'Maverick' : 'Gitroom'
+          isGeneral ? 'Mav' : 'Gitroom'
         } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${
-          isGeneral ? 'Maverick' : 'Gitroom'
+          isGeneral ? 'Mav' : 'Gitroom'
         } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/maverick-app" target="_blank" style="text-decoration: underline;">click here</a>.`
       ),
     },
@@ -43,7 +43,7 @@ const useFaqList = () => {
       description: t(
         'faq_maverick_gitroom_allows_you_to_schedule_posts',
         `${
-          isGeneral ? 'Maverick' : 'Gitroom'
+          isGeneral ? 'Mav' : 'Gitroom'
         } allows you to schedule your posts between different channels.
 A channel is a publishing platform where you can schedule your posts.
 For example, you can schedule your posts on X, Facebook, Instagram, TikTok, YouTube, Reddit, Linkedin, Dribbble, Threads and Pinterest.`

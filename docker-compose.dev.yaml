@@ -1,37 +1,38 @@
-# Do **not** use this yml for production. It is not up-to-date.
-# Use https://docs.maverick.com/installation/docker-compose
-# This is only for the dev enviroment
+# Do **not** use this yml for production.
+# This is only for the dev environment
 
 services:
-  maverick-postgres:
+  mav-postgres:
     # ref: https://hub.docker.com/_/postgres
     image: postgres:17-alpine # 17.0
-    container_name: maverick-postgres
+    container_name: mav-postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: maverick-local-pwd
-      POSTGRES_USER: maverick-local
-      POSTGRES_DB: maverick-db-local
-      TEMPORAL_ADDRESS: "temporal:7233"
+      POSTGRES_PASSWORD: mav-local-pwd
+      POSTGRES_USER: mav-local
+      POSTGRES_DB: mav-db-local
+      TEMPORAL_ADDRESS: "mav-temporal:7233"
     volumes:
       - postgres-volume:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
-      - maverick-network
-  maverick-redis:
+      - mav-network
+
+  mav-redis:
     # ref: https://hub.docker.com/_/redis
     image: redis:7-alpine # 7.4.0
-    container_name: maverick-redis
+    container_name: mav-redis
     restart: always
     ports:
       - 6379:6379
     networks:
-      - maverick-network
-  maverick-pg-admin:
+      - mav-network
+
+  mav-pg-admin:
     # ref: https://hub.docker.com/r/dpage/pgadmin4/tags
     image: dpage/pgadmin4:latest
-    container_name: maverick-pg-admin
+    container_name: mav-pg-admin
     restart: always
     ports:
       - 8081:80
@@ -39,23 +40,24 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     networks:
-      - maverick-network
-  maverick-redisinsight:
+      - mav-network
+
+  mav-redisinsight:
     # ref: https://hub.docker.com/r/redis/redisinsight
     image: redis/redisinsight:latest
-    container_name: maverick-redisinsight
+    container_name: mav-redisinsight
     links:
-      - maverick-redis
+      - mav-redis
     ports:
       - '5540:5540'
     volumes:
       - redisinsight:/data
     networks:
-      - maverick-network
+      - mav-network
     restart: always
 
-  temporal-elasticsearch:
-    container_name: temporal-elasticsearch
+  mav-temporal-elasticsearch:
+    container_name: mav-temporal-elasticsearch
     image: elasticsearch:7.17.27
     environment:
       - cluster.routing.allocation.disk.threshold_enabled=true
@@ -66,72 +68,72 @@ services:
       - ES_JAVA_OPTS=-Xms256m -Xmx256m
       - xpack.security.enabled=false
     networks:
-      - temporal-network
+      - mav-temporal-network
     expose:
       - 9200
     volumes:
       - /var/lib/elasticsearch/data
 
-  temporal-postgresql:
-    container_name: temporal-postgresql
+  mav-temporal-postgresql:
+    container_name: mav-temporal-postgresql
     image: postgres:16
     environment:
       POSTGRES_PASSWORD: temporal
       POSTGRES_USER: temporal
     networks:
-      - temporal-network
+      - mav-temporal-network
     expose:
       - 5432
     volumes:
       - /var/lib/postgresql/data
 
-  temporal:
-    container_name: temporal
+  mav-temporal:
+    container_name: mav-temporal
     ports:
       - "7233:7233"
     image: temporalio/auto-setup:1.28.1
     depends_on:
-      - temporal-postgresql
-      - temporal-elasticsearch
+      - mav-temporal-postgresql
+      - mav-temporal-elasticsearch
     environment:
       - DB=postgres12
       - DB_PORT=5432
       - POSTGRES_USER=temporal
       - POSTGRES_PWD=temporal
-      - POSTGRES_SEEDS=temporal-postgresql
+      - POSTGRES_SEEDS=mav-temporal-postgresql
       - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
       - ENABLE_ES=true
-      - ES_SEEDS=temporal-elasticsearch
+      - ES_SEEDS=mav-temporal-elasticsearch
       - ES_VERSION=v7
       - TEMPORAL_NAMESPACE=default
     networks:
-      - temporal-network
+      - mav-temporal-network
     volumes:
       - ./dynamicconfig:/etc/temporal/config/dynamicconfig
     labels:
       kompose.volume.type: configMap
 
-  temporal-admin-tools:
-    container_name: temporal-admin-tools
+  mav-temporal-admin-tools:
+    container_name: mav-temporal-admin-tools
     image: temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1
     environment:
-      - TEMPORAL_ADDRESS=temporal:7233
-      - TEMPORAL_CLI_ADDRESS=temporal:7233
+      - TEMPORAL_ADDRESS=mav-temporal:7233
+      - TEMPORAL_CLI_ADDRESS=mav-temporal:7233
     networks:
-      - temporal-network
+      - mav-temporal-network
     stdin_open: true
     depends_on:
-      - temporal
+      - mav-temporal
     tty: true
 
-  temporal-ui:
-    container_name: temporal-ui
+  mav-temporal-ui:
+    container_name: mav-temporal-ui
     image: temporalio/ui:2.34.0
     environment:
-      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_ADDRESS=mav-temporal:7233
       - TEMPORAL_CORS_ORIGINS=http://127.0.0.1:3000
     networks:
-      - temporal-network
+      - mav-temporal-network
     ports:
       - "8080:8080"
 
@@ -141,8 +143,8 @@ volumes:
     external: false
 
 networks:
-  maverick-network:
+  mav-network:
     external: false
-  temporal-network:
+  mav-temporal-network:
     driver: bridge
-    name: temporal-network
+    name: mav-temporal-network

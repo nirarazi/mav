@@ -150,11 +150,12 @@ export function RegisterAfter({
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="flex flex-col flex-1">
           <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+            <h1 className="text-[32px] font-semibold -tracking-[0.5px] text-[#1A1A1A]">
               {t('sign_up', 'Sign Up')}
             </h1>
+            <p className="text-[#6B6B6B] text-sm mt-1">Create your Mav account</p>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">
+          <div className="text-[13px] text-[#6B6B6B] mt-[28px] mb-[10px] uppercase tracking-wide font-medium">
             {t('continue_with', 'Continue With')}
           </div>
           <div className="flex flex-col">
@@ -174,16 +175,16 @@ export function RegisterAfter({
               ))}
             {!isAfterProvider && (
               <div className="h-[20px] mb-[24px] mt-[24px] relative">
-                <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
+                <div className="absolute w-full h-[1px] bg-[#E8E6E1] top-[50%] -translate-y-[50%]" />
                 <div
                   className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
                 >
-                  <div className="px-[16px]">{t('or', 'or')}</div>
+                  <div className="px-[16px] bg-[#FAFAF8] text-[#6B6B6B] text-xs uppercase tracking-wide">{t('or', 'or')}</div>
                 </div>
               </div>
             )}
             <div className="flex flex-col gap-[12px]">
-              <div className="text-textColor">
+              <div className="text-[#1A1A1A]">
                 {!isAfterProvider && (
                   <>
                     <Input
@@ -212,15 +213,15 @@ export function RegisterAfter({
                   placeholder={t('label_company', 'Company')}
                 />
               </div>
-              <div className={clsx('text-[12px]')}>
+              <div className="text-[12px] text-[#6B6B6B]">
                 {t(
                   'by_registering_you_agree_to_our',
                   'By registering you agree to our'
                 )}
                 &nbsp;
                 <a
-                  href={`https://maverick.com/terms`}
-                  className="underline hover:font-bold"
+                  href={`https://mav.social/terms`}
+                  className="text-[#7C5CFC] hover:underline"
                   rel="nofollow"
                 >
                   {t('terms_of_service', 'Terms of Service')}
@@ -228,30 +229,29 @@ export function RegisterAfter({
                 &nbsp;
                 {t('and', 'and')}&nbsp;
                 <a
-                  href={`https://maverick.com/privacy`}
+                  href={`https://mav.social/privacy`}
                   rel="nofollow"
-                  className="underline hover:font-bold"
+                  className="text-[#7C5CFC] hover:underline"
                 >
                   {t('privacy_policy', 'Privacy Policy')}
                 </a>
-                &nbsp;
               </div>
               <div className="text-center mt-6">
                 <div className="w-full flex">
                   <Button
                     type="submit"
-                    className="flex-1 rounded-[10px] !h-[52px]"
+                    className="flex-1 rounded-xl !h-[48px] !bg-[#7C5CFC] hover:!bg-[#6D4AED] !text-white !border-0 !shadow-none font-semibold"
                     loading={loading}
                   >
                     {t('create_account', 'Create Account')}
                   </Button>
                 </div>
-                <p className="mt-4 text-sm">
-                  {t('already_have_an_account', 'Already Have An Account?')}
+                <p className="mt-5 text-sm text-[#6B6B6B]">
+                  {t('already_have_an_account', 'Already have an account?')}
                   &nbsp;
                   <Link
                     href="/auth/login"
-                    className="underline  cursor-pointer"
+                    className="text-[#7C5CFC] font-medium hover:underline cursor-pointer"
                   >
                     {t('sign_in', 'Sign In')}
                   </Link>

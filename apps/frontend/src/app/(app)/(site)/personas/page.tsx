@@ -4,7 +4,7 @@ import { PersonaWizard } from '@maverick/frontend/components/personas/persona-wi
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Maverick - Personas',
+  title: 'Mav - Personas',
   description: '',
 };
 

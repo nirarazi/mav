@@ -4,7 +4,7 @@ import { ApprovalQueue } from '@maverick/frontend/components/approvals/approval-
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Maverick - Approvals',
+  title: 'Mav - Approvals',
   description: '',
 };
 

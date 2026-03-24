@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useCallback, useMemo, useState } from 'react';
+import Link from 'next/link';
 import useSWR from 'swr';
 import { useFetch } from '@maverick/helpers/utils/custom.fetch';
 
@@ -58,7 +59,7 @@ export const AgentStatusBar: FC = () => {
 
   return (
     <div
-      className="flex items-center justify-between w-full shrink-0 px-4"
+      className="flex items-center justify-between w-full shrink-0 px-4 sticky top-0 z-50"
       style={{
         height: '36px',
         backgroundColor: '#FFFFFF',
@@ -93,9 +94,29 @@ export const AgentStatusBar: FC = () => {
           </span>
         ) : isIdle ? (
           <span className="text-[#6B6B6B] truncate">
-            No persona configured
-            <Separator />
-            Set up your first persona to get started
+            {!status.activePersona ? (
+              <>
+                No persona configured
+                <Separator />
+                <Link href="/personas" className="text-[#7C5CFC] hover:text-[#6D4AED] font-medium transition-colors">
+                  Set up your first persona
+                </Link>
+              </>
+            ) : status.connectedPlatforms === 0 ? (
+              <>
+                Persona: <span className="text-[#1A1A1A] font-medium">{status.activePersona.name}</span>
+                <Separator />
+                <Link href="/launches" className="text-[#7C5CFC] hover:text-[#6D4AED] font-medium transition-colors">
+                  Connect a channel to start publishing
+                </Link>
+              </>
+            ) : (
+              <>
+                Persona: <span className="text-[#1A1A1A] font-medium">{status.activePersona.name}</span>
+                <Separator />
+                Standing by
+              </>
+            )}
           </span>
         ) : (
           <span className="text-[#6B6B6B] truncate">
@@ -128,6 +149,12 @@ export const AgentStatusBar: FC = () => {
       {/* Right side: pause/resume button */}
       <button
         onClick={() => setPaused((p) => !p)}
+        data-tooltip-id="tooltip"
+        data-tooltip-content={
+          paused
+            ? 'Resume autonomous activity — your agent will start drafting and scheduling posts again'
+            : 'Pause autonomous activity — your agent will stop drafting new posts until you resume'
+        }
         className={`shrink-0 text-xs font-semibold px-3 py-1 rounded-full transition-colors ml-4 ${
           paused
             ? 'bg-[#DCFCE7] text-[#16A34A] hover:bg-[#BBF7D0]'

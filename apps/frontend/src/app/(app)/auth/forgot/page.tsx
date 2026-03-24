@@ -3,7 +3,7 @@ import { Forgot } from '@maverick/frontend/components/auth/forgot';
 import { Metadata } from 'next';
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Maverick' : 'Gitroom'} Forgot Password`,
+  title: `${isGeneralServerSide() ? 'Mav' : 'Gitroom'} Forgot Password`,
   description: '',
 };
 export default async function Auth() {

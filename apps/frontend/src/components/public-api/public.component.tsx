@@ -59,7 +59,7 @@ const PublicApiContent = () => {
         <div className="text-customColor18 mt-[4px]">
           {t(
             'use_maverick_api_to_integrate_with_your_tools',
-            'Use Maverick API to integrate with your tools.'
+            'Use Mav API to integrate with your tools.'
           )}
           <br />
           <a
@@ -78,7 +78,7 @@ const PublicApiContent = () => {
             target="_blank"
           >
             <br />
-            {t('check_n8n', 'Check out our N8N custom node for Maverick.')}
+            {t('check_n8n', 'Check out our N8N custom node for Mav.')}
           </a>
         </div>
         <div className="flex flex-col">
@@ -118,7 +118,7 @@ const PublicApiContent = () => {
         <div className="text-customColor18 mt-[4px]">
           {t(
             'connect_your_mcp_client_to_maverick_to_schedule_your_posts_faster',
-            'Connect Maverick MCP server to your client (Http streaming) to schedule your posts faster.'
+            'Connect Mav MCP server to your client (Http streaming) to schedule your posts faster.'
           )}
         </div>
         <div className="my-[16px] mt-[16px] bg-sixth border-fifth items-center border rounded-[4px] p-[24px] flex gap-[24px]">
@@ -149,13 +149,13 @@ const PublicApiContent = () => {
       </div>
 
       <div className="flex flex-col">
-        <h3 className="text-[20px]">Building your Maverick payload</h3>
+        <h3 className="text-[20px]">Building your Mav payload</h3>
         <div className="text-customColor18 mt-[4px] whitespace-pre-line">
           Sending a POST request to <strong className="text-textColor">/posts</strong> might feel a bit overwhelming as many
           platforms have different requirements.{'\n'}
-          We have created an easy way to build your Maverick payload to schedule
+          We have created an easy way to build your Mav payload to schedule
           posts. {'\n'}
-          You can use the Maverick wizard, and schedule a post with our UI, after
+          You can use the Mav wizard, and schedule a post with our UI, after
           you added all your text and settings, the wizard will generate the
           payload for you.{'\n'}
         </div>
