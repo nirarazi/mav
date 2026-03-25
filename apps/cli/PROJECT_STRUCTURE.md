@@ -333,6 +333,6 @@ MAVERICK_API_KEY=test node dist/index.js integrations:list
 
 ## Support
 
-- **Issues:** https://github.com/gitroomhq/maverick-app/issues
+- **Issues:** https://github.com/maboroshi-inc/mav/issues
 - **Docs:** See README.md, SKILL.md, QUICK_START.md
 - **Website:** https://maverick.com

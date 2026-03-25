@@ -26,15 +26,22 @@
     "ai-agent",
     "command-line"
   ],
-  "author": "Nevo David",
+  "author": "Mav Contributors",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gitroomhq/maverick-app.git",
+    "url": "https://github.com/maboroshi-inc/mav.git",
     "directory": "apps/cli"
   },
   "homepage": "https://maverick.com",
   "bugs": {
-    "url": "https://github.com/gitroomhq/maverick-app/issues"
+    "url": "https://github.com/maboroshi-inc/mav/issues"
+  },
+  "devDependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "5",
+    "cli-table3": "^0.6.5",
+    "figures": "^6.1.0",
+    "ora": "^8.2.0"
   }
 }

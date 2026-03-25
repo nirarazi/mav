@@ -26,24 +26,24 @@ const useFaqList = () => {
       : []),
     {
       title: t(
-        'faq_can_i_trust_maverick_gitroom',
-        `Can I trust ${isGeneral ? 'Mav' : 'Gitroom'}?`
+        'faq_can_i_trust_maverick_mav',
+        `Can I trust ${isGeneral ? 'Mav' : 'Mav'}?`
       ),
       description: t(
-        'faq_maverick_gitroom_is_proudly_open_source',
+        'faq_maverick_mav_is_proudly_open_source',
         `${
-          isGeneral ? 'Mav' : 'Gitroom'
+          isGeneral ? 'Mav' : 'Mav'
         } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${
-          isGeneral ? 'Mav' : 'Gitroom'
-        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/gitroomhq/maverick-app" target="_blank" style="text-decoration: underline;">click here</a>.`
+          isGeneral ? 'Mav' : 'Mav'
+        } will live forever. You can check out the entire code or use it for personal projects. To view the open-source repository, <a href="https://github.com/maboroshi-inc/mav" target="_blank" style="text-decoration: underline;">click here</a>.`
       ),
     },
     {
       title: t('faq_what_are_channels', 'What are channels?'),
       description: t(
-        'faq_maverick_gitroom_allows_you_to_schedule_posts',
+        'faq_maverick_mav_allows_you_to_schedule_posts',
         `${
-          isGeneral ? 'Mav' : 'Gitroom'
+          isGeneral ? 'Mav' : 'Mav'
         } allows you to schedule your posts between different channels.
 A channel is a publishing platform where you can schedule your posts.
 For example, you can schedule your posts on X, Facebook, Instagram, TikTok, YouTube, Reddit, Linkedin, Dribbble, Threads and Pinterest.`

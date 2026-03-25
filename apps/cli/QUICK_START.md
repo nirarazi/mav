@@ -6,7 +6,7 @@
 
 ```bash
 # Navigate to the monorepo root
-cd /path/to/gitroom
+cd /path/to/mav
 
 # Install dependencies
 pnpm install
@@ -280,5 +280,5 @@ maverick posts:delete --help
 
 - [Maverick Website](https://maverick.com)
 - [API Documentation](https://maverick.com/api-docs)
-- [GitHub Repository](https://github.com/gitroomhq/maverick-app)
-- [Report Issues](https://github.com/gitroomhq/maverick-app/issues)
+- [GitHub Repository](https://github.com/maboroshi-inc/mav)
+- [Report Issues](https://github.com/maboroshi-inc/mav/issues)

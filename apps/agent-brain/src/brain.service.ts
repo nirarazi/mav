@@ -124,7 +124,7 @@ export class BrainService {
     //   - Generate content via persona engine
     //   - Run compliance checks
     //   - If approval needed: submit to approval queue
-    //   - If auto-approved: schedule via Postiz post service
+    //   - If auto-approved: schedule via Mav post service
     //   - Log to audit trail
     return [];
   }

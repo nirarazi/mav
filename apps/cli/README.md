@@ -19,7 +19,7 @@ pnpm install -g maverick
 ### From Source
 
 ```bash
-git clone https://github.com/gitroomhq/maverick-app.git
+git clone https://github.com/maboroshi-inc/mav.git
 cd maverick-app/apps/cli
 pnpm install
 pnpm run build
@@ -596,7 +596,7 @@ maverick posts:create --help                        # Command help
 
 ## Contributing
 
-This CLI is part of the [Maverick monorepo](https://github.com/gitroomhq/maverick-app).
+This CLI is part of the [Maverick monorepo](https://github.com/maboroshi-inc/mav).
 
 To contribute:
 1. Fork the repository
@@ -617,8 +617,8 @@ AGPL-3.0
 
 - **Website:** [maverick.com](https://maverick.com)
 - **API Docs:** [maverick.com/api-docs](https://maverick.com/api-docs)
-- **GitHub:** [gitroomhq/maverick-app](https://github.com/gitroomhq/maverick-app)
-- **Issues:** [Report bugs](https://github.com/gitroomhq/maverick-app/issues)
+- **GitHub:** [maboroshi-inc/mav](https://github.com/maboroshi-inc/mav)
+- **Issues:** [Report bugs](https://github.com/maboroshi-inc/mav/issues)
 
 ---
 

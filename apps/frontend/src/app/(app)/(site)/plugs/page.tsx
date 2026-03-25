@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Mav' : 'Gitroom'} Plugs`,
+  title: `${isGeneralServerSide() ? 'Mav' : 'Mav'} Plugs`,
   description: '',
 };
 export default async function Index() {

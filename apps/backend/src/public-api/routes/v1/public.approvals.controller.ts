@@ -71,7 +71,7 @@ export class PublicApprovalsController {
 
     let postResult: any = null;
 
-    // When approved, try to create a Postiz draft post scheduled for 1 hour from now
+    // When approved, try to create a Mav draft post scheduled for 1 hour from now
     if (body.approved) {
       const payload = approval.payload as Record<string, any> | null;
       if (payload?.platform && payload?.content) {

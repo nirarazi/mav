@@ -1,13 +1,54 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { createPost, listPosts, deletePost } from './commands/posts';
-import { listIntegrations, getIntegrationSettings, triggerIntegrationTool } from './commands/integrations';
-import { uploadFile } from './commands/upload';
 import type { Argv } from 'yargs';
 
-yargs(hideBin(process.argv))
-  .scriptName('maverick')
+// Content commands
+import { createPost, listPosts, deletePost } from './commands/posts';
+import { uploadFile } from './commands/upload';
+
+// Integration commands
+import {
+  listIntegrations,
+  getIntegrationSettings,
+  triggerIntegrationTool,
+} from './commands/integrations';
+
+// Agent commands
+import { brainStatus, brainTrigger } from './commands/brain';
+import {
+  approvalsList,
+  approvalsApprove,
+  approvalsReject,
+} from './commands/approvals';
+import { personasList, personasActive, personasSet } from './commands/personas';
+import { complianceAudit, complianceRules } from './commands/compliance';
+import { showStatus } from './commands/status';
+
+import { banner } from './ui';
+
+// ---------------------------------------------------------------------------
+// Global --json flag
+// ---------------------------------------------------------------------------
+
+const cli = yargs(hideBin(process.argv))
+  .scriptName('mav')
   .usage('$0 <command> [options]')
+  .option('json', {
+    global: true,
+    describe: 'Output raw JSON (for scripts and agents)',
+    type: 'boolean',
+    default: false,
+  })
+
+  // ─── Status (top-level) ──────────────────────────────────────────────
+  .command(
+    'status',
+    'Show system status dashboard',
+    {},
+    showStatus as any
+  )
+
+  // ─── Content ─────────────────────────────────────────────────────────
   .command(
     'posts:create',
     'Create a new post',
@@ -20,7 +61,8 @@ yargs(hideBin(process.argv))
         })
         .option('media', {
           alias: 'm',
-          describe: 'Comma-separated media URLs for the corresponding -c (can be used multiple times)',
+          describe:
+            'Comma-separated media URLs for the corresponding -c (can be used multiple times)',
           type: 'string',
         })
         .option('integrations', {
@@ -46,7 +88,7 @@ yargs(hideBin(process.argv))
           type: 'number',
           default: 5000,
         })
-        .option('json', {
+        .option('jsonFile', {
           alias: 'j',
           describe: 'Path to JSON file with full post structure',
           type: 'string',
@@ -61,56 +103,22 @@ yargs(hideBin(process.argv))
           type: 'string',
         })
         .check((argv) => {
-          if (!argv.json && !argv.content) {
-            throw new Error('Either --content or --json is required');
+          if (!argv.jsonFile && !argv.content) {
+            throw new Error('Either --content or --jsonFile is required');
           }
-          if (!argv.json && !argv.integrations) {
-            throw new Error('--integrations is required when not using --json');
+          if (!argv.jsonFile && !argv.integrations) {
+            throw new Error(
+              '--integrations is required when not using --jsonFile'
+            );
           }
-          if (!argv.json && !argv.date) {
-            throw new Error('--date is required when not using --json');
+          if (!argv.jsonFile && !argv.date) {
+            throw new Error('--date is required when not using --jsonFile');
           }
           return true;
         })
         .example(
           '$0 posts:create -c "Hello World!" -s "2024-12-31T12:00:00Z" -i "twitter-123"',
           'Simple scheduled post'
-        )
-        .example(
-          '$0 posts:create -c "Draft post" -s "2024-12-31T12:00:00Z" -t draft -i "twitter-123"',
-          'Create draft post'
-        )
-        .example(
-          '$0 posts:create -c "Main post" -m "img1.jpg,img2.jpg" -s "2024-12-31T12:00:00Z" -i "twitter-123"',
-          'Post with multiple images'
-        )
-        .example(
-          '$0 posts:create -c "Main post" -m "img1.jpg" -c "First comment" -m "img2.jpg" -c "Second comment" -m "img3.jpg,img4.jpg" -s "2024-12-31T12:00:00Z" -i "twitter-123"',
-          'Post with comments, each having their own media'
-        )
-        .example(
-          '$0 posts:create -c "Main" -c "Comment with semicolon; see?" -c "Another!" -s "2024-12-31T12:00:00Z" -i "twitter-123"',
-          'Comments can contain semicolons'
-        )
-        .example(
-          '$0 posts:create -c "Thread 1/3" -c "Thread 2/3" -c "Thread 3/3" -d 2000 -s "2024-12-31T12:00:00Z" -i "twitter-123"',
-          'Twitter thread with 2s delay'
-        )
-        .example(
-          '$0 posts:create --json ./post.json',
-          'Complex post from JSON file'
-        )
-        .example(
-          '$0 posts:create -c "Post to subreddit" -s "2024-12-31T12:00:00Z" --settings \'{"subreddit":[{"value":{"subreddit":"programming","title":"My Title","type":"text","url":"","is_flair_required":false}}]}\' -i "reddit-123"',
-          'Reddit post with specific subreddit settings'
-        )
-        .example(
-          '$0 posts:create -c "Video description" -s "2024-12-31T12:00:00Z" --settings \'{"title":"My Video","type":"public","tags":[{"value":"tech","label":"Tech"}]}\' -i "youtube-123"',
-          'YouTube post with title and tags'
-        )
-        .example(
-          '$0 posts:create -c "Tweet content" -s "2024-12-31T12:00:00Z" --settings \'{"who_can_reply_post":"everyone"}\' -i "twitter-123"',
-          'X (Twitter) post with reply settings'
         );
     },
     createPost as any
@@ -121,26 +129,17 @@ yargs(hideBin(process.argv))
     (yargs: Argv) => {
       return yargs
         .option('startDate', {
-          describe: 'Start date (ISO 8601 format). Default: 30 days ago',
+          describe: 'Start date (ISO 8601). Default: 30 days ago',
           type: 'string',
         })
         .option('endDate', {
-          describe: 'End date (ISO 8601 format). Default: 30 days from now',
+          describe: 'End date (ISO 8601). Default: 30 days from now',
           type: 'string',
         })
         .option('customer', {
           describe: 'Customer ID (optional)',
           type: 'string',
-        })
-        .example('$0 posts:list', 'List all posts (last 30 days to next 30 days)')
-        .example(
-          '$0 posts:list --startDate "2024-01-01T00:00:00Z" --endDate "2024-12-31T23:59:59Z"',
-          'List posts for a specific date range'
-        )
-        .example(
-          '$0 posts:list --customer "customer-id"',
-          'List posts for a specific customer'
-        );
+        });
     },
     listPosts as any
   )
@@ -148,15 +147,152 @@ yargs(hideBin(process.argv))
     'posts:delete <id>',
     'Delete a post',
     (yargs: Argv) => {
-      return yargs
-        .positional('id', {
-          describe: 'Post ID to delete',
-          type: 'string',
-        })
-        .example('$0 posts:delete abc123', 'Delete post with ID abc123');
+      return yargs.positional('id', {
+        describe: 'Post ID to delete',
+        type: 'string',
+      });
     },
     deletePost as any
   )
+  .command(
+    'upload <file>',
+    'Upload a file',
+    (yargs: Argv) => {
+      return yargs.positional('file', {
+        describe: 'File path to upload',
+        type: 'string',
+      });
+    },
+    uploadFile as any
+  )
+
+  // ─── Agent: Brain ────────────────────────────────────────────────────
+  .command(
+    'brain:status',
+    'Show agent brain state and last cycle summary',
+    {},
+    brainStatus as any
+  )
+  .command(
+    'brain:trigger',
+    'Run an OODA strategy cycle',
+    (yargs: Argv) => {
+      return yargs
+        .option('goal', {
+          describe: 'Goal to optimize for this cycle',
+          type: 'string',
+        })
+        .option('horizon', {
+          describe: 'Time horizon (e.g. "7d", "30d")',
+          type: 'string',
+        });
+    },
+    brainTrigger as any
+  )
+
+  // ─── Agent: Approvals ────────────────────────────────────────────────
+  .command(
+    'approvals:list',
+    'List pending approval items',
+    (yargs: Argv) => {
+      return yargs.option('type', {
+        describe: 'Filter by type (POST, REPLY, CAMPAIGN)',
+        type: 'string',
+      });
+    },
+    approvalsList as any
+  )
+  .command(
+    'approvals:approve <id>',
+    'Approve a pending item',
+    (yargs: Argv) => {
+      return yargs
+        .positional('id', {
+          describe: 'Approval item ID',
+          type: 'string',
+        })
+        .option('feedback', {
+          alias: 'f',
+          describe: 'Optional feedback',
+          type: 'string',
+        });
+    },
+    approvalsApprove as any
+  )
+  .command(
+    'approvals:reject <id>',
+    'Reject a pending item',
+    (yargs: Argv) => {
+      return yargs
+        .positional('id', {
+          describe: 'Approval item ID',
+          type: 'string',
+        })
+        .option('feedback', {
+          alias: 'f',
+          describe: 'Reason for rejection (required)',
+          type: 'string',
+          demandOption: true,
+        });
+    },
+    approvalsReject as any
+  )
+
+  // ─── Agent: Personas ─────────────────────────────────────────────────
+  .command(
+    'personas:list',
+    'List all personas',
+    {},
+    personasList as any
+  )
+  .command(
+    'personas:active',
+    'Show the currently active persona',
+    {},
+    personasActive as any
+  )
+  .command(
+    'personas:set <id>',
+    'Switch the active persona',
+    (yargs: Argv) => {
+      return yargs.positional('id', {
+        describe: 'Persona ID to activate',
+        type: 'string',
+      });
+    },
+    personasSet as any
+  )
+
+  // ─── Agent: Compliance ───────────────────────────────────────────────
+  .command(
+    'compliance:audit',
+    'Show the compliance audit trail',
+    (yargs: Argv) => {
+      return yargs
+        .option('from', {
+          describe: 'Start date (ISO 8601)',
+          type: 'string',
+        })
+        .option('to', {
+          describe: 'End date (ISO 8601)',
+          type: 'string',
+        });
+    },
+    complianceAudit as any
+  )
+  .command(
+    'compliance:rules <id>',
+    'Show platform-specific posting rules',
+    (yargs: Argv) => {
+      return yargs.positional('id', {
+        describe: 'Integration ID',
+        type: 'string',
+      });
+    },
+    complianceRules as any
+  )
+
+  // ─── Integrations ────────────────────────────────────────────────────
   .command(
     'integrations:list',
     'List all connected integrations',
@@ -165,27 +301,18 @@ yargs(hideBin(process.argv))
   )
   .command(
     'integrations:settings <id>',
-    'Get settings schema for a specific integration',
+    'Get settings schema for an integration',
     (yargs: Argv) => {
-      return yargs
-        .positional('id', {
-          describe: 'Integration ID',
-          type: 'string',
-        })
-        .example(
-          '$0 integrations:settings reddit-123',
-          'Get settings schema for Reddit integration'
-        )
-        .example(
-          '$0 integrations:settings youtube-456',
-          'Get settings schema for YouTube integration'
-        );
+      return yargs.positional('id', {
+        describe: 'Integration ID',
+        type: 'string',
+      });
     },
     getIntegrationSettings as any
   )
   .command(
     'integrations:trigger <id> <method>',
-    'Trigger an integration tool to fetch additional data',
+    'Trigger an integration tool',
     (yargs: Argv) => {
       return yargs
         .positional('id', {
@@ -200,41 +327,30 @@ yargs(hideBin(process.argv))
           alias: 'd',
           describe: 'Data to pass to the tool as JSON string',
           type: 'string',
-        })
-        .example(
-          '$0 integrations:trigger reddit-123 getSubreddits',
-          'Get list of subreddits'
-        )
-        .example(
-          '$0 integrations:trigger reddit-123 searchSubreddits -d \'{"query":"programming"}\'',
-          'Search for subreddits'
-        )
-        .example(
-          '$0 integrations:trigger youtube-123 getPlaylists',
-          'Get YouTube playlists'
-        );
+        });
     },
     triggerIntegrationTool as any
   )
-  .command(
-    'upload <file>',
-    'Upload a file',
-    (yargs: Argv) => {
-      return yargs
-        .positional('file', {
-          describe: 'File path to upload',
-          type: 'string',
-        })
-        .example('$0 upload ./image.png', 'Upload an image');
-    },
-    uploadFile as any
-  )
+
+  // ─── Global config ───────────────────────────────────────────────────
   .demandCommand(1, 'You need at least one command')
   .help()
   .alias('h', 'help')
   .version()
   .alias('v', 'version')
   .epilogue(
-    'For more information, visit: https://maverick.com\n\nSet your API key: export MAVERICK_API_KEY=your_api_key'
+    'Set your API key: export MAVERICK_API_KEY=your_api_key\n' +
+      'Docs: https://mav.social  |  SKILL.md for agent integration'
   )
-  .parse();
+  .wrap(Math.min(100, process.stdout.columns || 80));
+
+// Show banner unless --json flag or --help
+const argv = process.argv.slice(2);
+const isJson = argv.includes('--json');
+const isHelp = argv.includes('--help') || argv.includes('-h');
+
+if (!isJson && !isHelp) {
+  banner();
+}
+
+cli.parse();

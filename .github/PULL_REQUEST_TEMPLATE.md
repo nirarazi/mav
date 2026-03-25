@@ -14,7 +14,7 @@ eg: Did you discuss this change with anybody before working on it (not required,
 
 Put a "X" in the boxes below to indicate you have followed the checklist;
 
-- [ ] I have read the [CONTRIBUTING](https://github.com/gitroomhq/maverick-app/blob/main/CONTRIBUTING.md) guide.
+- [ ] I have read the [CONTRIBUTING](https://github.com/maboroshi-inc/mav/blob/main/CONTRIBUTING.md) guide.
 - [ ] I confirm I have not used AI to submit this PR or generate code for it.
 - [ ] I checked that there were not similar issues or PRs already open for this.
 - [ ] This PR fixes just ONE issue (do not include multiple issues or types of change in the same PR) For example, don't try and fix a UI issue and include new dependencies in the same PR.

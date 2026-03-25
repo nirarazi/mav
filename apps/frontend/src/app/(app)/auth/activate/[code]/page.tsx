@@ -4,7 +4,7 @@ import { AfterActivate } from '@maverick/frontend/components/auth/after.activate
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
   title: `${
-    isGeneralServerSide() ? 'Mav' : 'Gitroom'
+    isGeneralServerSide() ? 'Mav' : 'Mav'
   } - Activate your account`,
   description: '',
 };

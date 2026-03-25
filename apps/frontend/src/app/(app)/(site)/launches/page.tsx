@@ -3,7 +3,7 @@ import { LaunchesComponent } from '@maverick/frontend/components/launches/launch
 import { Metadata } from 'next';
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Mav Calendar' : 'Gitroom Launches'}`,
+  title: `${isGeneralServerSide() ? 'Mav Calendar' : 'Mav Calendar'}`,
   description: '',
 };
 export default async function Index() {

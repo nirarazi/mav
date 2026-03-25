@@ -160,3 +160,135 @@ export class MaverickAPI {
     });
   }
 }
+
+// ---------------------------------------------------------------------------
+// Standalone API functions (new pattern, mirrors MCP server api-client)
+// ---------------------------------------------------------------------------
+
+function getEnvConfig() {
+  const apiUrl = process.env.MAVERICK_API_URL || 'https://api.maverick.com';
+  const apiKey = process.env.MAVERICK_API_KEY || '';
+  return { apiUrl, apiKey };
+}
+
+function toQueryString(params: Record<string, unknown>): string {
+  const qs = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null) {
+      qs.append(key, String(value));
+    }
+  }
+  return qs.toString();
+}
+
+async function request<T = unknown>(
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const { apiUrl, apiKey } = getEnvConfig();
+  const url = `${apiUrl}${endpoint}`;
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    Authorization: apiKey,
+    ...(options.headers as Record<string, string>),
+  };
+
+  const response = await fetch(url, { ...options, headers });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Maverick API error ${response.status}: ${body}`);
+  }
+
+  const text = await response.text();
+  if (!text) return undefined as T;
+
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return text as T;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Brain
+// ---------------------------------------------------------------------------
+
+export async function triggerBrain(goal?: string, timeHorizon?: string) {
+  return request('/public/v1/brain/trigger', {
+    method: 'POST',
+    body: JSON.stringify({ goal, timeHorizon }),
+  });
+}
+
+export async function getBrainStatus() {
+  return request('/public/v1/brain/status', { method: 'GET' });
+}
+
+// ---------------------------------------------------------------------------
+// Approvals
+// ---------------------------------------------------------------------------
+
+export async function getPendingApprovals(type?: string) {
+  const qs = type ? `?type=${encodeURIComponent(type)}` : '';
+  return request(`/public/v1/approvals/pending${qs}`, { method: 'GET' });
+}
+
+export async function decideApproval(
+  id: string,
+  approved: boolean,
+  feedback?: string
+) {
+  return request(`/public/v1/approvals/${id}/decide`, {
+    method: 'POST',
+    body: JSON.stringify({ approved, feedback }),
+  });
+}
+
+export async function getApprovalHistory(limit = 20) {
+  return request(`/public/v1/approvals/history?limit=${limit}`, {
+    method: 'GET',
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Personas
+// ---------------------------------------------------------------------------
+
+export async function listPersonas() {
+  return request('/public/v1/personas', { method: 'GET' });
+}
+
+export async function getActivePersona() {
+  return request('/public/v1/personas/active', { method: 'GET' });
+}
+
+export async function setActivePersona(id: string) {
+  return request('/public/v1/personas/active', {
+    method: 'POST',
+    body: JSON.stringify({ personaId: id }),
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Compliance
+// ---------------------------------------------------------------------------
+
+export async function getComplianceAudit(from?: string, to?: string) {
+  const params: Record<string, unknown> = {};
+  if (from) params.from = from;
+  if (to) params.to = to;
+  const qs = toQueryString(params);
+  const endpoint = qs
+    ? `/public/v1/compliance/audit?${qs}`
+    : '/public/v1/compliance/audit';
+  return request(endpoint, { method: 'GET' });
+}
+
+// ---------------------------------------------------------------------------
+// Health (standalone)
+// ---------------------------------------------------------------------------
+
+export async function checkConnection() {
+  return request('/public/v1/is-connected', { method: 'GET' });
+}

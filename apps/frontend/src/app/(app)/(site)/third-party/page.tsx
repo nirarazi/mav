@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
   title: `${
-    isGeneralServerSide() ? 'Mav Integrations' : 'Gitroom Integrations'
+    isGeneralServerSide() ? 'Mav Integrations' : 'Mav Integrations'
   }`,
   description: '',
 };

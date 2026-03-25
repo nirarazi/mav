@@ -1,145 +1,155 @@
 <p align="center">
-  <a href="https://maverick.com/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/765e9d72-3ee7-4a56-9d59-a2c9befe2311">
-    <img alt="Maverick Logo" src="https://github.com/user-attachments/assets/f0d30d70-dddb-4142-8876-e9aa6ed1cb99" width="280"/>
-  </picture>
-  </a>
+  <img src="apps/frontend/public/logo.svg" width="80" alt="Mav Logo" />
+</p>
+
+<h1 align="center">Mav</h1>
+
+<p align="center">
+  <strong>Autonomous social media for zero-human companies</strong>
 </p>
 
 <p align="center">
-<a href="https://opensource.org/license/agpl-v3">
-  <img src="https://img.shields.io/badge/License-AGPL%203.0-blue.svg" alt="License">
-</a>
-</p>
-
-<h3 align="center"><strong><a href="https://github.com/gitroomhq/maverick-agent">NEW: check out Maverick agent CLI! perfect for OpenClaw and other agents</a></strong></h3>
-<div align="center">
-  <strong>
-  <h2>Your ultimate AI social media scheduling tool</h2><br />
-  <a href="https://maverick.com">Maverick</a>: An alternative to: Buffer.com, Hypefury, Twitter Hunter, etc...<br /><br />
-  </strong>
-  Maverick offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.
-</div>
-
-<div class="flex" align="center">
-  <br />
-  <img alt="Instagram" src="https://maverick.com/svgs/socials/Instagram.svg" width="32">
-  <img alt="Youtube" src="https://maverick.com/svgs/socials/Youtube.svg" width="32">
-  <img alt="Dribbble" src="https://maverick.com/svgs/socials/Dribbble.svg" width="32">
-  <img alt="Linkedin" src="https://maverick.com/svgs/socials/Linkedin.svg" width="32">
-  <img alt="Reddit" src="https://maverick.com/svgs/socials/Reddit.svg" width="32">
-  <img alt="TikTok" src="https://maverick.com/svgs/socials/TikTok.svg" width="32">
-  <img alt="Facebook" src="https://maverick.com/svgs/socials/Facebook.svg" width="32">
-  <img alt="Pinterest" src="https://maverick.com/svgs/socials/Pinterest.svg" width="32">
-  <img alt="Threads" src="https://maverick.com/svgs/socials/Threads.svg" width="32">
-  <img alt="X" src="https://maverick.com/svgs/socials/X.svg" width="32">
-  <img alt="Slack" src="https://maverick.com/svgs/socials/Slack.svg" width="32">
-  <img alt="Discord" src="https://maverick.com/svgs/socials/Discord.svg" width="32">
-  <img alt="Mastodon" src="https://maverick.com/svgs/socials/Mastodon.svg" width="32">
-  <img alt="Bluesky" src="https://maverick.com/svgs/socials/Bluesky.svg" width="32">
-</div>
-
-<p align="center">
-  <br />
-  <a href="https://docs.maverick.com" rel="dofollow"><strong>Explore the docs »</strong></a>
-  <br />
-
-  <br />
-  <a href="https://youtube.com/@maverickofficial" rel="dofollow"><strong>Watch the YouTube Tutorials»</strong></a>
-  <br />
+  <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL%203.0-blue.svg" alt="License" /></a>
+  <a href="https://www.npmjs.com/package/maverick"><img src="https://img.shields.io/npm/v/maverick.svg?color=7C5CFC" alt="npm" /></a>
 </p>
 
 <p align="center">
-  <a href="https://platform.maverick.com">Register</a>
-  ·
-  <a href="https://discord.maverick.com">Join Our Discord (devs only)</a>
-  ·
-  <a href="https://docs.maverick.com/public-api">Public API</a><br />
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/@maverick/node">NodeJS SDK</a>
-  ·
-  <a href="https://www.npmjs.com/package/n8n-nodes-maverick">N8N custom node</a>
-  ·
-  <a href="https://apps.make.com/maverick">Make.com integration</a>
+  An AI agent that observes, decides, drafts, and publishes your social media<br/>
+  across 34+ platforms — with full compliance and human-in-the-loop approval.
 </p>
 
-<br /><br />
+---
 
-## 🔌 See the leading Maverick features
+## What is Mav?
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=BdsCVvEYgHU" target="_blank">
-    <img alt="Maverick" src="https://github.com/user-attachments/assets/8b9b7939-da1a-4be5-95be-42c6fce772de" />
-  </a>
-</p>
+Mav isn't a scheduling tool. It's an **autonomous agent** that manages your entire social media presence.
 
-## ✨ Features
+You give it a persona, connect your platforms, and set a goal. Mav's agent brain runs an OODA loop — observing your analytics, deciding what to post, drafting content in your voice, checking compliance, and queuing everything for your approval. When you're ready, it publishes.
 
-| ![Image 1](https://github.com/user-attachments/assets/a27ee220-beb7-4c7e-8c1b-2c44301f82ef) | ![Image 2](https://github.com/user-attachments/assets/eb5f5f15-ed90-47fc-811c-03ccba6fa8a2) |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| ![Image 3](https://github.com/user-attachments/assets/d51786ee-ddd8-4ef8-8138-5192e9cfe7c3) | ![Image 4](https://github.com/user-attachments/assets/91f83c89-22f6-43d6-b7aa-d2d3378289fb) |
+Built for the era of zero-human companies, AI-first teams, and agent orchestration platforms.
 
-### Our Sponsors
+## Key Capabilities
 
-| Sponsor |                                  Logo                                   | Description     |
-|---------|:-----------------------------------------------------------------------:|-----------------|
-| [Hostinger](https://www.hostinger.com/?ref=maverick) | <img src=".github/sponsors/hostinger.png" alt="Hostinger" width="500"/> | Hostinger is on a mission to make online success possible for anyone – from developers to aspiring bloggers and business owners |
-| [Virlo](https://dev.virlo.ai/?ref=maverick) | <img src="https://github.com/user-attachments/assets/25182598-5344-45fc-b9cd-e4cfa16aabfd" alt="Virlo" width="500"/> | Virlo is the #1 social media trend spotting and all-in-one GTM tool for teams leveraging short-form video |
+| Capability | What it does |
+|-----------|-------------|
+| **Agent Brain** | OODA loop that autonomously ideates, drafts, and schedules content |
+| **34+ Platforms** | X, LinkedIn, Bluesky, Threads, Reddit, Instagram, TikTok, YouTube, and 26 more |
+| **Persona Engine** | Define voice, tone, vocabulary, and topics — content matches your character |
+| **Compliance Engine** | Per-platform rules: character limits, rate limits, bot labeling, risk scoring |
+| **Human-in-the-Loop** | Every post reviewed before publishing. Trust earned progressively. |
+| **MCP Server** | 14 tools for AI agents via Model Context Protocol |
+| **CLI** | Beautiful terminal interface for both humans and agents |
 
+## Architecture
 
-
-# Intro
-
-- Schedule all your social media posts (many AI features)
-- Measure your work with analytics.
-- Collaborate with other team members to exchange or buy posts.
-- Invite your team members to collaborate, comment, and schedule posts.
-- At the moment there is no difference between the hosted version to the self-hosted version
-- Perfect for automation (API) with platforms like N8N, Make.com, Zapier, etc.
-
-## Tech Stack
-
-- Pnpm workspaces (Monorepo)
-- NextJS (React)
-- NestJS
-- Prisma (Default to PostgreSQL)
-- Temporal
-- Resend (email notifications)
+```
+┌──────────────────────────────────────────────────────┐
+│  AI Agents (Claude, GPT, Gemini, Paperclip, etc.)    │
+│         │                    │                        │
+│    MCP Server            REST API                    │
+│    (14 tools)         (source of truth)              │
+└─────────┬────────────────────┬───────────────────────┘
+          └──────────┬─────────┘
+                     │
+┌────────────────────┼─────────────────────────────────┐
+│  Mav Core          │                                  │
+│                    ▼                                  │
+│  ┌─────────────────────────────────────────────┐     │
+│  │           Agent Brain (OODA Loop)            │     │
+│  │  Observe → Orient → Decide → Act → Record   │     │
+│  └──────────────────┬──────────────────────────┘     │
+│                     │                                 │
+│  ┌─────────┐  ┌────┴─────┐  ┌──────────────┐        │
+│  │ Persona │  │Compliance│  │   Approval   │        │
+│  │ Engine  │  │  Engine   │  │    Queue     │        │
+│  └─────────┘  └──────────┘  └──────┬───────┘        │
+│                                     │                 │
+│  ┌──────────────────────────────────┴──────────┐     │
+│  │        Publishing Engine (34+ platforms)     │     │
+│  └─────────────────────────────────────────────┘     │
+│                                                       │
+│  ┌──────────────┐  ┌──────────────┐                  │
+│  │  Web UI      │  │     CLI      │                  │
+│  │  (Next.js)   │  │  (Terminal)  │                  │
+│  └──────────────┘  └──────────────┘                  │
+└───────────────────────────────────────────────────────┘
+```
 
 ## Quick Start
 
-To have the project up and running, please follow the [Quick Start Guide](https://docs.maverick.com/quickstart)
+### Docker (recommended)
 
-## Sponsor Maverick
+```bash
+git clone https://github.com/maboroshi-inc/mav.git
+cd mav
+cp .env.example .env     # Edit with your settings
+docker compose -f docker-compose.dev.yaml up -d
+```
 
-We now give a few options to Sponsor Maverick:
-- Just a donation: You like what we are building, and want to buy us some coffees so we can build faster.
-- Main Repository: Get your logo with a backlink from the main Maverick repository. Maverick has almost 3m downloads and 20k views per month.
-- Main Repository + Website: Get your logo on the central repository and the main website. Here are some metrics: - Website has 20k hits per month + 65 DR (strong backlink) - Repository has 20k hits per month + Almost 3m docker downloads.
+Open `http://localhost:4200` to access the web UI.
 
-Link: https://opencollective.com/maverick
+### CLI
 
-## Maverick Compliance
+```bash
+npx maverick status
+```
 
-- Maverick is an open-source, self-hosted social media scheduling tool that supports platforms like X (formerly Twitter), Bluesky, Mastodon, Discord, and others.
-- Maverick hosted service uses official, platform-approved OAuth flows.
-- Maverick does not automate or scrape content from social media platforms.
-- Maverick does not collect, store, or proxy API keys or access tokens from users.
-- Maverick never ask users to paste API keys into our hosted product.
-- Maverick Users always authenticate directly with the social platform (e.g., X, Discord, etc.), ensuring platform compliance and data privacy.
+Set your API key and URL:
 
-## Star History
+```bash
+export MAVERICK_API_KEY=your-api-key
+export MAVERICK_API_URL=http://localhost:3000
+```
 
-[![Star History Chart](https://api.star-history.com/svg?repos=gitroomhq/maverick-app&type=date&legend=top-left)](https://www.star-history.com/#gitroomhq/maverick-app&type=date&legend=top-left)
+### MCP Server (for AI agents)
+
+Add to your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "mav": {
+      "command": "node",
+      "args": ["path/to/mav/apps/mcp-server/dist/index.js"],
+      "env": {
+        "MAVERICK_API_KEY": "your-api-key",
+        "MAVERICK_API_URL": "http://localhost:3000"
+      }
+    }
+  }
+}
+```
+
+See [SKILL.md](SKILL.md) for the full agent instruction set.
+
+## For AI Agents
+
+Mav is built agent-first. The [SKILL.md](SKILL.md) file describes every MCP tool, resource, and workflow pattern an AI agent needs to manage a social media presence autonomously.
+
+Connect via MCP to get 14 tools covering posts, integrations, approvals, personas, analytics, and brain operations.
+
+## Tech Stack
+
+- **Backend**: NestJS + Prisma + PostgreSQL
+- **Frontend**: Next.js + Tailwind CSS
+- **Orchestration**: Temporal workflows
+- **LLM**: Vercel AI SDK (BYOK — bring your own key)
+- **Protocol**: REST API + MCP server
+- **Build**: pnpm monorepo, tsup, Docker
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
 
 ## License
 
-This repository's source code is available under the [AGPL-3.0 license](LICENSE).
+Mav core (forked from Postiz) is licensed under [AGPL-3.0](LICENSE).
 
-<br /><br /><br />
+New modules (agent-brain, mcp-server, persona-engine, compliance-engine, approval-engine) communicate via API boundaries and are licensed under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-<p align="center">
-  <a href="https://www.g2.com/products/maverick/take_survey" target="blank"><img alt="g2" src="https://github.com/user-attachments/assets/892cb74c-0b49-4589-b2f5-fbdbf7a98f66" /></a>
-</p>
+## Acknowledgments
+
+Mav is forked from [Postiz](https://github.com/gitroomhq/postiz-app) v1.47.0. See [FORK.md](FORK.md) for details on the fork point and merge strategy.
