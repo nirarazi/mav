@@ -168,7 +168,7 @@ const TonePills: FC<{
               key={tone}
               type="button"
               onClick={() => toggle(tone)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 border hover:scale-105 active:scale-95 ${
                 isSelected
                   ? 'bg-[#EDE9FE] border-[#7C5CFC] text-[#7C5CFC]'
                   : 'bg-white border-[#E8E6E1] text-[#6B6B6B] hover:border-[#D0CEC8] hover:text-[#1A1A1A]'
@@ -200,7 +200,7 @@ const StepIndicator: FC<{ currentStep: WizardStep }> = ({ currentStep }) => {
           <div key={step.key} className="flex items-center">
             <div className="flex flex-col items-center">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${
+                className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
                   isActive
                     ? 'bg-[#7C5CFC] text-white shadow-sm'
                     : isCompleted
@@ -603,7 +603,7 @@ export const PersonaWizard: FC = () => {
 
             {/* Step 1: Identity */}
             {step === 'identity' && (
-              <div className="space-y-5">
+              <div className="space-y-5 animate-fadeInUp">
                 <div>
                   <FieldLabel hint="What should we call this persona?">
                     Name
@@ -641,7 +641,7 @@ export const PersonaWizard: FC = () => {
 
             {/* Step 2: Voice & Tone */}
             {step === 'voice' && (
-              <div className="space-y-6">
+              <div className="space-y-6 animate-fadeInUp">
                 <div>
                   <FieldLabel hint="How does this persona sound? Pick 2-4.">
                     Tone
@@ -677,7 +677,7 @@ export const PersonaWizard: FC = () => {
 
             {/* Step 3: Content Rules */}
             {step === 'content' && (
-              <div className="space-y-6">
+              <div className="space-y-6 animate-fadeInUp">
                 <div>
                   <FieldLabel hint="What does this persona talk about?">
                     Topics
@@ -721,7 +721,7 @@ export const PersonaWizard: FC = () => {
 
             {/* Step 4: Review */}
             {step === 'review' && (
-              <div className="space-y-6">
+              <div className="space-y-6 animate-fadeInUp">
                 {/* Summary */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-[#FAFAF8] border border-[#E8E6E1] rounded-[10px] p-4">

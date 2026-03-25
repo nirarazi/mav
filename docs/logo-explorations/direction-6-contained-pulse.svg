@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#FAFAF8"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="system-ui" font-size="11" fill="#A3A3A3" letter-spacing="3">DIRECTION 6 — CONTAINED PULSE</text>
+  
+  <!-- Logo mark: large preview -->
+  <g transform="translate(210, 70)">
+    <!-- Left bracket -->
+    <path d="M 40 20 L 20 20 Q 10 20 10 30 L 10 130 Q 10 140 20 140 L 40 140" 
+          fill="none" stroke="#7C5CFC" stroke-width="7" stroke-linecap="round"/>
+    <!-- Right bracket -->
+    <path d="M 140 20 L 160 20 Q 170 20 170 30 L 170 130 Q 170 140 160 140 L 140 140" 
+          fill="none" stroke="#7C5CFC" stroke-width="7" stroke-linecap="round"/>
+    <!-- Pulse/heartbeat line -->
+    <path d="M 45 80 L 65 80 L 75 45 L 90 115 L 100 65 L 110 95 L 120 80 L 135 80" 
+          fill="none" stroke="#7C5CFC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Agent dot on the peak -->
+    <circle cx="90" cy="115" r="6" fill="#7C5CFC" opacity="0.2"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="300" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="600" fill="#1A1A1A" letter-spacing="-2">mav</text>
+  <text x="300" y="305" text-anchor="middle" font-family="system-ui" font-size="13" fill="#A3A3A3" letter-spacing="1.5">.social</text>
+  
+  <!-- Small versions -->
+  <g transform="translate(40, 340)">
+    <rect width="40" height="40" rx="10" fill="#7C5CFC"/>
+    <!-- Mini brackets -->
+    <path d="M 12 10 L 8 10 Q 6 10 6 12 L 6 28 Q 6 30 8 30 L 12 30" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 28 10 L 32 10 Q 34 10 34 12 L 34 28 Q 34 30 32 30 L 28 30" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <!-- Mini pulse -->
+    <path d="M 13 20 L 16 20 L 18 13 L 21 27 L 23 17 L 25 23 L 27 20" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="90" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">32px favicon</text>
+  
+  <g transform="translate(170, 348)">
+    <!-- Inline version -->
+    <path d="M 3 2 L 1 2 Q 0 2 0 3 L 0 15 Q 0 16 1 16 L 3 16" fill="none" stroke="#7C5CFC" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 21 2 L 23 2 Q 24 2 24 3 L 24 15 Q 24 16 23 16 L 21 16" fill="none" stroke="#7C5CFC" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 5 9 L 8 9 L 10 4 L 13 14 L 15 7 L 17 11 L 19 9" fill="none" stroke="#7C5CFC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="32" y="14" font-family="system-ui" font-size="18" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+  <text x="250" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">inline logo</text>
+  
+  <!-- On dark bg -->
+  <rect x="340" y="335" width="120" height="50" rx="8" fill="#1A1A1A"/>
+  <path d="M 357 347 L 355 347 Q 354 347 354 348 L 354 362 Q 354 363 355 363 L 357 363" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 375 347 L 377 347 Q 378 347 378 348 L 378 362 Q 378 363 377 363 L 375 363" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 359 355 L 362 355 L 364 349 L 367 361 L 369 353 L 371 357 L 373 355" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="387" y="362" font-family="system-ui" font-size="18" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  <text x="470" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">dark variant</text>
+</svg>

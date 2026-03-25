@@ -155,7 +155,7 @@ export const AgentStatusBar: FC = () => {
             ? 'Resume autonomous activity — your agent will start drafting and scheduling posts again'
             : 'Pause autonomous activity — your agent will stop drafting new posts until you resume'
         }
-        className={`shrink-0 text-xs font-semibold px-3 py-1 rounded-full transition-colors ml-4 ${
+        className={`shrink-0 text-xs font-semibold px-3 py-1 rounded-full transition-all duration-150 hover:scale-105 active:scale-95 ml-4 ${
           paused
             ? 'bg-[#DCFCE7] text-[#16A34A] hover:bg-[#BBF7D0]'
             : 'bg-[#FEE2E2] text-[#DC2626] hover:bg-[#FECACA]'

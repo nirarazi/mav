@@ -117,8 +117,8 @@ export const SettingsPopup: FC<{
 
   return (
     <>
-      <div className="bg-newBgColorInner p-[20px] flex flex-col transition-all w-[260px]">
-        <div className="flex flex-1 flex-col gap-[15px]">
+      <div className="bg-newBgColorInner p-[20px] flex flex-col transition-all w-[260px] overflow-y-auto">
+        <div className="flex flex-col gap-[15px]">
           {list.map(({ tab: tabKey, label }) => (
             <div
               key={tabKey}
@@ -139,10 +139,8 @@ export const SettingsPopup: FC<{
               {label}
             </div>
           ))}
-        </div>
-        <div>
           {showLogout && (
-            <div className="mt-4">
+            <div className="mt-2 pt-3 border-t border-[#E8E6E1]">
               <LogoutComponent />
             </div>
           )}

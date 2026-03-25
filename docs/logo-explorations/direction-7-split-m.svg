@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#FAFAF8"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="system-ui" font-size="11" fill="#A3A3A3" letter-spacing="3">DIRECTION 7 — SPLIT M / TWO AGENTS</text>
+  
+  <!-- Logo mark: large preview -->
+  <g transform="translate(210, 65)">
+    <!-- Left stroke (agent 1) -->
+    <path d="M 30 140 L 30 30" fill="none" stroke="#7C5CFC" stroke-width="10" stroke-linecap="round"/>
+    <!-- Diagonal bridge (collaboration) -->
+    <path d="M 30 30 L 90 90" fill="none" stroke="#7C5CFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right stroke (agent 2) -->
+    <path d="M 90 90 L 150 30" fill="none" stroke="#7C5CFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 150 30 L 150 140" fill="none" stroke="#7C5CFC" stroke-width="10" stroke-linecap="round"/>
+    <!-- Agent nodes at the top -->
+    <circle cx="30" cy="25" r="10" fill="#7C5CFC"/>
+    <circle cx="30" cy="25" r="3.5" fill="white"/>
+    <circle cx="150" cy="25" r="10" fill="#7C5CFC"/>
+    <circle cx="150" cy="25" r="3.5" fill="white"/>
+    <!-- Connection node at center -->
+    <circle cx="90" cy="90" r="7" fill="#7C5CFC" opacity="0.25"/>
+    <circle cx="90" cy="90" r="3.5" fill="white"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="300" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="600" fill="#1A1A1A" letter-spacing="-2">mav</text>
+  <text x="300" y="305" text-anchor="middle" font-family="system-ui" font-size="13" fill="#A3A3A3" letter-spacing="1.5">.social</text>
+  
+  <!-- Small versions -->
+  <g transform="translate(40, 340)">
+    <rect width="40" height="40" rx="10" fill="#7C5CFC"/>
+    <!-- Mini split M -->
+    <path d="M 11 30 L 11 12" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 11 12 L 20 21" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 20 21 L 29 12" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 29 12 L 29 30" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="11" cy="10" r="3" fill="white"/>
+    <circle cx="29" cy="10" r="3" fill="white"/>
+  </g>
+  <text x="90" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">32px favicon</text>
+  
+  <g transform="translate(170, 345)">
+    <!-- Inline mini M -->
+    <path d="M 2 20 L 2 4" fill="none" stroke="#7C5CFC" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 2 4 L 10 12" fill="none" stroke="#7C5CFC" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 10 12 L 18 4" fill="none" stroke="#7C5CFC" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 18 4 L 18 20" fill="none" stroke="#7C5CFC" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="2" cy="3" r="2.5" fill="#7C5CFC"/>
+    <circle cx="18" cy="3" r="2.5" fill="#7C5CFC"/>
+    <text x="28" y="17" font-family="system-ui" font-size="18" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+  <text x="250" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">inline logo</text>
+  
+  <!-- On dark bg -->
+  <rect x="340" y="335" width="120" height="50" rx="8" fill="#1A1A1A"/>
+  <path d="M 356 370 L 356 350" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 356 350 L 366 360" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 366 360 L 376 350" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 376 350 L 376 370" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="356" cy="348" r="2.5" fill="white"/>
+  <circle cx="376" cy="348" r="2.5" fill="white"/>
+  <text x="387" y="365" font-family="system-ui" font-size="18" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  <text x="470" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">dark variant</text>
+</svg>

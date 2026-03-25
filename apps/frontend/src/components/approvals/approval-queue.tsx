@@ -98,7 +98,7 @@ const ApprovalCard: FC<{
 
   return (
     <div
-      className={`bg-white rounded-[16px] p-5 flex flex-col gap-3 transition-all hover:shadow-sm ${
+      className={`bg-white rounded-[16px] p-5 flex flex-col gap-3 animate-fadeInUp transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
         needsReview && isMedRisk
           ? 'border-[1.5px] border-[#D97706]'
           : needsReview
@@ -170,14 +170,14 @@ const ApprovalCard: FC<{
           <button
             onClick={handleApprove}
             disabled={isSubmitting}
-            className="bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-semibold py-2 px-5 rounded-full transition-colors"
+            className="bg-[#16A34A] hover:bg-[#15803D] hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-semibold py-2 px-5 rounded-full transition-all duration-150"
           >
             {isSubmitting ? 'Processing...' : 'Approve'}
           </button>
           <button
             onClick={handleReject}
             disabled={isSubmitting}
-            className="bg-white hover:bg-[#FEE2E2] disabled:opacity-50 disabled:cursor-not-allowed text-[#DC2626] text-xs font-semibold py-2 px-5 rounded-full border border-[#DC2626] transition-colors"
+            className="bg-white hover:bg-[#FEE2E2] hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-[#DC2626] text-xs font-semibold py-2 px-5 rounded-full border border-[#DC2626] transition-all duration-150"
           >
             {isSubmitting ? 'Processing...' : 'Reject'}
           </button>

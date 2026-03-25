@@ -136,6 +136,9 @@ module.exports = {
         newMessages: 'newMessages 1s ease-in-out 4s forwards',
         marqueeUp: 'marquee-up 100s linear infinite',
         marqueeDown: 'marquee-down 100s linear infinite',
+        fadeInUp: 'fadeInUp 0.35s ease-out both',
+        scaleIn: 'scaleIn 0.2s ease-out both',
+        slideInRight: 'slideInRight 0.25s ease-out both',
       },
       boxShadow: {
         yellow: '0 0 60px 20px #6b6237',
@@ -231,6 +234,36 @@ module.exports = {
           '100%': {
             opacity: 1,
             transform: 'translateY(0)',
+          },
+        },
+        fadeInUp: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(8px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        scaleIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.95)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
+        slideInRight: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(12px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
           },
         },
         newMessages: {

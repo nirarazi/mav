@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100">
+  <rect width="900" height="1100" fill="#FAFAF8"/>
+  <text x="450" y="28" text-anchor="middle" font-family="system-ui" font-size="11" fill="#A3A3A3" letter-spacing="3">THREE DIRECTIONS — REFINED</text>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- SECTION: 5A — AGENT IN MOTION      -->
+  <!-- ─────────────────────────────────── -->
+  <text x="450" y="62" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C5CFC" letter-spacing="3" font-weight="600">5A — AGENT IN MOTION</text>
+
+  <!-- 5A-i: Original feel, tighter trail, more prominent eye -->
+  <g transform="translate(30, 75)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">i · TIGHT TRAIL</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <circle cx="80"  cy="105" r="12" fill="#7C5CFC" opacity="0.05"/>
+    <circle cx="100" cy="93"  r="14" fill="#7C5CFC" opacity="0.10"/>
+    <circle cx="123" cy="80"  r="17" fill="#7C5CFC" opacity="0.20"/>
+    <!-- Agent — big eye -->
+    <circle cx="152" cy="65" r="26" fill="#7C5CFC"/>
+    <circle cx="152" cy="65" r="9"  fill="white"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 5A-ii: Diagonal rise, eye larger relative to body -->
+  <g transform="translate(260, 75)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">ii · BIG EYE</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <circle cx="82"  cy="108" r="10" fill="#7C5CFC" opacity="0.05"/>
+    <circle cx="104" cy="95"  r="13" fill="#7C5CFC" opacity="0.10"/>
+    <circle cx="130" cy="80"  r="18" fill="#7C5CFC" opacity="0.20"/>
+    <!-- Agent — oversized eye for character -->
+    <circle cx="158" cy="63" r="28" fill="#7C5CFC"/>
+    <circle cx="162" cy="60" r="11" fill="white"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 5A-iii: Horizontal path, agent dead center with strong eye -->
+  <g transform="translate(490, 75)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">iii · HORIZONTAL</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <circle cx="55"  cy="88" r="11" fill="#7C5CFC" opacity="0.05"/>
+    <circle cx="78"  cy="88" r="14" fill="#7C5CFC" opacity="0.10"/>
+    <circle cx="104" cy="88" r="18" fill="#7C5CFC" opacity="0.20"/>
+    <!-- Agent -->
+    <circle cx="138" cy="88" r="26" fill="#7C5CFC"/>
+    <circle cx="138" cy="88" r="9"  fill="white"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- SECTION: 6B — CONTAINED PULSE      -->
+  <!-- ─────────────────────────────────── -->
+  <text x="450" y="278" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C5CFC" letter-spacing="3" font-weight="600">6B — CONTAINED PULSE</text>
+
+  <!-- 6B-i: Square brackets, 2-peak simplified beat -->
+  <g transform="translate(30, 290)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">i · SIMPLE BEAT</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <path d="M 58 42 L 46 42 L 46 128 L 58 128" fill="none" stroke="#7C5CFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 182 42 L 194 42 L 194 128 L 182 128" fill="none" stroke="#7C5CFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 2-peak: clean and readable at all sizes -->
+    <path d="M 62 85 L 85 85 L 95 50 L 108 120 L 118 65 L 128 85 L 178 85"
+          fill="none" stroke="#7C5CFC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="700" fill="#1A1A1A" letter-spacing="-1.5">mav</text>
+  </g>
+
+  <!-- 6B-ii: Rounded square brackets, single sharp spike -->
+  <g transform="translate(260, 290)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">ii · SINGLE SPIKE</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <path d="M 60 42 L 46 42 L 46 128 L 60 128" fill="none" stroke="#7C5CFC" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 180 42 L 194 42 L 194 128 L 180 128" fill="none" stroke="#7C5CFC" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Single spike — maximum clarity -->
+    <path d="M 62 85 L 98 85 L 120 42 L 142 85 L 178 85"
+          fill="none" stroke="#7C5CFC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="120" cy="42" r="5" fill="#7C5CFC"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="700" fill="#1A1A1A" letter-spacing="-1.5">mav</text>
+  </g>
+
+  <!-- 6B-iii: Angle brackets, classic sharp beat -->
+  <g transform="translate(490, 290)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">iii · ANGLE BRACKETS</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <!-- Angle < > instead of square [ ] -->
+    <path d="M 68 42 L 44 85 L 68 128" fill="none" stroke="#7C5CFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 172 42 L 196 85 L 172 128" fill="none" stroke="#7C5CFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 72 85 L 90 85 L 100 52 L 114 118 L 124 68 L 134 88 L 168 88"
+          fill="none" stroke="#7C5CFC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="700" fill="#1A1A1A" letter-spacing="-1.5">mav</text>
+  </g>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- SECTION: 10 — BROADCAST            -->
+  <!-- ─────────────────────────────────── -->
+  <text x="450" y="494" text-anchor="middle" font-family="system-ui" font-size="10" fill="#7C5CFC" letter-spacing="3" font-weight="600">10 — BROADCAST</text>
+
+  <!-- 10-i: Center dot + 2 concentric rings, perfectly centered -->
+  <g transform="translate(30, 506)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">i · CENTERED RINGS</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <circle cx="120" cy="88" r="50" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.12"/>
+    <circle cx="120" cy="88" r="32" fill="none" stroke="#7C5CFC" stroke-width="3"   opacity="0.25"/>
+    <circle cx="120" cy="88" r="16" fill="none" stroke="#7C5CFC" stroke-width="3.5" opacity="0.5"/>
+    <circle cx="120" cy="88" r="7"  fill="#7C5CFC"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 10-ii: Off-center origin — agent broadcasting outward -->
+  <g transform="translate(260, 506)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">ii · OFF-CENTER</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <!-- Rings expand from lower-left origin -->
+    <circle cx="72" cy="112" r="55" fill="none" stroke="#7C5CFC" stroke-width="2" opacity="0.10"/>
+    <circle cx="72" cy="112" r="38" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.20"/>
+    <circle cx="72" cy="112" r="22" fill="none" stroke="#7C5CFC" stroke-width="3"   opacity="0.38"/>
+    <circle cx="72" cy="112" r="8"  fill="#7C5CFC"/>
+    <circle cx="72" cy="112" r="3"  fill="white"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 10-iii: Half-rings (upper arc only) — like a rising signal -->
+  <g transform="translate(490, 506)">
+    <text x="120" y="0" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">iii · ARC BROADCAST</text>
+    <rect x="20" y="15" width="200" height="160" rx="16" fill="white" stroke="#E8E6E1" stroke-width="1"/>
+    <!-- Upper arcs only, from center-bottom -->
+    <path d="M 88 118 A 32 32 0 0 1 152 118" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.15" stroke-linecap="round"/>
+    <path d="M 75 118 A 45 45 0 0 1 165 118" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.28" stroke-linecap="round"/>
+    <path d="M 62 118 A 58 58 0 0 1 178 118" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.12" stroke-linecap="round"/>
+    <circle cx="120" cy="118" r="10" fill="#7C5CFC"/>
+    <circle cx="120" cy="118" r="4"  fill="white"/>
+    <text x="120" y="155" text-anchor="middle" font-family="system-ui" font-size="22" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- FAVICON STRIP                       -->
+  <!-- ─────────────────────────────────── -->
+  <text x="450" y="702" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">FAVICONS — ALL NINE</text>
+
+  <!-- Row 1: 5A variants -->
+  <!-- 5A-i -->
+  <g transform="translate(30, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <circle cx="14" cy="30" r="5"   fill="white" opacity="0.08"/>
+    <circle cx="20" cy="26" r="6.5" fill="white" opacity="0.16"/>
+    <circle cx="28" cy="21" r="8.5" fill="white" opacity="0.30"/>
+    <circle cx="36" cy="15" r="11"  fill="white"/>
+    <circle cx="38" cy="13" r="4.5" fill="#7C5CFC"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">5A-i</text>
+  </g>
+  <!-- 5A-ii -->
+  <g transform="translate(90, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <circle cx="13" cy="30" r="4.5" fill="white" opacity="0.07"/>
+    <circle cx="20" cy="26" r="6"   fill="white" opacity="0.14"/>
+    <circle cx="28" cy="20" r="9"   fill="white" opacity="0.28"/>
+    <circle cx="37" cy="13" r="12"  fill="white"/>
+    <circle cx="40" cy="10" r="5"   fill="#7C5CFC"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">5A-ii</text>
+  </g>
+  <!-- 5A-iii -->
+  <g transform="translate(150, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <circle cx="8"  cy="24" r="4.5" fill="white" opacity="0.07"/>
+    <circle cx="16" cy="24" r="6"   fill="white" opacity="0.14"/>
+    <circle cx="25" cy="24" r="8"   fill="white" opacity="0.28"/>
+    <circle cx="36" cy="24" r="11"  fill="white"/>
+    <circle cx="36" cy="24" r="4.5" fill="#7C5CFC"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">5A-iii</text>
+  </g>
+
+  <!-- Row 1: 6B variants -->
+  <!-- 6B-i -->
+  <g transform="translate(330, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <path d="M 14 10 L 10 10 L 10 38 L 14 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 34 10 L 38 10 L 38 38 L 34 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 14 24 L 19 24 L 22 13 L 26 35 L 29 18 L 34 24"
+          fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">6B-i</text>
+  </g>
+  <!-- 6B-ii -->
+  <g transform="translate(390, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <path d="M 14 10 L 10 10 L 10 38 L 14 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 34 10 L 38 10 L 38 38 L 34 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Single spike -->
+    <path d="M 14 26 L 20 26 L 24 10 L 28 26 L 34 26"
+          fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="10" r="2.5" fill="white"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">6B-ii</text>
+  </g>
+  <!-- 6B-iii -->
+  <g transform="translate(450, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <path d="M 17 10 L 9 24 L 17 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 31 10 L 39 24 L 31 38" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 17 24 L 21 24 L 24 13 L 27 35 L 30 20 L 31 24"
+          fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">6B-iii</text>
+  </g>
+
+  <!-- Row 1: Direction 10 variants -->
+  <!-- 10-i -->
+  <g transform="translate(630, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <circle cx="24" cy="24" r="18" fill="none" stroke="white" stroke-width="1.5" opacity="0.15"/>
+    <circle cx="24" cy="24" r="12" fill="none" stroke="white" stroke-width="2"   opacity="0.28"/>
+    <circle cx="24" cy="24" r="6"  fill="none" stroke="white" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="24" cy="24" r="3"  fill="white"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">10-i</text>
+  </g>
+  <!-- 10-ii -->
+  <g transform="translate(690, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <circle cx="14" cy="36" r="20" fill="none" stroke="white" stroke-width="1.5" opacity="0.12"/>
+    <circle cx="14" cy="36" r="13" fill="none" stroke="white" stroke-width="2"   opacity="0.22"/>
+    <circle cx="14" cy="36" r="7"  fill="none" stroke="white" stroke-width="2.5" opacity="0.4"/>
+    <circle cx="14" cy="36" r="3.5" fill="white"/>
+    <circle cx="14" cy="36" r="1.5" fill="#7C5CFC"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">10-ii</text>
+  </g>
+  <!-- 10-iii -->
+  <g transform="translate(750, 716)">
+    <rect width="48" height="48" rx="12" fill="#7C5CFC"/>
+    <path d="M 15 36 A 9 9 0 0 1 33 36"   fill="none" stroke="white" stroke-width="2"   opacity="0.20" stroke-linecap="round"/>
+    <path d="M 10 36 A 14 14 0 0 1 38 36"  fill="none" stroke="white" stroke-width="2"   opacity="0.35" stroke-linecap="round"/>
+    <path d="M 5 36 A 19 19 0 0 1 43 36"   fill="none" stroke="white" stroke-width="2"   opacity="0.15" stroke-linecap="round"/>
+    <circle cx="24" cy="36" r="4.5" fill="white"/>
+    <circle cx="24" cy="36" r="2"   fill="#7C5CFC"/>
+    <text x="24" y="62" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B">10-iii</text>
+  </g>
+
+  <!-- ─────────────────────────────────── -->
+  <!-- DARK BAR LOCKUPS                    -->
+  <!-- ─────────────────────────────────── -->
+  <text x="450" y="820" text-anchor="middle" font-family="system-ui" font-size="10" fill="#A3A3A3" letter-spacing="2">INLINE ON DARK — STRONGEST CANDIDATES</text>
+
+  <rect x="30" y="832" width="840" height="70" rx="12" fill="#1A1A1A"/>
+
+  <!-- 5A inline -->
+  <g transform="translate(50, 849)">
+    <circle cx="5"  cy="20" r="4"   fill="white" opacity="0.08"/>
+    <circle cx="11" cy="16" r="5"   fill="white" opacity="0.15"/>
+    <circle cx="18" cy="12" r="6.5" fill="white" opacity="0.28"/>
+    <circle cx="27" cy="7"  r="9"   fill="white"/>
+    <circle cx="29" cy="5"  r="3.5" fill="#1A1A1A"/>
+    <text x="42" y="22" font-family="system-ui" font-size="22" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 6B inline -->
+  <g transform="translate(350, 852)">
+    <path d="M 3 2 L 0 2 L 0 32 L 3 32" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 29 2 L 32 2 L 32 32 L 29 32" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 4 17 L 9 17 L 12 6 L 17 28 L 21 11 L 25 20 L 28 17"
+          fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="42" y="22" font-family="system-ui" font-size="22" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- 10-ii inline -->
+  <g transform="translate(650, 855)">
+    <circle cx="10" cy="18" r="16" fill="none" stroke="white" stroke-width="1.5" opacity="0.12"/>
+    <circle cx="10" cy="18" r="10" fill="none" stroke="white" stroke-width="2"   opacity="0.24"/>
+    <circle cx="10" cy="18" r="5"  fill="none" stroke="white" stroke-width="2"   opacity="0.45"/>
+    <circle cx="10" cy="18" r="2.5" fill="white"/>
+    <text x="27" y="24" font-family="system-ui" font-size="22" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  </g>
+
+  <!-- Labels -->
+  <text x="110"  y="916" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B" letter-spacing="1">5A — AGENT</text>
+  <text x="415"  y="916" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B" letter-spacing="1">6B — PULSE</text>
+  <text x="708"  y="916" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6B6B6B" letter-spacing="1">10 — BROADCAST</text>
+
+</svg>

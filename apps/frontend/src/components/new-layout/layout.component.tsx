@@ -103,7 +103,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                   <div className="flex flex-col bg-newBgColorInner w-[80px] rounded-[12px]">
                     <div
                       className={clsx(
-                        'fixed h-[calc(100%-36px)] w-[64px] start-[17px] flex flex-1 top-[36px]',
+                        'fixed h-[calc(100%-60px)] w-[64px] start-[17px] flex flex-1 top-[48px]',
                         user?.admin && 'pt-[60px] max-h-[1000px]:w-[500px]'
                       )}
                     >

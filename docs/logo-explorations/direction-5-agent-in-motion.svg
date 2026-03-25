@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#FAFAF8"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="system-ui" font-size="11" fill="#A3A3A3" letter-spacing="3">DIRECTION 5 — AGENT IN MOTION</text>
+  
+  <!-- Logo mark: large preview -->
+  <g transform="translate(180, 80)">
+    <!-- Motion trail: three fading circles -->
+    <circle cx="60" cy="120" r="22" fill="#7C5CFC" opacity="0.06"/>
+    <circle cx="90" cy="105" r="22" fill="#7C5CFC" opacity="0.12"/>
+    <circle cx="120" cy="90" r="22" fill="#7C5CFC" opacity="0.22"/>
+    <!-- Agent: the leading dot -->
+    <circle cx="155" cy="72" r="26" fill="#7C5CFC"/>
+    <circle cx="155" cy="72" r="9" fill="white"/>
+    <!-- Subtle trail line -->
+    <path d="M 60 120 Q 100 95 155 72" fill="none" stroke="#7C5CFC" stroke-width="2.5" opacity="0.15"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="300" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="600" fill="#1A1A1A" letter-spacing="-2">mav</text>
+  <text x="300" y="305" text-anchor="middle" font-family="system-ui" font-size="13" fill="#A3A3A3" letter-spacing="1.5">.social</text>
+  
+  <!-- Small versions -->
+  <g transform="translate(40, 340)">
+    <rect width="40" height="40" rx="10" fill="#7C5CFC"/>
+    <circle cx="14" cy="24" r="4.5" fill="white" opacity="0.15"/>
+    <circle cx="19" cy="21" r="4.5" fill="white" opacity="0.25"/>
+    <circle cx="25" cy="17" r="5" fill="white" opacity="0.4"/>
+    <circle cx="30" cy="13" r="5.5" fill="white"/>
+    <circle cx="30" cy="13" r="2" fill="#7C5CFC"/>
+  </g>
+  <text x="90" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">32px favicon</text>
+  
+  <g transform="translate(170, 345)">
+    <circle cx="8" cy="18" r="4" fill="#7C5CFC" opacity="0.08"/>
+    <circle cx="13" cy="15" r="4" fill="#7C5CFC" opacity="0.15"/>
+    <circle cx="18" cy="12" r="5" fill="#7C5CFC" opacity="0.3"/>
+    <circle cx="25" cy="8" r="6" fill="#7C5CFC"/>
+    <circle cx="25" cy="8" r="2" fill="white"/>
+    <text x="40" y="16" font-family="system-ui" font-size="18" font-weight="600" fill="#1A1A1A" letter-spacing="-1">mav</text>
+  </g>
+  <text x="250" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">inline logo</text>
+  
+  <!-- On dark bg -->
+  <rect x="340" y="335" width="120" height="50" rx="8" fill="#1A1A1A"/>
+  <circle cx="367" cy="355" r="4" fill="white" opacity="0.1"/>
+  <circle cx="372" cy="352" r="4" fill="white" opacity="0.2"/>
+  <circle cx="378" cy="349" r="5" fill="white" opacity="0.35"/>
+  <circle cx="385" cy="345" r="5.5" fill="white"/>
+  <circle cx="385" cy="345" r="2" fill="#1A1A1A"/>
+  <text x="400" y="365" font-family="system-ui" font-size="18" font-weight="600" fill="white" letter-spacing="-1">mav</text>
+  <text x="470" y="367" font-family="system-ui" font-size="10" fill="#A3A3A3">dark variant</text>
+</svg>

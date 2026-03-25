@@ -100,7 +100,7 @@ const StatCard: FC<{
   subtitleColor?: string;
   loading?: boolean;
 }> = ({ label, value, accentColor, valueColor, subtitle, subtitleColor, loading }) => (
-  <div className="bg-white border border-[#E8E6E1] rounded-2xl p-5 relative overflow-hidden">
+  <div className="bg-white border border-[#E8E6E1] rounded-2xl p-5 relative overflow-hidden animate-fadeInUp hover:scale-[1.02] hover:shadow-md transition-all duration-200">
     <div
       className="absolute -top-5 -right-5 w-20 h-20 rounded-full opacity-[0.08]"
       style={{ background: accentColor }}
@@ -519,32 +519,40 @@ export const AgentDashboard: FC = () => {
 
         {/* Bento Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-9">
-          <StatCard
-            label="Published"
-            value={postsToday}
-            accentColor="#7C5CFC"
-            loading={historyLoading}
-          />
-          <StatCard
-            label="Needs review"
-            value={pendingCount}
-            accentColor="#D97706"
-            valueColor={pendingCount > 0 ? '#7C5CFC' : undefined}
-            loading={pendingLoading}
-          />
-          <StatCard
-            label="Persona"
-            value={activePersona?.name || 'None'}
-            accentColor="#16A34A"
-            loading={personaLoading}
-          />
-          <StatCard
-            label="Agent"
-            value={brainReady ? 'Ready' : 'Offline'}
-            accentColor="#2563EB"
-            valueColor={brainReady ? '#16A34A' : '#DC2626'}
-            loading={brainLoading}
-          />
+          <div className="stagger-1">
+            <StatCard
+              label="Published"
+              value={postsToday}
+              accentColor="#7C5CFC"
+              loading={historyLoading}
+            />
+          </div>
+          <div className="stagger-2">
+            <StatCard
+              label="Needs review"
+              value={pendingCount}
+              accentColor="#D97706"
+              valueColor={pendingCount > 0 ? '#7C5CFC' : undefined}
+              loading={pendingLoading}
+            />
+          </div>
+          <div className="stagger-3">
+            <StatCard
+              label="Persona"
+              value={activePersona?.name || 'None'}
+              accentColor="#16A34A"
+              loading={personaLoading}
+            />
+          </div>
+          <div className="stagger-4">
+            <StatCard
+              label="Agent"
+              value={brainReady ? 'Ready' : 'Offline'}
+              accentColor="#2563EB"
+              valueColor={brainReady ? '#16A34A' : '#DC2626'}
+              loading={brainLoading}
+            />
+          </div>
         </div>
 
         {/* Quick Actions */}
