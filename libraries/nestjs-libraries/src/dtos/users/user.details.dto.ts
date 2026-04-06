@@ -1,4 +1,4 @@
-import { MediaDto } from '@maverick/nestjs-libraries/dtos/media/media.dto';
+import { MediaDto } from '@mav/nestjs-libraries/dtos/media/media.dto';
 import {
   IsOptional,
   IsString,

@@ -12,8 +12,8 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testMatch: ['**/__tests__/**/*.test.ts'],
   moduleNameMapper: {
-    '^@maverick/nestjs-libraries/(.*)$':
+    '^@mav/nestjs-libraries/(.*)$':
       '<rootDir>/../nestjs-libraries/src/$1',
-    '^@maverick/persona-engine/(.*)$': '<rootDir>/src/$1',
+    '^@mav/persona-engine/(.*)$': '<rootDir>/src/$1',
   },
 };

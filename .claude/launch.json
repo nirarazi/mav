@@ -5,7 +5,8 @@
       "name": "frontend",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev:frontend"],
-      "port": 4200
+      "port": 4200,
+      "autoPort": false
     },
     {
       "name": "backend",

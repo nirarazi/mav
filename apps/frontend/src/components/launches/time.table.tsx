@@ -1,27 +1,27 @@
 'use client';
 
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { Select } from '@maverick/react/form/select';
-import { Button } from '@maverick/react/form/button';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { Select } from '@mav/react/form/select';
+import { Button } from '@mav/react/form/button';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 // @ts-ignore
 import useKeypress from 'react-use-keypress';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import { sortBy } from 'lodash';
-import { usePreventWindowUnload } from '@maverick/react/helpers/use.prevent.window.unload';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { usePreventWindowUnload } from '@mav/react/helpers/use.prevent.window.unload';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 import clsx from 'clsx';
 import {
   TrashIcon,
   PlusIcon,
   DelayIcon,
-} from '@maverick/frontend/components/ui/icons';
+} from '@mav/frontend/components/ui/icons';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

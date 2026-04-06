@@ -1,6 +1,6 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { WebhooksDto } from '@maverick/nestjs-libraries/dtos/webhooks/webhooks.dto';
+import { WebhooksDto } from '@mav/nestjs-libraries/dtos/webhooks/webhooks.dto';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()

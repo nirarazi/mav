@@ -7,12 +7,12 @@ import { Clean } from '@blueprintjs/icons';
 import { SectionTab } from 'polotno/side-panel';
 import { getImageSize } from 'polotno/utils/image';
 import { ImagesGrid } from 'polotno/side-panel/images-grid';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@maverick/react/form/button';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Button } from '@mav/react/form/button';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const GenerateTab = observer(({ store }: any) => {
   const inputRef = React.useRef<any>(null);
   const [image, setImage] = React.useState(null);

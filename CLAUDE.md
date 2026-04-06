@@ -1,7 +1,7 @@
-This project is Maverick, an autonomous social media management system for zero-human companies.
+This project is Mav, an autonomous social media management system for zero-human companies.
 Forked from Postiz (v1.47.0). See FORK.md for fork details.
 
-Maverick adds an autonomous agent brain, MCP server, persona engine, compliance engine,
+Mav adds an autonomous agent brain, MCP server, persona engine, compliance engine,
 and human-in-the-loop approval workflows on top of Postiz's 34+ platform integrations.
 
 ## Architecture
@@ -16,7 +16,7 @@ Monorepo with pnpm. Key folders:
 - `libraries/react-shared-libraries` — Shared React components
 - `libraries/helpers` — Common utilities
 
-### Maverick Additions (Apache 2.0 via API boundary)
+### Mav Additions (Apache 2.0 via API boundary)
 - `apps/agent-brain` — OODA loop autonomous decision engine (Temporal workflows)
 - `apps/mcp-server` — MCP protocol server for agent tool use
 - `libraries/persona-engine` — Character/voice system for content generation
@@ -27,15 +27,15 @@ Monorepo with pnpm. Key folders:
 
 - Use only pnpm. Never install frontend components from npmjs.
 - Backend layers: Controller → Service → Repository (no shortcuts)
-- Frontend: Use SWR for data fetching via useFetch hook from @maverick/helpers
+- Frontend: Use SWR for data fetching via useFetch hook from @mav/helpers
 - Each SWR hook must be separate and comply with react-hooks/rules-of-hooks
 - Tailwind 3 for styling. Check colors.scss, global.scss, tailwind.config.js first.
 - All --color-custom* are deprecated. Don't use them.
 - Linting runs only from root.
-- Path aliases use @maverick/ prefix (e.g., @maverick/nestjs-libraries/*)
+- Path aliases use @mav/ prefix (e.g., @mav/nestjs-libraries/*)
 - Prisma schema at: libraries/nestjs-libraries/src/database/prisma/schema.prisma
 
-## Maverick-Specific Patterns
+## Mav-Specific Patterns
 
 - Agent brain uses Temporal workflows (not BullMQ) — see apps/agent-brain/src/brain.workflow.ts
 - Approval items go through: submit → pending → approved/rejected/expired

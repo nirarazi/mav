@@ -2,10 +2,10 @@
 
 import { EventEmitter } from 'events';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
+import { useVariables } from '@mav/react/helpers/variable.context';
 const postUrlEmitter = new EventEmitter();
 
 export const MediaSettingsLayout = () => {

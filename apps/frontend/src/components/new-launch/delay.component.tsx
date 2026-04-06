@@ -1,11 +1,11 @@
 'use client';
 
 import React, { FC, useCallback, useEffect, useState } from 'react';
-import { DelayIcon, DropdownArrowIcon } from '@maverick/frontend/components/ui/icons';
+import { DelayIcon, DropdownArrowIcon } from '@mav/frontend/components/ui/icons';
 import clsx from 'clsx';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import { useClickOutside } from '@mantine/hooks';
 
 const delayOptions = [

@@ -8,16 +8,16 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { UtcToLocalDateRender } from '@maverick/react/helpers/utc.date.render';
-import { Button } from '@maverick/react/form/button';
+import { UtcToLocalDateRender } from '@mav/react/helpers/utc.date.render';
+import { Button } from '@mav/react/form/button';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
 import clsx from 'clsx';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import ReactLoading from 'react-loading';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const UpDown: FC<{
   name: string;

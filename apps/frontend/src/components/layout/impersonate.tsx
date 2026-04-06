@@ -1,16 +1,16 @@
-import { Input } from '@maverick/react/form/input';
+import { Input } from '@mav/react/form/input';
 import { ChangeEventHandler, FC, useCallback, useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { Select } from '@maverick/react/form/select';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { setCookie } from '@maverick/frontend/components/layout/layout.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Button } from '@maverick/react/form/button';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { Select } from '@mav/react/form/select';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { setCookie } from '@mav/frontend/components/layout/layout.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Button } from '@mav/react/form/button';
 
 interface Charge {
   id: string;

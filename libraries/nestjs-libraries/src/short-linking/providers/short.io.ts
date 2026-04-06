@@ -1,4 +1,4 @@
-import { ShortLinking } from '@maverick/nestjs-libraries/short-linking/short-linking.interface';
+import { ShortLinking } from '@mav/nestjs-libraries/short-linking/short-linking.interface';
 
 const options = {
   headers: {

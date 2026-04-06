@@ -2,9 +2,9 @@
 
 import { FC, useCallback, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { OnboardingModal } from '@maverick/frontend/components/onboarding/onboarding.modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { OnboardingModal } from '@mav/frontend/components/onboarding/onboarding.modal';
 
 export const Onboarding: FC = () => {
   const query = useSearchParams();
@@ -32,7 +32,7 @@ export const Onboarding: FC = () => {
     }
     modalOpen.current = true;
     modal.openModal({
-      // title: t('onboarding', 'Welcome to Maverick'),
+      // title: t('onboarding', 'Welcome to Mav'),
       withCloseButton: true,
       closeOnEscape: false,
       removeLayout: true,

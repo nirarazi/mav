@@ -8,12 +8,12 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { ThirdPartyManager } from '@maverick/nestjs-libraries/3rdparties/thirdparty.manager';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { ThirdPartyManager } from '@mav/nestjs-libraries/3rdparties/thirdparty.manager';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
-import { MediaService } from '@maverick/nestjs-libraries/database/prisma/media/media.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
+import { MediaService } from '@mav/nestjs-libraries/database/prisma/media/media.service';
 
 @ApiTags('Third Party')
 @Controller('/third-party')

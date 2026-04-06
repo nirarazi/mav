@@ -1,7 +1,7 @@
 import {
   IsIn, Validate, ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface
 } from 'class-validator';
-import { VideoAbstract } from '@maverick/nestjs-libraries/videos/video.interface';
+import { VideoAbstract } from '@mav/nestjs-libraries/videos/video.interface';
 
 @ValidatorConstraint({ name: 'checkInRuntime', async: false })
 export class ValidIn implements ValidatorConstraintInterface {

@@ -1,10 +1,10 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import { useCustomProviderFunction } from '@maverick/frontend/components/launches/helpers/use.custom.provider.function';
-import { Select } from '@maverick/react/form/select';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useCustomProviderFunction } from '@mav/frontend/components/launches/helpers/use.custom.provider.function';
+import { Select } from '@mav/react/form/select';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const DribbbleTeams: FC<{
   name: string;
   onChange: (event: {

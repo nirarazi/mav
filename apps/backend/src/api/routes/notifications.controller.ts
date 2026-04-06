@@ -1,8 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
 import { Organization, User } from '@prisma/client';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Notifications')

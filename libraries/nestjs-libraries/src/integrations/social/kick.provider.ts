@@ -3,12 +3,12 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { KickDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/kick.dto';
+import { KickDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/kick.dto';
 import { createHash, randomBytes } from 'crypto';
 
 export class KickProvider extends SocialAbstract implements SocialProvider {

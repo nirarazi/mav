@@ -1,13 +1,13 @@
-import { AgentToolInterface } from '@maverick/nestjs-libraries/chat/agent.tool.interface';
+import { AgentToolInterface } from '@mav/nestjs-libraries/chat/agent.tool.interface';
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 import { Injectable } from '@nestjs/common';
 import {
   IntegrationManager,
   socialIntegrationList,
-} from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { getValidationSchemas } from '@maverick/nestjs-libraries/chat/validation.schemas.helper';
-import { checkAuth } from '@maverick/nestjs-libraries/chat/auth.context';
+} from '@mav/nestjs-libraries/integrations/integration.manager';
+import { getValidationSchemas } from '@mav/nestjs-libraries/chat/validation.schemas.helper';
+import { checkAuth } from '@mav/nestjs-libraries/chat/auth.context';
 
 @Injectable()
 export class IntegrationValidationTool implements AgentToolInterface {

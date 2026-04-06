@@ -1,11 +1,11 @@
 'use client';
 
 import { FC, FormEvent, useCallback, useState } from 'react';
-import { useCustomProviderFunction } from '@maverick/frontend/components/launches/helpers/use.custom.provider.function';
-import { Input } from '@maverick/react/form/input';
+import { useCustomProviderFunction } from '@mav/frontend/components/launches/helpers/use.custom.provider.function';
+import { Input } from '@mav/react/form/input';
 import { useDebouncedCallback } from 'use-debounce';
 import { useWatch } from 'react-hook-form';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 export const Subreddit: FC<{
   onChange: (event: {
     target: {

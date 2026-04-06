@@ -1,19 +1,19 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { AuthService } from '@maverick/backend/services/auth/auth.service';
-import { StripeService } from '@maverick/nestjs-libraries/services/stripe.service';
-import { PoliciesGuard } from '@maverick/backend/services/auth/permissions/permissions.guard';
-import { PermissionsService } from '@maverick/backend/services/auth/permissions/permissions.service';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { UploadModule } from '@maverick/nestjs-libraries/upload/upload.module';
-import { OpenaiService } from '@maverick/nestjs-libraries/openai/openai.service';
-import { ExtractContentService } from '@maverick/nestjs-libraries/openai/extract.content.service';
-import { CodesService } from '@maverick/nestjs-libraries/services/codes.service';
-import { PublicIntegrationsController } from '@maverick/backend/public-api/routes/v1/public.integrations.controller';
-import { PublicPersonasController } from '@maverick/backend/public-api/routes/v1/public.personas.controller';
-import { PublicApprovalsController } from '@maverick/backend/public-api/routes/v1/public.approvals.controller';
-import { PublicComplianceController } from '@maverick/backend/public-api/routes/v1/public.compliance.controller';
-import { PublicBrainController } from '@maverick/backend/public-api/routes/v1/public.brain.controller';
-import { PublicAuthMiddleware } from '@maverick/backend/services/auth/public.auth.middleware';
+import { AuthService } from '@mav/backend/services/auth/auth.service';
+import { StripeService } from '@mav/nestjs-libraries/services/stripe.service';
+import { PoliciesGuard } from '@mav/backend/services/auth/permissions/permissions.guard';
+import { PermissionsService } from '@mav/backend/services/auth/permissions/permissions.service';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { UploadModule } from '@mav/nestjs-libraries/upload/upload.module';
+import { OpenaiService } from '@mav/nestjs-libraries/openai/openai.service';
+import { ExtractContentService } from '@mav/nestjs-libraries/openai/extract.content.service';
+import { CodesService } from '@mav/nestjs-libraries/services/codes.service';
+import { PublicIntegrationsController } from '@mav/backend/public-api/routes/v1/public.integrations.controller';
+import { PublicPersonasController } from '@mav/backend/public-api/routes/v1/public.personas.controller';
+import { PublicApprovalsController } from '@mav/backend/public-api/routes/v1/public.approvals.controller';
+import { PublicComplianceController } from '@mav/backend/public-api/routes/v1/public.compliance.controller';
+import { PublicBrainController } from '@mav/backend/public-api/routes/v1/public.brain.controller';
+import { PublicAuthMiddleware } from '@mav/backend/services/auth/public.auth.middleware';
 
 const authenticatedController = [
   PublicIntegrationsController,

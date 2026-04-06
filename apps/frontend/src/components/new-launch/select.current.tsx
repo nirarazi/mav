@@ -4,17 +4,17 @@ import { FC, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import {
   SelectedIntegrations,
   useLaunchStore,
-} from '@maverick/frontend/components/new-launch/store';
+} from '@mav/frontend/components/new-launch/store';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useShallow } from 'zustand/react/shallow';
-import { GlobalIcon } from '@maverick/frontend/components/ui/icons';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
+import { GlobalIcon } from '@mav/frontend/components/ui/icons';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
 import {
   useDecisionModal,
   useModals,
-} from '@maverick/frontend/components/layout/new-modal';
+} from '@mav/frontend/components/layout/new-modal';
 
 export function useHasScroll(ref: RefObject<HTMLElement>): boolean {
   const [hasHorizontalScroll, setHasHorizontalScroll] = useState(false);

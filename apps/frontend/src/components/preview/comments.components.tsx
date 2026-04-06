@@ -1,12 +1,12 @@
 'use client';
 
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { Button } from '@maverick/react/form/button';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { Button } from '@mav/react/form/button';
 import { FC, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const RenderComponents: FC<{
   postId: string;
 }> = (props) => {

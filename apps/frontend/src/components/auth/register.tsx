@@ -1,30 +1,30 @@
 'use client';
 
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import Link from 'next/link';
-import { Button } from '@maverick/react/form/button';
-import { Input } from '@maverick/react/form/input';
+import { Button } from '@mav/react/form/button';
+import { Input } from '@mav/react/form/input';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { CreateOrgUserDto } from '@maverick/nestjs-libraries/dtos/auth/create.org.user.dto';
-import { GithubProvider } from '@maverick/frontend/components/auth/providers/github.provider';
+import { CreateOrgUserDto } from '@mav/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { GithubProvider } from '@mav/frontend/components/auth/providers/github.provider';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 import clsx from 'clsx';
-import { GoogleProvider } from '@maverick/frontend/components/auth/providers/google.provider';
-import { OauthProvider } from '@maverick/frontend/components/auth/providers/oauth.provider';
-import { useFireEvents } from '@maverick/helpers/utils/use.fire.events';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useTrack } from '@maverick/react/helpers/use.track';
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
-import { FarcasterProvider } from '@maverick/frontend/components/auth/providers/farcaster.provider';
+import { GoogleProvider } from '@mav/frontend/components/auth/providers/google.provider';
+import { OauthProvider } from '@mav/frontend/components/auth/providers/oauth.provider';
+import { useFireEvents } from '@mav/helpers/utils/use.fire.events';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useTrack } from '@mav/react/helpers/use.track';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
+import { FarcasterProvider } from '@mav/frontend/components/auth/providers/farcaster.provider';
 import dynamic from 'next/dynamic';
-import { WalletUiProvider } from '@maverick/frontend/components/auth/providers/placeholder/wallet.ui.provider';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { WalletUiProvider } from '@mav/frontend/components/auth/providers/placeholder/wallet.ui.provider';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import useCookie from 'react-use-cookie';
 const WalletProvider = dynamic(
-  () => import('@maverick/frontend/components/auth/providers/wallet.provider'),
+  () => import('@mav/frontend/components/auth/providers/wallet.provider'),
   {
     ssr: false,
     loading: () => <WalletUiProvider />,

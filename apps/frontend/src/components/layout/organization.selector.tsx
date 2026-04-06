@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC, useCallback, useMemo } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 import clsx from 'clsx';
 export const OrganizationSelector: FC<{ asOpenSelect?: boolean }> = ({
   asOpenSelect,

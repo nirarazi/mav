@@ -2,11 +2,11 @@
 
 import '@neynar/react/dist/style.css';
 import React, { FC, useMemo, useState, useCallback, useEffect } from 'react';
-import { Web3ProviderInterface } from '@maverick/frontend/components/launches/web3/web3.provider.interface';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { Web3ProviderInterface } from '@mav/frontend/components/launches/web3/web3.provider.interface';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 import {
   NeynarAuthButton,
   NeynarContextProvider,
@@ -14,7 +14,7 @@ import {
   useNeynarContext,
 } from '@neynar/react';
 import { INeynarAuthenticatedUser } from '@neynar/react/dist/types/common';
-import { ButtonCaster } from '@maverick/frontend/components/auth/providers/farcaster.provider';
+import { ButtonCaster } from '@mav/frontend/components/auth/providers/farcaster.provider';
 export const WrapcasterProvider: FC<Web3ProviderInterface> = (props) => {
   const [_, state] = props.nonce.split('||');
   const modal = useModals();

@@ -2,9 +2,9 @@
 
 import { useCallback } from 'react';
 import Image from 'next/image';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const OauthProvider = () => {
   const fetch = useFetch();
   const { oauthLogoUrl, oauthDisplayName } = useVariables();

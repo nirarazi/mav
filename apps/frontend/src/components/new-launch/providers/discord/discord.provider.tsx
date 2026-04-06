@@ -3,11 +3,11 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 import { FC } from 'react';
-import { DiscordDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
-import { DiscordChannelSelect } from '@maverick/frontend/components/new-launch/providers/discord/discord.channel.select';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { DiscordDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
+import { DiscordChannelSelect } from '@mav/frontend/components/new-launch/providers/discord/discord.channel.select';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 const DiscordComponent: FC = () => {
   const form = useSettings();
   return (

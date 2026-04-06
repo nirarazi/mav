@@ -3,8 +3,8 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { ThreadFinisher } from '@maverick/frontend/components/new-launch/finisher/thread.finisher';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { ThreadFinisher } from '@mav/frontend/components/new-launch/finisher/thread.finisher';
 const SettingsComponent = () => {
   return <ThreadFinisher />;
 };

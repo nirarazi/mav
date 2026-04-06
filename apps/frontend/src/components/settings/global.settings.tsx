@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import dynamic from 'next/dynamic';
-import EmailNotificationsComponent from '@maverick/frontend/components/settings/email-notifications.component';
-import ShortlinkPreferenceComponent from '@maverick/frontend/components/settings/shortlink-preference.component';
+import EmailNotificationsComponent from '@mav/frontend/components/settings/email-notifications.component';
+import ShortlinkPreferenceComponent from '@mav/frontend/components/settings/shortlink-preference.component';
 
 const MetricComponent = dynamic(
-  () => import('@maverick/frontend/components/settings/metric.component'),
+  () => import('@mav/frontend/components/settings/metric.component'),
   {
     ssr: false,
   }

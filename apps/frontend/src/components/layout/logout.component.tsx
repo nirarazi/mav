@@ -1,11 +1,11 @@
 'use client';
 
 import React, { FC, useCallback } from 'react';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { setCookie } from '@maverick/frontend/components/layout/layout.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { setCookie } from '@mav/frontend/components/layout/layout.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const LogoutComponent: FC<{ isIcon?: boolean }> = ({ isIcon }) => {
   const fetch = useFetch();
   const { isGeneral, isSecured } = useVariables();

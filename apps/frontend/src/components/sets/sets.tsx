@@ -2,18 +2,18 @@
 import 'reflect-metadata';
 
 import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { Button } from '@maverick/react/form/button';
-import { Input } from '@maverick/react/form/input';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { Button } from '@mav/react/form/button';
+import { Input } from '@mav/react/form/input';
+import { useToaster } from '@mav/react/toaster/toaster';
 import clsx from 'clsx';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 
 const SaveSetModal: FC<{
   postData: any;

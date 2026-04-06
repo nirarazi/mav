@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
-import { SignaturesComponent } from '@maverick/frontend/components/settings/signatures.component';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { SignaturesComponent } from '@mav/frontend/components/settings/signatures.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 export const SignatureBox: FC<{
   editor: any;
 }> = ({ editor }) => {

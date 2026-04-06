@@ -1,10 +1,10 @@
 'use client';
 
 import React, { ReactNode, useCallback } from 'react';
-import { Logo } from '@maverick/frontend/components/new-layout/logo';
+import { Logo } from '@mav/frontend/components/new-layout/logo';
 import { DM_Sans } from 'next/font/google';
 const ModeComponent = dynamic(
-  () => import('@maverick/frontend/components/layout/mode.component'),
+  () => import('@mav/frontend/components/layout/mode.component'),
   {
     ssr: false,
   }
@@ -12,35 +12,35 @@ const ModeComponent = dynamic(
 
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import { useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
-import { CheckPayment } from '@maverick/frontend/components/layout/check.payment';
-import { ToolTip } from '@maverick/frontend/components/layout/top.tip';
-import { ShowMediaBoxModal } from '@maverick/frontend/components/media/media.component';
-import { ShowLinkedinCompany } from '@maverick/frontend/components/launches/helpers/linkedin.component';
-import { MediaSettingsLayout } from '@maverick/frontend/components/launches/helpers/media.settings.component';
-import { Toaster } from '@maverick/react/toaster/toaster';
-import { ShowPostSelector } from '@maverick/frontend/components/post-url-selector/post.url.selector';
-import { NewSubscription } from '@maverick/frontend/components/layout/new.subscription';
-import { Support } from '@maverick/frontend/components/layout/support';
-import { ContinueProvider } from '@maverick/frontend/components/layout/continue.provider';
-import { ContextWrapper } from '@maverick/frontend/components/layout/user.context';
+import { CheckPayment } from '@mav/frontend/components/layout/check.payment';
+import { ToolTip } from '@mav/frontend/components/layout/top.tip';
+import { ShowMediaBoxModal } from '@mav/frontend/components/media/media.component';
+import { ShowLinkedinCompany } from '@mav/frontend/components/launches/helpers/linkedin.component';
+import { MediaSettingsLayout } from '@mav/frontend/components/launches/helpers/media.settings.component';
+import { Toaster } from '@mav/react/toaster/toaster';
+import { ShowPostSelector } from '@mav/frontend/components/post-url-selector/post.url.selector';
+import { NewSubscription } from '@mav/frontend/components/layout/new.subscription';
+import { Support } from '@mav/frontend/components/layout/support';
+import { ContinueProvider } from '@mav/frontend/components/layout/continue.provider';
+import { ContextWrapper } from '@mav/frontend/components/layout/user.context';
 import { CopilotKit } from '@copilotkit/react-core';
-import { MantineWrapper } from '@maverick/react/helpers/mantine.wrapper';
-import { Impersonate } from '@maverick/frontend/components/layout/impersonate';
-import { Title } from '@maverick/frontend/components/layout/title';
-import { TopMenu } from '@maverick/frontend/components/layout/top.menu';
-import { LanguageComponent } from '@maverick/frontend/components/layout/language.component';
-import { ChromeExtensionComponent } from '@maverick/frontend/components/layout/chrome.extension.component';
-import NotificationComponent from '@maverick/frontend/components/notifications/notification.component';
-import { OrganizationSelector } from '@maverick/frontend/components/layout/organization.selector';
-import { StreakComponent } from '@maverick/frontend/components/layout/streak.component';
-import { PreConditionComponent } from '@maverick/frontend/components/layout/pre-condition.component';
-import { AttachToFeedbackIcon } from '@maverick/frontend/components/new-layout/sentry.feedback.component';
-import { FirstBillingComponent } from '@maverick/frontend/components/billing/first.billing.component';
-import { AgentStatusBar } from '@maverick/frontend/components/layout/agent-status-bar';
+import { MantineWrapper } from '@mav/react/helpers/mantine.wrapper';
+import { Impersonate } from '@mav/frontend/components/layout/impersonate';
+import { Title } from '@mav/frontend/components/layout/title';
+import { TopMenu } from '@mav/frontend/components/layout/top.menu';
+import { LanguageComponent } from '@mav/frontend/components/layout/language.component';
+import { ChromeExtensionComponent } from '@mav/frontend/components/layout/chrome.extension.component';
+import NotificationComponent from '@mav/frontend/components/notifications/notification.component';
+import { OrganizationSelector } from '@mav/frontend/components/layout/organization.selector';
+import { StreakComponent } from '@mav/frontend/components/layout/streak.component';
+import { PreConditionComponent } from '@mav/frontend/components/layout/pre-condition.component';
+import { AttachToFeedbackIcon } from '@mav/frontend/components/new-layout/sentry.feedback.component';
+import { FirstBillingComponent } from '@mav/frontend/components/billing/first.billing.component';
+import { AgentStatusBar } from '@mav/frontend/components/layout/agent-status-bar';
 
 const dmSans = DM_Sans({
   weight: ['400', '500', '600', '700', '800'],

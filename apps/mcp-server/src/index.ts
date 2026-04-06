@@ -9,7 +9,7 @@ import { registerBrainTools } from './tools/brain';
 import { registerResources } from './resources';
 
 const server = new McpServer({
-  name: 'maverick',
+  name: 'mav',
   version: '1.0.0',
   capabilities: {
     tools: {},
@@ -35,6 +35,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error('Failed to start Maverick MCP server:', error);
+  console.error('Failed to start Mav MCP server:', error);
   process.exit(1);
 });

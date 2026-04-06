@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { useShallow } from 'zustand/react/shallow';
 import React, {
   createContext,
@@ -11,7 +11,7 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import { useHotkeys } from 'react-hotkeys-hook';
 import clsx from 'clsx';
 import { EventEmitter } from 'events';

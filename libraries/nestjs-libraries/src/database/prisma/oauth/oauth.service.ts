@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { OAuthRepository } from '@maverick/nestjs-libraries/database/prisma/oauth/oauth.repository';
-import { CreateOAuthAppDto } from '@maverick/nestjs-libraries/dtos/oauth/create-oauth-app.dto';
-import { UpdateOAuthAppDto } from '@maverick/nestjs-libraries/dtos/oauth/update-oauth-app.dto';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { OAuthRepository } from '@mav/nestjs-libraries/database/prisma/oauth/oauth.repository';
+import { CreateOAuthAppDto } from '@mav/nestjs-libraries/dtos/oauth/create-oauth-app.dto';
+import { UpdateOAuthAppDto } from '@mav/nestjs-libraries/dtos/oauth/update-oauth-app.dto';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 
 @Injectable()
 export class OAuthService {

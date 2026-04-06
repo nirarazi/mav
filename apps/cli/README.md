@@ -1,8 +1,8 @@
-# Maverick CLI
+# Mav CLI
 
 **Social media automation CLI for AI agents** - Schedule posts across 28+ platforms programmatically.
 
-The Maverick CLI provides a command-line interface to the Maverick API, enabling developers and AI agents to automate social media posting, manage content, and handle media uploads across platforms like Twitter/X, LinkedIn, Reddit, YouTube, TikTok, Instagram, Facebook, and more.
+The Mav CLI provides a command-line interface to the Mav API, enabling developers and AI agents to automate social media posting, manage content, and handle media uploads across platforms like Twitter/X, LinkedIn, Reddit, YouTube, TikTok, Instagram, Facebook, and more.
 
 ---
 
@@ -11,16 +11,16 @@ The Maverick CLI provides a command-line interface to the Maverick API, enabling
 ### From npm (Recommended)
 
 ```bash
-npm install -g maverick
+npm install -g mav
 # or
-pnpm install -g maverick
+pnpm install -g mav
 ```
 
 ### From Source
 
 ```bash
 git clone https://github.com/maboroshi-inc/mav.git
-cd maverick-app/apps/cli
+cd mav-app/apps/cli
 pnpm install
 pnpm run build
 pnpm link --global
@@ -42,16 +42,16 @@ pnpm run start -- posts:list
 
 ## Setup
 
-**Required:** Set your Maverick API key
+**Required:** Set your Mav API key
 
 ```bash
-export MAVERICK_API_KEY=your_api_key_here
+export MAV_API_KEY=your_api_key_here
 ```
 
 **Optional:** Custom API endpoint
 
 ```bash
-export MAVERICK_API_URL=https://your-custom-api.com
+export MAV_API_URL=https://your-custom-api.com
 ```
 
 ---
@@ -62,22 +62,22 @@ export MAVERICK_API_URL=https://your-custom-api.com
 
 **List all connected integrations**
 ```bash
-maverick integrations:list
+mav integrations:list
 ```
 
 Returns integration IDs, provider names, and metadata.
 
 **Get integration settings schema**
 ```bash
-maverick integrations:settings <integration-id>
+mav integrations:settings <integration-id>
 ```
 
 Returns character limits, required settings, and available tools for fetching dynamic data.
 
 **Trigger integration tools**
 ```bash
-maverick integrations:trigger <integration-id> <method-name>
-maverick integrations:trigger <integration-id> <method-name> -d '{"key":"value"}'
+mav integrations:trigger <integration-id> <method-name>
+mav integrations:trigger <integration-id> <method-name> -d '{"key":"value"}'
 ```
 
 Fetch dynamic data like Reddit flairs, YouTube playlists, LinkedIn companies, etc.
@@ -85,13 +85,13 @@ Fetch dynamic data like Reddit flairs, YouTube playlists, LinkedIn companies, et
 **Examples:**
 ```bash
 # Get Reddit flairs
-maverick integrations:trigger reddit-123 getFlairs -d '{"subreddit":"programming"}'
+mav integrations:trigger reddit-123 getFlairs -d '{"subreddit":"programming"}'
 
 # Get YouTube playlists
-maverick integrations:trigger youtube-456 getPlaylists
+mav integrations:trigger youtube-456 getPlaylists
 
 # Get LinkedIn companies
-maverick integrations:trigger linkedin-789 getCompanies
+mav integrations:trigger linkedin-789 getCompanies
 ```
 
 ---
@@ -100,22 +100,22 @@ maverick integrations:trigger linkedin-789 getCompanies
 
 **Simple scheduled post**
 ```bash
-maverick posts:create -c "Content" -s "2024-12-31T12:00:00Z" -i "integration-id"
+mav posts:create -c "Content" -s "2024-12-31T12:00:00Z" -i "integration-id"
 ```
 
 **Draft post**
 ```bash
-maverick posts:create -c "Content" -s "2024-12-31T12:00:00Z" -t draft -i "integration-id"
+mav posts:create -c "Content" -s "2024-12-31T12:00:00Z" -t draft -i "integration-id"
 ```
 
 **Post with media**
 ```bash
-maverick posts:create -c "Content" -m "img1.jpg,img2.jpg" -s "2024-12-31T12:00:00Z" -i "integration-id"
+mav posts:create -c "Content" -m "img1.jpg,img2.jpg" -s "2024-12-31T12:00:00Z" -i "integration-id"
 ```
 
 **Post with comments** (each comment can have its own media)
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Main post" -m "main.jpg" \
   -c "First comment" -m "comment1.jpg" \
   -c "Second comment" -m "comment2.jpg,comment3.jpg" \
@@ -125,12 +125,12 @@ maverick posts:create \
 
 **Multi-platform post**
 ```bash
-maverick posts:create -c "Content" -s "2024-12-31T12:00:00Z" -i "twitter-id,linkedin-id,facebook-id"
+mav posts:create -c "Content" -s "2024-12-31T12:00:00Z" -i "twitter-id,linkedin-id,facebook-id"
 ```
 
 **Platform-specific settings**
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Content" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"subreddit":[{"value":{"subreddit":"programming","title":"Post Title","type":"text"}}]}' \
@@ -139,7 +139,7 @@ maverick posts:create \
 
 **Complex post from JSON file**
 ```bash
-maverick posts:create --json post.json
+mav posts:create --json post.json
 ```
 
 **Options:**
@@ -159,16 +159,16 @@ maverick posts:create --json post.json
 
 **List posts**
 ```bash
-maverick posts:list
-maverick posts:list --startDate "2024-01-01T00:00:00Z" --endDate "2024-12-31T23:59:59Z"
-maverick posts:list --customer "customer-id"
+mav posts:list
+mav posts:list --startDate "2024-01-01T00:00:00Z" --endDate "2024-12-31T23:59:59Z"
+mav posts:list --customer "customer-id"
 ```
 
 Defaults to last 30 days to next 30 days if dates not specified.
 
 **Delete post**
 ```bash
-maverick posts:delete <post-id>
+mav posts:delete <post-id>
 ```
 
 ---
@@ -177,15 +177,15 @@ maverick posts:delete <post-id>
 
 **Upload file and get URL**
 ```bash
-maverick upload <file-path>
+mav upload <file-path>
 ```
 
 **⚠️ IMPORTANT: Upload Files Before Posting**
 
-You **must** upload media files to Maverick before using them in posts. Many platforms (especially TikTok, Instagram, and YouTube) require verified/trusted URLs and will reject external links.
+You **must** upload media files to Mav before using them in posts. Many platforms (especially TikTok, Instagram, and YouTube) require verified/trusted URLs and will reject external links.
 
 **Workflow:**
-1. Upload your file using `maverick upload`
+1. Upload your file using `mav upload`
 2. Extract the returned URL
 3. Use that URL in your post's `-m` parameter
 
@@ -198,17 +198,17 @@ You **must** upload media files to Maverick before using them in posts. Many pla
 **Example:**
 ```bash
 # 1. Upload the file first
-RESULT=$(maverick upload video.mp4)
+RESULT=$(mav upload video.mp4)
 PATH=$(echo "$RESULT" | jq -r '.path')
 
-# 2. Use the Maverick URL in your post
-maverick posts:create -c "Check out my video!" -s "2024-12-31T12:00:00Z" -m "$PATH" -i "tiktok-id"
+# 2. Use the Mav URL in your post
+mav posts:create -c "Check out my video!" -s "2024-12-31T12:00:00Z" -m "$PATH" -i "tiktok-id"
 ```
 
 **Why this is required:**
 - **TikTok, Instagram, YouTube** only accept URLs from trusted domains
 - **Security:** Platforms verify media sources to prevent abuse
-- **Reliability:** Maverick ensures your media is always accessible
+- **Reliability:** Mav ensures your media is always accessible
 
 ---
 
@@ -217,10 +217,10 @@ maverick posts:create -c "Check out my video!" -s "2024-12-31T12:00:00Z" -m "$PA
 ### Reddit
 ```bash
 # Get available flairs
-maverick integrations:trigger reddit-id getFlairs -d '{"subreddit":"programming"}'
+mav integrations:trigger reddit-id getFlairs -d '{"subreddit":"programming"}'
 
 # Post with subreddit and flair
-maverick posts:create \
+mav posts:create \
   -c "Content" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"subreddit":[{"value":{"subreddit":"programming","title":"My Post","type":"text","is_flair_required":true,"flair":{"id":"flair-123","name":"Discussion"}}}]}' \
@@ -230,14 +230,14 @@ maverick posts:create \
 ### YouTube
 ```bash
 # Get playlists
-maverick integrations:trigger youtube-id getPlaylists
+mav integrations:trigger youtube-id getPlaylists
 
 # Upload video FIRST (required!)
-VIDEO=$(maverick upload video.mp4)
+VIDEO=$(mav upload video.mp4)
 VIDEO_URL=$(echo "$VIDEO" | jq -r '.path')
 
 # Post with uploaded video URL
-maverick posts:create \
+mav posts:create \
   -c "Video description" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"title":"Video Title","type":"public","tags":[{"value":"tech","label":"Tech"}],"playlistId":"playlist-id"}' \
@@ -248,11 +248,11 @@ maverick posts:create \
 ### TikTok
 ```bash
 # Upload video FIRST (TikTok only accepts verified URLs!)
-VIDEO=$(maverick upload video.mp4)
+VIDEO=$(mav upload video.mp4)
 VIDEO_URL=$(echo "$VIDEO" | jq -r '.path')
 
 # Post with uploaded video URL
-maverick posts:create \
+mav posts:create \
   -c "Video caption #fyp" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"privacy":"PUBLIC_TO_EVERYONE","duet":true,"stitch":true}' \
@@ -263,10 +263,10 @@ maverick posts:create \
 ### LinkedIn
 ```bash
 # Get companies you can post to
-maverick integrations:trigger linkedin-id getCompanies
+mav integrations:trigger linkedin-id getCompanies
 
 # Post as company
-maverick posts:create \
+mav posts:create \
   -c "Company announcement" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"companyId":"company-123"}' \
@@ -276,7 +276,7 @@ maverick posts:create \
 ### X (Twitter)
 ```bash
 # Create thread
-maverick posts:create \
+mav posts:create \
   -c "Thread 1/3 🧵" \
   -c "Thread 2/3" \
   -c "Thread 3/3" \
@@ -285,7 +285,7 @@ maverick posts:create \
   -i "twitter-id"
 
 # With reply settings
-maverick posts:create \
+mav posts:create \
   -c "Tweet content" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"who_can_reply_post":"everyone"}' \
@@ -295,11 +295,11 @@ maverick posts:create \
 ### Instagram
 ```bash
 # Upload image FIRST (Instagram requires verified URLs!)
-IMAGE=$(maverick upload image.jpg)
+IMAGE=$(mav upload image.jpg)
 IMAGE_URL=$(echo "$IMAGE" | jq -r '.path')
 
 # Regular post
-maverick posts:create \
+mav posts:create \
   -c "Caption #hashtag" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"post_type":"post"}' \
@@ -307,10 +307,10 @@ maverick posts:create \
   -i "instagram-id"
 
 # Story (upload first)
-STORY=$(maverick upload story.jpg)
+STORY=$(mav upload story.jpg)
 STORY_URL=$(echo "$STORY" | jq -r '.path')
 
-maverick posts:create \
+mav posts:create \
   -c "" \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"post_type":"story"}' \
@@ -338,7 +338,7 @@ This allows AI agents to adapt to different platforms without hardcoded knowledg
 For complex posts with multiple platforms and settings:
 
 ```bash
-maverick posts:create --json complex-post.json
+mav posts:create --json complex-post.json
 ```
 
 JSON structure:
@@ -376,7 +376,7 @@ JSON structure:
 Every command outputs JSON for easy parsing:
 
 ```bash
-INTEGRATIONS=$(maverick integrations:list | jq -r '.')
+INTEGRATIONS=$(mav integrations:list | jq -r '.')
 REDDIT_ID=$(echo "$INTEGRATIONS" | jq -r '.[] | select(.identifier=="reddit") | .id')
 ```
 
@@ -388,7 +388,7 @@ Comments are automatically converted to threads/replies based on platform:
 - **Instagram**: First comment
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Main post" \
   -c "Comment 1" \
   -c "Comment 2" \
@@ -402,11 +402,11 @@ maverick posts:create \
 ### Reddit Post with Flair
 ```bash
 #!/bin/bash
-REDDIT_ID=$(maverick integrations:list | jq -r '.[] | select(.identifier=="reddit") | .id')
-FLAIRS=$(maverick integrations:trigger "$REDDIT_ID" getFlairs -d '{"subreddit":"programming"}')
+REDDIT_ID=$(mav integrations:list | jq -r '.[] | select(.identifier=="reddit") | .id')
+FLAIRS=$(mav integrations:trigger "$REDDIT_ID" getFlairs -d '{"subreddit":"programming"}')
 FLAIR_ID=$(echo "$FLAIRS" | jq -r '.output[0].id')
 
-maverick posts:create \
+mav posts:create \
   -c "My post content" \
   -s "2024-12-31T12:00:00Z" \
   --settings "{\"subreddit\":[{\"value\":{\"subreddit\":\"programming\",\"title\":\"Post Title\",\"type\":\"text\",\"is_flair_required\":true,\"flair\":{\"id\":\"$FLAIR_ID\",\"name\":\"Discussion\"}}}]}" \
@@ -416,10 +416,10 @@ maverick posts:create \
 ### YouTube Video Upload
 ```bash
 #!/bin/bash
-VIDEO=$(maverick upload video.mp4)
+VIDEO=$(mav upload video.mp4)
 VIDEO_PATH=$(echo "$VIDEO" | jq -r '.path')
 
-maverick posts:create \
+mav posts:create \
   -c "Video description..." \
   -s "2024-12-31T12:00:00Z" \
   --settings '{"title":"My Video","type":"public","tags":[{"value":"tech","label":"Tech"}]}' \
@@ -430,7 +430,7 @@ maverick posts:create \
 ### Multi-Platform Campaign
 ```bash
 #!/bin/bash
-maverick posts:create \
+mav posts:create \
   -c "Same content everywhere" \
   -s "2024-12-31T12:00:00Z" \
   -m "image.jpg" \
@@ -444,7 +444,7 @@ DATES=("2024-02-14T09:00:00Z" "2024-02-15T09:00:00Z" "2024-02-16T09:00:00Z")
 CONTENT=("Monday motivation 💪" "Tuesday tips 💡" "Wednesday wisdom 🧠")
 
 for i in "${!DATES[@]}"; do
-  maverick posts:create \
+  mav posts:create \
     -c "${CONTENT[$i]}" \
     -s "${DATES[$i]}" \
     -i "twitter-id"
@@ -476,7 +476,7 @@ done
 
 ## API Endpoints
 
-The CLI interacts with these Maverick API endpoints:
+The CLI interacts with these Mav API endpoints:
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -494,8 +494,8 @@ The CLI interacts with these Maverick API endpoints:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `MAVERICK_API_KEY` | ✅ Yes | - | Your Maverick API key |
-| `MAVERICK_API_URL` | No | `https://api.maverick.com` | Custom API endpoint |
+| `MAV_API_KEY` | ✅ Yes | - | Your Mav API key |
+| `MAV_API_URL` | No | `https://api.mav.com` | Custom API endpoint |
 
 ---
 
@@ -510,7 +510,7 @@ The CLI provides clear error messages with exit codes:
 
 | Error | Solution |
 |-------|----------|
-| `MAVERICK_API_KEY is not set` | Set environment variable: `export MAVERICK_API_KEY=key` |
+| `MAV_API_KEY is not set` | Set environment variable: `export MAV_API_KEY=key` |
 | `Integration not found` | Run `integrations:list` to get valid IDs |
 | `startDate/endDate required` | Use ISO 8601 format: `"2024-12-31T12:00:00Z"` |
 | `Invalid settings` | Check `integrations:settings` for required fields |
@@ -527,7 +527,7 @@ The CLI provides clear error messages with exit codes:
 apps/cli/
 ├── src/
 │   ├── index.ts              # CLI entry point with yargs
-│   ├── api.ts                # MaverickAPI client class
+│   ├── api.ts                # MavAPI client class
 │   ├── config.ts             # Environment configuration
 │   └── commands/
 │       ├── posts.ts          # Post management commands
@@ -567,36 +567,36 @@ Output in `dist/`:
 
 ```bash
 # Environment setup
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # Discovery
-maverick integrations:list                           # List integrations
-maverick integrations:settings <id>                  # Get settings
-maverick integrations:trigger <id> <method> -d '{}'  # Fetch data
+mav integrations:list                           # List integrations
+mav integrations:settings <id>                  # Get settings
+mav integrations:trigger <id> <method> -d '{}'  # Fetch data
 
 # Posting (date is required)
-maverick posts:create -c "text" -s "2024-12-31T12:00:00Z" -i "id"                    # Simple
-maverick posts:create -c "text" -s "2024-12-31T12:00:00Z" -t draft -i "id"          # Draft
-maverick posts:create -c "text" -m "img.jpg" -s "2024-12-31T12:00:00Z" -i "id"      # With media
-maverick posts:create -c "main" -c "comment" -s "2024-12-31T12:00:00Z" -i "id"      # With comment
-maverick posts:create -c "text" -s "2024-12-31T12:00:00Z" --settings '{}' -i "id"   # Platform-specific
-maverick posts:create --json file.json                                               # Complex
+mav posts:create -c "text" -s "2024-12-31T12:00:00Z" -i "id"                    # Simple
+mav posts:create -c "text" -s "2024-12-31T12:00:00Z" -t draft -i "id"          # Draft
+mav posts:create -c "text" -m "img.jpg" -s "2024-12-31T12:00:00Z" -i "id"      # With media
+mav posts:create -c "main" -c "comment" -s "2024-12-31T12:00:00Z" -i "id"      # With comment
+mav posts:create -c "text" -s "2024-12-31T12:00:00Z" --settings '{}' -i "id"   # Platform-specific
+mav posts:create --json file.json                                               # Complex
 
 # Management
-maverick posts:list                                  # List posts
-maverick posts:delete <id>                          # Delete post
-maverick upload <file>                              # Upload media
+mav posts:list                                  # List posts
+mav posts:delete <id>                          # Delete post
+mav upload <file>                              # Upload media
 
 # Help
-maverick --help                                     # Show help
-maverick posts:create --help                        # Command help
+mav --help                                     # Show help
+mav posts:create --help                        # Command help
 ```
 
 ---
 
 ## Contributing
 
-This CLI is part of the [Maverick monorepo](https://github.com/maboroshi-inc/mav).
+This CLI is part of the [Mav monorepo](https://github.com/maboroshi-inc/mav).
 
 To contribute:
 1. Fork the repository
@@ -615,8 +615,8 @@ AGPL-3.0
 
 ## Links
 
-- **Website:** [maverick.com](https://maverick.com)
-- **API Docs:** [maverick.com/api-docs](https://maverick.com/api-docs)
+- **Website:** [mav.com](https://mav.com)
+- **API Docs:** [mav.com/api-docs](https://mav.com/api-docs)
 - **GitHub:** [maboroshi-inc/mav](https://github.com/maboroshi-inc/mav)
 - **Issues:** [Report bugs](https://github.com/maboroshi-inc/mav/issues)
 

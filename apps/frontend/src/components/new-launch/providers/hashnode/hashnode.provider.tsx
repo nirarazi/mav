@@ -4,17 +4,17 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
-import { HashnodePublications } from '@maverick/frontend/components/new-launch/providers/hashnode/hashnode.publications';
-import { HashnodeTags } from '@maverick/frontend/components/new-launch/providers/hashnode/hashnode.tags';
-import { HashnodeSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/hashnode.settings.dto';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
+import { HashnodePublications } from '@mav/frontend/components/new-launch/providers/hashnode/hashnode.publications';
+import { HashnodeTags } from '@mav/frontend/components/new-launch/providers/hashnode/hashnode.tags';
+import { HashnodeSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/hashnode.settings.dto';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
 import clsx from 'clsx';
-import { MediaComponent } from '@maverick/frontend/components/media/media.component';
-import { Canonical } from '@maverick/react/form/canonical';
+import { MediaComponent } from '@mav/frontend/components/media/media.component';
+import { Canonical } from '@mav/react/form/canonical';
 
 const HashnodeSettings: FC = () => {
   const form = useSettings();

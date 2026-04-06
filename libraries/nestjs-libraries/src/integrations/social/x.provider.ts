@@ -5,20 +5,20 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
 import { lookup } from 'mime-types';
 import sharp from 'sharp';
-import { readOrFetch } from '@maverick/helpers/utils/read.or.fetch';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { Plug } from '@maverick/helpers/decorators/plug.decorator';
+import { readOrFetch } from '@mav/helpers/utils/read.or.fetch';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { Plug } from '@mav/helpers/decorators/plug.decorator';
 import { Integration } from '@prisma/client';
-import { timer } from '@maverick/helpers/utils/timer';
-import { PostPlug } from '@maverick/helpers/decorators/post.plug';
+import { timer } from '@mav/helpers/utils/timer';
+import { PostPlug } from '@mav/helpers/decorators/post.plug';
 import dayjs from 'dayjs';
 import { uniqBy } from 'lodash';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { XDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/x.dto';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { XDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/x.dto';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
 
 @Rules(
   'X can have maximum 4 pictures, or maximum one video, it can also be without attachments'

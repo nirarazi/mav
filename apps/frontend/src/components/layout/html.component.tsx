@@ -1,6 +1,6 @@
 'use client';
 import { FC, ReactNode, useEffect, useState } from 'react';
-import { useTranslationSettings } from '@maverick/react/translation/get.transation.service.client';
+import { useTranslationSettings } from '@mav/react/translation/get.transation.service.client';
 
 export const HtmlComponent: FC = () => {
   const settings = useTranslationSettings();

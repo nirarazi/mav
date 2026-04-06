@@ -3,13 +3,13 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { ThreadFinisher } from '@maverick/frontend/components/new-launch/finisher/thread.finisher';
-import { Select } from '@maverick/react/form/select';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { XDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/x.dto';
-import { Input } from '@maverick/react/form/input';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { ThreadFinisher } from '@mav/frontend/components/new-launch/finisher/thread.finisher';
+import { Select } from '@mav/react/form/select';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { XDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/x.dto';
+import { Input } from '@mav/react/form/input';
 
 const whoCanReply = [
   {

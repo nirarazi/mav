@@ -28,8 +28,8 @@ describe('LlmService', () => {
     // Reset env vars
     delete process.env.OPENAI_API_KEY;
     delete process.env.ANTHROPIC_API_KEY;
-    delete process.env.MAVERICK_LLM_PROVIDER;
-    delete process.env.MAVERICK_LLM_MODEL;
+    delete process.env.MAV_LLM_PROVIDER;
+    delete process.env.MAV_LLM_MODEL;
   });
 
   describe('constructor and provider resolution', () => {
@@ -45,10 +45,10 @@ describe('LlmService', () => {
       expect(service.getProvider()).toBe('anthropic');
     });
 
-    it('respects MAVERICK_LLM_PROVIDER override', () => {
+    it('respects MAV_LLM_PROVIDER override', () => {
       process.env.OPENAI_API_KEY = 'sk-test';
       process.env.ANTHROPIC_API_KEY = 'sk-ant-test';
-      process.env.MAVERICK_LLM_PROVIDER = 'anthropic';
+      process.env.MAV_LLM_PROVIDER = 'anthropic';
       service = new LlmService();
       expect(service.getProvider()).toBe('anthropic');
     });
@@ -71,9 +71,9 @@ describe('LlmService', () => {
       expect(service.getDefaultModel()).toBe('claude-sonnet-4-20250514');
     });
 
-    it('respects MAVERICK_LLM_MODEL override', () => {
+    it('respects MAV_LLM_MODEL override', () => {
       process.env.OPENAI_API_KEY = 'sk-test';
-      process.env.MAVERICK_LLM_MODEL = 'gpt-4o-mini';
+      process.env.MAV_LLM_MODEL = 'gpt-4o-mini';
       service = new LlmService();
       expect(service.getDefaultModel()).toBe('gpt-4o-mini');
     });

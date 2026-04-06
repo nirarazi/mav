@@ -1,11 +1,11 @@
 'use client';
 
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import useCookie from 'react-use-cookie';
 export const AfterActivate = () => {
   const fetch = useFetch();

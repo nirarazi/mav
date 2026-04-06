@@ -3,14 +3,14 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { LemmySettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/lemmy.dto';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { LemmySettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/lemmy.dto';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
 
 export class LemmyProvider extends SocialAbstract implements SocialProvider {
   override maxConcurrentJob = 3; // Lemmy instances typically have moderate limits

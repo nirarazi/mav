@@ -1,19 +1,19 @@
 # Supported File Types for Upload
 
-The Maverick CLI now correctly detects and uploads various media types.
+The Mav CLI now correctly detects and uploads various media types.
 
 ## How It Works
 
 The CLI automatically detects the MIME type based on the file extension:
 
 ```bash
-maverick upload video.mp4
+mav upload video.mp4
 # ✅ Detected as: video/mp4
 
-maverick upload image.png
+mav upload image.png
 # ✅ Detected as: image/png
 
-maverick upload audio.mp3
+mav upload audio.mp3
 # ✅ Detected as: audio/mpeg
 ```
 
@@ -33,10 +33,10 @@ maverick upload audio.mp3
 
 **Examples:**
 ```bash
-maverick upload photo.jpg
-maverick upload logo.png
-maverick upload animation.gif
-maverick upload icon.svg
+mav upload photo.jpg
+mav upload logo.png
+mav upload animation.gif
+mav upload icon.svg
 ```
 
 ### Videos
@@ -56,10 +56,10 @@ maverick upload icon.svg
 
 **Examples:**
 ```bash
-maverick upload video.mp4
-maverick upload clip.mov
-maverick upload recording.webm
-maverick upload movie.mkv
+mav upload video.mp4
+mav upload clip.mov
+mav upload recording.webm
+mav upload movie.mkv
 ```
 
 ### Audio
@@ -75,9 +75,9 @@ maverick upload movie.mkv
 
 **Examples:**
 ```bash
-maverick upload podcast.mp3
-maverick upload song.wav
-maverick upload audio.ogg
+mav upload podcast.mp3
+mav upload song.wav
+mav upload audio.ogg
 ```
 
 ### Documents
@@ -90,8 +90,8 @@ maverick upload audio.ogg
 
 **Examples:**
 ```bash
-maverick upload document.pdf
-maverick upload report.docx
+mav upload document.pdf
+mav upload report.docx
 ```
 
 ### Other Files
@@ -105,30 +105,30 @@ For file types not listed above, the CLI uses:
 ### Upload an Image
 
 ```bash
-maverick upload ./images/photo.jpg
+mav upload ./images/photo.jpg
 ```
 
 Response:
 ```json
 {
   "id": "upload-123",
-  "path": "https://cdn.maverick.com/uploads/photo.jpg",
-  "url": "https://cdn.maverick.com/uploads/photo.jpg"
+  "path": "https://cdn.mav.com/uploads/photo.jpg",
+  "url": "https://cdn.mav.com/uploads/photo.jpg"
 }
 ```
 
 ### Upload a Video (MP4)
 
 ```bash
-maverick upload ./videos/promo.mp4
+mav upload ./videos/promo.mp4
 ```
 
 Response:
 ```json
 {
   "id": "upload-456",
-  "path": "https://cdn.maverick.com/uploads/promo.mp4",
-  "url": "https://cdn.maverick.com/uploads/promo.mp4"
+  "path": "https://cdn.mav.com/uploads/promo.mp4",
+  "url": "https://cdn.mav.com/uploads/promo.mp4"
 }
 ```
 
@@ -136,14 +136,14 @@ Response:
 
 ```bash
 # 1. Upload the file
-RESULT=$(maverick upload video.mp4)
+RESULT=$(mav upload video.mp4)
 echo $RESULT
 
 # 2. Extract the path (you'll need jq or similar)
 PATH=$(echo $RESULT | jq -r '.path')
 
 # 3. Use in a post
-maverick posts:create \
+mav posts:create \
   -c "Check out my video!" \
   -m "$PATH" \
   -i "tiktok-123"
@@ -153,13 +153,13 @@ maverick posts:create \
 
 ```bash
 # Upload images
-maverick upload image1.jpg
-maverick upload image2.png
-maverick upload image3.gif
+mav upload image1.jpg
+mav upload image2.png
+mav upload image3.gif
 
 # Upload videos
-maverick upload video1.mp4
-maverick upload video2.mov
+mav upload video1.mp4
+mav upload video2.mov
 ```
 
 ## What Changed (Fix)
@@ -167,7 +167,7 @@ maverick upload video2.mov
 ### Before (❌ Bug)
 
 ```bash
-maverick upload video.mp4
+mav upload video.mp4
 # ❌ Was detected as: image/jpeg (WRONG!)
 ```
 
@@ -176,13 +176,13 @@ The problem: The CLI defaulted to `image/jpeg` for any unknown file type.
 ### After (✅ Fixed)
 
 ```bash
-maverick upload video.mp4
+mav upload video.mp4
 # ✅ Correctly detected as: video/mp4
 
-maverick upload audio.mp3
+mav upload audio.mp3
 # ✅ Correctly detected as: audio/mpeg
 
-maverick upload document.pdf
+mav upload document.pdf
 # ✅ Correctly detected as: application/pdf
 ```
 
@@ -224,7 +224,7 @@ Some platforms may not accept certain file types. Check the platform's documenta
 ffmpeg -i video.avi video.mp4
 
 # Then upload
-maverick upload video.mp4
+mav upload video.mp4
 ```
 
 ### File Size Limits
@@ -243,26 +243,26 @@ If you renamed a file with the wrong extension:
 ```bash
 # ❌ Wrong: PNG file renamed to .jpg
 mv image.png image.jpg
-maverick upload image.jpg  # Might fail
+mav upload image.jpg  # Might fail
 
 # ✅ Correct: Keep original extension
-maverick upload image.png
+mav upload image.png
 ```
 
 ## Testing File Upload
 
 ```bash
 # Set API key
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # Test image upload
-maverick upload test-image.jpg
+mav upload test-image.jpg
 
 # Test video upload
-maverick upload test-video.mp4
+mav upload test-video.mp4
 
 # Test audio upload
-maverick upload test-audio.mp3
+mav upload test-audio.mp3
 ```
 
 ## Error Messages
@@ -291,7 +291,7 @@ chmod 644 your-file.mp4
 
 **Solution:** Set your API key:
 ```bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 ```
 
 ## Summary

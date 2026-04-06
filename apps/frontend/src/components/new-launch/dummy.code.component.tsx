@@ -1,9 +1,9 @@
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import React, { FC } from 'react';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import copy from 'copy-to-clipboard';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useToaster } from '@mav/react/toaster/toaster';
 
 export const DummyCodeComponent: FC<{ code: any }> = ({ code }) => {
   const modal = useModals();

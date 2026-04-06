@@ -1,24 +1,24 @@
-# Maverick NodeJS SDK
+# Mav NodeJS SDK
 
-This is the NodeJS SDK for [Maverick](https://maverick.com).
+This is the NodeJS SDK for [Mav](https://mav.com).
 
 You can start by installing the package:
 
 ```bash
-npm install @maverick/node
+npm install @mav/node
 ```
 
 ## Usage
 ```typescript
-import Maverick from '@maverick/node';
-const maverick = new Maverick('your api key', 'your self-hosted instance (optional)');
+import Mav from '@mav/node';
+const mav = new Mav('your api key', 'your self-hosted instance (optional)');
 ```
 
 The available methods are:
-- `post(posts: CreatePostDto)` - Schedule a post to Maverick
+- `post(posts: CreatePostDto)` - Schedule a post to Mav
 - `postList(filters: GetPostsDto)` - Get a list of posts
-- `upload(file: Buffer, extension: string)` - Upload a file to Maverick
+- `upload(file: Buffer, extension: string)` - Upload a file to Mav
 - `integrations()` - Get a list of connected channels
 - `deletePost(id: string)` - Delete a post by ID
 
-Alternatively you can use the SDK with curl, check the [Maverick API documentation](https://docs.maverick.com/public-api) for more information.
+Alternatively you can use the SDK with curl, check the [Mav API documentation](https://docs.mav.com/public-api) for more information.

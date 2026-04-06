@@ -4,12 +4,12 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { Input } from '@maverick/react/form/input';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { WordpressPostType } from '@maverick/frontend/components/new-launch/providers/wordpress/wordpress.post.type';
-import { MediaComponent } from '@maverick/frontend/components/media/media.component';
-import { WordpressDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { Input } from '@mav/react/form/input';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { WordpressPostType } from '@mav/frontend/components/new-launch/providers/wordpress/wordpress.post.type';
+import { MediaComponent } from '@mav/frontend/components/media/media.component';
+import { WordpressDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/wordpress.dto';
 
 const WordpressSettings: FC = () => {
   const form = useSettings();

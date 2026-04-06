@@ -1,11 +1,11 @@
 'use client';
 
-import { StarsAndForks } from '@maverick/frontend/components/analytics/stars.and.forks';
+import { StarsAndForks } from '@mav/frontend/components/analytics/stars.and.forks';
 import { FC, useCallback } from 'react';
-import { StarsTableComponent } from '@maverick/frontend/components/analytics/stars.table.component';
+import { StarsTableComponent } from '@mav/frontend/components/analytics/stars.table.component';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 export const AnalyticsComponent: FC = () => {
   const fetch = useFetch();
   const load = useCallback(async (path: string) => {

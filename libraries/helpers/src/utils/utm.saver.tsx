@@ -3,9 +3,9 @@
 import { FC, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLocalStorage } from '@mantine/hooks';
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
-import { useFireEvents } from '@maverick/helpers/utils/use.fire.events';
-import { useTrack } from '@maverick/react/helpers/use.track';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
+import { useFireEvents } from '@mav/helpers/utils/use.fire.events';
+import { useTrack } from '@mav/react/helpers/use.track';
 
 const UtmSaver: FC = () => {
   const query = useSearchParams();

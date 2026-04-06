@@ -1,10 +1,10 @@
 'use client';
 
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import copy from 'copy-to-clipboard';
 import { useCallback } from 'react';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const CopyClient = () => {
   const toast = useToaster();
   const t = useT();

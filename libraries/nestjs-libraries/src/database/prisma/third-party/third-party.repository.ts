@@ -1,6 +1,6 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 
 @Injectable()
 export class ThirdPartyRepository {

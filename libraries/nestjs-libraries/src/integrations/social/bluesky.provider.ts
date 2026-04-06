@@ -3,13 +3,13 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import {
   BadBody,
   RefreshToken,
   SocialAbstract,
-} from '@maverick/nestjs-libraries/integrations/social.abstract';
+} from '@mav/nestjs-libraries/integrations/social.abstract';
 import {
   BskyAgent,
   RichText,
@@ -20,13 +20,13 @@ import {
 } from '@atproto/api';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 import sharp from 'sharp';
-import { Plug } from '@maverick/helpers/decorators/plug.decorator';
-import { timer } from '@maverick/helpers/utils/timer';
+import { Plug } from '@mav/helpers/decorators/plug.decorator';
+import { timer } from '@mav/helpers/utils/timer';
 import axios from 'axios';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
 
 async function reduceImageBySize(url: string, maxSizeKB = 976) {
   try {

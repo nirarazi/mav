@@ -1,4 +1,4 @@
-import { newsletterProviders } from '@maverick/nestjs-libraries/newsletter/providers';
+import { newsletterProviders } from '@mav/nestjs-libraries/newsletter/providers';
 
 export class NewsletterService {
   static getProvider() {

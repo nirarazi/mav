@@ -1,13 +1,13 @@
-# Maverick Fork Information
+# Mav Fork Information
 
 **Forked from**: [Postiz](https://github.com/gitroomhq/postiz-app)
 **Fork version**: v1.47.0
 **Fork date**: 2026-03-22
 **License**: AGPL-3.0 (inherited from Postiz)
 
-## What is Maverick?
+## What is Mav?
 
-Maverick is an autonomous social media management system for zero-human companies, built on top of Postiz's excellent platform integration foundation.
+Mav is an autonomous social media management system for zero-human companies, built on top of Postiz's excellent platform integration foundation.
 
 ## Fork Strategy
 

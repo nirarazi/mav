@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 interface TranslatedLabelProps {
   label: string;

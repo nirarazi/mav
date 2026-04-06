@@ -1,6 +1,6 @@
 import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
-import { AgentGraphService } from '@maverick/nestjs-libraries/agent/agent.graph.service';
+import { AgentGraphService } from '@mav/nestjs-libraries/agent/agent.graph.service';
 
 @Injectable()
 export class AgentRun {

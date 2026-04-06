@@ -2,9 +2,9 @@
 
 import { FC, useCallback, useState } from 'react';
 import clsx from 'clsx';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const useFaqList = () => {
   const { isGeneral } = useVariables();
   const user = useUser();
@@ -14,11 +14,11 @@ const useFaqList = () => {
       ? [
           {
             title: t(
-              'faq_am_i_going_to_be_charged_by_maverick',
+              'faq_am_i_going_to_be_charged_by_mav',
               'Am I going to be charged by Mav?'
             ),
             description: t(
-              'faq_to_confirm_credit_card_information_maverick_will_hold',
+              'faq_to_confirm_credit_card_information_mav_will_hold',
               'To confirm credit card information Mav will hold $2 and release it immediately, you can cancel your subscription anytime from settings without talking to a person'
             ),
           },
@@ -26,11 +26,11 @@ const useFaqList = () => {
       : []),
     {
       title: t(
-        'faq_can_i_trust_maverick_mav',
+        'faq_can_i_trust_mav_mav',
         `Can I trust ${isGeneral ? 'Mav' : 'Mav'}?`
       ),
       description: t(
-        'faq_maverick_mav_is_proudly_open_source',
+        'faq_mav_mav_is_proudly_open_source',
         `${
           isGeneral ? 'Mav' : 'Mav'
         } is proudly open-source! We believe in an ethical and transparent culture, meaning that ${
@@ -41,7 +41,7 @@ const useFaqList = () => {
     {
       title: t('faq_what_are_channels', 'What are channels?'),
       description: t(
-        'faq_maverick_mav_allows_you_to_schedule_posts',
+        'faq_mav_mav_allows_you_to_schedule_posts',
         `${
           isGeneral ? 'Mav' : 'Mav'
         } allows you to schedule your posts between different channels.

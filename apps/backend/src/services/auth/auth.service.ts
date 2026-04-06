@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Provider, User } from '@prisma/client';
-import { CreateOrgUserDto } from '@maverick/nestjs-libraries/dtos/auth/create.org.user.dto';
-import { LoginUserDto } from '@maverick/nestjs-libraries/dtos/auth/login.user.dto';
-import { UsersService } from '@maverick/nestjs-libraries/database/prisma/users/users.service';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
-import { AuthService as AuthChecker } from '@maverick/helpers/auth/auth.service';
-import { AuthProviderManager } from '@maverick/backend/services/auth/providers/providers.manager';
+import { CreateOrgUserDto } from '@mav/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { LoginUserDto } from '@mav/nestjs-libraries/dtos/auth/login.user.dto';
+import { UsersService } from '@mav/nestjs-libraries/database/prisma/users/users.service';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
+import { AuthService as AuthChecker } from '@mav/helpers/auth/auth.service';
+import { AuthProviderManager } from '@mav/backend/services/auth/providers/providers.manager';
 import dayjs from 'dayjs';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
-import { ForgotReturnPasswordDto } from '@maverick/nestjs-libraries/dtos/auth/forgot-return.password.dto';
-import { EmailService } from '@maverick/nestjs-libraries/services/email.service';
-import { NewsletterService } from '@maverick/nestjs-libraries/newsletter/newsletter.service';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
+import { ForgotReturnPasswordDto } from '@mav/nestjs-libraries/dtos/auth/forgot-return.password.dto';
+import { EmailService } from '@mav/nestjs-libraries/services/email.service';
+import { NewsletterService } from '@mav/nestjs-libraries/newsletter/newsletter.service';
 
 @Injectable()
 export class AuthService {

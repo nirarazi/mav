@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const GoogleProvider = () => {
   const fetch = useFetch();
   const t = useT();

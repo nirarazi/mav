@@ -1,11 +1,11 @@
-import { videoWrapper } from '@maverick/frontend/components/videos/video.wrapper';
+import { videoWrapper } from '@mav/frontend/components/videos/video.wrapper';
 import { FC, useCallback, useRef, useState, useEffect } from 'react';
-import { useVideoFunction } from '@maverick/frontend/components/videos/video.render.component';
+import { useVideoFunction } from '@mav/frontend/components/videos/video.render.component';
 import useSWR from 'swr';
 import { useFormContext } from 'react-hook-form';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import clsx from 'clsx';
-import { useVideo } from '@maverick/frontend/components/videos/video.context.wrapper';
+import { useVideo } from '@mav/frontend/components/videos/video.context.wrapper';
 
 export interface Voices {
   voices: Voice[];

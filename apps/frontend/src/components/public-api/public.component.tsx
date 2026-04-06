@@ -3,14 +3,14 @@
 import { useState, useCallback } from 'react';
 import { useSWRConfig } from 'swr';
 import { useUser } from '../layout/user.context';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import copy from 'copy-to-clipboard';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useDecisionModal } from '@maverick/frontend/components/layout/new-modal';
-import { DeveloperComponent } from '@maverick/frontend/components/developer/developer.component';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useDecisionModal } from '@mav/frontend/components/layout/new-modal';
+import { DeveloperComponent } from '@mav/frontend/components/developer/developer.component';
 import clsx from 'clsx';
 
 const PublicApiContent = () => {
@@ -58,13 +58,13 @@ const PublicApiContent = () => {
         <h3 className="text-[20px]">{t('public_api', 'Public API')}</h3>
         <div className="text-customColor18 mt-[4px]">
           {t(
-            'use_maverick_api_to_integrate_with_your_tools',
+            'use_mav_api_to_integrate_with_your_tools',
             'Use Mav API to integrate with your tools.'
           )}
           <br />
           <a
             className="underline hover:font-bold hover:underline"
-            href="https://docs.maverick.com/public-api"
+            href="https://docs.mav.com/public-api"
             target="_blank"
           >
             {t(
@@ -74,7 +74,7 @@ const PublicApiContent = () => {
           </a>
           <a
             className="underline hover:font-bold hover:underline"
-            href="https://www.npmjs.com/package/n8n-nodes-maverick"
+            href="https://www.npmjs.com/package/n8n-nodes-mav"
             target="_blank"
           >
             <br />
@@ -117,7 +117,7 @@ const PublicApiContent = () => {
         <h3 className="text-[20px]">{t('mcp', 'MCP')}</h3>
         <div className="text-customColor18 mt-[4px]">
           {t(
-            'connect_your_mcp_client_to_maverick_to_schedule_your_posts_faster',
+            'connect_your_mcp_client_to_mav_to_schedule_your_posts_faster',
             'Connect Mav MCP server to your client (Http streaming) to schedule your posts faster.'
           )}
         </div>

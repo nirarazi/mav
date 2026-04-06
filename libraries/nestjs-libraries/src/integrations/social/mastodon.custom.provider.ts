@@ -2,9 +2,9 @@ import {
   ClientInformation,
   PostDetails,
   PostResponse,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { MastodonProvider } from '@maverick/nestjs-libraries/integrations/social/mastodon.provider';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { MastodonProvider } from '@mav/nestjs-libraries/integrations/social/mastodon.provider';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { Integration } from '@prisma/client';
 
 export class MastodonCustomProvider extends MastodonProvider {
@@ -15,7 +15,7 @@ export class MastodonCustomProvider extends MastodonProvider {
 
   async externalUrl(url: string) {
     const form = new FormData();
-    form.append('client_name', 'Maverick');
+    form.append('client_name', 'Mav');
     form.append(
       'redirect_uris',
       `${process.env.FRONTEND_URL}/integrations/social/mastodon`

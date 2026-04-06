@@ -8,7 +8,7 @@ import {
 } from '@solana/wallet-adapter-react';
 import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-// Wallet adapters stubbed — Web3 auth not needed for Maverick
+// Wallet adapters stubbed — Web3 auth not needed for Mav
 const TorusWalletAdapter = class {} as any;
 const BitgetWalletAdapter = class {} as any;
 const CloverWalletAdapter = class {} as any;
@@ -40,8 +40,8 @@ import { clusterApiUrl } from '@solana/web3.js';
 
 // Default styles that can be overridden by your app
 import '@solana/wallet-adapter-react-ui/styles.css';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { WalletUiProvider } from '@maverick/frontend/components/auth/providers/placeholder/wallet.ui.provider';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { WalletUiProvider } from '@mav/frontend/components/auth/providers/placeholder/wallet.ui.provider';
 const WalletProvider = () => {
   const gotoLogin = useCallback(async (code: string) => {
     window.location.href = `/auth?provider=FARCASTER&code=${code}`;

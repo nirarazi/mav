@@ -1,11 +1,11 @@
 'use client';
 
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import { ReactTags } from 'react-tag-autocomplete';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const InstagramCollaboratorsTags: FC<{
   name: string;

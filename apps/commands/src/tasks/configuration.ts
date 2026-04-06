@@ -1,6 +1,6 @@
 import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
-import { ConfigurationChecker } from '@maverick/helpers/configuration/configuration.checker';
+import { ConfigurationChecker } from '@mav/helpers/configuration/configuration.checker';
 
 @Injectable()
 export class ConfigurationTask {

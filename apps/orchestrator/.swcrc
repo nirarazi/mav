@@ -9,15 +9,15 @@
     "target": "es2020",
     "baseUrl": "/Users/nevodavid/Projects/gitroom",
     "paths": {
-      "@maverick/backend/*": ["apps/backend/src/*"],
-      "@maverick/cron/*": ["apps/cron/src/*"],
-      "@maverick/frontend/*": ["apps/frontend/src/*"],
-      "@maverick/helpers/*": ["libraries/helpers/src/*"],
-      "@maverick/nestjs-libraries/*": ["libraries/nestjs-libraries/src/*"],
-      "@maverick/react/*": ["libraries/react-shared-libraries/src/*"],
-      "@maverick/plugins/*": ["libraries/plugins/src/*"],
-      "@maverick/workers/*": ["apps/workers/src/*"],
-      "@maverick/extension/*": ["apps/extension/src/*"]
+      "@mav/backend/*": ["apps/backend/src/*"],
+      "@mav/cron/*": ["apps/cron/src/*"],
+      "@mav/frontend/*": ["apps/frontend/src/*"],
+      "@mav/helpers/*": ["libraries/helpers/src/*"],
+      "@mav/nestjs-libraries/*": ["libraries/nestjs-libraries/src/*"],
+      "@mav/react/*": ["libraries/react-shared-libraries/src/*"],
+      "@mav/plugins/*": ["libraries/plugins/src/*"],
+      "@mav/workers/*": ["apps/workers/src/*"],
+      "@mav/extension/*": ["apps/extension/src/*"]
     },
     "keepClassNames": true,
     "transform": {

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { AppLayout } from '@maverick/frontend/components/launches/layout.standalone';
+import { AppLayout } from '@mav/frontend/components/launches/layout.standalone';
 export default async function AppLayoutIn({
   children,
 }: {

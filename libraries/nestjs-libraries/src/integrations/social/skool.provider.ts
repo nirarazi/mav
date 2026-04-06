@@ -1,4 +1,4 @@
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { SocialAbstract } from '../social.abstract';
 import {
   AuthTokenDetails,
@@ -9,9 +9,9 @@ import {
 } from './social.integrations.interface';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
-import { SkoolDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/skool.dto';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
+import { SkoolDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/skool.dto';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 
 export class SkoolProvider extends SocialAbstract implements SocialProvider {
   identifier = 'skool';

@@ -1,6 +1,6 @@
 {
-	"name": "Maverick Dev Container",
-	"image": "localhost/maverick-devcontainer",
+	"name": "Mav Dev Container",
+	"image": "localhost/mav-devcontainer",
 	"features": {},
 	"customizations": {
 		"vscode": {

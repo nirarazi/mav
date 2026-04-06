@@ -2,12 +2,12 @@ export const dynamic = 'force-dynamic';
 import '../global.scss';
 import 'react-tooltip/dist/react-tooltip.css';
 import '@copilotkit/react-ui/styles.css';
-import LayoutContext from '@maverick/frontend/components/layout/layout.context';
+import LayoutContext from '@mav/frontend/components/layout/layout.context';
 import { ReactNode } from 'react';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import clsx from 'clsx';
-import { VariableContextComponent } from '@maverick/react/helpers/variable.context';
-import UtmSaver from '@maverick/helpers/utils/utm.saver';
+import { VariableContextComponent } from '@mav/react/helpers/variable.context';
+import UtmSaver from '@mav/helpers/utils/utm.saver';
 
 const jakartaSans = Plus_Jakarta_Sans({
   weight: ['600', '500'],
@@ -37,9 +37,9 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           discordUrl={process.env.NEXT_PUBLIC_DISCORD_SUPPORT!}
           frontEndUrl={process.env.FRONTEND_URL!}
           isGeneral={!!process.env.IS_GENERAL}
-          genericOauth={!!process.env.MAVERICK_GENERIC_OAUTH}
-          oauthLogoUrl={process.env.NEXT_PUBLIC_MAVERICK_OAUTH_LOGO_URL!}
-          oauthDisplayName={process.env.NEXT_PUBLIC_MAVERICK_OAUTH_DISPLAY_NAME!}
+          genericOauth={!!process.env.MAV_GENERIC_OAUTH}
+          oauthLogoUrl={process.env.NEXT_PUBLIC_MAV_OAUTH_LOGO_URL!}
+          oauthDisplayName={process.env.NEXT_PUBLIC_MAV_OAUTH_DISPLAY_NAME!}
           uploadDirectory={process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY!}
           mcpUrl={process.env.MCP_URL}
           dub={false}

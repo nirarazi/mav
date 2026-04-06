@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
-import { ImagesSlides } from '@maverick/nestjs-libraries/videos/images-slides/images.slides';
-import { VideoManager } from '@maverick/nestjs-libraries/videos/video.manager';
-import { Veo3 } from '@maverick/nestjs-libraries/videos/veo3/veo3';
+import { ImagesSlides } from '@mav/nestjs-libraries/videos/images-slides/images.slides';
+import { VideoManager } from '@mav/nestjs-libraries/videos/video.manager';
+import { Veo3 } from '@mav/nestjs-libraries/videos/veo3/veo3';
 
 @Global()
 @Module({

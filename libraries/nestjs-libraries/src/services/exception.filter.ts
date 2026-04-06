@@ -5,7 +5,7 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { removeAuth } from '@maverick/backend/services/auth/auth.middleware';
+import { removeAuth } from '@mav/backend/services/auth/auth.middleware';
 
 export class HttpForbiddenException extends HttpException {
   constructor() {

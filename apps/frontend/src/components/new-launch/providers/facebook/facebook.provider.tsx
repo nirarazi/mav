@@ -3,11 +3,11 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { FacebookDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
-import { Input } from '@maverick/react/form/input';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { FacebookPreview } from '@maverick/frontend/components/new-launch/providers/facebook/facebook.preview';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { FacebookDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
+import { Input } from '@mav/react/form/input';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { FacebookPreview } from '@mav/frontend/components/new-launch/providers/facebook/facebook.preview';
 
 export const FacebookSettings = () => {
   const { register } = useSettings();

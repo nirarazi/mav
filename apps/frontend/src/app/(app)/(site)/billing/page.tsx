@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
-import { BillingComponent } from '@maverick/frontend/components/billing/billing.component';
+import { BillingComponent } from '@mav/frontend/components/billing/billing.component';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
+import { isGeneralServerSide } from '@mav/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
   title: `${isGeneralServerSide() ? 'Mav' : 'Mav'} Billing`,
   description: '',

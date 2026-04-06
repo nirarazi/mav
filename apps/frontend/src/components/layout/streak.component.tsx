@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, useMemo } from 'react';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 
 export const StreakComponent: FC = () => {
   const user = useUser();

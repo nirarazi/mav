@@ -3,12 +3,12 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { WhopDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/whop.dto';
-import { Input } from '@maverick/react/form/input';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { WhopCompanySelect } from '@maverick/frontend/components/new-launch/providers/whop/whop.company.select';
-import { WhopExperienceSelect } from '@maverick/frontend/components/new-launch/providers/whop/whop.experience.select';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { WhopDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/whop.dto';
+import { Input } from '@mav/react/form/input';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { WhopCompanySelect } from '@mav/frontend/components/new-launch/providers/whop/whop.company.select';
+import { WhopExperienceSelect } from '@mav/frontend/components/new-launch/providers/whop/whop.experience.select';
 import { FC, useState } from 'react';
 
 const WhopSettings: FC = () => {

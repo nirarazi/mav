@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 
 @Injectable()
 export class OAuthRepository {

@@ -144,8 +144,8 @@ Connect to Mav via MCP:
       "command": "node",
       "args": ["path/to/mav/apps/mcp-server/dist/index.js"],
       "env": {
-        "MAVERICK_API_KEY": "your-api-key",
-        "MAVERICK_API_URL": "http://localhost:3000"
+        "MAV_API_KEY": "your-api-key",
+        "MAV_API_URL": "http://localhost:3000"
       }
     }
   }
@@ -155,7 +155,7 @@ Connect to Mav via MCP:
 Or use the CLI:
 
 ```bash
-export MAVERICK_API_KEY=your-api-key
-export MAVERICK_API_URL=http://localhost:3000
-npx maverick status
+export MAV_API_KEY=your-api-key
+export MAV_API_URL=http://localhost:3000
+npx mav status
 ```

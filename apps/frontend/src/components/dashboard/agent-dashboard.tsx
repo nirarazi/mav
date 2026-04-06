@@ -2,9 +2,9 @@
 
 import { FC, useCallback, useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import Link from 'next/link';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 
 // --- Types ---
 

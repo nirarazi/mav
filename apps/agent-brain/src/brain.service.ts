@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 /**
- * BrainService — The autonomous decision-making core of Maverick.
+ * BrainService — The autonomous decision-making core of Mav.
  *
  * Implements the OODA loop (Observe → Orient → Decide → Act → Record)
  * for autonomous social media management.

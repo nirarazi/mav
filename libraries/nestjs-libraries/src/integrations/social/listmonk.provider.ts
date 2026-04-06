@@ -1,4 +1,4 @@
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { SocialAbstract } from '../social.abstract';
 import {
   AuthTokenDetails,
@@ -8,10 +8,10 @@ import {
 } from './social.integrations.interface';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { ListmonkDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/listmonk.dto';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { ListmonkDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/listmonk.dto';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 import slugify from 'slugify';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
 
 export class ListmonkProvider extends SocialAbstract implements SocialProvider {
   override maxConcurrentJob = 100; // Bluesky has moderate rate limits

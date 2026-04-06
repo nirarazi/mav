@@ -2,9 +2,9 @@
 
 import { FC, useCallback, useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { useToaster } from '@mav/react/toaster/toaster';
 import { PostPreview, PLATFORM_CHAR_LIMITS } from './post-preview';
 
 interface ApprovalItem {

@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Activity, ActivityMethod } from 'nestjs-temporal-core';
-import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaService } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 
 /**
  * Brain Activity — Temporal activity that runs the OODA content generation cycle.

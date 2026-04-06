@@ -1,4 +1,4 @@
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
 import { User } from '@prisma/client';
 import { Injectable } from '@nestjs/common';
 import {

@@ -9,7 +9,7 @@ Get the settings schema, validation rules, and maximum character limits for any 
 ## Usage
 
 ```bash
-maverick integrations:settings <integration-id>
+mav integrations:settings <integration-id>
 ```
 
 ## What It Returns
@@ -40,7 +40,7 @@ maverick integrations:settings <integration-id>
 ### 1. List Your Integrations
 
 ```bash
-maverick integrations:list
+mav integrations:list
 ```
 
 Output:
@@ -70,7 +70,7 @@ Output:
 ### 2. Get Settings for Specific Integration
 
 ```bash
-maverick integrations:settings reddit-abc123
+mav integrations:settings reddit-abc123
 ```
 
 Output:
@@ -132,7 +132,7 @@ Output:
 Now you know what settings are available and required!
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "My post content" \
   -p reddit \
   --settings '{
@@ -154,7 +154,7 @@ maverick posts:create \
 ### Reddit
 
 ```bash
-maverick integrations:settings reddit-abc123
+mav integrations:settings reddit-abc123
 ```
 
 Returns:
@@ -165,7 +165,7 @@ Returns:
 ### YouTube
 
 ```bash
-maverick integrations:settings youtube-def456
+mav integrations:settings youtube-def456
 ```
 
 Returns:
@@ -176,7 +176,7 @@ Returns:
 ### X (Twitter)
 
 ```bash
-maverick integrations:settings twitter-ghi789
+mav integrations:settings twitter-ghi789
 ```
 
 Returns:
@@ -187,7 +187,7 @@ Returns:
 ### LinkedIn
 
 ```bash
-maverick integrations:settings linkedin-jkl012
+mav integrations:settings linkedin-jkl012
 ```
 
 Returns:
@@ -197,7 +197,7 @@ Returns:
 ### TikTok
 
 ```bash
-maverick integrations:settings tiktok-mno345
+mav integrations:settings tiktok-mno345
 ```
 
 Returns:
@@ -208,7 +208,7 @@ Returns:
 ### Instagram
 
 ```bash
-maverick integrations:settings instagram-pqr678
+mav integrations:settings instagram-pqr678
 ```
 
 Returns:
@@ -221,7 +221,7 @@ Returns:
 Some platforms don't require specific settings:
 
 ```bash
-maverick integrations:settings threads-stu901
+mav integrations:settings threads-stu901
 ```
 
 Returns:
@@ -250,10 +250,10 @@ Find out what settings are available before posting:
 
 ```bash
 # What settings does YouTube support?
-maverick integrations:settings youtube-123
+mav integrations:settings youtube-123
 
 # What settings does Reddit support?
-maverick integrations:settings reddit-456
+mav integrations:settings reddit-456
 ```
 
 ### 2. Validation
@@ -261,7 +261,7 @@ maverick integrations:settings reddit-456
 Check maximum character limits:
 
 ```bash
-maverick integrations:settings twitter-789 | jq '.output.maxLength'
+mav integrations:settings twitter-789 | jq '.output.maxLength'
 # Output: 280
 ```
 
@@ -275,7 +275,7 @@ AI agents can call this endpoint to:
 ```javascript
 // Get settings schema
 const settings = await execSync(
-  `maverick integrations:settings ${integrationId}`,
+  `mav integrations:settings ${integrationId}`,
   { encoding: 'utf-8' }
 );
 const schema = JSON.parse(settings);
@@ -311,23 +311,23 @@ Complete workflow for posting with correct settings:
 
 ```bash
 #!/bin/bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # 1. List integrations
 echo "📋 Available integrations:"
-maverick integrations:list
+mav integrations:list
 
 # 2. Get settings for Reddit
 echo ""
 echo "⚙️  Reddit settings:"
-SETTINGS=$(maverick integrations:settings reddit-123)
+SETTINGS=$(mav integrations:settings reddit-123)
 echo $SETTINGS | jq '.output.maxLength'
 echo $SETTINGS | jq '.output.settings'
 
 # 3. Create post with correct settings
 echo ""
 echo "📝 Creating post..."
-maverick posts:create \
+mav posts:create \
   -c "My post content" \
   -p reddit \
   --settings '{
@@ -366,15 +366,15 @@ Returns:
 ### Integration Not Found
 
 ```bash
-maverick integrations:settings invalid-id
+mav integrations:settings invalid-id
 # ❌ Failed to get integration settings: Integration not found
 ```
 
 ### API Key Not Set
 
 ```bash
-maverick integrations:settings reddit-123
-# ❌ Error: MAVERICK_API_KEY environment variable is required
+mav integrations:settings reddit-123
+# ❌ Error: MAV_API_KEY environment variable is required
 ```
 
 ## Tips
@@ -399,7 +399,7 @@ maverick integrations:settings reddit-123
 
 ```bash
 # Discover settings programmatically
-maverick integrations:settings reddit-123
+mav integrations:settings reddit-123
 
 # See exactly what's required and optional
 # Know the exact character limits

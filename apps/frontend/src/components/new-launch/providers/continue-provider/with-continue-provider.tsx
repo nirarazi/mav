@@ -3,9 +3,9 @@
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 import useSWR from 'swr';
 import clsx from 'clsx';
-import { Button } from '@maverick/react/form/button';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useCustomProviderFunction } from '@maverick/frontend/components/launches/helpers/use.custom.provider.function';
+import { Button } from '@mav/react/form/button';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useCustomProviderFunction } from '@mav/frontend/components/launches/helpers/use.custom.provider.function';
 
 const SWR_OPTIONS = {
   refreshWhenHidden: false,

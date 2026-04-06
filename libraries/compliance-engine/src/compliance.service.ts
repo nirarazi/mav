@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { createHash } from 'crypto';
-import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
+import { PrismaService } from '@mav/nestjs-libraries/database/prisma/prisma.service';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
 import { DEFAULT_PLATFORM_RULES } from './default-rules';
 import {
   ComplianceCheck,

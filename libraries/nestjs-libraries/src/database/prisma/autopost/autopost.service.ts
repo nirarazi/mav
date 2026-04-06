@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { AutopostRepository } from '@maverick/nestjs-libraries/database/prisma/autopost/autopost.repository';
-import { AutopostDto } from '@maverick/nestjs-libraries/dtos/autopost/autopost.dto';
+import { AutopostRepository } from '@mav/nestjs-libraries/database/prisma/autopost/autopost.repository';
+import { AutopostDto } from '@mav/nestjs-libraries/dtos/autopost/autopost.dto';
 import dayjs from 'dayjs';
 import { END, START, StateGraph } from '@langchain/langgraph';
 import { AutoPost, Integration } from '@prisma/client';
@@ -10,15 +10,15 @@ import { ChatOpenAI, DallEAPIWrapper } from '@langchain/openai';
 import { JSDOM } from 'jsdom';
 import { z } from 'zod';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
 import Parser from 'rss-parser';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { TemporalService } from 'nestjs-temporal-core';
 import { TypedSearchAttributes } from '@temporalio/common';
 import {
   organizationId,
-} from '@maverick/nestjs-libraries/temporal/temporal.search.attribute';
+} from '@mav/nestjs-libraries/temporal/temporal.search.attribute';
 const parser = new Parser();
 
 interface WorkflowChannelsState {

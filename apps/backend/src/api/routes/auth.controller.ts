@@ -10,17 +10,17 @@ import {
 } from '@nestjs/common';
 import { Response, Request } from 'express';
 
-import { CreateOrgUserDto } from '@maverick/nestjs-libraries/dtos/auth/create.org.user.dto';
-import { LoginUserDto } from '@maverick/nestjs-libraries/dtos/auth/login.user.dto';
-import { AuthService } from '@maverick/backend/services/auth/auth.service';
-import { ForgotReturnPasswordDto } from '@maverick/nestjs-libraries/dtos/auth/forgot-return.password.dto';
-import { ForgotPasswordDto } from '@maverick/nestjs-libraries/dtos/auth/forgot.password.dto';
-import { ResendActivationDto } from '@maverick/nestjs-libraries/dtos/auth/resend-activation.dto';
+import { CreateOrgUserDto } from '@mav/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { LoginUserDto } from '@mav/nestjs-libraries/dtos/auth/login.user.dto';
+import { AuthService } from '@mav/backend/services/auth/auth.service';
+import { ForgotReturnPasswordDto } from '@mav/nestjs-libraries/dtos/auth/forgot-return.password.dto';
+import { ForgotPasswordDto } from '@mav/nestjs-libraries/dtos/auth/forgot.password.dto';
+import { ResendActivationDto } from '@mav/nestjs-libraries/dtos/auth/resend-activation.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { getCookieUrlFromDomain } from '@maverick/helpers/subdomain/subdomain.management';
-import { EmailService } from '@maverick/nestjs-libraries/services/email.service';
+import { getCookieUrlFromDomain } from '@mav/helpers/subdomain/subdomain.management';
+import { EmailService } from '@mav/nestjs-libraries/services/email.service';
 import { RealIP } from 'nestjs-real-ip';
-import { UserAgent } from '@maverick/nestjs-libraries/user/user.agent';
+import { UserAgent } from '@mav/nestjs-libraries/user/user.agent';
 import { Provider } from '@prisma/client';
 import * as Sentry from '@sentry/nestjs';
 

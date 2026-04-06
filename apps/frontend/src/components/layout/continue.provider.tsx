@@ -1,13 +1,13 @@
 import React, { FC, useCallback, useEffect, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { IntegrationContext } from '@maverick/frontend/components/launches/helpers/use.integration';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { IntegrationContext } from '@mav/frontend/components/launches/helpers/use.integration';
 import dayjs from 'dayjs';
 import useSWR, { useSWRConfig } from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { continueProviderList } from '@maverick/frontend/components/new-launch/providers/continue-provider/list';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { continueProviderList } from '@mav/frontend/components/new-launch/providers/continue-provider/list';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 export const Null: FC<{
   onSave: (data: any) => Promise<void>;
   existingId: string[];

@@ -24,9 +24,9 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'json'],
   moduleNameMapper: {
-    '^@maverick/nestjs-libraries/(.*)$':
+    '^@mav/nestjs-libraries/(.*)$':
       '<rootDir>/src/__tests__/__stubs__/nestjs-libraries-stub.ts',
-    '^@maverick/approval-engine/(.*)$': '<rootDir>/src/$1',
+    '^@mav/approval-engine/(.*)$': '<rootDir>/src/$1',
     '^@prisma/client$': '<rootDir>/../../node_modules/@prisma/client',
   },
   moduleDirectories: ['node_modules', path.resolve(__dirname, '../../node_modules')],

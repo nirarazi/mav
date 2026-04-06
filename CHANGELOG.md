@@ -27,7 +27,7 @@ Mav v2.0.0 — forked from Postiz v1.47.0. This is the first release of Mav as a
 
 ### Changed
 - Full rebrand from Postiz to Mav across 433+ files
-- All `@gitroom/` path aliases renamed to `@maverick/`
+- All `@gitroom/` path aliases renamed to `@mav/`
 - Docker services renamed from `postiz-*` to `mav-*`
 - Root redirect changed from `/launches` to `/dashboard`
 - Auth pages redesigned with animated orbital illustration

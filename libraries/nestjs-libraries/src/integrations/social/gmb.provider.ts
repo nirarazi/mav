@@ -4,15 +4,15 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { google } from 'googleapis';
 import { OAuth2Client } from 'google-auth-library/build/src/auth/oauth2client';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import * as process from 'node:process';
 import dayjs from 'dayjs';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
-import { GmbSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/gmb.settings.dto';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
+import { GmbSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/gmb.settings.dto';
 
 const clientAndGmb = () => {
   const client = new google.auth.OAuth2({

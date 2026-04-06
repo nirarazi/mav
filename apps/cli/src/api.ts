@@ -1,17 +1,17 @@
 import fetch, { FormData } from 'node-fetch';
 
-export interface MaverickConfig {
+export interface MavConfig {
   apiKey: string;
   apiUrl?: string;
 }
 
-export class MaverickAPI {
+export class MavAPI {
   private apiKey: string;
   private apiUrl: string;
 
-  constructor(config: MaverickConfig) {
+  constructor(config: MavConfig) {
     this.apiKey = config.apiKey;
-    this.apiUrl = config.apiUrl || 'https://api.maverick.com';
+    this.apiUrl = config.apiUrl || 'https://api.mav.com';
   }
 
   private async request(endpoint: string, options: any = {}) {
@@ -166,8 +166,8 @@ export class MaverickAPI {
 // ---------------------------------------------------------------------------
 
 function getEnvConfig() {
-  const apiUrl = process.env.MAVERICK_API_URL || 'https://api.maverick.com';
-  const apiKey = process.env.MAVERICK_API_KEY || '';
+  const apiUrl = process.env.MAV_API_URL || 'https://api.mav.com';
+  const apiKey = process.env.MAV_API_KEY || '';
   return { apiUrl, apiKey };
 }
 
@@ -197,7 +197,7 @@ async function request<T = unknown>(
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Maverick API error ${response.status}: ${body}`);
+    throw new Error(`Mav API error ${response.status}: ${body}`);
   }
 
   const text = await response.text();

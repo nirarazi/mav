@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import React, {
   createContext,
   FC,
@@ -12,13 +12,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import './providers/heygen.provider';
-import { thirdPartyList } from '@maverick/frontend/components/third-parties/third-party.wrapper';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { thirdPartyList } from '@mav/frontend/components/third-parties/third-party.wrapper';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 
 const ThirdPartyContext = createContext({
   id: '',

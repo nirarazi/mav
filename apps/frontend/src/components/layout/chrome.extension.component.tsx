@@ -1,4 +1,4 @@
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
 export const ChromeExtensionComponent = () => {
   const { billingEnabled } = useVariables();
   if (!billingEnabled) {
@@ -6,7 +6,7 @@ export const ChromeExtensionComponent = () => {
   }
   return (
     <a
-      href="https://chromewebstore.google.com/detail/maverick/cidhffagahknaeodkplfbcpfeielnkjl"
+      href="https://chromewebstore.google.com/detail/mav/cidhffagahknaeodkplfbcpfeielnkjl"
       target="_blank"
       className="hover:text-newTextColor"
     >

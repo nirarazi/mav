@@ -1,4 +1,4 @@
-// Lightweight stub for @maverick/nestjs-libraries/* imports
+// Lightweight stub for @mav/nestjs-libraries/* imports
 // This prevents ts-jest from compiling the entire nestjs-libraries tree.
 // Real mocking is done via jest.mock() in test files.
 

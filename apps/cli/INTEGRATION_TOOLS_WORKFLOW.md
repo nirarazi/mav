@@ -7,7 +7,7 @@ Some integrations require additional data (like IDs, tags, playlists, etc.) befo
 ### Step 1: List Integrations
 
 ```bash
-maverick integrations:list
+mav integrations:list
 ```
 
 Get your integration IDs.
@@ -15,7 +15,7 @@ Get your integration IDs.
 ### Step 2: Get Integration Settings
 
 ```bash
-maverick integrations:settings <integration-id>
+mav integrations:settings <integration-id>
 ```
 
 This returns:
@@ -28,7 +28,7 @@ This returns:
 If settings require IDs/data you don't have, use the tools:
 
 ```bash
-maverick integrations:trigger <integration-id> <method-name> -d '{"key":"value"}'
+mav integrations:trigger <integration-id> <method-name> -d '{"key":"value"}'
 ```
 
 ### Step 4: Create Post with Complete Settings
@@ -40,7 +40,7 @@ Use the data from Step 3 in your post settings.
 ### 1. Get Reddit Integration Settings
 
 ```bash
-maverick integrations:settings reddit-abc123
+mav integrations:settings reddit-abc123
 ```
 
 **Output:**
@@ -97,7 +97,7 @@ maverick integrations:settings reddit-abc123
 ### 2. Get Flairs for the Subreddit
 
 ```bash
-maverick integrations:trigger reddit-abc123 getFlairs -d '{"subreddit":"programming"}'
+mav integrations:trigger reddit-abc123 getFlairs -d '{"subreddit":"programming"}'
 ```
 
 **Output:**
@@ -119,7 +119,7 @@ maverick integrations:trigger reddit-abc123 getFlairs -d '{"subreddit":"programm
 ### 3. Create Post with Flair ID
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Check out my project!" \
   -p reddit \
   --settings '{
@@ -145,7 +145,7 @@ maverick posts:create \
 ### 1. Get YouTube Settings
 
 ```bash
-maverick integrations:settings youtube-123
+mav integrations:settings youtube-123
 ```
 
 **Output includes tools:**
@@ -169,7 +169,7 @@ maverick integrations:settings youtube-123
 ### 2. Get Playlists
 
 ```bash
-maverick integrations:trigger youtube-123 getPlaylists
+mav integrations:trigger youtube-123 getPlaylists
 ```
 
 **Output:**
@@ -191,7 +191,7 @@ maverick integrations:trigger youtube-123 getPlaylists
 ### 3. Post to Specific Playlist
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Video description" \
   -p youtube \
   --settings '{
@@ -207,7 +207,7 @@ maverick posts:create \
 ### 1. Get LinkedIn Settings
 
 ```bash
-maverick integrations:settings linkedin-123
+mav integrations:settings linkedin-123
 ```
 
 **Output includes tools:**
@@ -226,7 +226,7 @@ maverick integrations:settings linkedin-123
 ### 2. Get Companies
 
 ```bash
-maverick integrations:trigger linkedin-123 getCompanies
+mav integrations:trigger linkedin-123 getCompanies
 ```
 
 **Output:**
@@ -248,7 +248,7 @@ maverick integrations:trigger linkedin-123 getCompanies
 ### 3. Post as Company
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Company announcement" \
   -p linkedin \
   --settings '{
@@ -283,10 +283,10 @@ maverick posts:create \
 
 ```bash
 # No parameters
-maverick integrations:trigger <integration-id> <methodName>
+mav integrations:trigger <integration-id> <methodName>
 
 # With parameters
-maverick integrations:trigger <integration-id> <methodName> -d '{"key":"value"}'
+mav integrations:trigger <integration-id> <methodName> -d '{"key":"value"}'
 ```
 
 ## Common Tool Methods
@@ -320,7 +320,7 @@ For AI agents, this enables dynamic discovery and usage:
 ```javascript
 // 1. Get settings and tools
 const settings = JSON.parse(
-  execSync(`maverick integrations:settings ${integrationId}`)
+  execSync(`mav integrations:settings ${integrationId}`)
 );
 
 // 2. Check if tools are needed
@@ -332,7 +332,7 @@ for (const tool of tools) {
     const data = buildDataForTool(tool.dataSchema);
     const result = JSON.parse(
       execSync(
-        `maverick integrations:trigger ${integrationId} ${tool.methodName} -d '${JSON.stringify(data)}'`
+        `mav integrations:trigger ${integrationId} ${tool.methodName} -d '${JSON.stringify(data)}'`
       )
     );
 
@@ -342,7 +342,7 @@ for (const tool of tools) {
 }
 
 // 4. Create post with complete settings
-execSync(`maverick posts:create -c "${content}" --settings '${JSON.stringify(settings)}' -i "${integrationId}"`);
+execSync(`mav posts:create -c "${content}" --settings '${JSON.stringify(settings)}' -i "${integrationId}"`);
 ```
 
 ## Error Handling
@@ -350,21 +350,21 @@ execSync(`maverick posts:create -c "${content}" --settings '${JSON.stringify(set
 ### Tool Not Found
 
 ```bash
-maverick integrations:trigger reddit-123 invalidMethod
+mav integrations:trigger reddit-123 invalidMethod
 # ❌ Failed to trigger tool: Tool not found
 ```
 
 ### Missing Required Data
 
 ```bash
-maverick integrations:trigger reddit-123 getFlairs
+mav integrations:trigger reddit-123 getFlairs
 # ❌ Missing required parameter: subreddit
 ```
 
 ### Integration Not Found
 
 ```bash
-maverick integrations:trigger invalid-id getFlairs
+mav integrations:trigger invalid-id getFlairs
 # ❌ Failed to trigger tool: Integration not found
 ```
 
@@ -380,18 +380,18 @@ maverick integrations:trigger invalid-id getFlairs
 
 ```bash
 #!/bin/bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 INTEGRATION_ID="reddit-abc123"
 
 # 1. Get settings
 echo "📋 Getting settings..."
-SETTINGS=$(maverick integrations:settings $INTEGRATION_ID)
+SETTINGS=$(mav integrations:settings $INTEGRATION_ID)
 echo $SETTINGS | jq '.output.tools'
 
 # 2. Get flairs
 echo ""
 echo "🏷️  Getting flairs..."
-FLAIRS=$(maverick integrations:trigger $INTEGRATION_ID getFlairs -d '{"subreddit":"programming"}')
+FLAIRS=$(mav integrations:trigger $INTEGRATION_ID getFlairs -d '{"subreddit":"programming"}')
 FLAIR_ID=$(echo $FLAIRS | jq -r '.output[0].id')
 FLAIR_NAME=$(echo $FLAIRS | jq -r '.output[0].name')
 
@@ -400,7 +400,7 @@ echo "Selected flair: $FLAIR_NAME ($FLAIR_ID)"
 # 3. Create post
 echo ""
 echo "📝 Creating post..."
-maverick posts:create \
+mav posts:create \
   -c "My post content" \
   -p reddit \
   --settings "{

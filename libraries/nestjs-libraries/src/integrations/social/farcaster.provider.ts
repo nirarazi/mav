@@ -3,15 +3,15 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import dayjs from 'dayjs';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import { NeynarAPIClient } from '@neynar/nodejs-sdk';
 import { Integration } from '@prisma/client';
-import { FarcasterDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/farcaster.dto';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
+import { FarcasterDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/farcaster.dto';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
 
 const client = new NeynarAPIClient({
   apiKey: process.env.NEYNAR_SECRET_KEY || '00000000-000-0000-000-000000000000',

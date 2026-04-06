@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { EmailInterface } from '@maverick/nestjs-libraries/emails/email.interface';
-import { ResendProvider } from '@maverick/nestjs-libraries/emails/resend.provider';
-import { EmptyProvider } from '@maverick/nestjs-libraries/emails/empty.provider';
-import { NodeMailerProvider } from '@maverick/nestjs-libraries/emails/node.mailer.provider';
+import { EmailInterface } from '@mav/nestjs-libraries/emails/email.interface';
+import { ResendProvider } from '@mav/nestjs-libraries/emails/resend.provider';
+import { EmptyProvider } from '@mav/nestjs-libraries/emails/empty.provider';
+import { NodeMailerProvider } from '@mav/nestjs-libraries/emails/node.mailer.provider';
 import { TemporalService } from 'nestjs-temporal-core';
-import { timer } from '@maverick/helpers/utils/timer';
+import { timer } from '@mav/helpers/utils/timer';
 
 @Injectable()
 export class EmailService {

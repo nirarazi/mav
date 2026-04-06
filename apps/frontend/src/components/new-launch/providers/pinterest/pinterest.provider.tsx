@@ -4,13 +4,13 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { PinterestBoard } from '@maverick/frontend/components/new-launch/providers/pinterest/pinterest.board';
-import { PinterestSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
-import { Input } from '@maverick/react/form/input';
-import { ColorPicker } from '@maverick/react/form/color.picker';
-import { PinterestPreview } from '@maverick/frontend/components/new-launch/providers/pinterest/pinterest.preview';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { PinterestBoard } from '@mav/frontend/components/new-launch/providers/pinterest/pinterest.board';
+import { PinterestSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/pinterest.dto';
+import { Input } from '@mav/react/form/input';
+import { ColorPicker } from '@mav/react/form/color.picker';
+import { PinterestPreview } from '@mav/frontend/components/new-launch/providers/pinterest/pinterest.preview';
 const PinterestSettings: FC = () => {
   const { register, control } = useSettings();
   return (

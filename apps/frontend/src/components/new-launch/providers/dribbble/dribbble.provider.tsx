@@ -4,11 +4,11 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
-import { DribbbleTeams } from '@maverick/frontend/components/new-launch/providers/dribbble/dribbble.teams';
-import { DribbbleDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
+import { DribbbleTeams } from '@mav/frontend/components/new-launch/providers/dribbble/dribbble.teams';
+import { DribbbleDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
 const DribbbleSettings: FC = () => {
   const { register, control } = useSettings();
   return (

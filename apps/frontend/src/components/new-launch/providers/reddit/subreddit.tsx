@@ -1,19 +1,19 @@
 'use client';
 
 import { FC, FormEvent, useCallback, useMemo, useState } from 'react';
-import { useCustomProviderFunction } from '@maverick/frontend/components/launches/helpers/use.custom.provider.function';
-import { Input } from '@maverick/react/form/input';
+import { useCustomProviderFunction } from '@mav/frontend/components/launches/helpers/use.custom.provider.function';
+import { Input } from '@mav/react/form/input';
 import { useDebouncedCallback } from 'use-debounce';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import clsx from 'clsx';
-import { MultiMediaComponent } from '@maverick/frontend/components/media/media.component';
+import { MultiMediaComponent } from '@mav/frontend/components/media/media.component';
 import { useWatch } from 'react-hook-form';
-import { Select } from '@maverick/react/form/select';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Canonical } from '@maverick/react/form/canonical';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { Select } from '@mav/react/form/select';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Canonical } from '@mav/react/form/canonical';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 export const RenderOptions: FC<{
   options: Array<'self' | 'link' | 'media'>;
   onClick: (current: 'self' | 'link' | 'media') => void;

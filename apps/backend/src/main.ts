@@ -1,8 +1,8 @@
-import { initializeSentry } from '@maverick/nestjs-libraries/sentry/initialize.sentry';
+import { initializeSentry } from '@mav/nestjs-libraries/sentry/initialize.sentry';
 initializeSentry('backend', true);
 import compression from 'compression';
 
-import { loadSwagger } from '@maverick/helpers/swagger/load.swagger';
+import { loadSwagger } from '@mav/helpers/swagger/load.swagger';
 import { json } from 'express';
 import { Runtime } from '@temporalio/worker';
 Runtime.install({ shutdownSignals: [] });
@@ -14,10 +14,10 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
-import { SubscriptionExceptionFilter } from '@maverick/backend/services/auth/permissions/subscription.exception';
-import { HttpExceptionFilter } from '@maverick/nestjs-libraries/services/exception.filter';
-import { ConfigurationChecker } from '@maverick/helpers/configuration/configuration.checker';
-import { startMcp } from '@maverick/nestjs-libraries/chat/start.mcp';
+import { SubscriptionExceptionFilter } from '@mav/backend/services/auth/permissions/subscription.exception';
+import { HttpExceptionFilter } from '@mav/nestjs-libraries/services/exception.filter';
+import { ConfigurationChecker } from '@mav/helpers/configuration/configuration.checker';
+import { startMcp } from '@mav/nestjs-libraries/chat/start.mcp';
 
 async function start() {
   const app = await NestFactory.create(AppModule, {

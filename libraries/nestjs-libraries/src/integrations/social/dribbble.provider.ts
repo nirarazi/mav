@@ -4,15 +4,15 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import axios from 'axios';
 import FormData from 'form-data';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { DribbbleDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { DribbbleDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
 import mime from 'mime-types';
-import { DiscordDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
+import { DiscordDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/discord.dto';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
 
 export class DribbbleProvider extends SocialAbstract implements SocialProvider {
   override maxConcurrentJob = 3; // Dribbble has moderate API limits

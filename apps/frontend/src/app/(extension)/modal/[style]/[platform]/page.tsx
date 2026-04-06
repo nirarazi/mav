@@ -1,6 +1,6 @@
 'use client';
 
-import { StandaloneModal } from '@maverick/frontend/components/standalone-modal/standalone.modal';
+import { StandaloneModal } from '@mav/frontend/components/standalone-modal/standalone.modal';
 export default async function Modal() {
   return (
     <div className="w-screen h-screen overflow-hidden bg-black">

@@ -8,12 +8,12 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization, ApprovalType } from '@prisma/client';
-import { ApprovalService } from '@maverick/approval-engine/approval.service';
-import { PolicyService } from '@maverick/approval-engine/policy.service';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
-import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { ApprovalService } from '@mav/approval-engine/approval.service';
+import { PolicyService } from '@mav/approval-engine/policy.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
+import { PrismaService } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 

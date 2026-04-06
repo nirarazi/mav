@@ -1,7 +1,7 @@
-import { Button } from '@maverick/react/form/button';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { Button } from '@mav/react/form/button';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import { FC, useCallback } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const MergePost: FC<{
   merge: () => void;
 }> = (props) => {

@@ -1,12 +1,12 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
-import { AddTeamMemberDto } from '@maverick/nestjs-libraries/dtos/settings/add.team.member.dto';
-import { ShortlinkPreferenceDto } from '@maverick/nestjs-libraries/dtos/settings/shortlink-preference.dto';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
+import { AddTeamMemberDto } from '@mav/nestjs-libraries/dtos/settings/add.team.member.dto';
+import { ShortlinkPreferenceDto } from '@mav/nestjs-libraries/dtos/settings/shortlink-preference.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthorizationActions, Sections } from '@maverick/backend/services/auth/permissions/permission.exception.class';
+import { AuthorizationActions, Sections } from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 @ApiTags('Settings')
 @Controller('/settings')

@@ -1,5 +1,5 @@
 import { getComplianceAudit } from '../api';
-import { MaverickAPI } from '../api';
+import { MavAPI } from '../api';
 import { getConfig } from '../config';
 import { spinner, table, statusBox, error } from '../ui';
 
@@ -49,7 +49,7 @@ export async function complianceRules(args: any) {
   }
 
   const config = getConfig();
-  const api = new MaverickAPI(config);
+  const api = new MavAPI(config);
 
   const s = spinner(`Fetching rules for ${args.id}...`);
   s.start();

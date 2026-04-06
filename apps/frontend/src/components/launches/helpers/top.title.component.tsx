@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import clsx from 'clsx';
-import { ExpandIcon, CollapseIcon } from '@maverick/frontend/components/ui/icons';
+import { ExpandIcon, CollapseIcon } from '@mav/frontend/components/ui/icons';
 
 export const TopTitle: FC<{
   title: string;

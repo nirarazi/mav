@@ -5,7 +5,7 @@ import {
   RawBodyRequest,
   Req,
 } from '@nestjs/common';
-import { StripeService } from '@maverick/nestjs-libraries/services/stripe.service';
+import { StripeService } from '@mav/nestjs-libraries/services/stripe.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Stripe')

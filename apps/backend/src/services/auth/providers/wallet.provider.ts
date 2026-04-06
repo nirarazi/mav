@@ -1,9 +1,9 @@
 import {
   AuthProvider,
   AuthProviderAbstract,
-} from '@maverick/backend/services/auth/providers.interface';
+} from '@mav/backend/services/auth/providers.interface';
 import { randomBytes } from 'crypto';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
 import bs58 from 'bs58';
 import nacl from 'tweetnacl';
 

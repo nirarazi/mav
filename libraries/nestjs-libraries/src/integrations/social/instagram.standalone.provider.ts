@@ -3,14 +3,14 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import dayjs from 'dayjs';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { InstagramDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
-import { InstagramProvider } from '@maverick/nestjs-libraries/integrations/social/instagram.provider';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { InstagramDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
+import { InstagramProvider } from '@mav/nestjs-libraries/integrations/social/instagram.provider';
 import { Integration } from '@prisma/client';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
 
 const instagramProvider = new InstagramProvider();
 

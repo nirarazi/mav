@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import dayjs from 'dayjs';
-import { useCalendar } from '@maverick/frontend/components/launches/calendar.context';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { SetSelectionModal } from '@maverick/frontend/components/launches/calendar';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
-import { ModalWrapperComponent } from '@maverick/frontend/components/new-launch/modal.wrapper.component';
+import { useCalendar } from '@mav/frontend/components/launches/calendar.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { SetSelectionModal } from '@mav/frontend/components/launches/calendar';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
+import { ModalWrapperComponent } from '@mav/frontend/components/new-launch/modal.wrapper.component';
 
 export const NewPost = () => {
   const fetch = useFetch();

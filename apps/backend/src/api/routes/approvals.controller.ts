@@ -7,11 +7,11 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization, ApprovalType, User } from '@prisma/client';
-import { ApprovalService } from '@maverick/approval-engine/approval.service';
-import { PolicyService } from '@maverick/approval-engine/policy.service';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
+import { ApprovalService } from '@mav/approval-engine/approval.service';
+import { PolicyService } from '@mav/approval-engine/policy.service';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
 
 @ApiTags('Approvals')
 @Controller('/approvals')

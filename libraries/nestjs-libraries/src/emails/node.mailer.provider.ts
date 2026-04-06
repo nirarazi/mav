@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { EmailInterface } from '@maverick/nestjs-libraries/emails/email.interface';
+import { EmailInterface } from '@mav/nestjs-libraries/emails/email.interface';
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,

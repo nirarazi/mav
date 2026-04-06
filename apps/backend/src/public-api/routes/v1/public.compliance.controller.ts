@@ -7,10 +7,10 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { ComplianceService } from '@maverick/compliance-engine/compliance.service';
-import { AuditService } from '@maverick/compliance-engine/audit.service';
+import { ComplianceService } from '@mav/compliance-engine/compliance.service';
+import { AuditService } from '@mav/compliance-engine/audit.service';
 
 @ApiTags('Compliance')
 @Controller('/public/v1/compliance')

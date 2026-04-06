@@ -1,6 +1,6 @@
 const API_BASE_URL =
-  process.env.MAVERICK_API_URL || 'http://localhost:3000';
-const API_KEY = process.env.MAVERICK_API_KEY || '';
+  process.env.MAV_API_URL || 'http://localhost:3000';
+const API_KEY = process.env.MAV_API_KEY || '';
 
 function toQueryString(params: Record<string, unknown>): string {
   const qs = new URLSearchParams();
@@ -27,7 +27,7 @@ async function request<T = unknown>(
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Maverick API error ${response.status}: ${body}`);
+    throw new Error(`Mav API error ${response.status}: ${body}`);
   }
 
   const text = await response.text();

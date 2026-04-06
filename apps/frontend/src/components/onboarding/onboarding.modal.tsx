@@ -1,17 +1,17 @@
 'use client';
 
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
 import { orderBy } from 'lodash';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { CustomVariables } from '@maverick/frontend/components/launches/add.provider.component';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { CustomVariables } from '@mav/frontend/components/launches/add.provider.component';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useToaster } from '@mav/react/toaster/toaster';
 
 interface OnboardingModalProps {
   onClose: () => void;

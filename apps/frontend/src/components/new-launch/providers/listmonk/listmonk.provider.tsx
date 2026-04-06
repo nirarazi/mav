@@ -3,12 +3,12 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { ListmonkDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/listmonk.dto';
-import { Input } from '@maverick/react/form/input';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { SelectList } from '@maverick/frontend/components/new-launch/providers/listmonk/select.list';
-import { SelectTemplates } from '@maverick/frontend/components/new-launch/providers/listmonk/select.templates';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { ListmonkDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/listmonk.dto';
+import { Input } from '@mav/react/form/input';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { SelectList } from '@mav/frontend/components/new-launch/providers/listmonk/select.list';
+import { SelectTemplates } from '@mav/frontend/components/new-launch/providers/listmonk/select.templates';
 
 const SettingsComponent = () => {
   const form = useSettings();

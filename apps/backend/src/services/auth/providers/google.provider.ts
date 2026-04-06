@@ -3,7 +3,7 @@ import { OAuth2Client } from 'google-auth-library/build/src/auth/oauth2client';
 import {
   AuthProvider,
   AuthProviderAbstract,
-} from '@maverick/backend/services/auth/providers.interface';
+} from '@mav/backend/services/auth/providers.interface';
 
 const clientAndYoutube = () => {
   const client = new google.auth.OAuth2({

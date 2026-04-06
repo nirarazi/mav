@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, ReactNode, useEffect } from 'react';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { initializeSentryClient } from '@maverick/react/sentry/initialize.sentry.client';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { initializeSentryClient } from '@mav/react/sentry/initialize.sentry.client';
 
 export const SentryComponent: FC<{ children: ReactNode }> = ({ children }) => {
   const { sentryDsn: dsn, environment } = useVariables();

@@ -1,5 +1,5 @@
-import i18next from '@maverick/react/translation/i18next';
-import { areYouSure } from '@maverick/frontend/components/layout/new-modal';
+import i18next from '@mav/react/translation/i18next';
+import { areYouSure } from '@mav/frontend/components/layout/new-modal';
 
 export const deleteDialog = async (
   message: string,

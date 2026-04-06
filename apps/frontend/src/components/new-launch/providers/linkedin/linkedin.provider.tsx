@@ -3,13 +3,13 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { Checkbox } from '@maverick/react/form/checkbox';
-import { Input } from '@maverick/react/form/input';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { LinkedinDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
-import { LinkedinPreview } from '@maverick/frontend/components/new-launch/providers/linkedin/linkedin.preview';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { Checkbox } from '@mav/react/form/checkbox';
+import { Input } from '@mav/react/form/input';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { LinkedinDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
+import { LinkedinPreview } from '@mav/frontend/components/new-launch/providers/linkedin/linkedin.preview';
 
 const LinkedInSettings = () => {
   const t = useT();

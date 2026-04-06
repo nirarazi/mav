@@ -1,4 +1,4 @@
-import { NewsletterInterface } from '@maverick/nestjs-libraries/newsletter/newsletter.interface';
+import { NewsletterInterface } from '@mav/nestjs-libraries/newsletter/newsletter.interface';
 
 export class EmailEmptyProvider implements NewsletterInterface {
   name = 'empty';

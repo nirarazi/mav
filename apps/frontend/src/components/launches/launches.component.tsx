@@ -1,31 +1,31 @@
 'use client';
 
-import { AddProviderButton } from '@maverick/frontend/components/launches/add.provider.component';
+import { AddProviderButton } from '@mav/frontend/components/launches/add.provider.component';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { capitalize, groupBy, orderBy } from 'lodash';
-import { CalendarWeekProvider } from '@maverick/frontend/components/launches/calendar.context';
-import { Filters } from '@maverick/frontend/components/launches/filters';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { CalendarWeekProvider } from '@mav/frontend/components/launches/calendar.context';
+import { Filters } from '@mav/frontend/components/launches/filters';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 import clsx from 'clsx';
 import { useUser } from '../layout/user.context';
-import { Menu } from '@maverick/frontend/components/launches/menu/menu';
+import { Menu } from '@mav/frontend/components/launches/menu/menu';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Integration } from '@prisma/client';
-import ImageWithFallback from '@maverick/react/helpers/image.with.fallback';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useFireEvents } from '@maverick/helpers/utils/use.fire.events';
+import ImageWithFallback from '@mav/react/helpers/image.with.fallback';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useFireEvents } from '@mav/helpers/utils/use.fire.events';
 import { Calendar } from './calendar';
 import { useDrag, useDrop } from 'react-dnd';
-import { DNDProvider } from '@maverick/frontend/components/launches/helpers/dnd.provider';
+import { DNDProvider } from '@mav/frontend/components/launches/helpers/dnd.provider';
 import { GeneratorComponent } from './generator/generator';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { NewPost } from '@maverick/frontend/components/launches/new.post';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useIntegrationList } from '@maverick/frontend/components/launches/helpers/use.integration.list';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { NewPost } from '@mav/frontend/components/launches/new.post';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useIntegrationList } from '@mav/frontend/components/launches/helpers/use.integration.list';
 import useCookie from 'react-use-cookie';
-import { Onboarding } from '@maverick/frontend/components/onboarding/onboarding';
+import { Onboarding } from '@mav/frontend/components/onboarding/onboarding';
 
 export const SVGLine = () => {
   return (

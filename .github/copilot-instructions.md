@@ -1,5 +1,5 @@
 
-# Copilot Coding Agent Instructions for Maverick
+# Copilot Coding Agent Instructions for Mav
 
 ## Project Architecture
 - Monorepo managed by NX, with apps in `apps/` and shared code in `libraries/`.
@@ -29,7 +29,7 @@
 
 ## Integration Points
 - External APIs: Social media (Instagram, Facebook), Make.com, N8N, Resend, Stripe, etc.
-- SDK (`apps/sdk`) provides programmatic access to Maverick features.
+- SDK (`apps/sdk`) provides programmatic access to Mav features.
 - Extension (`apps/extension`) is built with Vite, React, TypeScript, and Tailwind CSS.
 
 ## Key Files & Directories
@@ -43,9 +43,9 @@
 - `libraries/nestjs-libraries/src/database/prisma/schema.prisma` — Database schema
 
 ## Documentation
-- Main docs: https://docs.maverick.com/
-- Developer guide: https://docs.maverick.com/developer-guide
-- Public API: https://docs.maverick.com/public-api
+- Main docs: https://docs.mav.com/
+- Developer guide: https://docs.mav.com/developer-guide
+- Public API: https://docs.mav.com/public-api
 
 ---
 

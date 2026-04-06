@@ -1,16 +1,16 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { Post as PostBody } from '@maverick/nestjs-libraries/dtos/posts/create.post.dto';
+import { Post as PostBody } from '@mav/nestjs-libraries/dtos/posts/create.post.dto';
 import { APPROVED_SUBMIT_FOR_ORDER, Post, State } from '@prisma/client';
-import { GetPostsDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.dto';
-import { GetPostsListDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.list.dto';
+import { GetPostsDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.dto';
+import { GetPostsListDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.list.dto';
 import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import utc from 'dayjs/plugin/utc';
 import { v4 as uuidv4 } from 'uuid';
-import { CreateTagDto } from '@maverick/nestjs-libraries/dtos/posts/create.tag.dto';
+import { CreateTagDto } from '@mav/nestjs-libraries/dtos/posts/create.tag.dto';
 
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);

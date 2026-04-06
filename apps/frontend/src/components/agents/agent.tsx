@@ -12,16 +12,16 @@ import clsx from 'clsx';
 import useCookie from 'react-use-cookie';
 import useSWR from 'swr';
 import { orderBy } from 'lodash';
-import { SVGLine } from '@maverick/frontend/components/launches/launches.component';
-import ImageWithFallback from '@maverick/react/helpers/image.with.fallback';
+import { SVGLine } from '@mav/frontend/components/launches/launches.component';
+import ImageWithFallback from '@mav/react/helpers/image.with.fallback';
 import Image from 'next/image';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useWaitForClass } from '@maverick/helpers/utils/use.wait.for.class';
-import { MultiMediaComponent } from '@maverick/frontend/components/media/media.component';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useWaitForClass } from '@mav/helpers/utils/use.wait.for.class';
+import { MultiMediaComponent } from '@mav/frontend/components/media/media.component';
 import { Integration } from '@prisma/client';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const MediaPortal: FC<{
   media: { path: string; id: string }[];

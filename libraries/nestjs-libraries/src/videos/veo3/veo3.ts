@@ -2,8 +2,8 @@ import {
   URL,
   Video,
   VideoAbstract,
-} from '@maverick/nestjs-libraries/videos/video.interface';
-import { timer } from '@maverick/helpers/utils/timer';
+} from '@mav/nestjs-libraries/videos/video.interface';
+import { timer } from '@mav/helpers/utils/timer';
 import { ArrayMaxSize, IsArray, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 

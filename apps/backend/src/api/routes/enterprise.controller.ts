@@ -1,11 +1,11 @@
 import { Body, Controller, Param, Post, Res } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
 
 @ApiTags('Enterprise')
 @Controller('/enterprise')

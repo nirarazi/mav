@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { PostActivity } from '@maverick/orchestrator/activities/post.activity';
-import { getTemporalModule } from '@maverick/nestjs-libraries/temporal/temporal.module';
-import { DatabaseModule } from '@maverick/nestjs-libraries/database/prisma/database.module';
-import { AutopostService } from '@maverick/nestjs-libraries/database/prisma/autopost/autopost.service';
-import { EmailActivity } from '@maverick/orchestrator/activities/email.activity';
-import { IntegrationsActivity } from '@maverick/orchestrator/activities/integrations.activity';
-import { BrainActivity } from '@maverick/orchestrator/activities/brain.activity';
+import { PostActivity } from '@mav/orchestrator/activities/post.activity';
+import { getTemporalModule } from '@mav/nestjs-libraries/temporal/temporal.module';
+import { DatabaseModule } from '@mav/nestjs-libraries/database/prisma/database.module';
+import { AutopostService } from '@mav/nestjs-libraries/database/prisma/autopost/autopost.service';
+import { EmailActivity } from '@mav/orchestrator/activities/email.activity';
+import { IntegrationsActivity } from '@mav/orchestrator/activities/integrations.activity';
+import { BrainActivity } from '@mav/orchestrator/activities/brain.activity';
 
 const activities = [
   PostActivity,

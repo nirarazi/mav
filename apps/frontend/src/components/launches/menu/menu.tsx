@@ -10,26 +10,26 @@ import React, {
   useState,
 } from 'react';
 import { useClickOutside } from '@mantine/hooks';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { TimeTable } from '@maverick/frontend/components/launches/time.table';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { TimeTable } from '@mav/frontend/components/launches/time.table';
 import {
   Integrations,
   useCalendar,
-} from '@maverick/frontend/components/launches/calendar.context';
-import { BotPicture } from '@maverick/frontend/components/launches/bot.picture';
-import { CustomerModal } from '@maverick/frontend/components/launches/customer.modal';
+} from '@mav/frontend/components/launches/calendar.context';
+import { BotPicture } from '@mav/frontend/components/launches/bot.picture';
+import { CustomerModal } from '@mav/frontend/components/launches/customer.modal';
 import { Integration } from '@prisma/client';
-import { SettingsModal } from '@maverick/frontend/components/launches/settings.modal';
-import { CustomVariables } from '@maverick/frontend/components/launches/add.provider.component';
+import { SettingsModal } from '@mav/frontend/components/launches/settings.modal';
+import { CustomVariables } from '@mav/frontend/components/launches/add.provider.component';
 import { useRouter } from 'next/navigation';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
 import dayjs from 'dayjs';
-import { ModalWrapperComponent } from '@maverick/frontend/components/new-launch/modal.wrapper.component';
+import { ModalWrapperComponent } from '@mav/frontend/components/new-launch/modal.wrapper.component';
 import copy from 'copy-to-clipboard';
 
 export const Menu: FC<{

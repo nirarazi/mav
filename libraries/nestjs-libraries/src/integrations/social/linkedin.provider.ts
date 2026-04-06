@@ -3,18 +3,18 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import sharp from 'sharp';
 import { lookup } from 'mime-types';
-import { readOrFetch } from '@maverick/helpers/utils/read.or.fetch';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { readOrFetch } from '@mav/helpers/utils/read.or.fetch';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import { Integration } from '@prisma/client';
-import { PostPlug } from '@maverick/helpers/decorators/post.plug';
-import { LinkedinDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
+import { PostPlug } from '@mav/helpers/decorators/post.plug';
+import { LinkedinDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/linkedin.dto';
 import imageToPDF from 'image-to-pdf';
 import { Readable } from 'stream';
-import { Rules } from '@maverick/nestjs-libraries/chat/rules.description.decorator';
+import { Rules } from '@mav/nestjs-libraries/chat/rules.description.decorator';
 
 @Rules(
   'LinkedIn can have maximum one attachment when selecting video, when choosing a carousel on LinkedIn minimum amount of attachment must be two, and only pictures, if uploading a video, LinkedIn can have only one attachment'

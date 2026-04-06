@@ -1,8 +1,8 @@
 import { useDropzone } from 'react-dropzone';
 import { FC, ReactNode } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import clsx from 'clsx';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useToaster } from '@mav/react/toaster/toaster';
 export const DropFiles: FC<{
   children: ReactNode;
   className?: string;

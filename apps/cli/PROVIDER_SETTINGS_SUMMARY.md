@@ -36,7 +36,7 @@ These use `EmptySettings` (no special configuration needed):
 ### Method 1: Command Line
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Content" \
   -p <provider-type> \
   --settings '<json-settings>' \
@@ -63,7 +63,7 @@ maverick posts:create \
 ### Reddit Post
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Check out this project!" \
   -p reddit \
   --settings '{
@@ -83,7 +83,7 @@ maverick posts:create \
 ### YouTube Video
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Full video description..." \
   -p youtube \
   --settings '{
@@ -100,7 +100,7 @@ maverick posts:create \
 ### Twitter/X with Reply Controls
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Important announcement!" \
   -p x \
   --settings '{
@@ -112,7 +112,7 @@ maverick posts:create \
 ### LinkedIn Carousel
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Product showcase" \
   -m "img1.jpg,img2.jpg,img3.jpg" \
   -p linkedin \
@@ -126,7 +126,7 @@ maverick posts:create \
 ### Instagram Story
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "Story content" \
   -m "story-image.jpg" \
   -p instagram \
@@ -139,7 +139,7 @@ maverick posts:create \
 ### TikTok Video
 
 ```bash
-maverick posts:create \
+mav posts:create \
   -c "TikTok description #fyp" \
   -m "video.mp4" \
   -p tiktok \
@@ -168,7 +168,7 @@ We've created example JSON files for you:
 ## Finding Provider Types
 
 ```bash
-maverick integrations:list
+mav integrations:list
 ```
 
 Look at the `provider` field - this is your provider type!

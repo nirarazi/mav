@@ -2,10 +2,10 @@
 
 import { create } from 'zustand';
 import dayjs from 'dayjs';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
 import { createRef, RefObject } from 'react';
-import { PostComment } from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { PostComment } from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 
 interface Values {
   id: string;

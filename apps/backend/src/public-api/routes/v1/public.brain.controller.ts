@@ -6,15 +6,15 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { PrismaService } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
-import { PersonaService } from '@maverick/persona-engine/persona.service';
-import { ComplianceService } from '@maverick/compliance-engine/compliance.service';
-import { ApprovalService } from '@maverick/approval-engine/approval.service';
-import { AuditService } from '@maverick/compliance-engine/audit.service';
-import { ContentPipeline } from '@maverick/agent-brain/content.pipeline';
-import { LlmService } from '@maverick/llm-adapter/llm.service';
+import { PrismaService } from '@mav/nestjs-libraries/database/prisma/prisma.service';
+import { PersonaService } from '@mav/persona-engine/persona.service';
+import { ComplianceService } from '@mav/compliance-engine/compliance.service';
+import { ApprovalService } from '@mav/approval-engine/approval.service';
+import { AuditService } from '@mav/compliance-engine/audit.service';
+import { ContentPipeline } from '@mav/agent-brain/content.pipeline';
+import { LlmService } from '@mav/llm-adapter/llm.service';
 
 @ApiTags('Brain')
 @Controller('/public/v1/brain')

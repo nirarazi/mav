@@ -1,16 +1,16 @@
 'use client';
 
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
 import React, { FC, useCallback, useState } from 'react';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import { useRouter } from 'next/navigation';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { Input } from '@maverick/react/form/input';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { ModalWrapperComponent } from '@maverick/frontend/components/new-launch/modal.wrapper.component';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { Input } from '@mav/react/form/input';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { ModalWrapperComponent } from '@mav/frontend/components/new-launch/modal.wrapper.component';
 
 export const ApiModal: FC<{
   identifier: string;

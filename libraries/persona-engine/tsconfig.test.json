@@ -5,8 +5,8 @@
     "types": ["jest", "node"],
     "isolatedModules": true,
     "paths": {
-      "@maverick/nestjs-libraries/*": ["../nestjs-libraries/src/*"],
-      "@maverick/persona-engine/*": ["./src/*"]
+      "@mav/nestjs-libraries/*": ["../nestjs-libraries/src/*"],
+      "@mav/persona-engine/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts"]

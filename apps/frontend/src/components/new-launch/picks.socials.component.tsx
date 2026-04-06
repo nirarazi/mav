@@ -3,11 +3,11 @@
 import { FC } from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
-import { useExistingData } from '@maverick/frontend/components/launches/helpers/use.existing.data';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import ImageWithFallback from '@maverick/react/helpers/image.with.fallback';
+import { useExistingData } from '@mav/frontend/components/launches/helpers/use.existing.data';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import ImageWithFallback from '@mav/react/helpers/image.with.fallback';
 
 export const PicksSocialsComponent: FC<{ toolTip?: boolean }> = ({
   toolTip,

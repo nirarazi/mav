@@ -7,5 +7,5 @@
   <circle cx="12" cy="26" r="1.5" fill="rgba(255,255,255,0.7)"/>
   <circle cx="16" cy="20" r="0.8" fill="rgba(255,255,255,0.5)"/>
   <!-- Wordmark -->
-  <text x="42" y="27" font-family="system-ui, -apple-system, 'DM Sans', sans-serif" font-size="20" font-weight="600" fill="currentColor" letter-spacing="-0.5">maverick</text>
+  <text x="42" y="27" font-family="system-ui, -apple-system, 'DM Sans', sans-serif" font-size="20" font-weight="600" fill="currentColor" letter-spacing="-0.5">mav</text>
 </svg>

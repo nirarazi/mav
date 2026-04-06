@@ -3,10 +3,10 @@ import { BaseMessage, HumanMessage } from '@langchain/core/messages';
 import { END, START, StateGraph } from '@langchain/langgraph';
 import { ChatOpenAI } from '@langchain/openai';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
-import { agentCategories } from '@maverick/nestjs-libraries/agent/agent.categories';
+import { agentCategories } from '@mav/nestjs-libraries/agent/agent.categories';
 import { z } from 'zod';
-import { agentTopics } from '@maverick/nestjs-libraries/agent/agent.topics';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { agentTopics } from '@mav/nestjs-libraries/agent/agent.topics';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
 
 const model = new ChatOpenAI({
   apiKey: process.env.OPENAI_API_KEY || 'sk-proj-',

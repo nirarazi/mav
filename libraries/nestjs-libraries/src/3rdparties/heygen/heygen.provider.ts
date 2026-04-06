@@ -1,9 +1,9 @@
 import {
   ThirdParty,
   ThirdPartyAbstract,
-} from '@maverick/nestjs-libraries/3rdparties/thirdparty.interface';
-import { OpenaiService } from '@maverick/nestjs-libraries/openai/openai.service';
-import { timer } from '@maverick/helpers/utils/timer';
+} from '@mav/nestjs-libraries/3rdparties/thirdparty.interface';
+import { OpenaiService } from '@mav/nestjs-libraries/openai/openai.service';
+import { timer } from '@mav/helpers/utils/timer';
 
 @ThirdParty({
   identifier: 'heygen',

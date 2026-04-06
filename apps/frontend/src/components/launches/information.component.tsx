@@ -1,12 +1,12 @@
 'use client';
 
 import React, { FC, Fragment, useMemo } from 'react';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { capitalize } from 'lodash';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 const Valid: FC = () => {
   return (

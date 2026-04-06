@@ -1,17 +1,17 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { MediaRepository } from '@maverick/nestjs-libraries/database/prisma/media/media.repository';
-import { OpenaiService } from '@maverick/nestjs-libraries/openai/openai.service';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { MediaRepository } from '@mav/nestjs-libraries/database/prisma/media/media.repository';
+import { OpenaiService } from '@mav/nestjs-libraries/openai/openai.service';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
 import { Organization } from '@prisma/client';
-import { SaveMediaInformationDto } from '@maverick/nestjs-libraries/dtos/media/save.media.information.dto';
-import { VideoManager } from '@maverick/nestjs-libraries/videos/video.manager';
-import { VideoDto } from '@maverick/nestjs-libraries/dtos/videos/video.dto';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
+import { SaveMediaInformationDto } from '@mav/nestjs-libraries/dtos/media/save.media.information.dto';
+import { VideoManager } from '@mav/nestjs-libraries/videos/video.manager';
+import { VideoDto } from '@mav/nestjs-libraries/dtos/videos/video.dto';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
 import {
   AuthorizationActions,
   Sections,
   SubscriptionException,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 @Injectable()
 export class MediaService {

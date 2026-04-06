@@ -1,5 +1,5 @@
 import { proxyActivities, sleep } from '@temporalio/workflow';
-import { EmailActivity } from '@maverick/orchestrator/activities/email.activity';
+import { EmailActivity } from '@mav/orchestrator/activities/email.activity';
 
 const { sendEmailAsync, getUserOrgs, setStreak } = proxyActivities<EmailActivity>({
   startToCloseTimeout: '10 minute',

@@ -1,15 +1,15 @@
 'use client';
 
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import React, { FC, FormEventHandler, useCallback, useState } from 'react';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Input } from '@maverick/react/form/input';
-import { Button } from '@maverick/react/form/button';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { showMediaBox } from '@maverick/frontend/components/media/media.component';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Input } from '@mav/react/form/input';
+import { Button } from '@mav/react/form/button';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { showMediaBox } from '@mav/frontend/components/media/media.component';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const BotPicture: FC<{
   integration: Integrations;
   canChangeProfilePicture: boolean;

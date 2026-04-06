@@ -162,7 +162,7 @@ export class LlmService {
   }
 
   private resolveProvider(): LlmProvider {
-    const envProvider = process.env.MAVERICK_LLM_PROVIDER?.toLowerCase();
+    const envProvider = process.env.MAV_LLM_PROVIDER?.toLowerCase();
     if (envProvider === 'anthropic' || envProvider === 'openai') {
       return envProvider;
     }
@@ -176,6 +176,6 @@ export class LlmService {
   }
 
   private resolveModel(): string {
-    return process.env.MAVERICK_LLM_MODEL ?? DEFAULT_MODELS[this.provider];
+    return process.env.MAV_LLM_MODEL ?? DEFAULT_MODELS[this.provider];
   }
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
-import { SubscriptionRepository } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.repository';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { SubscriptionRepository } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.repository';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
 import { Organization } from '@prisma/client';
 import dayjs from 'dayjs';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 
 @Injectable()
 export class SubscriptionService {

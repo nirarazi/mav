@@ -1,13 +1,13 @@
 import {
   AgentToolInterface,
   ToolReturn,
-} from '@maverick/nestjs-libraries/chat/agent.tool.interface';
+} from '@mav/nestjs-libraries/chat/agent.tool.interface';
 import { createTool } from '@mastra/core/tools';
 import { Injectable } from '@nestjs/common';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
 import z from 'zod';
-import { checkAuth } from '@maverick/nestjs-libraries/chat/auth.context';
-import { getAuth } from '@maverick/nestjs-libraries/chat/async.storage';
+import { checkAuth } from '@mav/nestjs-libraries/chat/auth.context';
+import { getAuth } from '@mav/nestjs-libraries/chat/async.storage';
 
 @Injectable()
 export class IntegrationListTool implements AgentToolInterface {

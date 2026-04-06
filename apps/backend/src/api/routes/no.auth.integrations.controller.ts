@@ -7,22 +7,22 @@ import {
   Post,
   UseFilters,
 } from '@nestjs/common';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
-import { ConnectIntegrationDto } from '@maverick/nestjs-libraries/dtos/integrations/connect.integration.dto';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
+import { ConnectIntegrationDto } from '@mav/nestjs-libraries/dtos/integrations/connect.integration.dto';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
 import { ApiTags } from '@nestjs/swagger';
-import { NotEnoughScopesFilter } from '@maverick/nestjs-libraries/integrations/integration.missing.scopes';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { AuthTokenDetails } from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { NotEnoughScopes } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { NotEnoughScopesFilter } from '@mav/nestjs-libraries/integrations/integration.missing.scopes';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { AuthTokenDetails } from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { NotEnoughScopes } from '@mav/nestjs-libraries/integrations/social.abstract';
 import {
   AuthorizationActions,
   Sections,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
-import { RefreshIntegrationService } from '@maverick/nestjs-libraries/integrations/refresh.integration.service';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
+import { RefreshIntegrationService } from '@mav/nestjs-libraries/integrations/refresh.integration.service';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
 
 @ApiTags('Integrations')
 @Controller('/integrations')

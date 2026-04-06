@@ -4,22 +4,22 @@ import { FC, useCallback } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { Subreddit } from '@maverick/frontend/components/new-launch/providers/reddit/subreddit';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { Subreddit } from '@mav/frontend/components/new-launch/providers/reddit/subreddit';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import { useFieldArray, useWatch } from 'react-hook-form';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import {
   RedditSettingsDto,
   RedditSettingsValueDto,
-} from '@maverick/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
+} from '@mav/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
 import clsx from 'clsx';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import Image from 'next/image';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useFormatting } from '@maverick/frontend/components/launches/helpers/use.formatting';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useFormatting } from '@mav/frontend/components/launches/helpers/use.formatting';
 const RenderRedditComponent: FC<{
   type: string;
   images?: Array<{

@@ -339,7 +339,7 @@ const cli = yargs(hideBin(process.argv))
   .version()
   .alias('v', 'version')
   .epilogue(
-    'Set your API key: export MAVERICK_API_KEY=your_api_key\n' +
+    'Set your API key: export MAV_API_KEY=your_api_key\n' +
       'Docs: https://mav.social  |  SKILL.md for agent integration'
   )
   .wrap(Math.min(100, process.stdout.columns || 80));

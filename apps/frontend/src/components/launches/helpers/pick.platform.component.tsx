@@ -1,12 +1,12 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
-import { useMoveToIntegrationListener } from '@maverick/frontend/components/launches/helpers/use.move.to.integration';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
+import { useMoveToIntegrationListener } from '@mav/frontend/components/launches/helpers/use.move.to.integration';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useCopilotAction, useCopilotReadable } from '@copilotkit/react-core';
-import { useStateCallback } from '@maverick/react/helpers/use.state.callback';
-import { timer } from '@maverick/helpers/utils/timer';
+import { useStateCallback } from '@mav/react/helpers/use.state.callback';
+import { timer } from '@mav/helpers/utils/timer';
 export const PickPlatforms: FC<{
   integrations: Integrations[];
   selectedIntegrations: Integrations[];

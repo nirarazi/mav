@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import clsx from 'clsx';
-import { ChevronUpIcon } from '@maverick/frontend/components/ui/icons';
+import { ChevronUpIcon } from '@mav/frontend/components/ui/icons';
 
 const Arrow: FC<{
   flip: boolean;

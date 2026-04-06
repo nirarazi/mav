@@ -1,6 +1,6 @@
-# Publishing the Maverick CLI to npm
+# Publishing the Mav CLI to npm
 
-## Quick Publish (Current Name: "maverick")
+## Quick Publish (Current Name: "mav")
 
 ```bash
 # From apps/cli directory
@@ -10,17 +10,17 @@ pnpm publish --access public
 
 Then users can install:
 ```bash
-npm install -g maverick
+npm install -g mav
 # or
-pnpm install -g maverick
+pnpm install -g mav
 
 # And use:
-maverick --help
+mav --help
 ```
 
 ## Publishing with a Different Package Name
 
-If you want to publish as a different npm package name (e.g., "agent-maverick"):
+If you want to publish as a different npm package name (e.g., "agent-mav"):
 
 ### 1. Change Package Name
 
@@ -28,10 +28,10 @@ Edit `apps/cli/package.json`:
 
 ```json
 {
-  "name": "agent-maverick",  // ← Changed package name
+  "name": "agent-mav",  // ← Changed package name
   "version": "1.0.0",
   "bin": {
-    "maverick": "./dist/index.js"  // ← Keep command name!
+    "mav": "./dist/index.js"  // ← Keep command name!
   }
 }
 ```
@@ -49,55 +49,55 @@ pnpm publish --access public
 ### 3. Users Install
 
 ```bash
-npm install -g agent-maverick
+npm install -g agent-mav
 # or
-pnpm install -g agent-maverick
+pnpm install -g agent-mav
 ```
 
 ### 4. Users Use
 
-Even though the package is called "agent-maverick", the command is still:
+Even though the package is called "agent-mav", the command is still:
 
 ```bash
-maverick --help  # ← Command name from "bin" field
-maverick posts:create -c "Hello!" -i "twitter-123"
+mav --help  # ← Command name from "bin" field
+mav posts:create -c "Hello!" -i "twitter-123"
 ```
 
 ## Package Name vs Command Name
 
 | Field | Purpose | Example |
 |-------|---------|---------|
-| `"name"` | npm package name (what you install) | `"agent-maverick"` |
-| `"bin"` | Command name (what you type) | `"maverick"` |
+| `"name"` | npm package name (what you install) | `"agent-mav"` |
+| `"bin"` | Command name (what you type) | `"mav"` |
 
 **Examples:**
 
 1. **Same name:**
    ```json
-   "name": "maverick",
-   "bin": { "maverick": "./dist/index.js" }
+   "name": "mav",
+   "bin": { "mav": "./dist/index.js" }
    ```
-   Install: `npm i -g maverick`
-   Use: `maverick`
+   Install: `npm i -g mav`
+   Use: `mav`
 
 2. **Different names:**
    ```json
-   "name": "agent-maverick",
-   "bin": { "maverick": "./dist/index.js" }
+   "name": "agent-mav",
+   "bin": { "mav": "./dist/index.js" }
    ```
-   Install: `npm i -g agent-maverick`
-   Use: `maverick`
+   Install: `npm i -g agent-mav`
+   Use: `mav`
 
 3. **Multiple commands:**
    ```json
-   "name": "agent-maverick",
+   "name": "agent-mav",
    "bin": {
-     "maverick": "./dist/index.js",
+     "mav": "./dist/index.js",
      "pz": "./dist/index.js"
    }
    ```
-   Install: `npm i -g agent-maverick`
-   Use: `maverick` or `pz`
+   Install: `npm i -g agent-mav`
+   Use: `mav` or `pz`
 
 ## Publishing Checklist
 
@@ -105,7 +105,7 @@ maverick posts:create -c "Hello!" -i "twitter-123"
 
 - [ ] Verify package name is available on npm
   ```bash
-  npm view maverick
+  npm view mav
   # If error "404 Not Found" - name is available!
   ```
 
@@ -131,7 +131,7 @@ maverick posts:create -c "Hello!" -i "twitter-123"
 - [ ] Test locally
   ```bash
   pnpm link --global
-  maverick --help
+  mav --help
   ```
 
 ### Publish to npm
@@ -153,14 +153,14 @@ pnpm run publish-cli
 
 Verify it's published:
 ```bash
-npm view maverick
+npm view mav
 # Should show your package info
 ```
 
 Test installation:
 ```bash
-npm install -g maverick
-maverick --version
+npm install -g mav
+mav --version
 ```
 
 ## Using from Monorepo Root
@@ -214,21 +214,21 @@ If you want to publish under an organization scope:
 
 ```json
 {
-  "name": "@yourorg/maverick",
+  "name": "@yourorg/mav",
   "bin": {
-    "maverick": "./dist/index.js"
+    "mav": "./dist/index.js"
   }
 }
 ```
 
 Install:
 ```bash
-npm install -g @yourorg/maverick
+npm install -g @yourorg/mav
 ```
 
 Use:
 ```bash
-maverick --help
+mav --help
 ```
 
 ## Testing Before Publishing
@@ -244,7 +244,7 @@ node dist/index.js --help
 
 ```bash
 pnpm link --global
-maverick --help
+mav --help
 pnpm unlink --global
 ```
 
@@ -262,9 +262,9 @@ npm pack
 # Creates a .tgz file
 
 # Test installing the tarball
-npm install -g ./maverick-1.0.0.tgz
-maverick --help
-npm uninstall -g maverick
+npm install -g ./mav-1.0.0.tgz
+mav --help
+npm uninstall -g mav
 ```
 
 ## Continuous Publishing
@@ -312,13 +312,13 @@ git push origin cli-v1.0.0
 ### "You do not have permission to publish"
 
 - Make sure you're logged in: `npm login`
-- Check package name isn't taken: `npm view maverick`
+- Check package name isn't taken: `npm view mav`
 - If scoped, ensure org access: `npm org ls yourorg`
 
 ### "Package name too similar to existing package"
 
 - Choose a more unique name
-- Or use a scoped package: `@yourorg/maverick`
+- Or use a scoped package: `@yourorg/mav`
 
 ### "Missing required files"
 
@@ -330,19 +330,19 @@ git push origin cli-v1.0.0
 
 - Check `"bin"` field is correct
 - Ensure `dist/index.js` has shebang: `#!/usr/bin/env node`
-- Try reinstalling: `npm uninstall -g maverick && npm install -g maverick`
+- Try reinstalling: `npm uninstall -g mav && npm install -g mav`
 
 ## Recommended Names
 
-If "maverick" is taken, consider:
+If "mav" is taken, consider:
 
-- `@maverick/cli`
-- `maverick-cli`
-- `maverick-agent`
-- `agent-maverick`
-- `@yourorg/maverick`
+- `@mav/cli`
+- `mav-cli`
+- `mav-agent`
+- `agent-mav`
+- `@yourorg/mav`
 
-Remember: The package name is just for installation. The command can still be `maverick`!
+Remember: The package name is just for installation. The command can still be `mav`!
 
 ## Summary
 
@@ -362,16 +362,16 @@ pnpm publish --access public
 **Users install:**
 
 ```bash
-npm install -g maverick
+npm install -g mav
 # or
-pnpm install -g maverick
+pnpm install -g mav
 ```
 
 **Users use:**
 
 ```bash
-maverick --help
-maverick posts:create -c "Hello!" -i "twitter-123"
+mav --help
+mav posts:create -c "Hello!" -i "twitter-123"
 ```
 
 🚀 **Ready to publish!**

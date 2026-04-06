@@ -2,14 +2,14 @@
 
 import { EventEmitter } from 'events';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import dayjs from 'dayjs';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import removeMd from 'remove-markdown';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 const postUrlEmitter = new EventEmitter();
 export const ShowPostSelector = () => {
   const [showPostSelector, setShowPostSelector] = useState(false);

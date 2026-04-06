@@ -1,11 +1,11 @@
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import React, { FC, useCallback, useState } from 'react';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import { Integration } from '@prisma/client';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Button } from '@maverick/react/form/button';
-import { Slider } from '@maverick/react/form/slider';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Button } from '@mav/react/form/button';
+import { Slider } from '@mav/react/form/slider';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const Element: FC<{
   setting: any;

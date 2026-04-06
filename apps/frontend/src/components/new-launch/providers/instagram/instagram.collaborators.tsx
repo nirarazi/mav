@@ -3,15 +3,15 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 import { FC } from 'react';
-import { Select } from '@maverick/react/form/select';
-import { Checkbox } from '@maverick/react/form/checkbox';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { InstagramDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
-import { InstagramCollaboratorsTags } from '@maverick/frontend/components/new-launch/providers/instagram/instagram.tags';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { InstagramPreview } from '@maverick/frontend/components/new-launch/providers/instagram/instagram.preview';
+import { Select } from '@mav/react/form/select';
+import { Checkbox } from '@mav/react/form/checkbox';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { InstagramDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/instagram.dto';
+import { InstagramCollaboratorsTags } from '@mav/frontend/components/new-launch/providers/instagram/instagram.tags';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { InstagramPreview } from '@mav/frontend/components/new-launch/providers/instagram/instagram.preview';
 const postType = [
   {
     value: 'post',

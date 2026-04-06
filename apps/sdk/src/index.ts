@@ -1,5 +1,5 @@
-import { CreatePostDto } from '@maverick/nestjs-libraries/dtos/posts/create.post.dto';
-import { GetPostsDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.dto';
+import { CreatePostDto } from '@mav/nestjs-libraries/dtos/posts/create.post.dto';
+import { GetPostsDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.dto';
 import fetch, { FormData } from 'node-fetch';
 
 function toQueryString(obj: Record<string, any>): string {
@@ -12,10 +12,10 @@ function toQueryString(obj: Record<string, any>): string {
   return params.toString();
 }
 
-export default class Maverick {
+export default class Mav {
   constructor(
     private _apiKey: string,
-    private _path = 'https://api.maverick.com'
+    private _path = 'https://api.mav.com'
   ) {}
 
   async post(posts: CreatePostDto) {

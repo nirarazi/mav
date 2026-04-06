@@ -26,7 +26,7 @@ const { runBrainCycle, logWorkflowEvent } = proxyActivities<{
  *
  * Example scheduling:
  *   client.workflow.start(brainCycleWorkflow, {
- *     taskQueue: 'maverick-brain',
+ *     taskQueue: 'mav-brain',
  *     workflowId: `brain-cycle-${orgId}`,
  *     args: [orgId],
  *     cronSchedule: '0 9 * * *', // Daily at 9am

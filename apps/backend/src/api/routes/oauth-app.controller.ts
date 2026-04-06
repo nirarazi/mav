@@ -1,15 +1,15 @@
 import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
-import { OAuthService } from '@maverick/nestjs-libraries/database/prisma/oauth/oauth.service';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
+import { OAuthService } from '@mav/nestjs-libraries/database/prisma/oauth/oauth.service';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
 import {
   AuthorizationActions,
   Sections,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
-import { CreateOAuthAppDto } from '@maverick/nestjs-libraries/dtos/oauth/create-oauth-app.dto';
-import { UpdateOAuthAppDto } from '@maverick/nestjs-libraries/dtos/oauth/update-oauth-app.dto';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
+import { CreateOAuthAppDto } from '@mav/nestjs-libraries/dtos/oauth/create-oauth-app.dto';
+import { UpdateOAuthAppDto } from '@mav/nestjs-libraries/dtos/oauth/update-oauth-app.dto';
 
 @ApiTags('OAuth App')
 @Controller('/user/oauth-app')

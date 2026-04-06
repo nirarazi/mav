@@ -8,10 +8,10 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { PersonaService } from '@maverick/persona-engine/persona.service';
-import { PersonaCreateInput, PersonaUpdateInput } from '@maverick/persona-engine/persona.interface';
+import { PersonaService } from '@mav/persona-engine/persona.service';
+import { PersonaCreateInput, PersonaUpdateInput } from '@mav/persona-engine/persona.interface';
 
 @ApiTags('Personas')
 @Controller('/personas')

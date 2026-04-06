@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { ModalWrapperComponent } from '@maverick/frontend/components/new-launch/modal.wrapper.component';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Button } from '@maverick/react/form/button';
+import { ModalWrapperComponent } from '@mav/frontend/components/new-launch/modal.wrapper.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Button } from '@mav/react/form/button';
 
 export const PreConditionComponentModal: FC = () => {
   const modal = useModals();

@@ -2,16 +2,16 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 // @ts-ignore
 import Uppy, { BasePlugin, UploadResult, UppyFile } from '@uppy/core';
 // @ts-ignore
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { getUppyUploadPlugin } from '@maverick/react/helpers/uppy.upload';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { getUppyUploadPlugin } from '@mav/react/helpers/uppy.upload';
 import { Dashboard, FileInput, ProgressBar } from '@uppy/react';
 
 // Uppy styles
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import Compressor from '@uppy/compressor';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import { uniqBy } from 'lodash';
 
 export class CompressionWrapper<M = any, B = any> extends Compressor<any, any> {

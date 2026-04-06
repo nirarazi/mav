@@ -1,20 +1,20 @@
-import { thirdPartyWrapper } from '@maverick/frontend/components/third-parties/third-party.wrapper';
+import { thirdPartyWrapper } from '@mav/frontend/components/third-parties/third-party.wrapper';
 import {
   useThirdPartyFunction,
   useThirdPartyFunctionSWR,
   useThirdPartySubmit,
-} from '@maverick/frontend/components/third-parties/third-party.function';
-import { useThirdParty } from '@maverick/frontend/components/third-parties/third-party.media';
+} from '@mav/frontend/components/third-parties/third-party.function';
+import { useThirdParty } from '@mav/frontend/components/third-parties/third-party.media';
 import { useForm, FormProvider, SubmitHandler } from 'react-hook-form';
-import { Textarea } from '@maverick/react/form/textarea';
-import { Button } from '@maverick/react/form/button';
+import { Textarea } from '@mav/react/form/textarea';
+import { Button } from '@mav/react/form/button';
 import { FC, useCallback, useState } from 'react';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import clsx from 'clsx';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { object, string } from 'zod';
-import { Select } from '@maverick/react/form/select';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { Select } from '@mav/react/form/select';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 
 const aspectRatio = [
   { key: 'portrait', value: 'Portrait' },

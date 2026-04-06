@@ -1,15 +1,15 @@
 import { Body, Controller, Get, HttpException, Param, Post, Req } from '@nestjs/common';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { StripeService } from '@maverick/nestjs-libraries/services/stripe.service';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { StripeService } from '@mav/nestjs-libraries/services/stripe.service';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization, User } from '@prisma/client';
-import { BillingSubscribeDto } from '@maverick/nestjs-libraries/dtos/billing/billing.subscribe.dto';
+import { BillingSubscribeDto } from '@mav/nestjs-libraries/dtos/billing/billing.subscribe.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
 import { Request } from 'express';
-import { Nowpayments } from '@maverick/nestjs-libraries/crypto/nowpayments';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { Nowpayments } from '@mav/nestjs-libraries/crypto/nowpayments';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 
 @ApiTags('Billing')
 @Controller('/billing')

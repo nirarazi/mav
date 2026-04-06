@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
-import { AfterActivate } from '@maverick/frontend/components/auth/after.activate';
-import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
+import { AfterActivate } from '@mav/frontend/components/auth/after.activate';
+import { isGeneralServerSide } from '@mav/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
   title: `${
     isGeneralServerSide() ? 'Mav' : 'Mav'

@@ -43,7 +43,7 @@ model Organization {
   webhooks            Webhooks[]
   oauthApp            OAuthApp[]
   oauthAuthorizations OAuthAuthorization[]
-  // Maverick relations
+  // Mav relations
   personas            Persona[]
   approvalItems       ApprovalItem[]
   approvalPolicies    ApprovalPolicy[]
@@ -952,7 +952,7 @@ enum ShortLinkPreference {
 }
 
 // ─────────────────────────────────────────────────
-// MAVERICK: Autonomous Social Media Management
+// MAV: Autonomous Social Media Management
 // ─────────────────────────────────────────────────
 
 model Persona {
@@ -1111,7 +1111,7 @@ model ComplianceRule {
   updatedAt         DateTime @updatedAt
 }
 
-// Enums for Maverick
+// Enums for Mav
 
 enum ApprovalType {
   POST

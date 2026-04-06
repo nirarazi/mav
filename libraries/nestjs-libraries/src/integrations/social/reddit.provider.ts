@@ -3,16 +3,16 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { RedditSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
-import { timer } from '@maverick/helpers/utils/timer';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { RedditSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/reddit.dto';
+import { timer } from '@mav/helpers/utils/timer';
 import { groupBy } from 'lodash';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import { lookup } from 'mime-types';
 import axios from 'axios';
 import WebSocket from 'ws';
-import { Tool } from '@maverick/nestjs-libraries/integrations/tool.decorator';
+import { Tool } from '@mav/nestjs-libraries/integrations/tool.decorator';
 import { Integration } from '@prisma/client';
 
 // @ts-ignore

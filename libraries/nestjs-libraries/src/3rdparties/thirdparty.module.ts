@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
-import { HeygenProvider } from '@maverick/nestjs-libraries/3rdparties/heygen/heygen.provider';
-import { ThirdPartyManager } from '@maverick/nestjs-libraries/3rdparties/thirdparty.manager';
+import { HeygenProvider } from '@mav/nestjs-libraries/3rdparties/heygen/heygen.provider';
+import { ThirdPartyManager } from '@mav/nestjs-libraries/3rdparties/thirdparty.manager';
 
 @Global()
 @Module({

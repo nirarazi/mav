@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, Fragment, useCallback } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@maverick/react/form/button';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Button } from '@mav/react/form/button';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 const useApprovedApps = () => {
   const fetch = useFetch();

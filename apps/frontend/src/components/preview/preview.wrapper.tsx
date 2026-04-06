@@ -1,12 +1,12 @@
 'use client';
 
 import useSWR from 'swr';
-import { ContextWrapper } from '@maverick/frontend/components/layout/user.context';
+import { ContextWrapper } from '@mav/frontend/components/layout/user.context';
 import { ReactNode, useCallback } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Toaster } from '@maverick/react/toaster/toaster';
-import { MantineWrapper } from '@maverick/react/helpers/mantine.wrapper';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Toaster } from '@mav/react/toaster/toaster';
+import { MantineWrapper } from '@mav/react/helpers/mantine.wrapper';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import { CopilotKit } from '@copilotkit/react-core';
 export const PreviewWrapper = ({ children }: { children: ReactNode }) => {
   const fetch = useFetch();

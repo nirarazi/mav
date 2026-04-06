@@ -1,4 +1,4 @@
-# Maverick CLI - Quick Start Guide
+# Mav CLI - Quick Start Guide
 
 ## Installation
 
@@ -27,25 +27,25 @@ cd apps/cli
 # Link globally
 pnpm link --global
 
-# Now you can use 'maverick' anywhere
-maverick --help
+# Now you can use 'mav' anywhere
+mav --help
 ```
 
 ### From npm (Coming Soon)
 
 ```bash
 # Once published
-npm install -g maverick
+npm install -g mav
 
 # Or with pnpm
-pnpm add -g maverick
+pnpm add -g mav
 ```
 
 ## Setup
 
 ### 1. Get Your API Key
 
-1. Log in to your Maverick account at https://maverick.com
+1. Log in to your Mav account at https://mav.com
 2. Navigate to Settings → API Keys
 3. Generate a new API key
 
@@ -53,27 +53,27 @@ pnpm add -g maverick
 
 ```bash
 # Bash/Zsh
-export MAVERICK_API_KEY=your_api_key_here
+export MAV_API_KEY=your_api_key_here
 
 # Fish
-set -x MAVERICK_API_KEY your_api_key_here
+set -x MAV_API_KEY your_api_key_here
 
 # PowerShell
-$env:MAVERICK_API_KEY="your_api_key_here"
+$env:MAV_API_KEY="your_api_key_here"
 ```
 
 To make it permanent, add it to your shell profile:
 
 ```bash
 # ~/.bashrc or ~/.zshrc
-echo 'export MAVERICK_API_KEY=your_api_key_here' >> ~/.bashrc
+echo 'export MAV_API_KEY=your_api_key_here' >> ~/.bashrc
 source ~/.bashrc
 ```
 
 ### 3. Verify Installation
 
 ```bash
-maverick --help
+mav --help
 ```
 
 ## Basic Commands
@@ -82,23 +82,23 @@ maverick --help
 
 ```bash
 # Simple post
-maverick posts:create -c "Hello World!" -i "twitter-123"
+mav posts:create -c "Hello World!" -i "twitter-123"
 
 # Post with multiple images
-maverick posts:create \
+mav posts:create \
   -c "Check these out!" \
   -m "img1.jpg,img2.jpg" \
   -i "twitter-123"
 
 # Post with comments (each can have different media!)
-maverick posts:create \
+mav posts:create \
   -c "Main post" -m "main.jpg" \
   -c "First comment" -m "comment1.jpg" \
   -c "Second comment" -m "comment2.jpg" \
   -i "twitter-123"
 
 # Scheduled post
-maverick posts:create \
+mav posts:create \
   -c "Future post" \
   -s "2024-12-31T12:00:00Z" \
   -i "twitter-123"
@@ -108,31 +108,31 @@ maverick posts:create \
 
 ```bash
 # List all posts
-maverick posts:list
+mav posts:list
 
 # With pagination
-maverick posts:list -p 2 -l 20
+mav posts:list -p 2 -l 20
 
 # Search
-maverick posts:list -s "keyword"
+mav posts:list -s "keyword"
 ```
 
 ### Delete a Post
 
 ```bash
-maverick posts:delete abc123xyz
+mav posts:delete abc123xyz
 ```
 
 ### List Integrations
 
 ```bash
-maverick integrations:list
+mav integrations:list
 ```
 
 ### Upload Media
 
 ```bash
-maverick upload ./path/to/image.png
+mav upload ./path/to/image.png
 ```
 
 ## Common Workflows
@@ -141,7 +141,7 @@ maverick upload ./path/to/image.png
 
 ```bash
 # See all your connected social media accounts
-maverick integrations:list
+mav integrations:list
 ```
 
 The output will show integration IDs like:
@@ -156,7 +156,7 @@ The output will show integration IDs like:
 
 ```bash
 # Use the integration IDs from step 1
-maverick posts:create \
+mav posts:create \
   -c "Posting to multiple platforms!" \
   -i "twitter-123,linkedin-456,facebook-789"
 ```
@@ -165,23 +165,23 @@ maverick posts:create \
 
 ```bash
 # Morning post
-maverick posts:create -c "Good morning!" -s "2024-01-15T09:00:00Z"
+mav posts:create -c "Good morning!" -s "2024-01-15T09:00:00Z"
 
 # Afternoon post
-maverick posts:create -c "Lunch time update!" -s "2024-01-15T12:00:00Z"
+mav posts:create -c "Lunch time update!" -s "2024-01-15T12:00:00Z"
 
 # Evening post
-maverick posts:create -c "Good night!" -s "2024-01-15T20:00:00Z"
+mav posts:create -c "Good night!" -s "2024-01-15T20:00:00Z"
 ```
 
 ### 4. Upload and Post Image
 
 ```bash
 # First upload the image
-maverick upload ./my-image.png
+mav upload ./my-image.png
 
 # Copy the URL from the response, then create post
-maverick posts:create -c "Check out this image!" --image "url-from-upload"
+mav posts:create -c "Check out this image!" --image "url-from-upload"
 ```
 
 ## Tips & Tricks
@@ -190,10 +190,10 @@ maverick posts:create -c "Check out this image!" --image "url-from-upload"
 
 ```bash
 # Get just the post IDs
-maverick posts:list | jq '.[] | .id'
+mav posts:list | jq '.[] | .id'
 
 # Get integration names
-maverick integrations:list | jq '.[] | .provider'
+mav integrations:list | jq '.[] | .provider'
 ```
 
 ### Script Automation
@@ -203,7 +203,7 @@ maverick integrations:list | jq '.[] | .provider'
 # Create a batch of posts
 
 for hour in 09 12 15 18; do
-  maverick posts:create \
+  mav posts:create \
     -c "Automated post at ${hour}:00" \
     -s "2024-01-15T${hour}:00:00Z"
   echo "Created post for ${hour}:00"
@@ -214,10 +214,10 @@ done
 
 ```bash
 # Custom API endpoint (for self-hosted)
-export MAVERICK_API_URL=https://your-instance.com
+export MAV_API_URL=https://your-instance.com
 
 # Use the CLI with custom endpoint
-maverick posts:list
+mav posts:list
 ```
 
 ## Troubleshooting
@@ -225,18 +225,18 @@ maverick posts:list
 ### API Key Not Set
 
 ```
-❌ Error: MAVERICK_API_KEY environment variable is required
+❌ Error: MAV_API_KEY environment variable is required
 ```
 
 **Solution:** Set the environment variable:
 ```bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 ```
 
 ### Command Not Found
 
 ```
-maverick: command not found
+mav: command not found
 ```
 
 **Solution:** Either:
@@ -262,12 +262,12 @@ maverick: command not found
 
 ```bash
 # General help
-maverick --help
+mav --help
 
 # Command-specific help
-maverick posts:create --help
-maverick posts:list --help
-maverick posts:delete --help
+mav posts:create --help
+mav posts:list --help
+mav posts:delete --help
 ```
 
 ## Next Steps
@@ -278,7 +278,7 @@ maverick posts:delete --help
 
 ## Links
 
-- [Maverick Website](https://maverick.com)
-- [API Documentation](https://maverick.com/api-docs)
+- [Mav Website](https://mav.com)
+- [API Documentation](https://mav.com/api-docs)
 - [GitHub Repository](https://github.com/maboroshi-inc/mav)
 - [Report Issues](https://github.com/maboroshi-inc/mav/issues)

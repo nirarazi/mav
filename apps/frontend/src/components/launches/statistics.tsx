@@ -1,11 +1,11 @@
 import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { ChartSocial } from '@maverick/frontend/components/analytics/chart-social';
-import { Select } from '@maverick/react/form/select';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { MissingReleaseModal } from '@maverick/frontend/components/launches/missing-release.modal';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { ChartSocial } from '@mav/frontend/components/analytics/chart-social';
+import { Select } from '@mav/react/form/select';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { MissingReleaseModal } from '@mav/frontend/components/launches/missing-release.modal';
 
 interface AnalyticsData {
   label: string;

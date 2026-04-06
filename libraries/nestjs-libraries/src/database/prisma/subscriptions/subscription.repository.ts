@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   PrismaRepository,
   PrismaTransaction,
-} from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+} from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import dayjs from 'dayjs';
 import { Organization } from '@prisma/client';
 

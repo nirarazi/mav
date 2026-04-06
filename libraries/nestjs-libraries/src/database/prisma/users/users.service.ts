@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { UsersRepository } from '@maverick/nestjs-libraries/database/prisma/users/users.repository';
+import { UsersRepository } from '@mav/nestjs-libraries/database/prisma/users/users.repository';
 import { Provider } from '@prisma/client';
-import { UserDetailDto } from '@maverick/nestjs-libraries/dtos/users/user.details.dto';
-import { EmailNotificationsDto } from '@maverick/nestjs-libraries/dtos/users/email-notifications.dto';
-import { OrganizationRepository } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.repository';
+import { UserDetailDto } from '@mav/nestjs-libraries/dtos/users/user.details.dto';
+import { EmailNotificationsDto } from '@mav/nestjs-libraries/dtos/users/email-notifications.dto';
+import { OrganizationRepository } from '@mav/nestjs-libraries/database/prisma/organizations/organization.repository';
 
 @Injectable()
 export class UsersService {

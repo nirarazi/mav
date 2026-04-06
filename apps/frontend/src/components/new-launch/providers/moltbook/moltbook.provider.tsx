@@ -4,11 +4,11 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { MoltbookDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/moltbook.dto';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { MoltbookDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/moltbook.dto';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 const MoltbookSettings: FC = () => {
   const form = useSettings();

@@ -1,16 +1,16 @@
 'use client';
 
 import clsx from 'clsx';
-import ImageWithFallback from '@maverick/react/helpers/image.with.fallback';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { ThirdPartyListComponent } from '@maverick/frontend/components/third-parties/third-party.list.component';
+import ImageWithFallback from '@mav/react/helpers/image.with.fallback';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { ThirdPartyListComponent } from '@mav/frontend/components/third-parties/third-party.list.component';
 import React, { FC, useCallback, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import useCookie from 'react-use-cookie';
-import { SVGLine } from '@maverick/frontend/components/launches/launches.component';
+import { SVGLine } from '@mav/frontend/components/launches/launches.component';
 
 export const ThirdPartyMenuComponent: FC<{
   reload: () => void;

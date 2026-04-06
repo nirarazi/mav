@@ -1,5 +1,5 @@
 import { proxyActivities, sleep } from '@temporalio/workflow';
-import type { BrainActivity } from '@maverick/orchestrator/activities/brain.activity';
+import type { BrainActivity } from '@mav/orchestrator/activities/brain.activity';
 
 const { runOodaCycle, getActiveOrganizations } = proxyActivities<BrainActivity>({
   startToCloseTimeout: '5 minute',

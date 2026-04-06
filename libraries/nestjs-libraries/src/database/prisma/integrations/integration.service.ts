@@ -5,25 +5,25 @@ import {
   Inject,
   Injectable,
 } from '@nestjs/common';
-import { IntegrationRepository } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.repository';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
+import { IntegrationRepository } from '@mav/nestjs-libraries/database/prisma/integrations/integration.repository';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
 import {
   AnalyticsData,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
 import { Integration, Organization } from '@prisma/client';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
 import dayjs from 'dayjs';
-import { timer } from '@maverick/helpers/utils/timer';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
-import { RefreshToken } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { IntegrationTimeDto } from '@maverick/nestjs-libraries/dtos/integrations/integration.time.dto';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
-import { PlugDto } from '@maverick/nestjs-libraries/dtos/plugs/plug.dto';
+import { timer } from '@mav/helpers/utils/timer';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
+import { RefreshToken } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { IntegrationTimeDto } from '@mav/nestjs-libraries/dtos/integrations/integration.time.dto';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
+import { PlugDto } from '@mav/nestjs-libraries/dtos/plugs/plug.dto';
 import { difference, uniq } from 'lodash';
 import utc from 'dayjs/plugin/utc';
-import { AutopostRepository } from '@maverick/nestjs-libraries/database/prisma/autopost/autopost.repository';
-import { RefreshIntegrationService } from '@maverick/nestjs-libraries/integrations/refresh.integration.service';
+import { AutopostRepository } from '@mav/nestjs-libraries/database/prisma/autopost/autopost.repository';
+import { RefreshIntegrationService } from '@mav/nestjs-libraries/integrations/refresh.integration.service';
 import { TemporalService } from 'nestjs-temporal-core';
 
 dayjs.extend(utc);

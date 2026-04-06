@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { PreviewWrapper } from '@maverick/frontend/components/preview/preview.wrapper';
+import { PreviewWrapper } from '@mav/frontend/components/preview/preview.wrapper';
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
   return (

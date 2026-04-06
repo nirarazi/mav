@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Select } from '@maverick/react/form/select';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Select } from '@mav/react/form/select';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 type ShortLinkPreference = 'ASK' | 'YES' | 'NO';
 

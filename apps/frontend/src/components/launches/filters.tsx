@@ -1,13 +1,13 @@
 'use client';
 
-import { useCalendar } from '@maverick/frontend/components/launches/calendar.context';
+import { useCalendar } from '@mav/frontend/components/launches/calendar.context';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 import { useCallback } from 'react';
-import { SelectCustomer } from '@maverick/frontend/components/launches/select.customer';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { SelectCustomer } from '@mav/frontend/components/launches/select.customer';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import i18next from 'i18next';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 
 // Helper function to get start and end dates based on display type
 function getDateRange(

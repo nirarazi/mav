@@ -3,11 +3,11 @@
 import 'reflect-metadata';
 import { FC, useCallback } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import dayjs from 'dayjs';
 import { useParams } from 'next/navigation';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 export const StandaloneModal: FC = () => {
   const fetch = useFetch();
   const params = useParams<{ platform: string }>();

@@ -8,30 +8,30 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization, User } from '@prisma/client';
-import { IntegrationFunctionDto } from '@maverick/nestjs-libraries/dtos/integrations/integration.function.dto';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { IntegrationFunctionDto } from '@mav/nestjs-libraries/dtos/integrations/integration.function.dto';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { ApiTags } from '@nestjs/swagger';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
-import { IntegrationTimeDto } from '@maverick/nestjs-libraries/dtos/integrations/integration.time.dto';
-import { PlugDto } from '@maverick/nestjs-libraries/dtos/plugs/plug.dto';
-import { RefreshToken } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
+import { IntegrationTimeDto } from '@mav/nestjs-libraries/dtos/integrations/integration.time.dto';
+import { PlugDto } from '@mav/nestjs-libraries/dtos/plugs/plug.dto';
+import { RefreshToken } from '@mav/nestjs-libraries/integrations/social.abstract';
 
-import { timer } from '@maverick/helpers/utils/timer';
-import { TelegramProvider } from '@maverick/nestjs-libraries/integrations/social/telegram.provider';
-import { MoltbookProvider } from '@maverick/nestjs-libraries/integrations/social/moltbook.provider';
+import { timer } from '@mav/helpers/utils/timer';
+import { TelegramProvider } from '@mav/nestjs-libraries/integrations/social/telegram.provider';
+import { MoltbookProvider } from '@mav/nestjs-libraries/integrations/social/moltbook.provider';
 import {
   AuthorizationActions,
   Sections,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
 import { uniqBy } from 'lodash';
-import { RefreshIntegrationService } from '@maverick/nestjs-libraries/integrations/refresh.integration.service';
+import { RefreshIntegrationService } from '@mav/nestjs-libraries/integrations/refresh.integration.service';
 
 @ApiTags('Integrations')
 @Controller('/integrations')

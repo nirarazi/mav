@@ -3,14 +3,14 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 import { FC, useCallback } from 'react';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import { useFieldArray } from 'react-hook-form';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { Button } from '@maverick/react/form/button';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { Button } from '@mav/react/form/button';
 import { Subreddit } from './subreddit';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const WrapcastProvider: FC = () => {
   const { register, control } = useSettings();
   const { fields, append, remove } = useFieldArray({

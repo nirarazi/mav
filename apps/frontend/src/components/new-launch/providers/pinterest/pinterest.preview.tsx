@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { textSlicer } from '@maverick/helpers/utils/count.length';
-import { VideoOrImage } from '@maverick/react/helpers/video.or.image';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { textSlicer } from '@mav/helpers/utils/count.length';
+import { VideoOrImage } from '@mav/react/helpers/video.or.image';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
 
 export const PinterestPreview: FC<{
   maximumCharacters?: number;

@@ -2,16 +2,16 @@ import { FC, useEffect, useState } from 'react';
 import {
   Integrations,
   useCalendar,
-} from '@maverick/frontend/components/launches/calendar.context';
-import { PickPlatforms } from '@maverick/frontend/components/launches/helpers/pick.platform.component';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { Select } from '@maverick/react/form/select';
-import { Slider } from '@maverick/react/form/slider';
-import { Input } from '@maverick/react/form/input';
-import { Textarea } from '@maverick/react/form/textarea';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+} from '@mav/frontend/components/launches/calendar.context';
+import { PickPlatforms } from '@mav/frontend/components/launches/helpers/pick.platform.component';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { Select } from '@mav/react/form/select';
+import { Slider } from '@mav/react/form/slider';
+import { Input } from '@mav/react/form/input';
+import { Textarea } from '@mav/react/form/textarea';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const delayOptions = [
   {
     name: 'Immediately',

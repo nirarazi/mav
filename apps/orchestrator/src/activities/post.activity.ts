@@ -4,25 +4,25 @@ import {
   ActivityMethod,
   TemporalService,
 } from 'nestjs-temporal-core';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
 import {
   NotificationService,
   NotificationType,
-} from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
+} from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
 import { Integration, Post, State } from '@prisma/client';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { AuthTokenDetails } from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { RefreshIntegrationService } from '@maverick/nestjs-libraries/integrations/refresh.integration.service';
-import { timer } from '@maverick/helpers/utils/timer';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { WebhooksService } from '@maverick/nestjs-libraries/database/prisma/webhooks/webhooks.service';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { AuthTokenDetails } from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { RefreshIntegrationService } from '@mav/nestjs-libraries/integrations/refresh.integration.service';
+import { timer } from '@mav/helpers/utils/timer';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { WebhooksService } from '@mav/nestjs-libraries/database/prisma/webhooks/webhooks.service';
 import { TypedSearchAttributes } from '@temporalio/common';
 import {
   organizationId,
   postId as postIdSearchParam,
-} from '@maverick/nestjs-libraries/temporal/temporal.search.attribute';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+} from '@mav/nestjs-libraries/temporal/temporal.search.attribute';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
 
 @Injectable()
 @Activity()

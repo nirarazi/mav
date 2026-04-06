@@ -1,9 +1,9 @@
 import { createContext, FC, useCallback, useContext, useEffect } from 'react';
 import './providers/image-text-slides.provider';
 import './providers/veo3.provider';
-import { videosList } from '@maverick/frontend/components/videos/video.wrapper';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { videosList } from '@mav/frontend/components/videos/video.wrapper';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 
 const VideoFunctionWrapper = createContext({
   identifier: '',

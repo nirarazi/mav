@@ -9,41 +9,41 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { AddEditModalProps } from '@maverick/frontend/components/new-launch/add.edit.modal';
+import { AddEditModalProps } from '@mav/frontend/components/new-launch/add.edit.modal';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { PicksSocialsComponent } from '@maverick/frontend/components/new-launch/picks.socials.component';
-import { EditorWrapper } from '@maverick/frontend/components/new-launch/editor';
-import { SelectCurrent } from '@maverick/frontend/components/new-launch/select.current';
-import { ShowAllProviders } from '@maverick/frontend/components/new-launch/providers/show.all.providers';
-import { useExistingData } from '@maverick/frontend/components/launches/helpers/use.existing.data';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
-import { DatePicker } from '@maverick/frontend/components/launches/helpers/date.picker';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { PicksSocialsComponent } from '@mav/frontend/components/new-launch/picks.socials.component';
+import { EditorWrapper } from '@mav/frontend/components/new-launch/editor';
+import { SelectCurrent } from '@mav/frontend/components/new-launch/select.current';
+import { ShowAllProviders } from '@mav/frontend/components/new-launch/providers/show.all.providers';
+import { useExistingData } from '@mav/frontend/components/launches/helpers/use.existing.data';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
+import { DatePicker } from '@mav/frontend/components/launches/helpers/date.picker';
 import { useShallow } from 'zustand/react/shallow';
-import { RepeatComponent } from '@maverick/frontend/components/launches/repeat.component';
-import { TagsComponent } from '@maverick/frontend/components/launches/tags.component';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { weightedLength } from '@maverick/helpers/utils/count.length';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { RepeatComponent } from '@mav/frontend/components/launches/repeat.component';
+import { TagsComponent } from '@mav/frontend/components/launches/tags.component';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { weightedLength } from '@mav/helpers/utils/count.length';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import { capitalize } from 'lodash';
-import { SelectCustomer } from '@maverick/frontend/components/launches/select.customer';
+import { SelectCustomer } from '@mav/frontend/components/launches/select.customer';
 import { CopilotPopup } from '@copilotkit/react-ui';
-import { DummyCodeComponent } from '@maverick/frontend/components/new-launch/dummy.code.component';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
+import { DummyCodeComponent } from '@mav/frontend/components/new-launch/dummy.code.component';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
 import {
   SettingsIcon,
   ChevronDownIcon,
   CloseIcon,
   TrashIcon,
   DropdownArrowSmallIcon,
-} from '@maverick/frontend/components/ui/icons';
-import { useHasScroll } from '@maverick/frontend/components/ui/is.scroll.hook';
-import { useShortlinkPreference } from '@maverick/frontend/components/settings/shortlink-preference.component';
+} from '@mav/frontend/components/ui/icons';
+import { useHasScroll } from '@mav/frontend/components/ui/is.scroll.hook';
+import { useShortlinkPreference } from '@mav/frontend/components/settings/shortlink-preference.component';
 import dayjs from 'dayjs';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 
 function countCharacters(text: string, type: string): number {
   if (type !== 'x') {

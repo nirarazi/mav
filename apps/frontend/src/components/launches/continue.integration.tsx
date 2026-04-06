@@ -3,14 +3,14 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { HttpStatusCode } from 'axios';
 import { useRouter } from 'next/navigation';
-import { Redirect } from '@maverick/frontend/components/layout/redirect';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { Redirect } from '@mav/frontend/components/layout/redirect';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import dayjs from 'dayjs';
-import { continueProviderList } from '@maverick/frontend/components/new-launch/providers/continue-provider/list';
-import { IntegrationContext } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { continueProviderList } from '@mav/frontend/components/new-launch/providers/continue-provider/list';
+import { IntegrationContext } from '@mav/frontend/components/launches/helpers/use.integration';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
+import { useVariables } from '@mav/react/helpers/variable.context';
 
 interface TwoStepState {
   integrationId: string;

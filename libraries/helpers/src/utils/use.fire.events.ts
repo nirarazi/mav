@@ -1,8 +1,8 @@
 import { usePlausible } from 'next-plausible';
 import { useCallback } from 'react';
 import { usePostHog } from 'posthog-js/react';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 
 export const useFireEvents = () => {
   const { billingEnabled } = useVariables();

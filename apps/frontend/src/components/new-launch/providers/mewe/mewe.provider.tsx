@@ -3,12 +3,12 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 import { FC } from 'react';
-import { MeweDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/mewe.dto';
-import { MeweGroupSelect } from '@maverick/frontend/components/new-launch/providers/mewe/mewe.group.select';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Select } from '@maverick/react/form/select';
+import { MeweDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/mewe.dto';
+import { MeweGroupSelect } from '@mav/frontend/components/new-launch/providers/mewe/mewe.group.select';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Select } from '@mav/react/form/select';
 import { useWatch } from 'react-hook-form';
 
 const MeweComponent: FC = () => {

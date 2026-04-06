@@ -1,9 +1,9 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Role, ShortLinkPreference, SubscriptionTier } from '@prisma/client';
 import { Injectable } from '@nestjs/common';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { CreateOrgUserDto } from '@maverick/nestjs-libraries/dtos/auth/create.org.user.dto';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { CreateOrgUserDto } from '@mav/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 
 @Injectable()
 export class OrganizationRepository {
@@ -39,7 +39,7 @@ export class OrganizationRepository {
                 activated: true,
                 email: email
                   ? email.split('@').join(`+${saasName}@`)
-                  : `${saasName}+` + makeId(10) + '@maverick.com',
+                  : `${saasName}+` + makeId(10) + '@mav.com',
                 name: name ? `${name}###${id}` : `Unnamed User###${id}`,
                 providerName: 'LOCAL',
                 password: AuthService.hashPassword(makeId(500)),

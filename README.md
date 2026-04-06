@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://opensource.org/license/agpl-v3"><img src="https://img.shields.io/badge/License-AGPL%203.0-blue.svg" alt="License" /></a>
-  <a href="https://www.npmjs.com/package/maverick"><img src="https://img.shields.io/npm/v/maverick.svg?color=7C5CFC" alt="npm" /></a>
+  <a href="https://www.npmjs.com/package/mav"><img src="https://img.shields.io/npm/v/mav.svg?color=7C5CFC" alt="npm" /></a>
 </p>
 
 <p align="center">
@@ -91,14 +91,14 @@ Open `http://localhost:4200` to access the web UI.
 ### CLI
 
 ```bash
-npx maverick status
+npx mav status
 ```
 
 Set your API key and URL:
 
 ```bash
-export MAVERICK_API_KEY=your-api-key
-export MAVERICK_API_URL=http://localhost:3000
+export MAV_API_KEY=your-api-key
+export MAV_API_URL=http://localhost:3000
 ```
 
 ### MCP Server (for AI agents)
@@ -112,8 +112,8 @@ Add to your MCP client config:
       "command": "node",
       "args": ["path/to/mav/apps/mcp-server/dist/index.js"],
       "env": {
-        "MAVERICK_API_KEY": "your-api-key",
-        "MAVERICK_API_URL": "http://localhost:3000"
+        "MAV_API_KEY": "your-api-key",
+        "MAV_API_URL": "http://localhost:3000"
       }
     }
   }

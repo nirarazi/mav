@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
-import { LaunchesComponent } from '@maverick/frontend/components/launches/launches.component';
+import { LaunchesComponent } from '@mav/frontend/components/launches/launches.component';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
+import { isGeneralServerSide } from '@mav/helpers/utils/is.general.server.side';
 export const metadata: Metadata = {
   title: `${isGeneralServerSide() ? 'Mav Calendar' : 'Mav Calendar'}`,
   description: '',

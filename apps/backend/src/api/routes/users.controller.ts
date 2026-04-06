@@ -8,29 +8,29 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
 import { sign } from 'jsonwebtoken';
 import { Organization, User } from '@prisma/client';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
-import { StripeService } from '@maverick/nestjs-libraries/services/stripe.service';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
+import { StripeService } from '@mav/nestjs-libraries/services/stripe.service';
 import { Response, Request } from 'express';
-import { AuthService } from '@maverick/backend/services/auth/auth.service';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
-import { getCookieUrlFromDomain } from '@maverick/helpers/subdomain/subdomain.management';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { AuthService } from '@mav/backend/services/auth/auth.service';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
+import { getCookieUrlFromDomain } from '@mav/helpers/subdomain/subdomain.management';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { ApiTags } from '@nestjs/swagger';
-import { UsersService } from '@maverick/nestjs-libraries/database/prisma/users/users.service';
-import { UserDetailDto } from '@maverick/nestjs-libraries/dtos/users/user.details.dto';
-import { EmailNotificationsDto } from '@maverick/nestjs-libraries/dtos/users/email-notifications.dto';
-import { HttpForbiddenException } from '@maverick/nestjs-libraries/services/exception.filter';
+import { UsersService } from '@mav/nestjs-libraries/database/prisma/users/users.service';
+import { UserDetailDto } from '@mav/nestjs-libraries/dtos/users/user.details.dto';
+import { EmailNotificationsDto } from '@mav/nestjs-libraries/dtos/users/email-notifications.dto';
+import { HttpForbiddenException } from '@mav/nestjs-libraries/services/exception.filter';
 import { RealIP } from 'nestjs-real-ip';
-import { UserAgent } from '@maverick/nestjs-libraries/user/user.agent';
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
-import { TrackService } from '@maverick/nestjs-libraries/track/track.service';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { AuthorizationActions, Sections } from '@maverick/backend/services/auth/permissions/permission.exception.class';
+import { UserAgent } from '@mav/nestjs-libraries/user/user.agent';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
+import { TrackService } from '@mav/nestjs-libraries/track/track.service';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { AuthorizationActions, Sections } from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 @ApiTags('User')
 @Controller('/user')

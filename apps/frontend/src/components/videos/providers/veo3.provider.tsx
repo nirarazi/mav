@@ -1,9 +1,9 @@
-import { videoWrapper } from '@maverick/frontend/components/videos/video.wrapper';
+import { videoWrapper } from '@mav/frontend/components/videos/video.wrapper';
 import { FC, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useVideo } from '@maverick/frontend/components/videos/video.context.wrapper';
-import { Textarea } from '@maverick/react/form/textarea';
-import { MultiMediaComponent } from '@maverick/frontend/components/media/media.component';
+import { useVideo } from '@mav/frontend/components/videos/video.context.wrapper';
+import { Textarea } from '@mav/react/form/textarea';
+import { MultiMediaComponent } from '@mav/frontend/components/media/media.component';
 
 export interface Voice {
   id: string;

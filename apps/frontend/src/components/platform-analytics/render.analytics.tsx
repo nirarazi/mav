@@ -1,10 +1,10 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import { Integration } from '@prisma/client';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { ChartSocial } from '@maverick/frontend/components/analytics/chart-social';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { ChartSocial } from '@mav/frontend/components/analytics/chart-social';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 interface AnalyticsDataItem {
   label: string;

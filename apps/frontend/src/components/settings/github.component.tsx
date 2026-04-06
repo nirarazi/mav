@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import { FC, useCallback, useEffect, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { Input } from '@maverick/react/form/input';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { Input } from '@mav/react/form/input';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const ConnectedComponent: FC<{
   id: string;
   login: string;

@@ -3,11 +3,11 @@ import { Reflector } from '@nestjs/core';
 import {
   AppAbility,
   PermissionsService,
-} from '@maverick/backend/services/auth/permissions/permissions.service';
+} from '@mav/backend/services/auth/permissions/permissions.service';
 import {
   AbilityPolicy,
   CHECK_POLICIES_KEY,
-} from '@maverick/backend/services/auth/permissions/permissions.ability';
+} from '@mav/backend/services/auth/permissions/permissions.ability';
 import { Organization } from '@prisma/client';
 import { Request } from 'express';
 import { SubscriptionException } from './permission.exception.class';

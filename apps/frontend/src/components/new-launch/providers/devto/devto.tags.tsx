@@ -2,8 +2,8 @@
 
 import { FC, useCallback, useEffect, useState } from 'react';
 import { ReactTags } from 'react-tag-autocomplete';
-import { useCustomProviderFunction } from '@maverick/frontend/components/launches/helpers/use.custom.provider.function';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useCustomProviderFunction } from '@mav/frontend/components/launches/helpers/use.custom.provider.function';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 export const DevtoTags: FC<{
   name: string;
   label: string;

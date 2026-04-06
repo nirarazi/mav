@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { timer } from '@maverick/helpers/utils/timer';
-import { Button } from '@maverick/react/form/button';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { timer } from '@mav/helpers/utils/timer';
+import { Button } from '@mav/react/form/button';
 
 export const FinishTrial: FC<{ close: () => void }> = (props) => {
   const [finished, setFinished] = useState(false);

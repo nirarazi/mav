@@ -5,9 +5,9 @@ import DrawChart from 'chart.js/auto';
 import {
   ForksList,
   StarsList,
-} from '@maverick/frontend/components/analytics/stars.and.forks.interface';
+} from '@mav/frontend/components/analytics/stars.and.forks.interface';
 import dayjs from 'dayjs';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 export const Chart: FC<{
   list: StarsList[] | ForksList[];
 }> = (props) => {

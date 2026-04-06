@@ -1,17 +1,17 @@
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import React, { FC, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Loading from 'react-loading';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import useSWR from 'swr';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { VideoWrapper } from '@maverick/frontend/components/videos/video.render.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { VideoWrapper } from '@mav/frontend/components/videos/video.render.component';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { VideoContextWrapper } from '@maverick/frontend/components/videos/video.context.wrapper';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { VideoContextWrapper } from '@mav/frontend/components/videos/video.context.wrapper';
+import { useToaster } from '@mav/react/toaster/toaster';
 
 export const Modal: FC<{
   close: () => void;

@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect } from 'react';
 import useSWR from 'swr';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { MainBillingComponent } from './main.billing.component';
 export const BillingComponent = () => {
   const fetch = useFetch();

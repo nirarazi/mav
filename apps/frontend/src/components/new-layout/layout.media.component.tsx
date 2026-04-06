@@ -1,6 +1,6 @@
 'use client';
 
-import { MediaBox } from '@maverick/frontend/components/media/media.component';
+import { MediaBox } from '@mav/frontend/components/media/media.component';
 
 export const MediaLayoutComponent = () => {
   return (

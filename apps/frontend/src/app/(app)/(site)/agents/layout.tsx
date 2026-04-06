@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Agent } from '@maverick/frontend/components/agents/agent';
+import { Agent } from '@mav/frontend/components/agents/agent';
 export const metadata: Metadata = {
   title: 'Mav - Agent',
   description: 'agents',

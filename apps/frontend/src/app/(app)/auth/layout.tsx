@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import loadDynamic from 'next/dynamic';
-import { LogoTextComponent } from '@maverick/frontend/components/ui/logo-text.component';
+import { LogoTextComponent } from '@mav/frontend/components/ui/logo-text.component';
 const ReturnUrlComponent = loadDynamic(() => import('./return.url.component'));
 
 export const dynamic = 'force-dynamic';

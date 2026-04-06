@@ -1,10 +1,10 @@
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import { FC, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import Loading from 'react-loading';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 const list = [
   'Realistic',
   'Cartoon',

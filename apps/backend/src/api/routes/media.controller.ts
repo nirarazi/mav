@@ -13,18 +13,18 @@ import {
   UsePipes,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { MediaService } from '@maverick/nestjs-libraries/database/prisma/media/media.service';
+import { MediaService } from '@mav/nestjs-libraries/database/prisma/media/media.service';
 import { ApiTags } from '@nestjs/swagger';
-import handleR2Upload from '@maverick/nestjs-libraries/upload/r2.uploader';
+import handleR2Upload from '@mav/nestjs-libraries/upload/r2.uploader';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CustomFileValidationPipe } from '@maverick/nestjs-libraries/upload/custom.upload.validation';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
-import { SaveMediaInformationDto } from '@maverick/nestjs-libraries/dtos/media/save.media.information.dto';
-import { VideoDto } from '@maverick/nestjs-libraries/dtos/videos/video.dto';
-import { VideoFunctionDto } from '@maverick/nestjs-libraries/dtos/videos/video.function.dto';
+import { CustomFileValidationPipe } from '@mav/nestjs-libraries/upload/custom.upload.validation';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
+import { SaveMediaInformationDto } from '@mav/nestjs-libraries/dtos/media/save.media.information.dto';
+import { VideoDto } from '@mav/nestjs-libraries/dtos/videos/video.dto';
+import { VideoFunctionDto } from '@mav/nestjs-libraries/dtos/videos/video.function.dto';
 
 @ApiTags('Media')
 @Controller('/media')

@@ -11,28 +11,28 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { Media } from '@prisma/client';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import EventEmitter from 'events';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useToaster } from '@mav/react/toaster/toaster';
 import clsx from 'clsx';
-import { VideoFrame } from '@maverick/react/helpers/video.frame';
-import { useUppyUploader } from '@maverick/frontend/components/media/new.uploader';
+import { VideoFrame } from '@mav/react/helpers/video.frame';
+import { useUppyUploader } from '@mav/frontend/components/media/new.uploader';
 import dynamic from 'next/dynamic';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { AiImage } from '@maverick/frontend/components/launches/ai.image';
-import { DropFiles } from '@maverick/frontend/components/layout/drop.files';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { ThirdPartyMedia } from '@maverick/frontend/components/third-parties/third-party.media';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { AiImage } from '@mav/frontend/components/launches/ai.image';
+import { DropFiles } from '@mav/frontend/components/layout/drop.files';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { ThirdPartyMedia } from '@mav/frontend/components/third-parties/third-party.media';
 import { ReactSortable } from 'react-sortablejs';
-import { MediaComponentInner } from '@maverick/frontend/components/launches/helpers/media.settings.component';
-import { AiVideo } from '@maverick/frontend/components/launches/ai.video';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { MediaComponentInner } from '@mav/frontend/components/launches/helpers/media.settings.component';
+import { AiVideo } from '@mav/frontend/components/launches/ai.video';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import { Dashboard } from '@uppy/react';
 import {
   ChevronLeftIcon,
@@ -46,12 +46,12 @@ import {
   DesignMediaIcon,
   VerticalDividerIcon,
   NoMediaIcon,
-} from '@maverick/frontend/components/ui/icons';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+} from '@mav/frontend/components/ui/icons';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
 const Polonto = dynamic(
-  () => import('@maverick/frontend/components/launches/polonto')
+  () => import('@mav/frontend/components/launches/polonto')
 );
 const showModalEmitter = new EventEmitter();
 export const Pagination: FC<{

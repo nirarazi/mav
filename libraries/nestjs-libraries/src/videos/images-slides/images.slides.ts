@@ -1,19 +1,19 @@
-import { OpenaiService } from '@maverick/nestjs-libraries/openai/openai.service';
+import { OpenaiService } from '@mav/nestjs-libraries/openai/openai.service';
 import {
   ExposeVideoFunction,
   URL,
   Video,
   VideoAbstract,
-} from '@maverick/nestjs-libraries/videos/video.interface';
+} from '@mav/nestjs-libraries/videos/video.interface';
 import { chunk } from 'lodash';
 import Transloadit from 'transloadit';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
 import { Readable } from 'stream';
 import { parseBuffer } from 'music-metadata';
 import { stringifySync } from 'subtitle';
 
 import pLimit from 'p-limit';
-import { FalService } from '@maverick/nestjs-libraries/openai/fal.service';
+import { FalService } from '@mav/nestjs-libraries/openai/fal.service';
 import { IsString } from 'class-validator';
 import { JSONSchema } from 'class-validator-jsonschema';
 const limit = pLimit(2);

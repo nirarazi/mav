@@ -5,7 +5,7 @@ import * as api from '../api-client';
 export function registerBrainTools(server: McpServer) {
   server.tool(
     'run_strategy_cycle',
-    'Trigger the Maverick agent brain to run a strategy cycle. The brain analyzes current performance, generates content ideas, and queues posts based on the given goal and time horizon.',
+    'Trigger the Mav agent brain to run a strategy cycle. The brain analyzes current performance, generates content ideas, and queues posts based on the given goal and time horizon.',
     {
       goal: z
         .string()

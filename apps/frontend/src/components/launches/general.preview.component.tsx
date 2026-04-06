@@ -1,12 +1,12 @@
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
 import clsx from 'clsx';
-import { VideoOrImage } from '@maverick/react/helpers/video.or.image';
+import { VideoOrImage } from '@mav/react/helpers/video.or.image';
 import { FC } from 'react';
-import { textSlicer } from '@maverick/helpers/utils/count.length';
+import { textSlicer } from '@mav/helpers/utils/count.length';
 import Image from 'next/image';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
 
 export const GeneralPreviewComponent: FC<{
   maximumCharacters?: number;

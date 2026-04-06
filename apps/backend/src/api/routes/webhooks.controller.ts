@@ -8,16 +8,16 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
-import { WebhooksService } from '@maverick/nestjs-libraries/database/prisma/webhooks/webhooks.service';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
+import { WebhooksService } from '@mav/nestjs-libraries/database/prisma/webhooks/webhooks.service';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
 import {
   UpdateDto,
   WebhooksDto,
-} from '@maverick/nestjs-libraries/dtos/webhooks/webhooks.dto';
-import { AuthorizationActions, Sections } from '@maverick/backend/services/auth/permissions/permission.exception.class';
+} from '@mav/nestjs-libraries/dtos/webhooks/webhooks.dto';
+import { AuthorizationActions, Sections } from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 @ApiTags('Webhooks')
 @Controller('/webhooks')

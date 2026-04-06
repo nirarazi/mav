@@ -1,10 +1,10 @@
 'use client';
 
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Button } from '@maverick/react/form/button';
-import { Input } from '@maverick/react/form/input';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Button } from '@mav/react/form/button';
+import { Input } from '@mav/react/form/input';
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 

@@ -1,5 +1,5 @@
 import { proxyActivities, sleep } from '@temporalio/workflow';
-import { PostActivity } from '@maverick/orchestrator/activities/post.activity';
+import { PostActivity } from '@mav/orchestrator/activities/post.activity';
 
 const { searchForMissingThreeHoursPosts } = proxyActivities<PostActivity>({
   startToCloseTimeout: '10 minute',

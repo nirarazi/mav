@@ -1,4 +1,4 @@
-# How to Run the Maverick CLI
+# How to Run the Mav CLI
 
 There are several ways to run the CLI, depending on your needs.
 
@@ -14,13 +14,13 @@ node apps/cli/dist/index.js --help
 ./apps/cli/dist/index.js --help
 
 # Example command
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 node apps/cli/dist/index.js posts:list
 ```
 
 ## Option 2: Link Globally (Recommended for Development) 🔗
 
-This creates a global `maverick` command you can use anywhere:
+This creates a global `mav` command you can use anywhere:
 
 ```bash
 # From the monorepo root
@@ -28,23 +28,23 @@ cd apps/cli
 pnpm link --global
 
 # Now you can use it anywhere!
-maverick --help
-maverick posts:list
-maverick posts:create -c "Hello!" -i "twitter-123"
+mav --help
+mav posts:list
+mav posts:create -c "Hello!" -i "twitter-123"
 
 # To unlink later
 pnpm unlink --global
 ```
 
-**After linking, you can use `maverick` from any directory!**
+**After linking, you can use `mav` from any directory!**
 
 ## Option 3: Use pnpm Filter (From Root) 📦
 
 ```bash
 # From the monorepo root
-pnpm --filter maverick start -- --help
-pnpm --filter maverick start -- posts:list
-pnpm --filter maverick start -- posts:create -c "Hello" -i "twitter-123"
+pnpm --filter mav start -- --help
+pnpm --filter mav start -- posts:list
+pnpm --filter mav start -- posts:create -c "Hello" -i "twitter-123"
 ```
 
 ## Option 4: Use npm/npx (After Publishing) 🌐
@@ -53,11 +53,11 @@ Once published to npm:
 
 ```bash
 # Install globally
-npm install -g maverick
+npm install -g mav
 
 # Or use with npx (no install)
-npx maverick --help
-npx maverick posts:list
+npx mav --help
+npx mav posts:list
 ```
 
 ## Quick Setup Guide
@@ -72,10 +72,10 @@ pnpm run build:cli
 ### Step 2: Set Your API Key
 
 ```bash
-export MAVERICK_API_KEY=your_api_key_here
+export MAV_API_KEY=your_api_key_here
 
 # To make it permanent, add to your shell profile:
-echo 'export MAVERICK_API_KEY=your_api_key' >> ~/.bashrc
+echo 'export MAV_API_KEY=your_api_key' >> ~/.bashrc
 # or ~/.zshrc if you use zsh
 ```
 
@@ -90,18 +90,18 @@ node apps/cli/dist/index.js --help
 ```bash
 cd apps/cli
 pnpm link --global
-maverick --help
+mav --help
 ```
 
 ## Troubleshooting
 
-### "Command not found: maverick"
+### "Command not found: mav"
 
 If you linked globally but still get this error:
 
 ```bash
 # Check if it's linked
-which maverick
+which mav
 
 # If not found, try linking again
 cd apps/cli
@@ -111,13 +111,13 @@ pnpm link --global
 echo $PATH
 ```
 
-### "MAVERICK_API_KEY is not set"
+### "MAV_API_KEY is not set"
 
 ```bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # Verify it's set
-echo $MAVERICK_API_KEY
+echo $MAV_API_KEY
 ```
 
 ### Permission Denied
@@ -147,20 +147,20 @@ If you linked globally, the changes will be reflected immediately (no need to re
 ### Test Help Command
 
 ```bash
-maverick --help
-maverick posts:create --help
+mav --help
+mav posts:create --help
 ```
 
 ### Test with Sample Command (requires API key)
 
 ```bash
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # List integrations
-maverick integrations:list
+mav integrations:list
 
 # Create a test post
-maverick posts:create \
+mav posts:create \
   -c "Test post from CLI" \
   -i "your-integration-id"
 ```
@@ -181,7 +181,7 @@ pnpm run build:cli
 
 ```bash
 # If linked globally
-maverick --help
+mav --help
 
 # Or direct execution
 node apps/cli/dist/index.js --help
@@ -194,35 +194,35 @@ node apps/cli/dist/index.js --help
 pnpm run dev
 
 # In another terminal, test your changes
-maverick --help
+mav --help
 ```
 
 ## Environment Variables
 
 ### Required
 
-- `MAVERICK_API_KEY` - Your Maverick API key (required for all operations)
+- `MAV_API_KEY` - Your Mav API key (required for all operations)
 
 ### Optional
 
-- `MAVERICK_API_URL` - Custom API endpoint (default: `https://api.maverick.com`)
+- `MAV_API_URL` - Custom API endpoint (default: `https://api.mav.com`)
 
 ### Setting Environment Variables
 
 **Temporary (current session):**
 ```bash
-export MAVERICK_API_KEY=your_key
-export MAVERICK_API_URL=https://custom-api.com
+export MAV_API_KEY=your_key
+export MAV_API_URL=https://custom-api.com
 ```
 
 **Permanent (add to shell profile):**
 ```bash
 # For bash
-echo 'export MAVERICK_API_KEY=your_key' >> ~/.bashrc
+echo 'export MAV_API_KEY=your_key' >> ~/.bashrc
 source ~/.bashrc
 
 # For zsh
-echo 'export MAVERICK_API_KEY=your_key' >> ~/.zshrc
+echo 'export MAV_API_KEY=your_key' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -232,7 +232,7 @@ Create a convenient alias:
 
 ```bash
 # Add to ~/.bashrc or ~/.zshrc
-alias pz='maverick'
+alias pz='mav'
 
 # Now you can use
 pz posts:list
@@ -256,11 +256,11 @@ pnpm run publish
 
 ```bash
 # Global install
-npm install -g maverick
+npm install -g mav
 
 # Project-specific
-npm install maverick
-npx maverick --help
+npm install mav
+npx mav --help
 ```
 
 ## Summary of Methods
@@ -269,10 +269,10 @@ npx maverick --help
 |--------|---------|----------|
 | **Direct Node** | `node apps/cli/dist/index.js` | Quick testing, no installation |
 | **Direct Execution** | `./apps/cli/dist/index.js` | Same as above, slightly shorter |
-| **Global Link** | `maverick` (after `pnpm link --global`) | **Recommended** for development |
-| **pnpm Filter** | `pnpm --filter maverick start --` | From monorepo root |
-| **npm Global** | `maverick` (after `npm i -g maverick`) | After publishing to npm |
-| **npx** | `npx maverick` | One-off usage without installing |
+| **Global Link** | `mav` (after `pnpm link --global`) | **Recommended** for development |
+| **pnpm Filter** | `pnpm --filter mav start --` | From monorepo root |
+| **npm Global** | `mav` (after `npm i -g mav`) | After publishing to npm |
+| **npx** | `npx mav` | One-off usage without installing |
 
 ## Recommended Setup
 
@@ -287,14 +287,14 @@ cd apps/cli
 pnpm link --global
 
 # 3. Set API key
-export MAVERICK_API_KEY=your_key
+export MAV_API_KEY=your_key
 
 # 4. Test
-maverick --help
-maverick integrations:list
+mav --help
+mav integrations:list
 
 # 5. Start using!
-maverick posts:create -c "My first post" -i "twitter-123"
+mav posts:create -c "My first post" -i "twitter-123"
 ```
 
-Now you can use `maverick` from anywhere! 🚀
+Now you can use `mav` from anywhere! 🚀

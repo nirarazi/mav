@@ -13,8 +13,8 @@ import {
   InputProps,
   UserMessageProps,
 } from '@copilotkit/react-ui/dist/components/chat/props';
-import { Input } from '@maverick/frontend/components/agents/agent.input';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { Input } from '@mav/frontend/components/agents/agent.input';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import {
   CopilotKit,
   useCopilotAction,
@@ -23,16 +23,16 @@ import {
 import {
   MediaPortal,
   PropertiesContext,
-} from '@maverick/frontend/components/agents/agent';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+} from '@mav/frontend/components/agents/agent';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import { useParams } from 'next/navigation';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { TextMessage } from '@copilotkit/runtime-client-gql';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
 import dayjs from 'dayjs';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { ExistingDataContextProvider } from '@maverick/frontend/components/launches/helpers/use.existing.data';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { ExistingDataContextProvider } from '@mav/frontend/components/launches/helpers/use.existing.data';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const AgentChat: FC = () => {
   const { backendUrl } = useVariables();
@@ -46,7 +46,7 @@ export const AgentChat: FC = () => {
       credentials="include"
       runtimeUrl={backendUrl + '/copilot/agent'}
       showDevConsole={false}
-      agent="maverick"
+      agent="mav"
       properties={{
         integrations: properties,
       }}

@@ -1,8 +1,8 @@
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { useCallback } from 'react';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
 export const useTrack = () => {
   const user = useUser();
   const fetch = useFetch();

@@ -1,11 +1,11 @@
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { textSlicer } from '@maverick/helpers/utils/count.length';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { textSlicer } from '@mav/helpers/utils/count.length';
 import { FC, ReactNode } from 'react';
-import { SliderComponent } from '@maverick/frontend/components/third-parties/slider.component';
-import { VideoOrImage } from '@maverick/react/helpers/video.or.image';
+import { SliderComponent } from '@mav/frontend/components/third-parties/slider.component';
+import { VideoOrImage } from '@mav/react/helpers/video.or.image';
 
 const TikTokItem: FC<{ icon: ReactNode; num: string }> = ({ icon, num }) => {
   return (

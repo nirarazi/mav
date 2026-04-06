@@ -1,37 +1,37 @@
 import {
   AuthProvider,
   AuthProviderAbstract,
-} from '@maverick/backend/services/auth/providers.interface';
+} from '@mav/backend/services/auth/providers.interface';
 
 @AuthProvider({ provider: 'GENERIC' })
 export class OauthProvider extends AuthProviderAbstract {
   private getConfig() {
     const {
-      MAVERICK_OAUTH_AUTH_URL,
-      MAVERICK_OAUTH_CLIENT_ID,
-      MAVERICK_OAUTH_CLIENT_SECRET,
-      MAVERICK_OAUTH_TOKEN_URL,
-      MAVERICK_OAUTH_USERINFO_URL,
+      MAV_OAUTH_AUTH_URL,
+      MAV_OAUTH_CLIENT_ID,
+      MAV_OAUTH_CLIENT_SECRET,
+      MAV_OAUTH_TOKEN_URL,
+      MAV_OAUTH_USERINFO_URL,
       FRONTEND_URL,
     } = process.env;
 
     if (
-      !MAVERICK_OAUTH_USERINFO_URL ||
-      !MAVERICK_OAUTH_TOKEN_URL ||
-      !MAVERICK_OAUTH_CLIENT_ID ||
-      !MAVERICK_OAUTH_CLIENT_SECRET ||
-      !MAVERICK_OAUTH_AUTH_URL ||
+      !MAV_OAUTH_USERINFO_URL ||
+      !MAV_OAUTH_TOKEN_URL ||
+      !MAV_OAUTH_CLIENT_ID ||
+      !MAV_OAUTH_CLIENT_SECRET ||
+      !MAV_OAUTH_AUTH_URL ||
       !FRONTEND_URL
     ) {
-      throw new Error('MAVERICK_OAUTH environment variables are not set');
+      throw new Error('MAV_OAUTH environment variables are not set');
     }
 
     return {
-      authUrl: MAVERICK_OAUTH_AUTH_URL,
-      clientId: MAVERICK_OAUTH_CLIENT_ID,
-      clientSecret: MAVERICK_OAUTH_CLIENT_SECRET,
-      tokenUrl: MAVERICK_OAUTH_TOKEN_URL,
-      userInfoUrl: MAVERICK_OAUTH_USERINFO_URL,
+      authUrl: MAV_OAUTH_AUTH_URL,
+      clientId: MAV_OAUTH_CLIENT_ID,
+      clientSecret: MAV_OAUTH_CLIENT_SECRET,
+      tokenUrl: MAV_OAUTH_TOKEN_URL,
+      userInfoUrl: MAV_OAUTH_USERINFO_URL,
       frontendUrl: FRONTEND_URL,
     };
   }

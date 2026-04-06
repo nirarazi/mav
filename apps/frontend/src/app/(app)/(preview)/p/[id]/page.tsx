@@ -1,20 +1,20 @@
-import { internalFetch } from '@maverick/helpers/utils/internal.fetch';
+import { internalFetch } from '@mav/helpers/utils/internal.fetch';
 export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
+import { isGeneralServerSide } from '@mav/helpers/utils/is.general.server.side';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CommentsComponents } from '@maverick/frontend/components/preview/comments.components';
+import { CommentsComponents } from '@mav/frontend/components/preview/comments.components';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { VideoOrImage } from '@maverick/react/helpers/video.or.image';
-import { CopyClient } from '@maverick/frontend/components/preview/copy.client';
-import { getT } from '@maverick/react/translation/get.translation.service.backend';
+import { VideoOrImage } from '@mav/react/helpers/video.or.image';
+import { CopyClient } from '@mav/frontend/components/preview/copy.client';
+import { getT } from '@mav/react/translation/get.translation.service.backend';
 import dynamicLoad from 'next/dynamic';
 
 const RenderPreviewDate = dynamicLoad(
   () =>
-    import('@maverick/frontend/components/preview/render.preview.date').then(
+    import('@mav/frontend/components/preview/render.preview.date').then(
       (mod) => mod.RenderPreviewDate
     ),
   { ssr: false }
@@ -58,7 +58,7 @@ export default async function Auth({
                 >
                   <div className="max-w-[55px]">
                     <Image
-                      src={'/maverick.svg'}
+                      src={'/mav.svg'}
                       width={55}
                       height={55}
                       alt="Logo"

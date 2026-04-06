@@ -1,14 +1,14 @@
 'use client';
 
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import Link from 'next/link';
-import { Button } from '@maverick/react/form/button';
-import { Input } from '@maverick/react/form/input';
+import { Button } from '@mav/react/form/button';
+import { Input } from '@mav/react/form/input';
 import { useMemo, useState } from 'react';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { ForgotPasswordDto } from '@maverick/nestjs-libraries/dtos/auth/forgot.password.dto';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { ForgotPasswordDto } from '@mav/nestjs-libraries/dtos/auth/forgot.password.dto';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 type Inputs = {
   email: string;
 };

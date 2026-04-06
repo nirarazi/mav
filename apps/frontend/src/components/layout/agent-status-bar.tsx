@@ -3,7 +3,7 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import Link from 'next/link';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 
 interface BrainStatus {
   ready: boolean;

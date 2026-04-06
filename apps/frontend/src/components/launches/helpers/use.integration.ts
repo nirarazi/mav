@@ -1,9 +1,9 @@
 'use client';
 
 import { createContext, useContext } from 'react';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 export const IntegrationContext = createContext<{
   date: dayjs.Dayjs;
   integration: Integrations | undefined;

@@ -1,21 +1,21 @@
 'use client';
 
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import React, { FC, useCallback, useMemo } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Input } from '@maverick/react/form/input';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Input } from '@mav/react/form/input';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { ApiKeyDto } from '@maverick/nestjs-libraries/dtos/integrations/api.key.dto';
+import { ApiKeyDto } from '@mav/nestjs-libraries/dtos/integrations/api.key.dto';
 import { useRouter } from 'next/navigation';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useToaster } from '@mav/react/toaster/toaster';
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { web3List } from '@maverick/frontend/components/launches/web3/web3.list';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { web3List } from '@mav/frontend/components/launches/web3/web3.list';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import clsx from 'clsx';
 import copy from 'copy-to-clipboard';
 import { capitalize } from 'lodash';
@@ -268,7 +268,7 @@ const ExtensionNotFound: FC = () => {
           className="flex-1"
           onClick={() => {
             window.open(
-              'https://chromewebstore.google.com/detail/maverick/cidhffagahknaeodkplfbcpfeielnkjl?hl=en',
+              'https://chromewebstore.google.com/detail/mav/cidhffagahknaeodkplfbcpfeielnkjl?hl=en',
               '_blank'
             );
             modals.closeCurrent();

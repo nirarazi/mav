@@ -1,4 +1,4 @@
-import { ContinueIntegration } from '@maverick/frontend/components/launches/continue.integration';
+import { ContinueIntegration } from '@mav/frontend/components/launches/continue.integration';
 import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';

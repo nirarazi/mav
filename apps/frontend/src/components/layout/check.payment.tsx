@@ -1,9 +1,9 @@
 import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import Loading from 'react-loading';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { timer } from '@maverick/helpers/utils/timer';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useDecisionModal } from '@maverick/frontend/components/layout/new-modal';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { timer } from '@mav/helpers/utils/timer';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useDecisionModal } from '@mav/frontend/components/layout/new-modal';
 export const CheckPayment: FC<{
   check: string;
   mutate: () => void;

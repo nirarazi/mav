@@ -1,11 +1,11 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { Integration } from '@prisma/client';
-import { IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
+import { IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
 import {
   AuthTokenDetails,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
 import { TemporalService } from 'nestjs-temporal-core';
 
 @Injectable()

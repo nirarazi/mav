@@ -1,11 +1,11 @@
-import { internalFetch } from '@maverick/helpers/utils/internal.fetch';
+import { internalFetch } from '@mav/helpers/utils/internal.fetch';
 export const dynamic = 'force-dynamic';
-import { Register } from '@maverick/frontend/components/auth/register';
+import { Register } from '@mav/frontend/components/auth/register';
 import { Metadata } from 'next';
-import { isGeneralServerSide } from '@maverick/helpers/utils/is.general.server.side';
+import { isGeneralServerSide } from '@mav/helpers/utils/is.general.server.side';
 import Link from 'next/link';
-import { getT } from '@maverick/react/translation/get.translation.service.backend';
-import { LoginWithOidc } from '@maverick/frontend/components/auth/login.with.oidc';
+import { getT } from '@mav/react/translation/get.translation.service.backend';
+import { LoginWithOidc } from '@mav/frontend/components/auth/login.with.oidc';
 export const metadata: Metadata = {
   title: `${isGeneralServerSide() ? 'Mav' : 'Mav'} Register`,
   description: '',

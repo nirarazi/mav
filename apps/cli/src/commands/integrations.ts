@@ -1,9 +1,9 @@
-import { MaverickAPI } from '../api';
+import { MavAPI } from '../api';
 import { getConfig } from '../config';
 
 export async function listIntegrations() {
   const config = getConfig();
-  const api = new MaverickAPI(config);
+  const api = new MavAPI(config);
 
   try {
     const result = await api.listIntegrations();
@@ -18,7 +18,7 @@ export async function listIntegrations() {
 
 export async function getIntegrationSettings(args: any) {
   const config = getConfig();
-  const api = new MaverickAPI(config);
+  const api = new MavAPI(config);
 
   if (!args.id) {
     console.error('❌ Integration ID is required');
@@ -38,7 +38,7 @@ export async function getIntegrationSettings(args: any) {
 
 export async function triggerIntegrationTool(args: any) {
   const config = getConfig();
-  const api = new MaverickAPI(config);
+  const api = new MavAPI(config);
 
   if (!args.id) {
     console.error('❌ Integration ID is required');

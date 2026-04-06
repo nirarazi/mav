@@ -12,34 +12,34 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
-import { MediaService } from '@maverick/nestjs-libraries/database/prisma/media/media.service';
-import { GetPostsDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.dto';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
+import { MediaService } from '@mav/nestjs-libraries/database/prisma/media/media.service';
+import { GetPostsDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.dto';
 import {
   AuthorizationActions,
   Sections,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
-import { VideoDto } from '@maverick/nestjs-libraries/dtos/videos/video.dto';
-import { VideoFunctionDto } from '@maverick/nestjs-libraries/dtos/videos/video.function.dto';
-import { UploadDto } from '@maverick/nestjs-libraries/dtos/media/upload.dto';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
-import { GetNotificationsDto } from '@maverick/nestjs-libraries/dtos/notifications/get.notifications.dto';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
+import { VideoDto } from '@mav/nestjs-libraries/dtos/videos/video.dto';
+import { VideoFunctionDto } from '@mav/nestjs-libraries/dtos/videos/video.function.dto';
+import { UploadDto } from '@mav/nestjs-libraries/dtos/media/upload.dto';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
+import { GetNotificationsDto } from '@mav/nestjs-libraries/dtos/notifications/get.notifications.dto';
 import axios from 'axios';
 import { Readable } from 'stream';
 import { lookup, extension } from 'mime-types';
 import * as Sentry from '@sentry/nestjs';
-import { socialIntegrationList, IntegrationManager } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { getValidationSchemas } from '@maverick/nestjs-libraries/chat/validation.schemas.helper';
-import { RefreshIntegrationService } from '@maverick/nestjs-libraries/integrations/refresh.integration.service';
-import { RefreshToken } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { timer } from '@maverick/helpers/utils/timer';
-import { ioRedis } from '@maverick/nestjs-libraries/redis/redis.service';
+import { socialIntegrationList, IntegrationManager } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { getValidationSchemas } from '@mav/nestjs-libraries/chat/validation.schemas.helper';
+import { RefreshIntegrationService } from '@mav/nestjs-libraries/integrations/refresh.integration.service';
+import { RefreshToken } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { timer } from '@mav/helpers/utils/timer';
+import { ioRedis } from '@mav/nestjs-libraries/redis/redis.service';
 
 @ApiTags('Public API')
 @Controller('/public/v1')

@@ -1,6 +1,6 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
-import { SaveMediaInformationDto } from '@maverick/nestjs-libraries/dtos/media/save.media.information.dto';
+import { SaveMediaInformationDto } from '@mav/nestjs-libraries/dtos/media/save.media.information.dto';
 
 @Injectable()
 export class MediaRepository {

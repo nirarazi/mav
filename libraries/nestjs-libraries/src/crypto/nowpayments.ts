@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
 
 export interface ProcessPayment {
   payment_id: number;
@@ -60,7 +60,7 @@ export class Nowpayments {
           price_currency: 'USD',
           order_id: make,
           pay_currency: 'SOL',
-          order_description: 'Lifetime deal account for Maverick',
+          order_description: 'Lifetime deal account for Mav',
           ipn_callback_url:
             process.env.NEXT_PUBLIC_BACKEND_URL +
             `/public/crypto/${signRequest}`,

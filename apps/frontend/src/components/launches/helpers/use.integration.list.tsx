@@ -1,6 +1,6 @@
 'use client';
 
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { useCallback } from 'react';
 import useSWR from 'swr';
 

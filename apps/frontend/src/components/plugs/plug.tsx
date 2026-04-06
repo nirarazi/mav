@@ -4,28 +4,28 @@ import {
   PlugSettings,
   PlugsInterface,
   usePlugs,
-} from '@maverick/frontend/components/plugs/plugs.context';
-import { Button } from '@maverick/react/form/button';
+} from '@mav/frontend/components/plugs/plugs.context';
+import { Button } from '@mav/react/form/button';
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR, { mutate } from 'swr';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import {
   FormProvider,
   SubmitHandler,
   useForm,
   useFormContext,
 } from 'react-hook-form';
-import { Input } from '@maverick/react/form/input';
+import { Input } from '@mav/react/form/input';
 import { CopilotTextarea } from '@copilotkit/react-textarea';
 import clsx from 'clsx';
 import { string, object } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Slider } from '@maverick/react/form/slider';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { ModalWrapperComponent } from '@maverick/frontend/components/new-launch/modal.wrapper.component';
+import { Slider } from '@mav/react/form/slider';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { ModalWrapperComponent } from '@mav/frontend/components/new-launch/modal.wrapper.component';
 export function convertBackRegex(s: string) {
   const matches = s.match(/\/(.*)\/([a-z]*)/);
   const pattern = matches?.[1] || '';

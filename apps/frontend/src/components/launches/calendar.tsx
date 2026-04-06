@@ -13,7 +13,7 @@ import {
   CalendarContext,
   Integrations,
   useCalendar,
-} from '@maverick/frontend/components/launches/calendar.context';
+} from '@mav/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import 'dayjs/locale/he';
@@ -30,15 +30,15 @@ import 'dayjs/locale/ar';
 import 'dayjs/locale/tr';
 import 'dayjs/locale/vi';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import clsx from 'clsx';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { ExistingDataContextProvider } from '@maverick/frontend/components/launches/helpers/use.existing.data';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { ExistingDataContextProvider } from '@mav/frontend/components/launches/helpers/use.existing.data';
 import { useDrag, useDrop } from 'react-dnd';
 import { Integration, Post, State, Tags } from '@prisma/client';
-import { useAddProvider } from '@maverick/frontend/components/launches/add.provider.component';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useAddProvider } from '@mav/frontend/components/launches/add.provider.component';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import { groupBy, random, sortBy } from 'lodash';
@@ -46,16 +46,16 @@ import Image from 'next/image';
 import { extend } from 'dayjs';
 import { isUSCitizen } from './helpers/isuscitizen.utils';
 import { useInterval } from '@mantine/hooks';
-import { StatisticsModal } from '@maverick/frontend/components/launches/statistics';
-import { MissingReleaseModal } from '@maverick/frontend/components/launches/missing-release.modal';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { StatisticsModal } from '@mav/frontend/components/launches/statistics';
+import { MissingReleaseModal } from '@mav/frontend/components/launches/missing-release.modal';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import i18next from 'i18next';
-import { AddEditModal } from '@maverick/frontend/components/new-launch/add.edit.modal';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
-import { Button } from '@maverick/react/form/button';
+import { AddEditModal } from '@mav/frontend/components/new-launch/add.edit.modal';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
+import { Button } from '@mav/react/form/button';
 
 // Extend dayjs with necessary plugins
 extend(isSameOrAfter);

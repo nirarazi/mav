@@ -14,15 +14,15 @@ import {
   copilotRuntimeNodeHttpEndpoint,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from '@copilotkit/runtime';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization } from '@prisma/client';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
 import { MastraAgent } from '@ag-ui/mastra';
-import { MastraService } from '@maverick/nestjs-libraries/chat/mastra.service';
+import { MastraService } from '@mav/nestjs-libraries/chat/mastra.service';
 import { Request, Response } from 'express';
 import { RuntimeContext } from '@mastra/core/di';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
-import { AuthorizationActions, Sections } from '@maverick/backend/services/auth/permissions/permission.exception.class';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
+import { AuthorizationActions, Sections } from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 export type ChannelsContext = {
   integrations: string;
@@ -122,7 +122,7 @@ export class CopilotController {
     @Param('thread') threadId: string
   ): Promise<any> {
     const mastra = await this._mastraService.mastra();
-    const memory = await mastra.getAgent('maverick').getMemory();
+    const memory = await mastra.getAgent('mav').getMemory();
     try {
       return await memory.query({
         resourceId: organization.id,
@@ -138,7 +138,7 @@ export class CopilotController {
   async getList(@GetOrgFromRequest() organization: Organization) {
     const mastra = await this._mastraService.mastra();
     // @ts-ignore
-    const memory = await mastra.getAgent('maverick').getMemory();
+    const memory = await mastra.getAgent('mav').getMemory();
     const list = await memory.getThreadsByResourceIdPaginated({
       resourceId: organization.id,
       perPage: 100000,

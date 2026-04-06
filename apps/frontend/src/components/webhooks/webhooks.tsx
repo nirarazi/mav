@@ -1,21 +1,21 @@
 'use client';
 
 import React, { FC, Fragment, useCallback, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { Button } from '@maverick/react/form/button';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Input } from '@maverick/react/form/input';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { Button } from '@mav/react/form/button';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Input } from '@mav/react/form/input';
 import { FormProvider, useForm } from 'react-hook-form';
 import { array, object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Select } from '@maverick/react/form/select';
-import { PickPlatforms } from '@maverick/frontend/components/launches/helpers/pick.platform.component';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { Select } from '@mav/react/form/select';
+import { PickPlatforms } from '@mav/frontend/components/launches/helpers/pick.platform.component';
+import { useToaster } from '@mav/react/toaster/toaster';
 import clsx from 'clsx';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const Webhooks: FC = () => {
   const fetch = useFetch();
@@ -65,7 +65,7 @@ export const Webhooks: FC = () => {
       </h3>
       <div className="text-customColor18 mt-[4px]">
         {t(
-          'webhooks_are_a_way_to_get_notified_when_something_happens_in_maverick_via_an_http_request',
+          'webhooks_are_a_way_to_get_notified_when_something_happens_in_mav_via_an_http_request',
           'Webhooks are a way to get notified when something happens in Mav via\n        an HTTP request.'
         )}
       </div>

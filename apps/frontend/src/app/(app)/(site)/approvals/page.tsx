@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 
-import { ApprovalQueue } from '@maverick/frontend/components/approvals/approval-queue';
+import { ApprovalQueue } from '@mav/frontend/components/approvals/approval-queue';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

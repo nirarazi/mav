@@ -12,26 +12,26 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import clsx from 'clsx';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import EmojiPicker from 'emoji-picker-react';
 import { Theme } from 'emoji-picker-react';
-import { BoldText } from '@maverick/frontend/components/new-launch/bold.text';
-import { UText } from '@maverick/frontend/components/new-launch/u.text';
-import { SignatureBox } from '@maverick/frontend/components/signature';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { BoldText } from '@mav/frontend/components/new-launch/bold.text';
+import { UText } from '@mav/frontend/components/new-launch/u.text';
+import { SignatureBox } from '@mav/frontend/components/signature';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import {
   SelectedIntegrations,
   useLaunchStore,
-} from '@maverick/frontend/components/new-launch/store';
+} from '@mav/frontend/components/new-launch/store';
 import { useShallow } from 'zustand/react/shallow';
-import { AddPostButton } from '@maverick/frontend/components/new-launch/add.post.button';
-import { MultiMediaComponent } from '@maverick/frontend/components/media/media.component';
-import { UpDownArrow } from '@maverick/frontend/components/launches/up.down.arrow';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
-import { useExistingData } from '@maverick/frontend/components/launches/helpers/use.existing.data';
+import { AddPostButton } from '@mav/frontend/components/new-launch/add.post.button';
+import { MultiMediaComponent } from '@mav/frontend/components/media/media.component';
+import { UpDownArrow } from '@mav/frontend/components/launches/up.down.arrow';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
+import { useExistingData } from '@mav/frontend/components/launches/helpers/use.existing.data';
 import { useCopilotAction, useCopilotReadable } from '@copilotkit/react-core';
 import { useDropzone } from 'react-dropzone';
-import { useUppyUploader } from '@maverick/frontend/components/media/new.uploader';
+import { useUppyUploader } from '@mav/frontend/components/media/new.uploader';
 import { Dashboard } from '@uppy/react';
 import Link from '@tiptap/extension-link';
 import {
@@ -45,19 +45,19 @@ import Bold from '@tiptap/extension-bold';
 import Text from '@tiptap/extension-text';
 import Paragraph from '@tiptap/extension-paragraph';
 import Underline from '@tiptap/extension-underline';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
 import { History } from '@tiptap/extension-history';
 import { BulletList, ListItem } from '@tiptap/extension-list';
-import { Bullets } from '@maverick/frontend/components/new-launch/bullets.component';
+import { Bullets } from '@mav/frontend/components/new-launch/bullets.component';
 import Heading from '@tiptap/extension-heading';
-import { HeadingComponent } from '@maverick/frontend/components/new-launch/heading.component';
+import { HeadingComponent } from '@mav/frontend/components/new-launch/heading.component';
 import Mention from '@tiptap/extension-mention';
-import { suggestion } from '@maverick/frontend/components/new-launch/mention.component';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { AComponent } from '@maverick/frontend/components/new-launch/a.component';
+import { suggestion } from '@mav/frontend/components/new-launch/mention.component';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { AComponent } from '@mav/frontend/components/new-launch/a.component';
 import { Placeholder } from '@tiptap/extensions';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { InformationComponent } from '@maverick/frontend/components/launches/information.component';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { InformationComponent } from '@mav/frontend/components/launches/information.component';
 import {
   LockIcon,
   ConnectionLineIcon,
@@ -65,8 +65,8 @@ import {
   TrashIcon,
   EmojiIcon,
   DelayIcon,
-} from '@maverick/frontend/components/ui/icons';
-import { DelayComponent } from '@maverick/frontend/components/new-launch/delay.component';
+} from '@mav/frontend/components/ui/icons';
+import { DelayComponent } from '@mav/frontend/components/new-launch/delay.component';
 
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 1024; // 1 GB
 

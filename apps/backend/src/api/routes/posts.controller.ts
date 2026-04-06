@@ -9,24 +9,24 @@ import {
   Query,
   Res,
 } from '@nestjs/common';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
-import { GetOrgFromRequest } from '@maverick/nestjs-libraries/user/org.from.request';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
+import { GetOrgFromRequest } from '@mav/nestjs-libraries/user/org.from.request';
 import { Organization, User } from '@prisma/client';
-import { GetPostsDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.dto';
-import { GetPostsListDto } from '@maverick/nestjs-libraries/dtos/posts/get.posts.list.dto';
-import { CheckPolicies } from '@maverick/backend/services/auth/permissions/permissions.ability';
+import { GetPostsDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.dto';
+import { GetPostsListDto } from '@mav/nestjs-libraries/dtos/posts/get.posts.list.dto';
+import { CheckPolicies } from '@mav/backend/services/auth/permissions/permissions.ability';
 import { ApiTags } from '@nestjs/swagger';
-import { GeneratorDto } from '@maverick/nestjs-libraries/dtos/generator/generator.dto';
-import { CreateGeneratedPostsDto } from '@maverick/nestjs-libraries/dtos/generator/create.generated.posts.dto';
-import { AgentGraphService } from '@maverick/nestjs-libraries/agent/agent.graph.service';
+import { GeneratorDto } from '@mav/nestjs-libraries/dtos/generator/generator.dto';
+import { CreateGeneratedPostsDto } from '@mav/nestjs-libraries/dtos/generator/create.generated.posts.dto';
+import { AgentGraphService } from '@mav/nestjs-libraries/agent/agent.graph.service';
 import { Response } from 'express';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
-import { ShortLinkService } from '@maverick/nestjs-libraries/short-linking/short.link.service';
-import { CreateTagDto } from '@maverick/nestjs-libraries/dtos/posts/create.tag.dto';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
+import { ShortLinkService } from '@mav/nestjs-libraries/short-linking/short.link.service';
+import { CreateTagDto } from '@mav/nestjs-libraries/dtos/posts/create.tag.dto';
 import {
   AuthorizationActions,
   Sections,
-} from '@maverick/backend/services/auth/permissions/permission.exception.class';
+} from '@mav/backend/services/auth/permissions/permission.exception.class';
 
 @ApiTags('Posts')
 @Controller('/posts')

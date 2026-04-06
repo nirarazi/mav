@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import { customFetch, Params } from './custom.fetch.func';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
 
 const FetchProvider = createContext(
   customFetch(

@@ -1,10 +1,10 @@
 {
-  "name": "maverick",
+  "name": "mav",
   "version": "2.0.5",
-  "description": "Maverick CLI - Command line interface for the Maverick social media scheduling API",
+  "description": "Mav CLI - Command line interface for the Mav social media scheduling API",
   "main": "dist/index.js",
   "bin": {
-    "maverick": "./dist/index.js"
+    "mav": "./dist/index.js"
   },
   "scripts": {
     "dev": "tsup --watch",
@@ -18,7 +18,7 @@
     "SKILL.md"
   ],
   "keywords": [
-    "maverick",
+    "mav",
     "cli",
     "social media",
     "scheduling",
@@ -33,7 +33,7 @@
     "url": "https://github.com/maboroshi-inc/mav.git",
     "directory": "apps/cli"
   },
-  "homepage": "https://maverick.com",
+  "homepage": "https://mav.com",
   "bugs": {
     "url": "https://github.com/maboroshi-inc/mav/issues"
   },

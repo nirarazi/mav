@@ -3,8 +3,8 @@
 import {
   testimonials1,
   testimonials2,
-} from '@maverick/react/helpers/testomonials';
-import { Testimonial } from '@maverick/frontend/components/auth/testimonial';
+} from '@mav/react/helpers/testomonials';
+import { Testimonial } from '@mav/frontend/components/auth/testimonial';
 
 export const TestimonialComponent = () => {
   return (

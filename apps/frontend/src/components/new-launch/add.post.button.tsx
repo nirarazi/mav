@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import React, { FC } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { PostComment } from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { PostComment } from '@mav/frontend/components/new-launch/providers/high.order.provider';
 export const AddPostButton: FC<{
   onClick: () => void;
   num: number;

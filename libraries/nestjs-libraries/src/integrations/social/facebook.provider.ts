@@ -4,12 +4,12 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import dayjs from 'dayjs';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
-import { FacebookDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
-import { DribbbleDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
+import { FacebookDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/facebook.dto';
+import { DribbbleDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/dribbble.dto';
 import { Integration } from '@prisma/client';
 
 export class FacebookProvider extends SocialAbstract implements SocialProvider {

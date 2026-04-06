@@ -1,16 +1,16 @@
 'use client';
 
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 import { useCallback, useMemo, useState } from 'react';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
-import { Input } from '@maverick/react/form/input';
-import { Button } from '@maverick/react/form/button';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { Input } from '@mav/react/form/input';
+import { Button } from '@mav/react/form/button';
 import { useSWRConfig } from 'swr';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { useToaster } from '@mav/react/toaster/toaster';
 import { useRouter } from 'next/navigation';
-import { useFireEvents } from '@maverick/helpers/utils/use.fire.events';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFireEvents } from '@mav/helpers/utils/use.fire.events';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const LifetimeDeal = () => {
   const t = useT();
   const fetch = useFetch();

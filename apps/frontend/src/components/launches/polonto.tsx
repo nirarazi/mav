@@ -8,20 +8,20 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import { createStore } from 'polotno/model/store';
 import Workspace from 'polotno/canvas/workspace';
 import { PolotnoContainer, SidePanelWrap, WorkspaceWrap } from 'polotno';
 import { SidePanel, DEFAULT_SECTIONS } from 'polotno/side-panel';
 import Toolbar from 'polotno/toolbar/toolbar';
 import ZoomButtons from 'polotno/toolbar/zoom-buttons';
-import { Button } from '@maverick/react/form/button';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { PictureGeneratorSection } from '@maverick/frontend/components/launches/polonto/polonto.picture.generation';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { loadVars } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { Button } from '@mav/react/form/button';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { PictureGeneratorSection } from '@mav/frontend/components/launches/polonto/polonto.picture.generation';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { loadVars } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 const store = createStore({
   get key() {
     return loadVars().plontoKey;

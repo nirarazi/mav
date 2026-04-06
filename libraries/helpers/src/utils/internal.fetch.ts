@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { customFetch } from '@maverick/helpers/utils/custom.fetch.func';
+import { customFetch } from '@mav/helpers/utils/custom.fetch.func';
 
 export const internalFetch = (url: string, options: RequestInit = {}) =>
   customFetch(

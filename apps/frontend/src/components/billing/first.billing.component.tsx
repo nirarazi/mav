@@ -2,34 +2,34 @@
 
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
-import { OrganizationSelector } from '@maverick/frontend/components/layout/organization.selector';
-import { LanguageComponent } from '@maverick/frontend/components/layout/language.component';
-import { AttachToFeedbackIcon } from '@maverick/frontend/components/new-layout/sentry.feedback.component';
-import NotificationComponent from '@maverick/frontend/components/notifications/notification.component';
+import { OrganizationSelector } from '@mav/frontend/components/layout/organization.selector';
+import { LanguageComponent } from '@mav/frontend/components/layout/language.component';
+import { AttachToFeedbackIcon } from '@mav/frontend/components/new-layout/sentry.feedback.component';
+import NotificationComponent from '@mav/frontend/components/notifications/notification.component';
 import dynamic from 'next/dynamic';
-import { LogoTextComponent } from '@maverick/frontend/components/ui/logo-text.component';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { LogoTextComponent } from '@mav/frontend/components/ui/logo-text.component';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { capitalize } from 'lodash';
 import clsx from 'clsx';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { CheckIconComponent } from '@maverick/frontend/components/ui/check.icon.component';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { CheckIconComponent } from '@mav/frontend/components/ui/check.icon.component';
 import {
   FAQComponent,
   FAQSection,
-} from '@maverick/frontend/components/billing/faq.component';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { useDubClickId } from '@maverick/frontend/components/layout/dubAnalytics';
+} from '@mav/frontend/components/billing/faq.component';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { useDubClickId } from '@mav/frontend/components/layout/dubAnalytics';
 import Image from 'next/image';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import useCookie from 'react-use-cookie';
-import { LogoutComponent } from '@maverick/frontend/components/layout/logout.component';
+import { LogoutComponent } from '@mav/frontend/components/layout/logout.component';
 
 const ModeComponent = dynamic(
-  () => import('@maverick/frontend/components/layout/mode.component'),
+  () => import('@mav/frontend/components/layout/mode.component'),
   {
     ssr: false,
   }
@@ -37,7 +37,7 @@ const ModeComponent = dynamic(
 
 const EmbeddedBilling = dynamic(
   () =>
-    import('@maverick/frontend/components/billing/embedded.billing').then(
+    import('@mav/frontend/components/billing/embedded.billing').then(
       (mod) => mod.EmbeddedBilling
     ),
   {
@@ -120,7 +120,7 @@ export const FirstBillingComponent = () => {
           </span>{' '}
           {t('billing_who_use', 'who use')}{' '}
           {t(
-            'billing_maverick_grow_social',
+            'billing_mav_grow_social',
             'Mav To Grow Their Social Presence'
           )}
         </div>

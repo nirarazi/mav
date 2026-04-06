@@ -13,10 +13,10 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'json'],
   moduleNameMapper: {
-    // Map all @maverick/nestjs-libraries imports to lightweight stubs
-    '^@maverick/nestjs-libraries/(.*)$':
+    // Map all @mav/nestjs-libraries imports to lightweight stubs
+    '^@mav/nestjs-libraries/(.*)$':
       '<rootDir>/src/__tests__/__stubs__/nestjs-libraries-stub.ts',
-    '^@maverick/compliance-engine/(.*)$': '<rootDir>/src/$1',
+    '^@mav/compliance-engine/(.*)$': '<rootDir>/src/$1',
   },
   // Don't transform node_modules (they're already JS)
   transformIgnorePatterns: ['/node_modules/'],

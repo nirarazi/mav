@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Logo } from '@maverick/frontend/components/new-layout/logo';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Logo } from '@mav/frontend/components/new-layout/logo';
 
 export default function OAuthAuthorizePage() {
   const searchParams = useSearchParams();

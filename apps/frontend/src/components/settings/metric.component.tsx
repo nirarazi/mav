@@ -1,8 +1,8 @@
 'use client';
 
-import { Select } from '@maverick/react/form/select';
+import { Select } from '@mav/react/form/select';
 import React, { useState } from 'react';
-import { isUSCitizen } from '@maverick/frontend/components/launches/helpers/isuscitizen.utils';
+import { isUSCitizen } from '@mav/frontend/components/launches/helpers/isuscitizen.utils';
 import timezones from 'timezones-list';
 const dateMetrics = [
   { label: 'AM:PM', value: 'US' },

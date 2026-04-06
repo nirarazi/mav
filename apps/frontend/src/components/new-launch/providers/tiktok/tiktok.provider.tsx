@@ -7,16 +7,16 @@ import {
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { TikTokDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Select } from '@maverick/react/form/select';
-import { Checkbox } from '@maverick/react/form/checkbox';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { TikTokDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/tiktok.dto';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Select } from '@mav/react/form/select';
+import { Checkbox } from '@mav/react/form/checkbox';
 import clsx from 'clsx';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { Input } from '@maverick/react/form/input';
-import { TiktokPreview } from '@maverick/frontend/components/new-launch/providers/tiktok/tiktok.preview';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { Input } from '@mav/react/form/input';
+import { TiktokPreview } from '@mav/frontend/components/new-launch/providers/tiktok/tiktok.preview';
 
 const TikTokSettings: FC<{
   values?: any;

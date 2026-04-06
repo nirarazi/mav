@@ -4,17 +4,17 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { DevToSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/dev.to.settings.dto';
-import { Input } from '@maverick/react/form/input';
-import { MediaComponent } from '@maverick/frontend/components/media/media.component';
-import { SelectOrganization } from '@maverick/frontend/components/new-launch/providers/devto/select.organization';
-import { DevtoTags } from '@maverick/frontend/components/new-launch/providers/devto/devto.tags';
-import { useMediaDirectory } from '@maverick/react/helpers/use.media.directory';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { DevToSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/dev.to.settings.dto';
+import { Input } from '@mav/react/form/input';
+import { MediaComponent } from '@mav/frontend/components/media/media.component';
+import { SelectOrganization } from '@mav/frontend/components/new-launch/providers/devto/select.organization';
+import { DevtoTags } from '@mav/frontend/components/new-launch/providers/devto/devto.tags';
+import { useMediaDirectory } from '@mav/react/helpers/use.media.directory';
 import clsx from 'clsx';
-import { Canonical } from '@maverick/react/form/canonical';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { Canonical } from '@mav/react/form/canonical';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 
 const DevtoSettings: FC = () => {
   const form = useSettings();

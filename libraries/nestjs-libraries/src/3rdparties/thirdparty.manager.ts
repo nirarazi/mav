@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import {
   ThirdPartyAbstract,
   ThirdPartyParams,
-} from '@maverick/nestjs-libraries/3rdparties/thirdparty.interface';
+} from '@mav/nestjs-libraries/3rdparties/thirdparty.interface';
 import { ModuleRef } from '@nestjs/core';
-import { ThirdPartyService } from '@maverick/nestjs-libraries/database/prisma/third-party/third-party.service';
+import { ThirdPartyService } from '@mav/nestjs-libraries/database/prisma/third-party/third-party.service';
 
 @Injectable()
 export class ThirdPartyManager {

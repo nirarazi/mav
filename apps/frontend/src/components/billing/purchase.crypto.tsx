@@ -1,7 +1,7 @@
 import { FC, useCallback, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { Button } from '@maverick/react/form/button';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { Button } from '@mav/react/form/button';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const PurchaseCrypto: FC = () => {
   const fetch = useFetch();
   const t = useT();

@@ -10,20 +10,20 @@ import {
   StreamableFile,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { AgenciesService } from '@maverick/nestjs-libraries/database/prisma/agencies/agencies.service';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
-import { TrackService } from '@maverick/nestjs-libraries/track/track.service';
+import { AgenciesService } from '@mav/nestjs-libraries/database/prisma/agencies/agencies.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
+import { TrackService } from '@mav/nestjs-libraries/track/track.service';
 import { RealIP } from 'nestjs-real-ip';
-import { UserAgent } from '@maverick/nestjs-libraries/user/user.agent';
-import { TrackEnum } from '@maverick/nestjs-libraries/user/track.enum';
+import { UserAgent } from '@mav/nestjs-libraries/user/user.agent';
+import { TrackEnum } from '@mav/nestjs-libraries/user/track.enum';
 import { Request, Response } from 'express';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { getCookieUrlFromDomain } from '@maverick/helpers/subdomain/subdomain.management';
-import { AgentGraphInsertService } from '@maverick/nestjs-libraries/agent/agent.graph.insert.service';
-import { Nowpayments } from '@maverick/nestjs-libraries/crypto/nowpayments';
-import { SubscriptionService } from '@maverick/nestjs-libraries/database/prisma/subscriptions/subscription.service';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
-import { pricing } from '@maverick/nestjs-libraries/database/prisma/subscriptions/pricing';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { getCookieUrlFromDomain } from '@mav/helpers/subdomain/subdomain.management';
+import { AgentGraphInsertService } from '@mav/nestjs-libraries/agent/agent.graph.insert.service';
+import { Nowpayments } from '@mav/nestjs-libraries/crypto/nowpayments';
+import { SubscriptionService } from '@mav/nestjs-libraries/database/prisma/subscriptions/subscription.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
+import { pricing } from '@mav/nestjs-libraries/database/prisma/subscriptions/pricing';
 import { Readable, pipeline } from 'stream';
 import { promisify } from 'util';
 

@@ -1,11 +1,11 @@
 'use client';
 
 import { FC, ReactNode, useCallback } from 'react';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { MenuItem } from '@maverick/frontend/components/new-layout/menu-item';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { MenuItem } from '@mav/frontend/components/new-layout/menu-item';
 
 interface MenuItemInterface {
   name: string;
@@ -251,7 +251,7 @@ export const useMenuItem = () => {
           />
         </svg>
       ),
-      path: 'https://affiliate.maverick.com',
+      path: 'https://affiliate.mav.com',
       role: ['ADMIN', 'SUPERADMIN', 'USER'],
       requireBilling: true,
     },

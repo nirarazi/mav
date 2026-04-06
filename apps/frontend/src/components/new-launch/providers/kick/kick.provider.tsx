@@ -3,7 +3,7 @@
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 
 export default withProvider({
   postComment: PostComment.COMMENT,

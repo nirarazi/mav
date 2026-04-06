@@ -1,14 +1,14 @@
 'use client';
 import 'reflect-metadata';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 import dayjs from 'dayjs';
 import { FC, useEffect } from 'react';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { ManageModal } from '@maverick/frontend/components/new-launch/manage.modal';
-import { Integrations } from '@maverick/frontend/components/launches/calendar.context';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { ManageModal } from '@mav/frontend/components/new-launch/manage.modal';
+import { Integrations } from '@mav/frontend/components/launches/calendar.context';
 import { useShallow } from 'zustand/react/shallow';
-import { useExistingData } from '@maverick/frontend/components/launches/helpers/use.existing.data';
-import { newDayjs } from '@maverick/frontend/components/layout/set.timezone';
+import { useExistingData } from '@mav/frontend/components/launches/helpers/use.existing.data';
+import { newDayjs } from '@mav/frontend/components/layout/set.timezone';
 
 export interface AddEditModalProps {
   dummy?: boolean;

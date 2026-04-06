@@ -1,22 +1,22 @@
 'use client';
 
-import { Button } from '@maverick/react/form/button';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { Button } from '@mav/react/form/button';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
 import React, { useCallback, useMemo } from 'react';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
+import { useUser } from '@mav/frontend/components/layout/user.context';
 import { capitalize } from 'lodash';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Input } from '@maverick/react/form/input';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Input } from '@mav/react/form/input';
 import { useForm, FormProvider, useWatch } from 'react-hook-form';
-import { Select } from '@maverick/react/form/select';
-import { Checkbox } from '@maverick/react/form/checkbox';
+import { Select } from '@mav/react/form/select';
+import { Checkbox } from '@mav/react/form/checkbox';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { AddTeamMemberDto } from '@maverick/nestjs-libraries/dtos/settings/add.team.member.dto';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { AddTeamMemberDto } from '@mav/nestjs-libraries/dtos/settings/add.team.member.dto';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import copy from 'copy-to-clipboard';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 const roles = [
   {

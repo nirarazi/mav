@@ -2,13 +2,13 @@
 
 import React, { FC, useCallback, useState } from 'react';
 import useSWR from 'swr';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { LoadingComponent } from '@maverick/frontend/components/layout/loading';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { Button } from '@maverick/react/form/button';
-import { StatisticsModal } from '@maverick/frontend/components/launches/statistics';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { LoadingComponent } from '@mav/frontend/components/layout/loading';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { Button } from '@mav/react/form/button';
+import { StatisticsModal } from '@mav/frontend/components/launches/statistics';
 
 export const MissingReleaseModal: FC<{
   postId: string;

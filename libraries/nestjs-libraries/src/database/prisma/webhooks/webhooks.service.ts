@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { WebhooksRepository } from '@maverick/nestjs-libraries/database/prisma/webhooks/webhooks.repository';
-import { WebhooksDto } from '@maverick/nestjs-libraries/dtos/webhooks/webhooks.dto';
+import { WebhooksRepository } from '@mav/nestjs-libraries/database/prisma/webhooks/webhooks.repository';
+import { WebhooksDto } from '@mav/nestjs-libraries/dtos/webhooks/webhooks.dto';
 
 @Injectable()
 export class WebhooksService {

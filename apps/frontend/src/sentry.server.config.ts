@@ -1,3 +1,3 @@
-import { initializeSentryServer } from '@maverick/react/sentry/initialize.sentry.server';
+import { initializeSentryServer } from '@mav/react/sentry/initialize.sentry.server';
 
 initializeSentryServer(process.env.NODE_ENV!, process.env.NEXT_PUBLIC_SENTRY_DSN!);

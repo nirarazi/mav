@@ -2,22 +2,22 @@
 
 import { FC, useCallback, useMemo, useState } from 'react';
 import { ReactTags } from 'react-tag-autocomplete';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Input } from '@maverick/react/form/input';
-import { ColorPicker } from '@maverick/react/form/color.picker';
-import { Button } from '@maverick/react/form/button';
+import { Input } from '@mav/react/form/input';
+import { ColorPicker } from '@mav/react/form/color.picker';
+import { Button } from '@mav/react/form/button';
 import { uniqBy } from 'lodash';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import { useClickOutside } from '@mantine/hooks';
 import clsx from 'clsx';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import {
   TagIcon,
   DropdownArrowIcon,
   PlusIcon,
   CheckmarkIcon,
-} from '@maverick/frontend/components/ui/icons';
+} from '@mav/frontend/components/ui/icons';
 
 export const TagsComponent: FC<{
   name: string;

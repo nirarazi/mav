@@ -1,11 +1,11 @@
-import { BillingComponent } from '@maverick/frontend/components/billing/billing.component';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { Logo } from '@maverick/frontend/components/new-layout/logo';
-import { LogoutComponent } from '@maverick/frontend/components/layout/logout.component';
+import { BillingComponent } from '@mav/frontend/components/billing/billing.component';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { Logo } from '@mav/frontend/components/new-layout/logo';
+import { LogoutComponent } from '@mav/frontend/components/layout/logout.component';
 import React from 'react';
-import { OrganizationSelector } from '@maverick/frontend/components/layout/organization.selector';
+import { OrganizationSelector } from '@mav/frontend/components/layout/organization.selector';
 
 export const BillingAfter = () => {
   const user = useUser();
@@ -22,8 +22,8 @@ export const BillingAfter = () => {
       <div className="text-center mb-[20px] text-xl [@media(max-width:1024px)]:text-xl">
         <h1 className="text-3xl [@media(max-width:1024px)]:text-xl">
           {t(
-            'join_10000_entrepreneurs_who_use_maverick',
-            'Join 10,000+ Entrepreneurs Who Use Maverick'
+            'join_10000_entrepreneurs_who_use_mav',
+            'Join 10,000+ Entrepreneurs Who Use Mav'
           )}
           <br />
           {t(

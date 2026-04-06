@@ -4,14 +4,14 @@ import { FC, useCallback } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import { useFieldArray } from 'react-hook-form';
-import { Button } from '@maverick/react/form/button';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { Button } from '@mav/react/form/button';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import { Subreddit } from './subreddit';
-import { LemmySettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/lemmy.dto';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { LemmySettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/lemmy.dto';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 const LemmySettings: FC = () => {
   const { register, control } = useSettings();
   const { fields, append, remove } = useFieldArray({

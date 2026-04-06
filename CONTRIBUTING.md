@@ -4,14 +4,14 @@ Contributions are welcome - code, docs, whatever it might be! If this is your fi
 
 ## Read the developers guide
 
-The main documentation site has a [developer guide](https://docs.maverick.com/developer-guide) . That guide provides you a good understanding of the project structure, and how to setup your development environment. Read this document after you have read that guide. This document is intended to provide you a good understanding of how to submit your first contribution.
+The main documentation site has a [developer guide](https://docs.mav.com/developer-guide) . That guide provides you a good understanding of the project structure, and how to setup your development environment. Read this document after you have read that guide. This document is intended to provide you a good understanding of how to submit your first contribution.
 
 ## Write code with others
 
 This is an open source project, with an open and welcoming community that is always keen to welcome new contributors. We recommend the two best ways to interact with the community are:
 
 - **GitHub issues**: To discuss more slowly, or longer-written messages.
-- **[Discord chat](https://discord.maverick.com)**: To chat with people [Discord chat](https://discord.maverick.com/) and a quicker feedback.
+- **[Discord chat](https://discord.mav.com)**: To chat with people [Discord chat](https://discord.mav.com/) and a quicker feedback.
 
 As a general rule;
 
@@ -39,7 +39,7 @@ This project follows a Fork/Feature Branch/Pull Request model. If you're not fam
 1. **Fork the project:** Create a personal copy of the repository on your GitHub account.
 2. **Clone your fork:** Bring a copy of your fork to your local machine.
    ```bash
-   git clone https://github.com/YOUR_USERNAME/maverick.git
+   git clone https://github.com/YOUR_USERNAME/mav.git
    ```
 3. **Create a new branch**: Start a new branch for your changes
    ```bash
@@ -54,6 +54,6 @@ This project follows a Fork/Feature Branch/Pull Request model. If you're not fam
 
 # Need Help?
 
-Again, do check the [developer guide](https://docs.maverick.com/developer-guide). Much of what you probably need to know is in there.
+Again, do check the [developer guide](https://docs.mav.com/developer-guide). Much of what you probably need to know is in there.
 
-If you encounter any issues, please visit our [support page](https://docs.maverick.com/support) or check the community forums. Your contributions help make Maverick better!
+If you encounter any issues, please visit our [support page](https://docs.mav.com/support) or check the community forums. Your contributions help make Mav better!

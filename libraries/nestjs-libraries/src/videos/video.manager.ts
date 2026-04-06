@@ -4,7 +4,7 @@ import { ModuleRef } from '@nestjs/core';
 import {
   VideoAbstract,
   VideoParams,
-} from '@maverick/nestjs-libraries/videos/video.interface';
+} from '@mav/nestjs-libraries/videos/video.interface';
 
 @Injectable()
 export class VideoManager {

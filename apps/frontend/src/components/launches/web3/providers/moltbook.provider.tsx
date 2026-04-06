@@ -1,14 +1,14 @@
 'use client';
 
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { Web3ProviderInterface } from '@maverick/frontend/components/launches/web3/web3.provider.interface';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { timer } from '@maverick/helpers/utils/timer';
-import { Input } from '@maverick/react/form/input';
-import { Button } from '@maverick/react/form/button';
+import { Web3ProviderInterface } from '@mav/frontend/components/launches/web3/web3.provider.interface';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { timer } from '@mav/helpers/utils/timer';
+import { Input } from '@mav/react/form/input';
+import { Button } from '@mav/react/form/button';
 import copy from 'copy-to-clipboard';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const MoltbookProvider: FC<Web3ProviderInterface> = (props) => {
   const { onComplete, nonce } = props;
@@ -105,7 +105,7 @@ export const MoltbookProvider: FC<Web3ProviderInterface> = (props) => {
               name="agentName"
               disableForm={true}
               onChange={(e) => setAgentName(e.target.value)}
-              placeholder="MyMaverickAgent"
+              placeholder="MyMavAgent"
             />
             <Input
               label={t('description_optional', 'Description (optional)')}

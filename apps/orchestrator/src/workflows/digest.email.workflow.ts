@@ -5,8 +5,8 @@ import {
   setHandler,
   sleep,
 } from '@temporalio/workflow';
-import { Email, emailSignal } from '@maverick/orchestrator/signals/email.signal';
-import { EmailActivity } from '@maverick/orchestrator/activities/email.activity';
+import { Email, emailSignal } from '@mav/orchestrator/signals/email.signal';
+import { EmailActivity } from '@mav/orchestrator/activities/email.activity';
 
 const { getUserOrgs, sendEmailAsync } = proxyActivities<EmailActivity>({
   startToCloseTimeout: '10 minute',
@@ -57,7 +57,7 @@ export async function digestEmailWorkflow({
         user.user.email,
         toSend.length === 1
           ? toSend[0].title
-          : `[Maverick] Your latest notifications`,
+          : `[Mav] Your latest notifications`,
         toSend.map((p) => p.message).join('<br/>'),
         'bottom'
       );

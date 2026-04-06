@@ -1,9 +1,9 @@
 'use client';
 
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
 import { ReactTags } from 'react-tag-autocomplete';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 export const MediumTags: FC<{
   name: string;

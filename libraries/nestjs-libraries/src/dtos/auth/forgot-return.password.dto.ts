@@ -5,7 +5,7 @@ import {
   MinLength,
   ValidateIf,
 } from 'class-validator';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 
 export class ForgotReturnPasswordDto {
   @IsString()

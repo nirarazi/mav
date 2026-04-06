@@ -1,10 +1,10 @@
 'use client';
 
 import { FC, useCallback } from 'react';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { useVariables } from '@mav/react/helpers/variable.context';
 import { NeynarContextProvider, Theme, useNeynarContext } from '@neynar/react';
-import { NeynarAuthButton } from '@maverick/frontend/components/auth/nayner.auth.button';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { NeynarAuthButton } from '@mav/frontend/components/auth/nayner.auth.button';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const FarcasterProvider = () => {
   const gotoLogin = useCallback(async (code: string) => {
     window.location.href = `/auth?provider=FARCASTER&code=${code}`;

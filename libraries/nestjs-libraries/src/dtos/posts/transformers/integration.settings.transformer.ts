@@ -1,5 +1,5 @@
 import { Transform, Type } from 'class-transformer';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

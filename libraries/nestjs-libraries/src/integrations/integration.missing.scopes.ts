@@ -1,6 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost } from '@nestjs/common';
 import { Response } from 'express';
-import { NotEnoughScopes } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { NotEnoughScopes } from '@mav/nestjs-libraries/integrations/social.abstract';
 import { HttpStatusCode } from 'axios';
 
 @Catch(NotEnoughScopes)

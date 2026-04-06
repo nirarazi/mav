@@ -2,13 +2,13 @@
 
 import {
   PostComment, withProvider
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
 import { FC, useState } from 'react';
-import { SkoolDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/skool.dto';
-import { SkoolGroupSelect } from '@maverick/frontend/components/new-launch/providers/skool/skool.group.select';
-import { SkoolLabelSelect } from '@maverick/frontend/components/new-launch/providers/skool/skool.label.select';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
+import { SkoolDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/skool.dto';
+import { SkoolGroupSelect } from '@mav/frontend/components/new-launch/providers/skool/skool.group.select';
+import { SkoolLabelSelect } from '@mav/frontend/components/new-launch/providers/skool/skool.label.select';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
 const SkoolComponent: FC = () => {
   const form = useSettings();
   const [selectedGroup, setSelectedGroup] = useState<string | undefined>(

@@ -1,6 +1,6 @@
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
 import { useCallback } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 export const useCustomProviderFunction = () => {
   const { integration } = useIntegration();
   const fetch = useFetch();

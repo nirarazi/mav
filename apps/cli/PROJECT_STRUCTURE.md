@@ -1,8 +1,8 @@
-# Maverick CLI - Project Structure
+# Mav CLI - Project Structure
 
 ## Overview
 
-The Maverick CLI is a complete command-line interface package for interacting with the Maverick social media scheduling API. It's designed for developers and AI agents to automate social media posting.
+The Mav CLI is a complete command-line interface package for interacting with the Mav social media scheduling API. It's designed for developers and AI agents to automate social media posting.
 
 ## Directory Structure
 
@@ -10,7 +10,7 @@ The Maverick CLI is a complete command-line interface package for interacting wi
 apps/cli/
 ├── src/                          # Source code
 │   ├── index.ts                  # Main CLI entry point
-│   ├── api.ts                    # API client for Maverick API
+│   ├── api.ts                    # API client for Mav API
 │   ├── config.ts                 # Configuration and environment handling
 │   └── commands/                 # Command implementations
 │       ├── posts.ts              # Posts management commands
@@ -50,8 +50,8 @@ apps/cli/
 - Contains help text and usage examples
 
 #### `src/api.ts`
-- API client class `MaverickAPI`
-- Handles all HTTP requests to the Maverick API
+- API client class `MavAPI`
+- Handles all HTTP requests to the Mav API
 - Methods for:
   - Creating posts
   - Listing posts
@@ -78,14 +78,14 @@ apps/cli/
 
 #### `src/commands/upload.ts`
 - Media upload functionality
-- `uploadFile()` - Upload images to Maverick
+- `uploadFile()` - Upload images to Mav
 
 ### Configuration Files
 
 #### `package.json`
-- Package name: `maverick`
+- Package name: `mav`
 - Version: `1.0.0`
-- Executable bin: `maverick` → `dist/index.js`
+- Executable bin: `mav` → `dist/index.js`
 - Scripts: `dev`, `build`, `start`, `publish`
 - Repository and metadata information
 
@@ -220,8 +220,8 @@ Output to console
 
 | Variable | Required | Default | Usage |
 |----------|----------|---------|-------|
-| `MAVERICK_API_KEY` | ✅ Yes | - | Authentication token |
-| `MAVERICK_API_URL` | ❌ No | `https://api.maverick.com` | Custom API endpoint |
+| `MAV_API_KEY` | ✅ Yes | - | Authentication token |
+| `MAV_API_URL` | ❌ No | `https://api.mav.com` | Custom API endpoint |
 
 ## Dependencies
 
@@ -252,7 +252,7 @@ Output to console
    - Uses shared dependencies from root
    - No duplicate packages
 
-### With Maverick API
+### With Mav API
 
 1. **Endpoints Used**
    - `POST /public/v1/posts` - Create post
@@ -302,7 +302,7 @@ node dist/index.js --help
 node dist/index.js posts:list
 
 # Test with API key (requires valid key)
-MAVERICK_API_KEY=test node dist/index.js integrations:list
+MAV_API_KEY=test node dist/index.js integrations:list
 ```
 
 ### Automated Testing (Future)
@@ -320,7 +320,7 @@ MAVERICK_API_KEY=test node dist/index.js integrations:list
 
 2. **Features**
    - Interactive mode
-   - Config file support (~/.maverickrc)
+   - Config file support (~/.mavrc)
    - Output formatting (JSON, table, CSV)
    - Verbose/debug mode
    - Batch operations from file
@@ -335,4 +335,4 @@ MAVERICK_API_KEY=test node dist/index.js integrations:list
 
 - **Issues:** https://github.com/maboroshi-inc/mav/issues
 - **Docs:** See README.md, SKILL.md, QUICK_START.md
-- **Website:** https://maverick.com
+- **Website:** https://mav.com

@@ -1,11 +1,11 @@
-import { PrismaRepository } from '@maverick/nestjs-libraries/database/prisma/prisma.service';
+import { PrismaRepository } from '@mav/nestjs-libraries/database/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import dayjs from 'dayjs';
 import { Integration } from '@prisma/client';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { IntegrationTimeDto } from '@maverick/nestjs-libraries/dtos/integrations/integration.time.dto';
-import { UploadFactory } from '@maverick/nestjs-libraries/upload/upload.factory';
-import { PlugDto } from '@maverick/nestjs-libraries/dtos/plugs/plug.dto';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { IntegrationTimeDto } from '@mav/nestjs-libraries/dtos/integrations/integration.time.dto';
+import { UploadFactory } from '@mav/nestjs-libraries/upload/upload.factory';
+import { PlugDto } from '@mav/nestjs-libraries/dtos/plugs/plug.dto';
 
 @Injectable()
 export class IntegrationRepository {

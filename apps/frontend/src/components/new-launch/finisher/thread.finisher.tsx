@@ -1,12 +1,12 @@
 'use client';
 
-import { Slider } from '@maverick/react/form/slider';
+import { Slider } from '@mav/react/form/slider';
 import clsx from 'clsx';
-import { Editor } from '@maverick/frontend/components/new-launch/editor';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { useLaunchStore } from '@maverick/frontend/components/new-launch/store';
+import { Editor } from '@mav/frontend/components/new-launch/editor';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { useLaunchStore } from '@mav/frontend/components/new-launch/store';
 
 export const ThreadFinisher = () => {
   const integration = useIntegration();

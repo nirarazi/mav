@@ -3,7 +3,7 @@ import { DEFAULT_PLATFORM_RULES } from '../default-rules';
 import type { ContentPayload, PlatformRules } from '../compliance.interface';
 
 // Mock ioRedis at module level (imported by compliance.service.ts)
-jest.mock('@maverick/nestjs-libraries/redis/redis.service', () => ({
+jest.mock('@mav/nestjs-libraries/redis/redis.service', () => ({
   ioRedis: {
     get: jest.fn(),
     set: jest.fn(),

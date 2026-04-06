@@ -1,10 +1,10 @@
 {
-  "name": "maverick-mcp-server",
+  "name": "mav-mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for Maverick social media management",
+  "description": "MCP server for Mav social media management",
   "main": "dist/index.js",
   "bin": {
-    "maverick-mcp-server": "./dist/index.js"
+    "mav-mcp-server": "./dist/index.js"
   },
   "scripts": {
     "dev": "tsup --watch",
@@ -15,7 +15,7 @@
     "dist"
   ],
   "keywords": [
-    "maverick",
+    "mav",
     "mcp",
     "social media",
     "scheduling",

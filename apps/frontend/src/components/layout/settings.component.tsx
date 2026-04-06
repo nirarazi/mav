@@ -1,6 +1,6 @@
 'use client';
 
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
 import React, {
   FC,
   Ref,
@@ -10,28 +10,28 @@ import React, {
   useState,
 } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { showMediaBox } from '@maverick/frontend/components/media/media.component';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { showMediaBox } from '@mav/frontend/components/media/media.component';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { UserDetailDto } from '@maverick/nestjs-libraries/dtos/users/user.details.dto';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { UserDetailDto } from '@mav/nestjs-libraries/dtos/users/user.details.dto';
+import { useToaster } from '@mav/react/toaster/toaster';
 import { useSWRConfig } from 'swr';
 import clsx from 'clsx';
-import { TeamsComponent } from '@maverick/frontend/components/settings/teams.component';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { LogoutComponent } from '@maverick/frontend/components/layout/logout.component';
+import { TeamsComponent } from '@mav/frontend/components/settings/teams.component';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { LogoutComponent } from '@mav/frontend/components/layout/logout.component';
 import { useSearchParams } from 'next/navigation';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { PublicComponent } from '@maverick/frontend/components/public-api/public.component';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { PublicComponent } from '@mav/frontend/components/public-api/public.component';
 import Link from 'next/link';
-import { Webhooks } from '@maverick/frontend/components/webhooks/webhooks';
-import { Sets } from '@maverick/frontend/components/sets/sets';
-import { SignaturesComponent } from '@maverick/frontend/components/settings/signatures.component';
-import { Autopost } from '@maverick/frontend/components/autopost/autopost';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { SVGLine } from '@maverick/frontend/components/launches/launches.component';
-import { GlobalSettings } from '@maverick/frontend/components/settings/global.settings';
-import { ApprovedAppsComponent } from '@maverick/frontend/components/approved-apps/approved-apps.component';
+import { Webhooks } from '@mav/frontend/components/webhooks/webhooks';
+import { Sets } from '@mav/frontend/components/sets/sets';
+import { SignaturesComponent } from '@mav/frontend/components/settings/signatures.component';
+import { Autopost } from '@mav/frontend/components/autopost/autopost';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { SVGLine } from '@mav/frontend/components/launches/launches.component';
+import { GlobalSettings } from '@mav/frontend/components/settings/global.settings';
+import { ApprovedAppsComponent } from '@mav/frontend/components/approved-apps/approved-apps.component';
 export const SettingsPopup: FC<{
   getRef?: Ref<any>;
 }> = (props) => {

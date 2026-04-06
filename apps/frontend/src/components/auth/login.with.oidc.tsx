@@ -1,8 +1,8 @@
 'use client';
 
-import { OauthProvider } from '@maverick/frontend/components/auth/providers/oauth.provider';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useVariables } from '@maverick/react/helpers/variable.context';
+import { OauthProvider } from '@mav/frontend/components/auth/providers/oauth.provider';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useVariables } from '@mav/react/helpers/variable.context';
 
 export const LoginWithOidc = () => {
   const { isGeneral, genericOauth } = useVariables();

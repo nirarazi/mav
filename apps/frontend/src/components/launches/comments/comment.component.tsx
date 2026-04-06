@@ -1,14 +1,14 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Textarea } from '@maverick/react/form/textarea';
-import { Button } from '@maverick/react/form/button';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Textarea } from '@mav/react/form/textarea';
+import { Button } from '@mav/react/form/button';
 import clsx from 'clsx';
-import { useUser } from '@maverick/frontend/components/layout/user.context';
-import { Input } from '@maverick/react/form/input';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { useUser } from '@mav/frontend/components/layout/user.context';
+import { Input } from '@mav/react/form/input';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 export const CommentBox: FC<{
   value?: string;
   type: 'textarea' | 'input';

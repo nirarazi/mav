@@ -4,14 +4,14 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { YoutubeSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/youtube.settings.dto';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
-import { MediumTags } from '@maverick/frontend/components/new-launch/providers/medium/medium.tags';
-import { MediaComponent } from '@maverick/frontend/components/media/media.component';
-import { Select } from '@maverick/react/form/select';
-import { YoutubePreview } from '@maverick/frontend/components/new-launch/providers/youtube/youtube.preview';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { YoutubeSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/youtube.settings.dto';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
+import { MediumTags } from '@mav/frontend/components/new-launch/providers/medium/medium.tags';
+import { MediaComponent } from '@mav/frontend/components/media/media.component';
+import { Select } from '@mav/react/form/select';
+import { YoutubePreview } from '@mav/frontend/components/new-launch/providers/youtube/youtube.preview';
 const type = [
   {
     label: 'Public',

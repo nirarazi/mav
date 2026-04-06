@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-} from '@maverick/frontend/components/ui/icons';
+} from '@mav/frontend/components/ui/icons';
 
 export const SliderComponent: FC<{
   className: string;

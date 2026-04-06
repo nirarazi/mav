@@ -1,18 +1,18 @@
 import React, { FC, Fragment, useCallback } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@maverick/react/form/button';
+import { Button } from '@mav/react/form/button';
 import clsx from 'clsx';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { TopTitle } from '@maverick/frontend/components/launches/helpers/top.title.component';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { TopTitle } from '@mav/frontend/components/launches/helpers/top.title.component';
 import { array, boolean, object, string } from 'yup';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CopilotTextarea } from '@copilotkit/react-textarea';
-import { Select } from '@maverick/react/form/select';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { Select } from '@mav/react/form/select';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 export const SignaturesComponent: FC<{
   appendSignature?: (value: string) => void;
 }> = (props) => {

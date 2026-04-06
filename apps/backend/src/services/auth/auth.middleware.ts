@@ -1,12 +1,12 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 import { User } from '@prisma/client';
-import { OrganizationService } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.service';
-import { UsersService } from '@maverick/nestjs-libraries/database/prisma/users/users.service';
-import { getCookieUrlFromDomain } from '@maverick/helpers/subdomain/subdomain.management';
-import { HttpForbiddenException } from '@maverick/nestjs-libraries/services/exception.filter';
-import { MastraService } from '@maverick/nestjs-libraries/chat/mastra.service';
+import { OrganizationService } from '@mav/nestjs-libraries/database/prisma/organizations/organization.service';
+import { UsersService } from '@mav/nestjs-libraries/database/prisma/users/users.service';
+import { getCookieUrlFromDomain } from '@mav/helpers/subdomain/subdomain.management';
+import { HttpForbiddenException } from '@mav/nestjs-libraries/services/exception.filter';
+import { MastraService } from '@mav/nestjs-libraries/chat/mastra.service';
 
 export const removeAuth = (res: Response) => {
   res.cookie('auth', '', {

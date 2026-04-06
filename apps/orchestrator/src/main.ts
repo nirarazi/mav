@@ -4,7 +4,7 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from '@maverick/orchestrator/app.module';
+import { AppModule } from '@mav/orchestrator/app.module';
 import * as dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');
 

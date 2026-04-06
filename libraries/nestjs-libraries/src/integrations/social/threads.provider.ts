@@ -4,15 +4,15 @@ import {
   PostDetails,
   PostResponse,
   SocialProvider,
-} from '@maverick/nestjs-libraries/integrations/social/social.integrations.interface';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { timer } from '@maverick/helpers/utils/timer';
+} from '@mav/nestjs-libraries/integrations/social/social.integrations.interface';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { timer } from '@mav/helpers/utils/timer';
 import dayjs from 'dayjs';
-import { SocialAbstract } from '@maverick/nestjs-libraries/integrations/social.abstract';
+import { SocialAbstract } from '@mav/nestjs-libraries/integrations/social.abstract';
 import { capitalize, chunk } from 'lodash';
-import { Plug } from '@maverick/helpers/decorators/plug.decorator';
+import { Plug } from '@mav/helpers/decorators/plug.decorator';
 import { Integration } from '@prisma/client';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
 
 export class ThreadsProvider extends SocialAbstract implements SocialProvider {
   identifier = 'threads';

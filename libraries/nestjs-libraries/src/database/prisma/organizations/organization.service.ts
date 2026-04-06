@@ -1,13 +1,13 @@
-import { CreateOrgUserDto } from '@maverick/nestjs-libraries/dtos/auth/create.org.user.dto';
+import { CreateOrgUserDto } from '@mav/nestjs-libraries/dtos/auth/create.org.user.dto';
 import { Injectable } from '@nestjs/common';
-import { OrganizationRepository } from '@maverick/nestjs-libraries/database/prisma/organizations/organization.repository';
-import { NotificationService } from '@maverick/nestjs-libraries/database/prisma/notifications/notification.service';
-import { AddTeamMemberDto } from '@maverick/nestjs-libraries/dtos/settings/add.team.member.dto';
-import { AuthService } from '@maverick/helpers/auth/auth.service';
+import { OrganizationRepository } from '@mav/nestjs-libraries/database/prisma/organizations/organization.repository';
+import { NotificationService } from '@mav/nestjs-libraries/database/prisma/notifications/notification.service';
+import { AddTeamMemberDto } from '@mav/nestjs-libraries/dtos/settings/add.team.member.dto';
+import { AuthService } from '@mav/helpers/auth/auth.service';
 import dayjs from 'dayjs';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
 import { Organization, ShortLinkPreference } from '@prisma/client';
-import { AutopostService } from '@maverick/nestjs-libraries/database/prisma/autopost/autopost.service';
+import { AutopostService } from '@mav/nestjs-libraries/database/prisma/autopost/autopost.service';
 
 @Injectable()
 export class OrganizationService {

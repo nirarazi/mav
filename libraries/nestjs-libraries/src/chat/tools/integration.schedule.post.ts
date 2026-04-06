@@ -1,17 +1,17 @@
-import { AgentToolInterface } from '@maverick/nestjs-libraries/chat/agent.tool.interface';
+import { AgentToolInterface } from '@mav/nestjs-libraries/chat/agent.tool.interface';
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 import { Injectable } from '@nestjs/common';
-import { socialIntegrationList } from '@maverick/nestjs-libraries/integrations/integration.manager';
-import { IntegrationService } from '@maverick/nestjs-libraries/database/prisma/integrations/integration.service';
-import { PostsService } from '@maverick/nestjs-libraries/database/prisma/posts/posts.service';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { AllProvidersSettings } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/all.providers.settings';
+import { socialIntegrationList } from '@mav/nestjs-libraries/integrations/integration.manager';
+import { IntegrationService } from '@mav/nestjs-libraries/database/prisma/integrations/integration.service';
+import { PostsService } from '@mav/nestjs-libraries/database/prisma/posts/posts.service';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { AllProvidersSettings } from '@mav/nestjs-libraries/dtos/posts/providers-settings/all.providers.settings';
 import { validate } from 'class-validator';
 import { Integration } from '@prisma/client';
-import { checkAuth } from '@maverick/nestjs-libraries/chat/auth.context';
-import { stripHtmlValidation } from '@maverick/helpers/utils/strip.html.validation';
-import { weightedLength } from '@maverick/helpers/utils/count.length';
+import { checkAuth } from '@mav/nestjs-libraries/chat/auth.context';
+import { stripHtmlValidation } from '@mav/helpers/utils/strip.html.validation';
+import { weightedLength } from '@mav/helpers/utils/count.length';
 
 function countCharacters(text: string, type: string): number {
   if (type !== 'x') {

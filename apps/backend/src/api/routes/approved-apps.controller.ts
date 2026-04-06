@@ -1,8 +1,8 @@
 import { Controller, Delete, Get, Param } from '@nestjs/common';
-import { GetUserFromRequest } from '@maverick/nestjs-libraries/user/user.from.request';
+import { GetUserFromRequest } from '@mav/nestjs-libraries/user/user.from.request';
 import { User } from '@prisma/client';
 import { ApiTags } from '@nestjs/swagger';
-import { OAuthService } from '@maverick/nestjs-libraries/database/prisma/oauth/oauth.service';
+import { OAuthService } from '@mav/nestjs-libraries/database/prisma/oauth/oauth.service';
 
 @ApiTags('Approved Apps')
 @Controller('/user/approved-apps')

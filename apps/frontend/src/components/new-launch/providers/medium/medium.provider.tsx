@@ -4,14 +4,14 @@ import { FC } from 'react';
 import {
   PostComment,
   withProvider,
-} from '@maverick/frontend/components/new-launch/providers/high.order.provider';
-import { useSettings } from '@maverick/frontend/components/launches/helpers/use.values';
-import { Input } from '@maverick/react/form/input';
-import { MediumPublications } from '@maverick/frontend/components/new-launch/providers/medium/medium.publications';
-import { MediumTags } from '@maverick/frontend/components/new-launch/providers/medium/medium.tags';
-import { MediumSettingsDto } from '@maverick/nestjs-libraries/dtos/posts/providers-settings/medium.settings.dto';
-import { useIntegration } from '@maverick/frontend/components/launches/helpers/use.integration';
-import { Canonical } from '@maverick/react/form/canonical';
+} from '@mav/frontend/components/new-launch/providers/high.order.provider';
+import { useSettings } from '@mav/frontend/components/launches/helpers/use.values';
+import { Input } from '@mav/react/form/input';
+import { MediumPublications } from '@mav/frontend/components/new-launch/providers/medium/medium.publications';
+import { MediumTags } from '@mav/frontend/components/new-launch/providers/medium/medium.tags';
+import { MediumSettingsDto } from '@mav/nestjs-libraries/dtos/posts/providers-settings/medium.settings.dto';
+import { useIntegration } from '@mav/frontend/components/launches/helpers/use.integration';
+import { Canonical } from '@mav/react/form/canonical';
 
 const MediumSettings: FC = () => {
   const form = useSettings();

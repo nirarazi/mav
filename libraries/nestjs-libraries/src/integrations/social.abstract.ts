@@ -1,4 +1,4 @@
-import { timer } from '@maverick/helpers/utils/timer';
+import { timer } from '@mav/helpers/utils/timer';
 import { Integration } from '@prisma/client';
 import { ApplicationFailure } from '@temporalio/activity';
 

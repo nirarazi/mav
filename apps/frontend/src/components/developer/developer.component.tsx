@@ -1,14 +1,14 @@
 'use client';
 
 import { FC, useCallback, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@maverick/react/form/button';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useDecisionModal, useModals } from '@maverick/frontend/components/layout/new-modal';
-import { MediaBox } from '@maverick/frontend/components/media/media.component';
+import { Button } from '@mav/react/form/button';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useDecisionModal, useModals } from '@mav/frontend/components/layout/new-modal';
+import { MediaBox } from '@mav/frontend/components/media/media.component';
 import copy from 'copy-to-clipboard';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 
 const useOAuthApp = () => {
   const fetch = useFetch();
@@ -200,7 +200,7 @@ export const DeveloperComponent: FC = () => {
             <br />
             <a
               className="underline hover:font-bold hover:underline"
-              href="https://docs.maverick.com/public-api/oauth"
+              href="https://docs.mav.com/public-api/oauth"
               target="_blank"
             >
               {t(
@@ -313,7 +313,7 @@ export const DeveloperComponent: FC = () => {
           <br />
           <a
             className="underline hover:font-bold hover:underline"
-            href="https://docs.maverick.com/public-api/oauth"
+            href="https://docs.mav.com/public-api/oauth"
             target="_blank"
           >
             {t(

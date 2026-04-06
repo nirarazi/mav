@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, useMemo, useState } from 'react';
-import { Select } from '@maverick/react/form/select';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Select } from '@mav/react/form/select';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 import { useClickOutside } from '@mantine/hooks';
-import { isUSCitizen } from '@maverick/frontend/components/launches/helpers/isuscitizen.utils';
+import { isUSCitizen } from '@mav/frontend/components/launches/helpers/isuscitizen.utils';
 import clsx from 'clsx';
-import { RepeatIcon, DropdownArrowIcon } from '@maverick/frontend/components/ui/icons';
+import { RepeatIcon, DropdownArrowIcon } from '@mav/frontend/components/ui/icons';
 const getList = (t: (key: string, fallback: string) => string) => [
   {
     value: 1,

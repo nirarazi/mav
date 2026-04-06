@@ -1,8 +1,8 @@
-import { Button } from '@maverick/react/form/button';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { Button } from '@mav/react/form/button';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import { FC, useCallback } from 'react';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useT } from '@mav/react/translation/get.transation.service.client';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 export const SeparatePost: FC<{
   posts: string[];
   len: number;

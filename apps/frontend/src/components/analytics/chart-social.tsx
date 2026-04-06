@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useMemo, useRef } from 'react';
 import DrawChart from 'chart.js/auto';
-import { TotalList } from '@maverick/frontend/components/analytics/stars.and.forks.interface';
+import { TotalList } from '@mav/frontend/components/analytics/stars.and.forks.interface';
 import { chunk } from 'lodash';
 import useCookie from 'react-use-cookie';
 

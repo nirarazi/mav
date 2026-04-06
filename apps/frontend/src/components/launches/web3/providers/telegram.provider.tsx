@@ -2,16 +2,16 @@
 
 import '@neynar/react/dist/style.css';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { Web3ProviderInterface } from '@maverick/frontend/components/launches/web3/web3.provider.interface';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
-import { timer } from '@maverick/helpers/utils/timer';
-import { makeId } from '@maverick/nestjs-libraries/services/make.is';
-import { Input } from '@maverick/react/form/input';
-import { Button } from '@maverick/react/form/button';
+import { Web3ProviderInterface } from '@mav/frontend/components/launches/web3/web3.provider.interface';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
+import { timer } from '@mav/helpers/utils/timer';
+import { makeId } from '@mav/nestjs-libraries/services/make.is';
+import { Input } from '@mav/react/form/input';
+import { Button } from '@mav/react/form/button';
 import copy from 'copy-to-clipboard';
-import { useToaster } from '@maverick/react/toaster/toaster';
-import { useVariables } from '@maverick/react/helpers/variable.context';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { useToaster } from '@mav/react/toaster/toaster';
+import { useVariables } from '@mav/react/helpers/variable.context';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const TelegramProvider: FC<Web3ProviderInterface> = (props) => {
   const { onComplete, nonce } = props;
   const { telegramBotName } = useVariables();

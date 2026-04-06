@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 
-import { PersonaWizard } from '@maverick/frontend/components/personas/persona-wizard';
+import { PersonaWizard } from '@mav/frontend/components/personas/persona-wizard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

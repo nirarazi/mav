@@ -1,10 +1,10 @@
-# Maverick CLI - Feature Summary
+# Mav CLI - Feature Summary
 
 ## ✅ Complete Feature Set
 
 ### Posts with Comments and Media - FULLY SUPPORTED
 
-The Maverick CLI **fully supports** the complete API structure including:
+The Mav CLI **fully supports** the complete API structure including:
 
 #### ✅ Posts with Comments
 - Main post content
@@ -38,13 +38,13 @@ For quick, simple posts:
 
 ```bash
 # Single post
-maverick posts:create -c "Hello!" -i "twitter-123"
+mav posts:create -c "Hello!" -i "twitter-123"
 
 # With multiple images
-maverick posts:create -c "Post" --image "img1.jpg,img2.jpg,img3.jpg" -i "twitter-123"
+mav posts:create -c "Post" --image "img1.jpg,img2.jpg,img3.jpg" -i "twitter-123"
 
 # With comments (no custom media per comment)
-maverick posts:create -c "Main" --comments "Comment 1;Comment 2" -i "twitter-123"
+mav posts:create -c "Main" --comments "Comment 1;Comment 2" -i "twitter-123"
 ```
 
 **Limitations of Simple Mode:**
@@ -57,7 +57,7 @@ maverick posts:create -c "Main" --comments "Comment 1;Comment 2" -i "twitter-123
 For complex posts with comments that have their own media:
 
 ```bash
-maverick posts:create --json complex-post.json
+mav posts:create --json complex-post.json
 ```
 
 **Capabilities:**
@@ -282,6 +282,6 @@ maverick posts:create --json complex-post.json
 - ✅ Each post can have multiple images
 - ✅ Use JSON files for full control
 - ✅ See examples/ directory for working templates
-- ✅ Fully compatible with the Maverick API structure
+- ✅ Fully compatible with the Mav API structure
 
-The CLI supports the **complete Maverick API** including all advanced features!
+The CLI supports the **complete Mav API** including all advanced features!

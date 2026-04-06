@@ -1,22 +1,22 @@
 'use client';
 
 import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
-import { useFetch } from '@maverick/helpers/utils/custom.fetch';
+import { useFetch } from '@mav/helpers/utils/custom.fetch';
 import useSWR from 'swr';
-import { Button } from '@maverick/react/form/button';
-import { useModals } from '@maverick/frontend/components/layout/new-modal';
-import { Input } from '@maverick/react/form/input';
+import { Button } from '@mav/react/form/button';
+import { useModals } from '@mav/frontend/components/layout/new-modal';
+import { Input } from '@mav/react/form/input';
 import { FormProvider, useForm } from 'react-hook-form';
 import { array, boolean, object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Select } from '@maverick/react/form/select';
-import { PickPlatforms } from '@maverick/frontend/components/launches/helpers/pick.platform.component';
-import { useToaster } from '@maverick/react/toaster/toaster';
+import { Select } from '@mav/react/form/select';
+import { PickPlatforms } from '@mav/frontend/components/launches/helpers/pick.platform.component';
+import { useToaster } from '@mav/react/toaster/toaster';
 import clsx from 'clsx';
-import { deleteDialog } from '@maverick/react/helpers/delete.dialog';
+import { deleteDialog } from '@mav/react/helpers/delete.dialog';
 import { CopilotTextarea } from '@copilotkit/react-textarea';
-import { Slider } from '@maverick/react/form/slider';
-import { useT } from '@maverick/react/translation/get.transation.service.client';
+import { Slider } from '@mav/react/form/slider';
+import { useT } from '@mav/react/translation/get.transation.service.client';
 export const Autopost: FC = () => {
   const fetch = useFetch();
   const t = useT();
