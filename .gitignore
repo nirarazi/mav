@@ -58,3 +58,7 @@ Thumbs.db
 .secrets/
 libraries/plugins/src/plugins.ts
 i18n.cache
+
+# ignore claude Code and related folders
+.superpowers/
+.claude/
