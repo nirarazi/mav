@@ -63,22 +63,24 @@ export class EngagementService {
   /**
    * Finds all SKIPPED engagements for an org.
    */
-  async findMissed(orgId: string) {
+  async findMissed(orgId: string, skip = 0, take = 100) {
     return this.prisma.engagement.findMany({
       where: {
         organizationId: orgId,
         status: 'SKIPPED',
       },
       orderBy: { createdAt: 'desc' },
+      skip,
+      take,
     });
   }
 
   /**
    * Finds a single engagement by ID.
    */
-  async findById(id: string) {
-    return this.prisma.engagement.findUnique({
-      where: { id },
+  async findById(id: string, orgId: string) {
+    return this.prisma.engagement.findFirst({
+      where: { id, organizationId: orgId },
     });
   }
 

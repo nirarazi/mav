@@ -34,6 +34,7 @@ function buildPrisma() {
       ),
       findMany: jest.fn().mockResolvedValue([]),
       findUnique: jest.fn().mockResolvedValue(null),
+      findFirst: jest.fn().mockResolvedValue(null),
       update: jest.fn().mockImplementation((args: any) =>
         Promise.resolve({
           id: args.where?.id ?? 'eng-1',
@@ -245,6 +246,95 @@ describe('EngagementService', () => {
       expect(updateCall.where.id).toBe('eng-1');
       expect(updateCall.data.status).toBe('SKIPPED');
       expect(result.status).toBe('SKIPPED');
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // findMissed()
+  // -------------------------------------------------------------------------
+
+  describe('findMissed()', () => {
+    it('returns only SKIPPED engagements for the given org', async () => {
+      const prisma = buildPrisma();
+      prisma.engagement.findMany.mockResolvedValue([
+        { id: 'eng-1', status: 'SKIPPED', organizationId: 'org-1' },
+      ]);
+      const svc = new EngagementService(prisma);
+
+      const result = await svc.findMissed('org-1');
+
+      expect(result).toHaveLength(1);
+      const findCall = prisma.engagement.findMany.mock.calls[0][0];
+      expect(findCall.where.organizationId).toBe('org-1');
+      expect(findCall.where.status).toBe('SKIPPED');
+      expect(findCall.orderBy).toEqual({ createdAt: 'desc' });
+    });
+
+    it('respects pagination (skip/take)', async () => {
+      const prisma = buildPrisma();
+      const svc = new EngagementService(prisma);
+
+      await svc.findMissed('org-1', 10, 50);
+
+      const findCall = prisma.engagement.findMany.mock.calls[0][0];
+      expect(findCall.skip).toBe(10);
+      expect(findCall.take).toBe(50);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // findById()
+  // -------------------------------------------------------------------------
+
+  describe('findById()', () => {
+    it('returns engagement when org matches', async () => {
+      const prisma = buildPrisma();
+      prisma.engagement.findFirst.mockResolvedValue({
+        id: 'eng-1',
+        organizationId: 'org-1',
+      });
+      const svc = new EngagementService(prisma);
+
+      const result = await svc.findById('eng-1', 'org-1');
+
+      expect(result).toEqual({ id: 'eng-1', organizationId: 'org-1' });
+      const findCall = prisma.engagement.findFirst.mock.calls[0][0];
+      expect(findCall.where.id).toBe('eng-1');
+      expect(findCall.where.organizationId).toBe('org-1');
+    });
+
+    it('returns null when org does not match', async () => {
+      const prisma = buildPrisma();
+      prisma.engagement.findFirst.mockResolvedValue(null);
+      const svc = new EngagementService(prisma);
+
+      const result = await svc.findById('eng-1', 'org-other');
+
+      expect(result).toBeNull();
+      const findCall = prisma.engagement.findFirst.mock.calls[0][0];
+      expect(findCall.where.id).toBe('eng-1');
+      expect(findCall.where.organizationId).toBe('org-other');
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // markEscalated()
+  // -------------------------------------------------------------------------
+
+  describe('markEscalated()', () => {
+    it('sets status to ESCALATED and approvalId', async () => {
+      const prisma = buildPrisma();
+      const svc = new EngagementService(prisma);
+
+      const result = await svc.markEscalated('eng-1', 'approval-99');
+
+      expect(prisma.engagement.update).toHaveBeenCalledTimes(1);
+      const updateCall = prisma.engagement.update.mock.calls[0][0];
+      expect(updateCall.where.id).toBe('eng-1');
+      expect(updateCall.data.status).toBe('ESCALATED');
+      expect(updateCall.data.approvalId).toBe('approval-99');
+      expect(result.status).toBe('ESCALATED');
+      expect(result.approvalId).toBe('approval-99');
     });
   });
 
