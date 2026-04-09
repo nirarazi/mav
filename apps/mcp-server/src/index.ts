@@ -6,6 +6,7 @@ import { registerApprovalTools } from './tools/approvals';
 import { registerPersonaTools } from './tools/personas';
 import { registerAnalyticsTools } from './tools/analytics';
 import { registerBrainTools } from './tools/brain';
+import { registerEngagementTools } from './tools/engagement';
 import { registerResources } from './resources';
 
 const server = new McpServer({
@@ -24,6 +25,7 @@ registerApprovalTools(server);
 registerPersonaTools(server);
 registerAnalyticsTools(server);
 registerBrainTools(server);
+registerEngagementTools(server);
 
 // Register all resources
 registerResources(server);
