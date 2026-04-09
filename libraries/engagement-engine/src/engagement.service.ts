@@ -46,6 +46,12 @@ export class EngagementService {
       where['status'] = filters.status;
     }
 
+    if (filters.dateFrom || filters.dateTo) {
+      where.createdAt = {};
+      if (filters.dateFrom) (where.createdAt as any).gte = filters.dateFrom;
+      if (filters.dateTo) (where.createdAt as any).lte = filters.dateTo;
+    }
+
     return this.prisma.engagement.findMany({
       where,
       orderBy: { createdAt: 'desc' },
@@ -134,6 +140,10 @@ export class EngagementService {
 
     // Strongly negative sentiment → sensitive
     if (sentiment < -0.3) return 5;
+
+    // Very short or emoji-only content with neutral/positive sentiment → passive
+    const isEmojiOnly = /^[\p{Emoji}\s]+$/u.test(text.trim());
+    if ((text.trim().length === 0 || isEmojiOnly) && sentiment >= 0) return 1;
 
     // QUOTEs are proactive
     if (type === 'QUOTE') return 4;

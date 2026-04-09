@@ -137,6 +137,44 @@ describe('EngagementService', () => {
       expect(findCall.take).toBe(20);
     });
 
+    it('applies dateFrom filter to Prisma where clause', async () => {
+      const prisma = buildPrisma();
+      const svc = new EngagementService(prisma);
+      const dateFrom = new Date('2026-01-01');
+
+      await svc.findByOrg('org-1', { dateFrom });
+
+      const findCall = prisma.engagement.findMany.mock.calls[0][0];
+      expect(findCall.where.createdAt).toBeDefined();
+      expect(findCall.where.createdAt.gte).toBe(dateFrom);
+    });
+
+    it('applies dateTo filter to Prisma where clause', async () => {
+      const prisma = buildPrisma();
+      const svc = new EngagementService(prisma);
+      const dateTo = new Date('2026-12-31');
+
+      await svc.findByOrg('org-1', { dateTo });
+
+      const findCall = prisma.engagement.findMany.mock.calls[0][0];
+      expect(findCall.where.createdAt).toBeDefined();
+      expect(findCall.where.createdAt.lte).toBe(dateTo);
+    });
+
+    it('applies dateFrom and dateTo combined filter to Prisma where clause', async () => {
+      const prisma = buildPrisma();
+      const svc = new EngagementService(prisma);
+      const dateFrom = new Date('2026-01-01');
+      const dateTo = new Date('2026-12-31');
+
+      await svc.findByOrg('org-1', { dateFrom, dateTo });
+
+      const findCall = prisma.engagement.findMany.mock.calls[0][0];
+      expect(findCall.where.createdAt).toBeDefined();
+      expect(findCall.where.createdAt.gte).toBe(dateFrom);
+      expect(findCall.where.createdAt.lte).toBe(dateTo);
+    });
+
     it('does not add undefined filter keys when no filters provided', async () => {
       const prisma = buildPrisma();
       const svc = new EngagementService(prisma);
@@ -293,6 +331,18 @@ describe('EngagementService', () => {
       const svc = new EngagementService({} as any);
       const tier = svc.classifyTier('COMMENT', 0.0, 'Interesting post');
       expect(tier).toBe(3);
+    });
+
+    it('emoji-only text with neutral sentiment → tier 1 (passive)', () => {
+      const svc = new EngagementService({} as any);
+      const tier = svc.classifyTier('COMMENT', 0.0, '👍🔥');
+      expect(tier).toBe(1);
+    });
+
+    it('empty text with positive sentiment → tier 1 (passive)', () => {
+      const svc = new EngagementService({} as any);
+      const tier = svc.classifyTier('MENTION', 0.5, '');
+      expect(tier).toBe(1);
     });
   });
 });

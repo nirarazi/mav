@@ -26,6 +26,8 @@ export interface EngagementFilters {
   platform?: string;
   tier?: number;
   status?: string;
+  dateFrom?: Date;
+  dateTo?: Date;
   skip?: number;
   take?: number;
 }
