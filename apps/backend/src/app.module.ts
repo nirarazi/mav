@@ -23,6 +23,7 @@ import { PersonaModule } from '@mav/persona-engine/persona.module';
 import { ComplianceModule } from '@mav/compliance-engine/compliance.module';
 import { ApprovalModule } from '@mav/approval-engine/approval.module';
 import { LlmModule } from '@mav/llm-adapter/llm.module';
+import { EngagementModule } from '@mav/engagement-engine';
 
 @Global()
 @Module({
@@ -43,6 +44,7 @@ import { LlmModule } from '@mav/llm-adapter/llm.module';
     ComplianceModule,
     ApprovalModule,
     LlmModule,
+    EngagementModule,
     ThrottlerModule.forRoot({
       throttlers: [
         {

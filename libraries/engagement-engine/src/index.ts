@@ -15,3 +15,5 @@ export type {
 export { TIER_LABELS } from './engagement.interface';
 
 export { EngagementPipeline } from './engagement.pipeline';
+
+export { EngagementModule } from './engagement.module';
