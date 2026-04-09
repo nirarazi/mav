@@ -13,6 +13,7 @@ import { PublicPersonasController } from '@mav/backend/public-api/routes/v1/publ
 import { PublicApprovalsController } from '@mav/backend/public-api/routes/v1/public.approvals.controller';
 import { PublicComplianceController } from '@mav/backend/public-api/routes/v1/public.compliance.controller';
 import { PublicBrainController } from '@mav/backend/public-api/routes/v1/public.brain.controller';
+import { PublicEngagementController } from '@mav/backend/public-api/routes/v1/public.engagement.controller';
 import { PublicAuthMiddleware } from '@mav/backend/services/auth/public.auth.middleware';
 
 const authenticatedController = [
@@ -21,6 +22,7 @@ const authenticatedController = [
   PublicApprovalsController,
   PublicComplianceController,
   PublicBrainController,
+  PublicEngagementController,
 ];
 @Module({
   imports: [UploadModule],
