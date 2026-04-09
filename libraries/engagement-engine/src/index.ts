@@ -13,3 +13,5 @@ export type {
   EngagementFilters,
 } from './engagement.interface';
 export { TIER_LABELS } from './engagement.interface';
+
+export { EngagementPipeline } from './engagement.pipeline';
