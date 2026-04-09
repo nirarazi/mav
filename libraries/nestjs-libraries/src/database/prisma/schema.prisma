@@ -50,6 +50,8 @@ model Organization {
   auditLogs           AuditLog[]
   agentSessions       AgentSession[]
   goals               Goal[]
+  engagements         Engagement[]
+  engagementAutonomies EngagementAutonomy[]
 
   @@index([apiKey])
   @@index([streakSince])
@@ -969,6 +971,12 @@ model Persona {
   examplePosts     Json?    // [{ platform, content, context }]
   responseRules    Json?    // { replyTo, ignoreTopics, escalateTo, maxPostsPerDay }
   platformOverrides Json?   // Record<platform, Partial<Persona>>
+  replyStyle         String?
+  engagementExamples Json?    // { acknowledgment: [{incoming, response}], conversational: [...], sensitive: [...] }
+  boundaries         String[] @default([])
+  escalationPhrases  String[] @default([])
+  complaintPlaybook  String?
+  proactiveRules     String?
   isActive         Boolean  @default(false)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
@@ -1001,6 +1009,7 @@ model ApprovalItem {
   organization   Organization  @relation(fields: [organizationId], references: [id])
   persona        Persona?      @relation(fields: [personaId], references: [id])
   agentSession   AgentSession? @relation(fields: [agentSessionId], references: [id])
+  engagements    Engagement[]
 
   @@index([organizationId])
   @@index([status])
@@ -1111,6 +1120,54 @@ model ComplianceRule {
   updatedAt         DateTime @updatedAt
 }
 
+model Engagement {
+  id            String           @id @default(uuid())
+  organizationId String
+  platform      String
+  externalId    String
+  type          EngagementType
+  tier          Int              // 1-5
+  incomingText  String
+  authorName    String
+  authorHandle  String
+  sentiment     Float            @default(0) // -1 to 1
+  confidence    Float            @default(0) // 0 to 1
+  status        EngagementStatus @default(PENDING)
+  responseText  String?
+  respondedAt   DateTime?
+  approvalId    String?
+  createdAt     DateTime         @default(now())
+
+  organization  Organization     @relation(fields: [organizationId], references: [id])
+  approvalItem  ApprovalItem?    @relation(fields: [approvalId], references: [id])
+
+  @@unique([organizationId, platform, externalId])
+  @@index([organizationId])
+  @@index([status])
+  @@index([platform])
+  @@index([tier])
+  @@index([createdAt])
+}
+
+model EngagementAutonomy {
+  id           String         @id @default(uuid())
+  organizationId String
+  platform     String
+  tier         Int            // 1-5
+  status       AutonomyStatus @default(SUPERVISED)
+  window       Json           @default("[]") // rolling array of last 20 outcomes [{approved: bool, timestamp}]
+  approvalRate Float          @default(0)
+  graduatedAt  DateTime?
+  regressedAt  DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  organization Organization   @relation(fields: [organizationId], references: [id])
+
+  @@unique([organizationId, platform, tier])
+  @@index([organizationId])
+}
+
 // Enums for Mav
 
 enum ApprovalType {
@@ -1119,6 +1176,7 @@ enum ApprovalType {
   CAMPAIGN
   PERSONA_CHANGE
   GOAL_CHANGE
+  ENGAGEMENT_REPLY
 }
 
 enum ApprovalStatus {
@@ -1151,4 +1209,25 @@ enum AgentSessionStatus {
   COMPLETED
   FAILED
   INTERRUPTED
+}
+
+enum EngagementType {
+  MENTION
+  REPLY
+  COMMENT
+  DM
+  QUOTE
+}
+
+enum EngagementStatus {
+  PENDING
+  RESPONDED
+  SKIPPED
+  ESCALATED
+}
+
+enum AutonomyStatus {
+  SUPERVISED
+  GRADUATING
+  AUTONOMOUS
 }
