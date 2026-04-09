@@ -6,6 +6,7 @@ import { AutopostService } from '@mav/nestjs-libraries/database/prisma/autopost/
 import { EmailActivity } from '@mav/orchestrator/activities/email.activity';
 import { IntegrationsActivity } from '@mav/orchestrator/activities/integrations.activity';
 import { BrainActivity } from '@mav/orchestrator/activities/brain.activity';
+import { EngagementActivity } from '@mav/orchestrator/activities/engagement.activity';
 
 const activities = [
   PostActivity,
@@ -13,6 +14,7 @@ const activities = [
   EmailActivity,
   IntegrationsActivity,
   BrainActivity,
+  EngagementActivity,
 ];
 @Module({
   imports: [
