@@ -38,7 +38,9 @@
       "@mav/persona-engine/*": ["libraries/persona-engine/src/*"],
       "@mav/compliance-engine/*": ["libraries/compliance-engine/src/*"],
       "@mav/approval-engine/*": ["libraries/approval-engine/src/*"],
-      "@mav/llm-adapter/*": ["libraries/llm-adapter/src/*"]
+      "@mav/llm-adapter/*": ["libraries/llm-adapter/src/*"],
+      "@mav/engagement-engine": ["libraries/engagement-engine/src/index.ts"],
+      "@mav/engagement-engine/*": ["libraries/engagement-engine/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
