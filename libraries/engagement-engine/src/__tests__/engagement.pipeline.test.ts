@@ -76,6 +76,37 @@ describe('EngagementPipeline', () => {
 
       expect(result).toBe(true);
     });
+
+    it('returns false when text does not contain any escalation phrase', () => {
+      const pipeline = new EngagementPipeline(
+        buildPersonaService(),
+        buildComplianceService()
+      );
+
+      const result = pipeline.shouldEscalate(
+        'I love your product!',
+        { boundaries: [], escalationPhrases: ['refund', 'lawsuit'] }
+      );
+
+      expect(result).toBe(false);
+    });
+  });
+
+  describe('checkCompliance()', () => {
+    it('delegates to compliance service with correct shape', async () => {
+      const complianceService = buildComplianceService();
+      const pipeline = new EngagementPipeline(
+        buildPersonaService(),
+        complianceService
+      );
+
+      await pipeline.checkCompliance('Thanks for reaching out!', 'x');
+
+      expect(complianceService.checkContent).toHaveBeenCalledWith(
+        { text: 'Thanks for reaching out!', images: [], videos: [] },
+        'x'
+      );
+    });
   });
 
   describe('buildReplySystemPrompt()', () => {

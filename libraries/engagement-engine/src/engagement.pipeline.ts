@@ -23,14 +23,14 @@ export class EngagementPipeline {
 
   /**
    * Check if the incoming text touches a boundary topic.
-   * Returns true if the agent should skip (confidence < 40%).
+   * Returns true if the engagement should be skipped.
    */
   shouldSkip(
     incomingText: string,
-    persona: { boundaries: string[]; escalationPhrases: string[] }
+    persona: { boundaries?: string[]; escalationPhrases?: string[] }
   ): boolean {
     const lower = incomingText.toLowerCase();
-    return persona.boundaries.some((b) => lower.includes(b.toLowerCase()));
+    return (persona.boundaries ?? []).some((b) => lower.includes(b.toLowerCase()));
   }
 
   /**
@@ -39,10 +39,10 @@ export class EngagementPipeline {
    */
   shouldEscalate(
     incomingText: string,
-    persona: { boundaries: string[]; escalationPhrases: string[] }
+    persona: { boundaries?: string[]; escalationPhrases?: string[] }
   ): boolean {
     const lower = incomingText.toLowerCase();
-    return persona.escalationPhrases.some((p) => lower.includes(p.toLowerCase()));
+    return (persona.escalationPhrases ?? []).some((p) => lower.includes(p.toLowerCase()));
   }
 
   /**
