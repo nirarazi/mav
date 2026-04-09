@@ -53,6 +53,12 @@ export interface PersonaCreateInput {
   examplePosts?: ExamplePost[];
   responseRules?: ResponseRules;
   platformOverrides?: Record<string, PlatformOverride>;
+  replyStyle?: string;
+  engagementExamples?: Record<string, EngagementExample[]>;
+  boundaries?: string[];
+  escalationPhrases?: string[];
+  complaintPlaybook?: string;
+  proactiveRules?: string;
 }
 
 export interface PersonaUpdateInput extends Partial<PersonaCreateInput> {}
@@ -64,4 +70,18 @@ export interface ResolvedVoice {
   writingStyle: WritingStyle;
   topics: string[];
   responseRules: ResponseRules;
+}
+
+export interface EngagementExample {
+  incoming: string;
+  response: string;
+}
+
+export interface PersonaEngagementConfig {
+  replyStyle?: string;
+  engagementExamples?: Record<string, EngagementExample[]>;
+  boundaries?: string[];
+  escalationPhrases?: string[];
+  complaintPlaybook?: string;
+  proactiveRules?: string;
 }

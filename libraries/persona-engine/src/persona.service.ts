@@ -10,6 +10,7 @@ import {
   ResponseRules,
   PlatformOverride,
   ResolvedVoice,
+  EngagementExample,
 } from './persona.interface';
 
 @Injectable()
@@ -35,6 +36,12 @@ export class PersonaService {
         examplePosts: (data.examplePosts as any) ?? undefined,
         responseRules: (data.responseRules as any) ?? undefined,
         platformOverrides: (data.platformOverrides as any) ?? undefined,
+        replyStyle: data.replyStyle ?? undefined,
+        engagementExamples: (data.engagementExamples as any) ?? undefined,
+        boundaries: data.boundaries ?? [],
+        escalationPhrases: data.escalationPhrases ?? [],
+        complaintPlaybook: data.complaintPlaybook ?? undefined,
+        proactiveRules: data.proactiveRules ?? undefined,
         isActive: existingCount === 0,
       },
     });
@@ -89,6 +96,20 @@ export class PersonaService {
         }),
         ...(data.platformOverrides !== undefined && {
           platformOverrides: data.platformOverrides as any,
+        }),
+        ...(data.replyStyle !== undefined && { replyStyle: data.replyStyle }),
+        ...(data.engagementExamples !== undefined && {
+          engagementExamples: data.engagementExamples as any,
+        }),
+        ...(data.boundaries !== undefined && { boundaries: data.boundaries }),
+        ...(data.escalationPhrases !== undefined && {
+          escalationPhrases: data.escalationPhrases,
+        }),
+        ...(data.complaintPlaybook !== undefined && {
+          complaintPlaybook: data.complaintPlaybook,
+        }),
+        ...(data.proactiveRules !== undefined && {
+          proactiveRules: data.proactiveRules,
         }),
       },
     });
