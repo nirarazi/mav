@@ -141,7 +141,7 @@ const GeneratePostForm: FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
     setIsGenerating(true);
     setResult(null);
     try {
-      const response = await fetch('/brain/generate', {
+      const response = await fetch('/public/v1/brain/generate', {
         method: 'POST',
         body: JSON.stringify({ platform, topic }),
       });
@@ -416,7 +416,7 @@ export const AgentDashboard: FC = () => {
 
   // Fetch brain status
   const loadBrainStatus = useCallback(async () => {
-    const response = await fetch('/brain/status');
+    const response = await fetch('/public/v1/brain/status');
     if (!response.ok) return { ready: false };
     return (await response.json()) as BrainStatus;
   }, []);

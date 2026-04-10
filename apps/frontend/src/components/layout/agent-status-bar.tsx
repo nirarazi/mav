@@ -35,7 +35,7 @@ export const AgentStatusBar: FC = () => {
   const [paused, setPaused] = useState(false);
 
   const loadStatus = useCallback(async () => {
-    const response = await fetch('/brain/status');
+    const response = await fetch('/public/v1/brain/status');
     return (await response.json()) as BrainStatus;
   }, []);
 

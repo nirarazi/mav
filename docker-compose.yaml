@@ -1,6 +1,6 @@
 services:
   mav:
-    image: ghcr.io/gitroomhq/mav-app:latest
+    image: ghcr.io/nirarazi/mav-app:latest
     container_name: mav
     restart: always
     environment:
@@ -33,6 +33,7 @@ services:
       # === Social Media API Settings
       X_API_KEY: ''
       X_API_SECRET: ''
+      # Set on the server via .env or compose overrides — do not commit real secrets
       LINKEDIN_CLIENT_ID: ''
       LINKEDIN_CLIENT_SECRET: ''
       REDDIT_CLIENT_ID: ''
