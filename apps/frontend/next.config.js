@@ -24,8 +24,8 @@ const nextConfig = {
   },
   reactStrictMode: false,
   transpilePackages: ['crypto-hash'],
-  // Enable production sourcemaps for Sentry
-  productionBrowserSourceMaps: true,
+  // Sourcemaps: disable on Vercel builds to reduce peak memory (SIGKILL on 8GB builders).
+  productionBrowserSourceMaps: process.env.VERCEL ? false : true,
   
   // Custom webpack config to ensure sourcemaps are generated properly
   webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {

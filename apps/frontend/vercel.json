@@ -1,5 +1,4 @@
 {
-  "framework": "nextjs",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "cd ../.. && NODE_OPTIONS=--max-old-space-size=6144 pnpm --filter mav-frontend run build"
+  "buildCommand": "cd ../.. && NODE_OPTIONS=--max-old-space-size=8192 pnpm --filter mav-frontend run build"
 }
