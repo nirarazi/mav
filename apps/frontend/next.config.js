@@ -1,10 +1,16 @@
 // @ts-check
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { withSentryConfig } from '@sentry/nextjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     proxyTimeout: 90_000,
+    // Monorepo: trace files from workspace root so Vercel serverless bundles stay bounded
+    outputFileTracingRoot: path.join(__dirname, '../..'),
   },
   // Document-Policy header for browser profiling
   async headers() {
