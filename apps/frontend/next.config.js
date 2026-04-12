@@ -1,16 +1,10 @@
 // @ts-check
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { withSentryConfig } from '@sentry/nextjs';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     proxyTimeout: 90_000,
-    // Monorepo: trace files from workspace root so Vercel serverless bundles stay bounded
-    outputFileTracingRoot: path.join(__dirname, '../..'),
   },
   // Document-Policy header for browser profiling
   async headers() {
@@ -23,6 +17,10 @@ const nextConfig = {
     }, ];
   },
   reactStrictMode: false,
+  eslint: {
+    // Vercel 8GB builders: lint runs in-process with webpack; skip on CI to avoid SIGKILL
+    ignoreDuringBuilds: !!process.env.VERCEL,
+  },
   transpilePackages: ['crypto-hash'],
   // Sourcemaps: disable on Vercel builds to reduce peak memory (SIGKILL on 8GB builders).
   productionBrowserSourceMaps: process.env.VERCEL ? false : true,
