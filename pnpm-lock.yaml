@@ -833,7 +833,11 @@ importers:
 
   apps/extension: {}
 
-  apps/frontend: {}
+  apps/frontend:
+    dependencies:
+      sharp:
+        specifier: ^0.33.4
+        version: 0.33.5
 
   apps/mcp-server:
     dependencies:
@@ -8489,6 +8493,7 @@ packages:
   basic-ftp@5.2.0:
     resolution: {integrity: sha512-VoMINM2rqJwJgfdHq6RiUudKt2BV+FY5ZFezP/ypmwayk68+NzzAQy4XXLlqsGD4MCzq3DrmNFD/uUmBJuGoXw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   bcp-47-match@2.0.3:
     resolution: {integrity: sha512-JtTezzbAibu8G0R9op9zb3vcWZd9JF6M0xOYGPn0fNCd7wOpRB1mU2mH9T8gaBGbAAyIIVgB2G7xG0GP98zMAQ==}
